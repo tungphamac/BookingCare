@@ -1,0 +1,16 @@
+D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.Business\bin\Debug\net8.0\BookingCare.Business.deps.json
+D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.Business\bin\Debug\net8.0\BookingCare.Business.dll
+D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.Business\bin\Debug\net8.0\BookingCare.Business.pdb
+D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.Business\bin\Debug\net8.0\BookingCare.Data.dll
+D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.Business\bin\Debug\net8.0\BookingCare.Data.pdb
+D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.Business\obj\Debug\net8.0\BookingCare.Business.csproj.AssemblyReference.cache
+D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.Business\obj\Debug\net8.0\BookingCare.Business.GeneratedMSBuildEditorConfig.editorconfig
+D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.Business\obj\Debug\net8.0\BookingCare.Business.AssemblyInfoInputs.cache
+D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.Business\obj\Debug\net8.0\BookingCare.Business.AssemblyInfo.cs
+D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.Business\obj\Debug\net8.0\BookingCare.Business.csproj.CoreCompileInputs.cache
+D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.Business\obj\Debug\net8.0\BookingCare.Business.sourcelink.json
+D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.Business\obj\Debug\net8.0\BookingC.F44FF857.Up2Date
+D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.Business\obj\Debug\net8.0\BookingCare.Business.dll
+D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.Business\obj\Debug\net8.0\refint\BookingCare.Business.dll
+D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.Business\obj\Debug\net8.0\BookingCare.Business.pdb
+D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.Business\obj\Debug\net8.0\ref\BookingCare.Business.dll
