@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookingCare.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250321022433_InitialDb")]
+    [Migration("20250321063510_InitialDb")]
     partial class InitialDb
     {
         /// <inheritdoc />
@@ -39,13 +39,11 @@ namespace BookingCare.Data.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DoctorId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("DoctorId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("PatientId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("PatientId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Reason")
                         .IsRequired()
@@ -74,20 +72,6 @@ namespace BookingCare.Data.Migrations
                     b.HasIndex("ScheduleId");
 
                     b.ToTable("Appointments");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ClinicId = 1,
-                            Date = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            DoctorId = "doctor1",
-                            PatientId = "patient1",
-                            Reason = "Checkup for heart condition",
-                            ScheduleId = 1,
-                            Status = "Scheduled",
-                            Time = new TimeSpan(0, 10, 0, 0, 0)
-                        });
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.Clinic", b =>
@@ -119,32 +103,12 @@ namespace BookingCare.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Clinics");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Address = "789 Clinic St",
-                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            Introduction = "Top clinic in the city",
-                            Name = "City Clinic",
-                            Phone = 1234567890
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Address = "456 Health St",
-                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            Introduction = "Comprehensive care",
-                            Name = "Health Center",
-                            Phone = 987654321
-                        });
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.Doctor", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Achievement")
                         .IsRequired()
@@ -167,24 +131,6 @@ namespace BookingCare.Data.Migrations
                     b.HasIndex("SpecializationId");
 
                     b.ToTable("Doctors");
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "doctor1",
-                            Achievement = "Best Doctor 2023",
-                            ClinicId = 1,
-                            Description = "Experienced cardiologist",
-                            SpecializationId = 1
-                        },
-                        new
-                        {
-                            UserId = "doctor2",
-                            Achievement = "Top Neurologist 2023",
-                            ClinicId = 2,
-                            Description = "Expert in brain disorders",
-                            SpecializationId = 2
-                        });
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.Feedback", b =>
@@ -211,15 +157,6 @@ namespace BookingCare.Data.Migrations
                         .IsUnique();
 
                     b.ToTable("Feedbacks");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AppointmentId = 1,
-                            Comment = "Great service!",
-                            Rating = 5
-                        });
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.MedicalRecord", b =>
@@ -239,19 +176,12 @@ namespace BookingCare.Data.Migrations
                         .IsUnique();
 
                     b.ToTable("MedicalRecords");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AppointmentId = 1
-                        });
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.Patient", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.Property<int>("MedicalRecordId")
                         .HasColumnType("int");
@@ -259,13 +189,6 @@ namespace BookingCare.Data.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Patients");
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "patient1",
-                            MedicalRecordId = 1
-                        });
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.Schedule", b =>
@@ -276,9 +199,8 @@ namespace BookingCare.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("DoctorId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("DoctorId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -295,24 +217,6 @@ namespace BookingCare.Data.Migrations
                     b.HasIndex("DoctorId");
 
                     b.ToTable("Schedules");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DoctorId = "doctor1",
-                            Status = 0,
-                            TimeSlot = "10:00-11:00",
-                            WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DoctorId = "doctor2",
-                            Status = 0,
-                            TimeSlot = "14:00-15:00",
-                            WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.Specialization", b =>
@@ -338,28 +242,15 @@ namespace BookingCare.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Specializations");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Heart specialist",
-                            Image = "cardio.jpg",
-                            Name = "Cardiology"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Brain specialist",
-                            Image = "neuro.jpg",
-                            Name = "Neurology"
-                        });
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.User", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
@@ -430,90 +321,15 @@ namespace BookingCare.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "admin1",
-                            AccessFailedCount = 0,
-                            Address = "123 Admin St",
-                            Avatar = "admin1.jpg",
-                            ConcurrencyStamp = "concurrency1",
-                            Email = "admin1@example.com",
-                            EmailConfirmed = true,
-                            Gender = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN1@EXAMPLE.COM",
-                            NormalizedUserName = "ADMIN1@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "stamp1",
-                            TwoFactorEnabled = false,
-                            UserName = "admin1@example.com"
-                        },
-                        new
-                        {
-                            Id = "doctor1",
-                            AccessFailedCount = 0,
-                            Address = "123 Doctor St",
-                            Avatar = "doctor1.jpg",
-                            ConcurrencyStamp = "concurrency2",
-                            Email = "doctor1@example.com",
-                            EmailConfirmed = true,
-                            Gender = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "DOCTOR1@EXAMPLE.COM",
-                            NormalizedUserName = "DOCTOR1@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "stamp2",
-                            TwoFactorEnabled = false,
-                            UserName = "doctor1@example.com"
-                        },
-                        new
-                        {
-                            Id = "doctor2",
-                            AccessFailedCount = 0,
-                            Address = "456 Doctor St",
-                            Avatar = "doctor2.jpg",
-                            ConcurrencyStamp = "concurrency3",
-                            Email = "doctor2@example.com",
-                            EmailConfirmed = true,
-                            Gender = false,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "DOCTOR2@EXAMPLE.COM",
-                            NormalizedUserName = "DOCTOR2@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "stamp3",
-                            TwoFactorEnabled = false,
-                            UserName = "doctor2@example.com"
-                        },
-                        new
-                        {
-                            Id = "patient1",
-                            AccessFailedCount = 0,
-                            Address = "456 Patient St",
-                            Avatar = "patient1.jpg",
-                            ConcurrencyStamp = "concurrency4",
-                            Email = "patient1@example.com",
-                            EmailConfirmed = true,
-                            Gender = false,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "PATIENT1@EXAMPLE.COM",
-                            NormalizedUserName = "PATIENT1@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "stamp4",
-                            TwoFactorEnabled = false,
-                            UserName = "patient1@example.com"
-                        });
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -535,29 +351,9 @@ namespace BookingCare.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "admin",
-                            Name = "Admin",
-                            NormalizedName = "ADMIN"
-                        },
-                        new
-                        {
-                            Id = "doctor",
-                            Name = "Doctor",
-                            NormalizedName = "DOCTOR"
-                        },
-                        new
-                        {
-                            Id = "patient",
-                            Name = "Patient",
-                            NormalizedName = "PATIENT"
-                        });
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -571,9 +367,8 @@ namespace BookingCare.Data.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("RoleId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -582,7 +377,7 @@ namespace BookingCare.Data.Migrations
                     b.ToTable("AspNetRoleClaims", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -596,9 +391,8 @@ namespace BookingCare.Data.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -607,80 +401,55 @@ namespace BookingCare.Data.Migrations
                     b.ToTable("AspNetUserClaims", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
                 {
-                    b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("LoginProvider", "ProviderKey");
-
-                    b.HasIndex("UserId");
+                    b.HasKey("UserId");
 
                     b.ToTable("AspNetUserLogins", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
 
                     b.HasKey("UserId", "RoleId");
 
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "admin1",
-                            RoleId = "admin"
-                        },
-                        new
-                        {
-                            UserId = "doctor1",
-                            RoleId = "doctor"
-                        },
-                        new
-                        {
-                            UserId = "doctor2",
-                            RoleId = "doctor"
-                        },
-                        new
-                        {
-                            UserId = "patient1",
-                            RoleId = "patient"
-                        });
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserId", "LoginProvider", "Name");
+                    b.HasKey("UserId");
 
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
@@ -791,16 +560,16 @@ namespace BookingCare.Data.Migrations
                     b.Navigation("Doctor");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<int>", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
                 {
                     b.HasOne("BookingCare.Data.Models.User", null)
                         .WithMany()
@@ -809,7 +578,7 @@ namespace BookingCare.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
                 {
                     b.HasOne("BookingCare.Data.Models.User", null)
                         .WithMany()
@@ -818,9 +587,9 @@ namespace BookingCare.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<int>", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -833,7 +602,7 @@ namespace BookingCare.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
                 {
                     b.HasOne("BookingCare.Data.Models.User", null)
                         .WithMany()

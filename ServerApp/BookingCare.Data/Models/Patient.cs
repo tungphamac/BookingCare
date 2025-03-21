@@ -6,7 +6,7 @@ namespace BookingCare.Data.Models
     public class Patient
     {
         [Key]
-        public string UserId { get; set; }
+        public int UserId { get; set; }
         public User User { get; set; }
 
         public int MedicalRecordId { get; set; }

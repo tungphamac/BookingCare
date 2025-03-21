@@ -9,17 +9,17 @@ namespace BookingCare.Data.Data
         public static void Seed(ModelBuilder modelBuilder)
         {
             // Seed Roles
-            modelBuilder.Entity<IdentityRole>().HasData(
-                new IdentityRole { Id = "admin", Name = "Admin", NormalizedName = "ADMIN" },
-                new IdentityRole { Id = "doctor", Name = "Doctor", NormalizedName = "DOCTOR" },
-                new IdentityRole { Id = "patient", Name = "Patient", NormalizedName = "PATIENT" }
+            modelBuilder.Entity<IdentityRole<int>>().HasData(
+                new IdentityRole<int> { Id = 1, Name = "Admin", NormalizedName = "ADMIN" },
+                new IdentityRole<int> { Id = 2, Name = "Doctor", NormalizedName = "DOCTOR" },
+                new IdentityRole<int> { Id = 3, Name = "Patient", NormalizedName = "PATIENT" }
             );
 
             // Seed Users
             modelBuilder.Entity<User>().HasData(
                 new User
                 {
-                    Id = "admin1",
+                    Id = 1,
                     UserName = "admin1@example.com",
                     NormalizedUserName = "ADMIN1@EXAMPLE.COM",
                     Email = "admin1@example.com",
@@ -34,7 +34,7 @@ namespace BookingCare.Data.Data
                 },
                 new User
                 {
-                    Id = "doctor1",
+                    Id = 2,
                     UserName = "doctor1@example.com",
                     NormalizedUserName = "DOCTOR1@EXAMPLE.COM",
                     Email = "doctor1@example.com",
@@ -49,7 +49,7 @@ namespace BookingCare.Data.Data
                 },
                 new User
                 {
-                    Id = "doctor2",
+                    Id = 3,
                     UserName = "doctor2@example.com",
                     NormalizedUserName = "DOCTOR2@EXAMPLE.COM",
                     Email = "doctor2@example.com",
@@ -64,7 +64,7 @@ namespace BookingCare.Data.Data
                 },
                 new User
                 {
-                    Id = "patient1",
+                    Id = 4,
                     UserName = "patient1@example.com",
                     NormalizedUserName = "PATIENT1@EXAMPLE.COM",
                     Email = "patient1@example.com",
@@ -80,11 +80,11 @@ namespace BookingCare.Data.Data
             );
 
             // Seed UserRoles (Gán role cho user)
-            modelBuilder.Entity<IdentityUserRole<string>>().HasData(
-                new IdentityUserRole<string> { UserId = "admin1", RoleId = "admin" },
-                new IdentityUserRole<string> { UserId = "doctor1", RoleId = "doctor" },
-                new IdentityUserRole<string> { UserId = "doctor2", RoleId = "doctor" },
-                new IdentityUserRole<string> { UserId = "patient1", RoleId = "patient" }
+            modelBuilder.Entity<IdentityUserRole<int>>().HasData(
+                new IdentityUserRole<int> { UserId = 1, RoleId = 1 },
+                new IdentityUserRole<int> { UserId = 2, RoleId = 2 },
+                new IdentityUserRole<int> { UserId = 3, RoleId = 2 },
+                new IdentityUserRole<int> { UserId = 4, RoleId = 3 }
             );
 
             // Seed Specializations
@@ -131,7 +131,7 @@ namespace BookingCare.Data.Data
             modelBuilder.Entity<Doctor>().HasData(
                 new Doctor
                 {
-                    UserId = "doctor1",
+                    UserId = 2,
                     Achievement = "Best Doctor 2023",
                     Description = "Experienced cardiologist",
                     SpecializationId = 1, // Thuộc Specialization "Cardiology"
@@ -139,7 +139,7 @@ namespace BookingCare.Data.Data
                 },
                 new Doctor
                 {
-                    UserId = "doctor2",
+                    UserId = 3,
                     Achievement = "Top Neurologist 2023",
                     Description = "Expert in brain disorders",
                     SpecializationId = 2, // Thuộc Specialization "Neurology"
@@ -151,7 +151,7 @@ namespace BookingCare.Data.Data
             modelBuilder.Entity<Patient>().HasData(
                 new Patient
                 {
-                    UserId = "patient1",
+                    UserId = 4,
                     MedicalRecordId = 1 // Sẽ liên kết với MedicalRecord sau
                 }
             );
@@ -161,7 +161,7 @@ namespace BookingCare.Data.Data
                 new Schedule
                 {
                     Id = 1,
-                    DoctorId = "doctor1",
+                    DoctorId = 2,
                     TimeSlot = "10:00-11:00",
                     WorkDate = new DateTime(2025, 3, 20, 12, 0, 0),
                     Status = ScheduleStatus.Available
@@ -169,7 +169,7 @@ namespace BookingCare.Data.Data
                 new Schedule
                 {
                     Id = 2,
-                    DoctorId = "doctor2",
+                    DoctorId = 3,
                     TimeSlot = "14:00-15:00",
                     WorkDate = new DateTime(2025, 3, 20, 12, 0, 0),
                     Status = ScheduleStatus.Available
@@ -185,8 +185,8 @@ namespace BookingCare.Data.Data
                     Time = new TimeSpan(10, 0, 0), // 10:00:00
                     Status = "Scheduled",
                     Reason = "Checkup for heart condition",
-                    DoctorId = "doctor1",
-                    PatientId = "patient1",
+                    DoctorId = 2,
+                    PatientId = 4,
                     ScheduleId = 1,
                     ClinicId = 1
                 }
@@ -209,8 +209,6 @@ namespace BookingCare.Data.Data
                     AppointmentId = 1,
                     Rating = 5,
                     Comment = "Great service!"
-
-
                 }
                 );
         }

@@ -19,10 +19,10 @@ namespace BookingCare.Data.Models
         [StringLength(1000)]
         public string Reason { get; set; }
 
-        public string DoctorId { get; set; }
+        public int DoctorId { get; set; }
         public Doctor Doctor { get; set; }
 
-        public string PatientId { get; set; }
+        public int PatientId { get; set; }
         public Patient Patient { get; set; }
 
         public int ScheduleId { get; set; }

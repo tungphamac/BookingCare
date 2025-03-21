@@ -2,7 +2,7 @@
 
 namespace BookingCare.Data.Models
 {
-    public class User : IdentityUser
+    public class User : IdentityUser<int>
     {
         public bool Gender { get; set; }
         public string Address { get; set; }

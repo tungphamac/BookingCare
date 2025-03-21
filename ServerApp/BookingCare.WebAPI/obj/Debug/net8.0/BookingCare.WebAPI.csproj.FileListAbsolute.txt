@@ -160,7 +160,6 @@ D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0
 D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.WebAPI.AssemblyInfoInputs.cache
 D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.WebAPI.AssemblyInfo.cs
 D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.WebAPI.csproj.CoreCompileInputs.cache
-D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.WebAPI.MvcApplicationPartsAssemblyInfo.cs
 D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.WebAPI.MvcApplicationPartsAssemblyInfo.cache
 D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.WebAPI.sourcelink.json
 D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\staticwebassets.build.json
