@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CBED6397-3637-4BFC-8957-C0334D7FF5E3}|BookingCare.Data\\BookingCare.Data.csproj|c:\\users\\khanh\\downloads\\project\\bookingcare\\serverapp\\bookingcare.data\\models\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBED6397-3637-4BFC-8957-C0334D7FF5E3}|BookingCare.Data\\BookingCare.Data.csproj|solutionrelative:bookingcare.data\\models\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CBED6397-3637-4BFC-8957-C0334D7FF5E3}|BookingCare.Data\\BookingCare.Data.csproj|c:\\users\\khanh\\downloads\\project\\bookingcare\\serverapp\\bookingcare.data\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBED6397-3637-4BFC-8957-C0334D7FF5E3}|BookingCare.Data\\BookingCare.Data.csproj|solutionrelative:bookingcare.data\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4688106B-BAA3-4D4A-A29E-1FE19371A67F}|BookingCare.WebAPI\\BookingCare.WebAPI.csproj|c:\\users\\khanh\\downloads\\project\\bookingcare\\serverapp\\bookingcare.webapi\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4688106B-BAA3-4D4A-A29E-1FE19371A67F}|BookingCare.WebAPI\\BookingCare.WebAPI.csproj|solutionrelative:bookingcare.webapi\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|c:\\users\\khanh\\downloads\\project\\bookingcare\\serverapp\\bookingcare.business\\viewmodels\\registervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\viewmodels\\registervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CBED6397-3637-4BFC-8957-C0334D7FF5E3}|BookingCare.Data\\BookingCare.Data.csproj|c:\\users\\khanh\\downloads\\project\\bookingcare\\serverapp\\bookingcare.data\\models\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CBED6397-3637-4BFC-8957-C0334D7FF5E3}|BookingCare.Data\\BookingCare.Data.csproj|solutionrelative:bookingcare.data\\models\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|c:\\users\\khanh\\downloads\\project\\bookingcare\\serverapp\\bookingcare.business\\viewmodels\\loginvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -29,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{CBED6397-3637-4BFC-8957-C0334D7FF5E3}|BookingCare.Data\\BookingCare.Data.csproj|c:\\users\\khanh\\downloads\\project\\bookingcare\\serverapp\\bookingcare.data\\data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CBED6397-3637-4BFC-8957-C0334D7FF5E3}|BookingCare.Data\\BookingCare.Data.csproj|solutionrelative:bookingcare.data\\data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CBED6397-3637-4BFC-8957-C0334D7FF5E3}|BookingCare.Data\\BookingCare.Data.csproj|c:\\users\\khanh\\downloads\\project\\bookingcare\\serverapp\\bookingcare.data\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CBED6397-3637-4BFC-8957-C0334D7FF5E3}|BookingCare.Data\\BookingCare.Data.csproj|solutionrelative:bookingcare.data\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CBED6397-3637-4BFC-8957-C0334D7FF5E3}|BookingCare.Data\\BookingCare.Data.csproj|c:\\users\\khanh\\downloads\\project\\bookingcare\\serverapp\\bookingcare.data\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -126,17 +126,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Patient.cs",
               "DocumentMoniker": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.Data\\Models\\Patient.cs",
               "RelativeDocumentMoniker": "BookingCare.Data\\Models\\Patient.cs",
               "ToolTip": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.Data\\Models\\Patient.cs",
               "RelativeToolTip": "BookingCare.Data\\Models\\Patient.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-21T02:04:18.517Z",
               "IsPinned": true,
@@ -144,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "AuthenticationController.cs",
               "DocumentMoniker": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\AuthenticationController.cs",
               "RelativeDocumentMoniker": "BookingCare.WebAPI\\Controllers\\AuthenticationController.cs",
@@ -183,7 +183,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "SeedData.cs",
               "DocumentMoniker": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.Data\\Data\\SeedData.cs",
               "RelativeDocumentMoniker": "BookingCare.Data\\Data\\SeedData.cs",
@@ -196,25 +196,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.Data\\Models\\User.cs",
               "RelativeDocumentMoniker": "BookingCare.Data\\Models\\User.cs",
               "ToolTip": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.Data\\Models\\User.cs",
               "RelativeToolTip": "BookingCare.Data\\Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-21T02:05:06.83Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "RegisterVm.cs",
               "DocumentMoniker": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.Business\\ViewModels\\RegisterVm.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\ViewModels\\RegisterVm.cs",
-              "ToolTip": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.Business\\ViewModels\\RegisterVm.cs*",
-              "RelativeToolTip": "BookingCare.Business\\ViewModels\\RegisterVm.cs*",
+              "ToolTip": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.Business\\ViewModels\\RegisterVm.cs",
+              "RelativeToolTip": "BookingCare.Business\\ViewModels\\RegisterVm.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwBIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-22T08:14:43.489Z",
@@ -222,7 +222,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "MedicalRecord.cs",
               "DocumentMoniker": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.Data\\Models\\MedicalRecord.cs",
               "RelativeDocumentMoniker": "BookingCare.Data\\Models\\MedicalRecord.cs",
@@ -235,7 +235,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "AuthResultVm.cs",
               "DocumentMoniker": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.Business\\ViewModels\\AuthResultVm.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\ViewModels\\AuthResultVm.cs",
@@ -248,7 +248,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "LoginVm.cs",
               "DocumentMoniker": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.Business\\ViewModels\\LoginVm.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\ViewModels\\LoginVm.cs",
