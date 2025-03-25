@@ -1,5 +1,6 @@
 ﻿using BookingCare.Data.Models;
 using BookingCare.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,10 @@ namespace BookingCare.Business.Services
         public async Task DeleteDoctorAsync(int id)
         {
             await _doctorRepository.DeleteDoctorAsync(id);
+        }
+        public async Task<int> GetTotalDoctorsAsync()
+        {
+            return await _doctorRepository.GetTotalDoctorsAsync();
         }
     }
 

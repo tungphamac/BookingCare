@@ -63,5 +63,9 @@ namespace BookingCare.Data.Repositories
                 await _context.SaveChangesAsync();
             }
         }
+        public async Task<int> GetTotalDoctorsAsync()
+        {
+            return await _context.Doctors.CountAsync();
+        }
     }
 }
