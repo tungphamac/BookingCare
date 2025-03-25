@@ -10,6 +10,7 @@ namespace BookingCare.Data.Models
         public User User { get; set; }
 
         public int MedicalRecordId { get; set; }
+        public MedicalRecord MedicalRecord { get; set; }    
 
         public ICollection<Appointment> Appointments { get; set; } = new List<Appointment>();
 

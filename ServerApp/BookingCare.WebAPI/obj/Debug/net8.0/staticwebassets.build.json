@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "3E1LEc+jNGkdETNMOwRhkA5O1not+rqDaQ30k8sEkqY=",
+  "Hash": "CRFORLekcTFxj0z3xXNCN6G9pTiqW/JGdjJJ1RqWkww=",
   "Source": "BookingCare.WebAPI",
   "BasePath": "_content/BookingCare.WebAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }
