@@ -1,6 +1,7 @@
 ﻿using BookingCare.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace BookingCare.Data.Data
 {
@@ -8,6 +9,7 @@ namespace BookingCare.Data.Data
     {
         public static void Seed(ModelBuilder modelBuilder)
         {
+
             // Seed Roles
             modelBuilder.Entity<IdentityRole<int>>().HasData(
                 new IdentityRole<int> { Id = 1, Name = "Admin", NormalizedName = "ADMIN" },
@@ -25,7 +27,7 @@ namespace BookingCare.Data.Data
                     Email = "admin1@example.com",
                     NormalizedEmail = "ADMIN1@EXAMPLE.COM",
                     EmailConfirmed = true,
-                    PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...", // Thay bằng hash thực tế
+                    PasswordHash = "AQAAAAIAAYagAAAAEGXs6jlQ0fcRlYEIS79CtCpXBe5FWbJ1DrY8WfEl1rfeWk1uYzS31Z26uSCKTdTLzg==",
                     SecurityStamp = "stamp1",
                     ConcurrencyStamp = "concurrency1",
                     Gender = true,
@@ -40,7 +42,7 @@ namespace BookingCare.Data.Data
                     Email = "doctor1@example.com",
                     NormalizedEmail = "DOCTOR1@EXAMPLE.COM",
                     EmailConfirmed = true,
-                    PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
+                    PasswordHash = "AQAAAAIAAYagAAAAEBdqsT6m3NC+7WLrfiDuhbO8Q1erkBM5/mIXYTD6dXiY8IgOtLVSkgIwLQkKB/si3A==",
                     SecurityStamp = "stamp2",
                     ConcurrencyStamp = "concurrency2",
                     Gender = true,
@@ -55,7 +57,7 @@ namespace BookingCare.Data.Data
                     Email = "doctor2@example.com",
                     NormalizedEmail = "DOCTOR2@EXAMPLE.COM",
                     EmailConfirmed = true,
-                    PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
+                    PasswordHash = "AQAAAAIAAYagAAAAEBdqsT6m3NC+7WLrfiDuhbO8Q1erkBM5/mIXYTD6dXiY8IgOtLVSkgIwLQkKB/si3A==",
                     SecurityStamp = "stamp3",
                     ConcurrencyStamp = "concurrency3",
                     Gender = false,
@@ -70,7 +72,7 @@ namespace BookingCare.Data.Data
                     Email = "patient1@example.com",
                     NormalizedEmail = "PATIENT1@EXAMPLE.COM",
                     EmailConfirmed = true,
-                    PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
+                    PasswordHash = "AQAAAAIAAYagAAAAELwmoQmUgF0dngxTkAHHQx1B/cyP4U3Af+3eekWM6ZLLVSHH9oFjnvZB653+9EsaMg==",
                     SecurityStamp = "stamp4",
                     ConcurrencyStamp = "concurrency4",
                     Gender = false,
