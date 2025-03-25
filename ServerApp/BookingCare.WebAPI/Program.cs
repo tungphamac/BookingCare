@@ -21,8 +21,25 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("conn"));
 });
 builder.Services.AddScoped<DoctorRepository>();
-   
+
+//builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
+//{
+//    // Tùy ch?nh yêu c?u m?t kh?u
+//    options.Password.RequireDigit = false; // Không yêu c?u ch? s?
+//    options.Password.RequireLowercase = true;
+//    options.Password.RequireUppercase = false; // Không yêu c?u ch? hoa
+//    options.Password.RequireNonAlphanumeric = false; // Không yêu c?u ký t? ??c bi?t
+//    options.Password.RequiredLength = 6; // ?? dài t?i thi?u là 6
+//    options.Password.RequiredUniqueChars = 1;
+//})
+//    .AddEntityFrameworkStores<AppnDbContext>()
+//    .AddDefaultTokenProviders();
+
 builder.Services.AddScoped<DoctorService>();
+builder.Services.AddScoped<ClinicRepository>();
+builder.Services.AddScoped<ClinicService>();
+
+
 builder.Services.AddScoped<PatientService>();
 // If PatientRepository is also used, it should be registered as well
 builder.Services.AddScoped<PatientRepository>();

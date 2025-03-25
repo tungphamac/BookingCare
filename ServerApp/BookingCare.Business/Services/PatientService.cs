@@ -17,14 +17,14 @@ namespace BookingCare.Business.Services
             _patientRepository = patientRepository;
         }
 
-        public async Task<IEnumerable<Patient>> GetAllPatientsAsync()
+        public async Task<List<Patient>> GetAllPatientsAsync()
         {
             return await _patientRepository.GetAllPatientsAsync();
         }
 
-        public async Task<Patient> GetPatientByIdAsync(int id)
+        public async Task<Patient> GetPatientByIdAsync(int userId)
         {
-            return await _patientRepository.GetPatientByIdAsync(id);
+            return await _patientRepository.GetPatientByIdAsync(userId);
         }
 
         public async Task AddPatientAsync(Patient patient)
@@ -37,10 +37,9 @@ namespace BookingCare.Business.Services
             await _patientRepository.UpdatePatientAsync(patient);
         }
 
-        public async Task DeletePatientAsync(int id)
+        public async Task DeletePatientAsync(int userId)
         {
-            await _patientRepository.DeletePatientAsync(id);
+            await _patientRepository.DeletePatientAsync(userId);
         }
     }
-
 }

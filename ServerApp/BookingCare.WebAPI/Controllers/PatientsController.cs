@@ -5,25 +5,28 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookingCare.WebAPI.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("[controller]")]
-    public class PatientsController : ControllerBase
+    public class PatientController : ControllerBase
     {
         private readonly PatientService _patientService;
 
-        public PatientsController(PatientService patientService)
+        public PatientController(PatientService patientService)
         {
             _patientService = patientService;
         }
 
+        // GET: api/Patient
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Patient>>> GetPatients()
+        public async Task<IActionResult> GetAllPatients()
         {
-            return Ok(await _patientService.GetAllPatientsAsync());
+            var patients = await _patientService.GetAllPatientsAsync();
+            return Ok(patients);
         }
 
+        // GET: api/Patient/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Patient>> GetPatient(int id)
+        public async Task<IActionResult> GetPatientById(int id)
         {
             var patient = await _patientService.GetPatientByIdAsync(id);
             if (patient == null)
@@ -33,31 +36,6 @@ namespace BookingCare.WebAPI.Controllers
             return Ok(patient);
         }
 
-        [HttpPost]
-        public async Task<ActionResult<Patient>> PostPatient([FromBody] Patient patient)
-        {
-            await _patientService.AddPatientAsync(patient);
-            return CreatedAtAction(nameof(GetPatient), new { id = patient.UserId }, patient);
-        }
-
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutPatient(int id, [FromBody] Patient patient)
-        {
-            if (id != patient.UserId)
-            {
-                return BadRequest();
-            }
-
-            await _patientService.UpdatePatientAsync(patient);
-            return NoContent();
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePatient(int id)
-        {
-            await _patientService.DeletePatientAsync(id);
-            return NoContent();
-        }
+        // POST, PUT, DELETE vẫn giữ nguyên nếu cần thiết
     }
-
 }

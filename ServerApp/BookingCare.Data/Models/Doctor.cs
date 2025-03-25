@@ -18,7 +18,7 @@ namespace BookingCare.Data.Models
         public Specialization Specialization { get; set; }
 
 
-        public int ClinicId { get; set; }
+        public int? ClinicId { get; set; }
         public Clinic Clinic { get; set; }
 
 
