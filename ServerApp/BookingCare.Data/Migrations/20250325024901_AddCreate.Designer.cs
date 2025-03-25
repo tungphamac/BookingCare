@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookingCare.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250321064336_AddSeedData")]
-    partial class AddSeedData
+    [Migration("20250325024901_AddCreate")]
+    partial class AddCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,6 +36,9 @@ namespace BookingCare.Data.Migrations
                     b.Property<int>("ClinicId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
@@ -53,10 +56,8 @@ namespace BookingCare.Data.Migrations
                     b.Property<int>("ScheduleId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.Property<TimeSpan>("Time")
                         .HasColumnType("time");
@@ -78,12 +79,13 @@ namespace BookingCare.Data.Migrations
                         {
                             Id = 1,
                             ClinicId = 1,
-                            Date = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
                             DoctorId = 2,
                             PatientId = 4,
                             Reason = "Checkup for heart condition",
                             ScheduleId = 1,
-                            Status = "Scheduled",
+                            Status = 1,
                             Time = new TimeSpan(0, 10, 0, 0, 0)
                         });
                 });
@@ -123,7 +125,7 @@ namespace BookingCare.Data.Migrations
                         {
                             Id = 1,
                             Address = "789 Clinic St",
-                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
                             Introduction = "Top clinic in the city",
                             Name = "City Clinic",
                             Phone = 1234567890
@@ -132,7 +134,7 @@ namespace BookingCare.Data.Migrations
                         {
                             Id = 2,
                             Address = "456 Health St",
-                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
                             Introduction = "Comprehensive care",
                             Name = "Health Center",
                             Phone = 987654321
@@ -200,6 +202,9 @@ namespace BookingCare.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
@@ -216,6 +221,7 @@ namespace BookingCare.Data.Migrations
                             Id = 1,
                             AppointmentId = 1,
                             Comment = "Great service!",
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
                             Rating = 5
                         });
                 });
@@ -243,6 +249,59 @@ namespace BookingCare.Data.Migrations
                         {
                             Id = 1,
                             AppointmentId = 1
+                        });
+                });
+
+            modelBuilder.Entity("BookingCare.Data.Models.Notification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AppointmentId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppointmentId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Notifications");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AppointmentId = 1,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bạn có lịch hẹn mới vào ngày 20/03/2025.",
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AppointmentId = 1,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bệnh nhân patient1@example.com đã đặt lịch hẹn vào ngày 20/03/2025.",
+                            UserId = 2
                         });
                 });
 
@@ -280,6 +339,9 @@ namespace BookingCare.Data.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("TimeSlot")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -299,16 +361,18 @@ namespace BookingCare.Data.Migrations
                             Id = 1,
                             DoctorId = 2,
                             Status = 0,
+                            Time = new DateTime(2025, 3, 20, 10, 0, 0, 0, DateTimeKind.Utc),
                             TimeSlot = "10:00-11:00",
-                            WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc)
                         },
                         new
                         {
                             Id = 2,
                             DoctorId = 3,
                             Status = 0,
+                            Time = new DateTime(2025, 3, 20, 14, 0, 0, 0, DateTimeKind.Utc),
                             TimeSlot = "14:00-15:00",
-                            WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc)
                         });
                 });
 
@@ -765,6 +829,25 @@ namespace BookingCare.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Appointment");
+                });
+
+            modelBuilder.Entity("BookingCare.Data.Models.Notification", b =>
+                {
+                    b.HasOne("BookingCare.Data.Models.Appointment", "Appointment")
+                        .WithMany()
+                        .HasForeignKey("AppointmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BookingCare.Data.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Appointment");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.Patient", b =>

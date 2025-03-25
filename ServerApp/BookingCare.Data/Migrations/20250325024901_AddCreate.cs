@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace BookingCare.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialDb : Migration
+    public partial class AddCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -253,7 +255,8 @@ namespace BookingCare.Data.Migrations
                     DoctorId = table.Column<int>(type: "int", nullable: false),
                     TimeSlot = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     WorkDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false)
+                    Status = table.Column<int>(type: "int", nullable: false),
+                    Time = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -274,11 +277,12 @@ namespace BookingCare.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Time = table.Column<TimeSpan>(type: "time", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false),
                     Reason = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
                     DoctorId = table.Column<int>(type: "int", nullable: false),
                     PatientId = table.Column<int>(type: "int", nullable: false),
                     ScheduleId = table.Column<int>(type: "int", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ClinicId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -318,7 +322,8 @@ namespace BookingCare.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AppointmentId = table.Column<int>(type: "int", nullable: false),
                     Rating = table.Column<int>(type: "int", nullable: false),
-                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -348,6 +353,132 @@ namespace BookingCare.Data.Migrations
                         principalTable: "Appointments",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Notifications",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    Message = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AppointmentId = table.Column<int>(type: "int", nullable: false),
+                    IsRead = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Notifications", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Notifications_Appointments_AppointmentId",
+                        column: x => x.AppointmentId,
+                        principalTable: "Appointments",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Notifications_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { 1, null, "Admin", "ADMIN" },
+                    { 2, null, "Doctor", "DOCTOR" },
+                    { 3, null, "Patient", "PATIENT" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "Address", "Avatar", "ConcurrencyStamp", "Email", "EmailConfirmed", "Gender", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[,]
+                {
+                    { 1, 0, "123 Admin St", "admin1.jpg", "concurrency1", "admin1@example.com", true, true, false, null, "ADMIN1@EXAMPLE.COM", "ADMIN1@EXAMPLE.COM", "AQAAAAEAACcQAAAAE...hashedpassword...", null, false, "stamp1", false, "admin1@example.com" },
+                    { 2, 0, "123 Doctor St", "doctor1.jpg", "concurrency2", "doctor1@example.com", true, true, false, null, "DOCTOR1@EXAMPLE.COM", "DOCTOR1@EXAMPLE.COM", "AQAAAAEAACcQAAAAE...hashedpassword...", null, false, "stamp2", false, "doctor1@example.com" },
+                    { 3, 0, "456 Doctor St", "doctor2.jpg", "concurrency3", "doctor2@example.com", true, false, false, null, "DOCTOR2@EXAMPLE.COM", "DOCTOR2@EXAMPLE.COM", "AQAAAAEAACcQAAAAE...hashedpassword...", null, false, "stamp3", false, "doctor2@example.com" },
+                    { 4, 0, "456 Patient St", "patient1.jpg", "concurrency4", "patient1@example.com", true, false, false, null, "PATIENT1@EXAMPLE.COM", "PATIENT1@EXAMPLE.COM", "AQAAAAEAACcQAAAAE...hashedpassword...", null, false, "stamp4", false, "patient1@example.com" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Clinics",
+                columns: new[] { "Id", "Address", "CreateAt", "Introduction", "Name", "Phone" },
+                values: new object[,]
+                {
+                    { 1, "789 Clinic St", new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc), "Top clinic in the city", "City Clinic", 1234567890 },
+                    { 2, "456 Health St", new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc), "Comprehensive care", "Health Center", 987654321 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Specializations",
+                columns: new[] { "Id", "Description", "Image", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Heart specialist", "cardio.jpg", "Cardiology" },
+                    { 2, "Brain specialist", "neuro.jpg", "Neurology" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[,]
+                {
+                    { 1, 1 },
+                    { 2, 2 },
+                    { 2, 3 },
+                    { 3, 4 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Doctors",
+                columns: new[] { "UserId", "Achievement", "ClinicId", "Description", "SpecializationId" },
+                values: new object[,]
+                {
+                    { 2, "Best Doctor 2023", 1, "Experienced cardiologist", 1 },
+                    { 3, "Top Neurologist 2023", 2, "Expert in brain disorders", 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Patients",
+                columns: new[] { "UserId", "MedicalRecordId" },
+                values: new object[] { 4, 1 });
+
+            migrationBuilder.InsertData(
+                table: "Schedules",
+                columns: new[] { "Id", "DoctorId", "Status", "Time", "TimeSlot", "WorkDate" },
+                values: new object[,]
+                {
+                    { 1, 2, 0, new DateTime(2025, 3, 20, 10, 0, 0, 0, DateTimeKind.Utc), "10:00-11:00", new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc) },
+                    { 2, 3, 0, new DateTime(2025, 3, 20, 14, 0, 0, 0, DateTimeKind.Utc), "14:00-15:00", new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc) }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Appointments",
+                columns: new[] { "Id", "ClinicId", "CreatedAt", "Date", "DoctorId", "PatientId", "Reason", "ScheduleId", "Status", "Time" },
+                values: new object[] { 1, 1, new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc), new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc), 2, 4, "Checkup for heart condition", 1, 1, new TimeSpan(0, 10, 0, 0, 0) });
+
+            migrationBuilder.InsertData(
+                table: "Feedbacks",
+                columns: new[] { "Id", "AppointmentId", "Comment", "CreatedAt", "Rating" },
+                values: new object[] { 1, 1, "Great service!", new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc), 5 });
+
+            migrationBuilder.InsertData(
+                table: "MedicalRecords",
+                columns: new[] { "Id", "AppointmentId" },
+                values: new object[] { 1, 1 });
+
+            migrationBuilder.InsertData(
+                table: "Notifications",
+                columns: new[] { "Id", "AppointmentId", "CreatedAt", "IsRead", "Message", "UserId" },
+                values: new object[,]
+                {
+                    { 1, 1, new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc), false, "Bạn có lịch hẹn mới vào ngày 20/03/2025.", 4 },
+                    { 2, 1, new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc), false, "Bệnh nhân patient1@example.com đã đặt lịch hẹn vào ngày 20/03/2025.", 2 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -427,6 +558,16 @@ namespace BookingCare.Data.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Notifications_AppointmentId",
+                table: "Notifications",
+                column: "AppointmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Notifications_UserId",
+                table: "Notifications",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Schedules_DoctorId",
                 table: "Schedules",
                 column: "DoctorId");
@@ -455,6 +596,9 @@ namespace BookingCare.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "MedicalRecords");
+
+            migrationBuilder.DropTable(
+                name: "Notifications");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
