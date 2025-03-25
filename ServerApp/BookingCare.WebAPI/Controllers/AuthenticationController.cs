@@ -9,7 +9,7 @@ using System.Security.Claims;
 using System.Text;
 
 namespace BookingCare.WebAPI.Controllers
-{
+{   
     [Route("api/[controller]")]
     [ApiController]
     public class AuthenticationController : ControllerBase
@@ -29,6 +29,8 @@ namespace BookingCare.WebAPI.Controllers
             _context = context;
             _configuration = configuration;
         }
+
+       
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterVm registerVm)
         {
@@ -79,16 +81,20 @@ namespace BookingCare.WebAPI.Controllers
         public async Task<IActionResult> Login([FromBody] LoginVm loginVm)
         {
             if (!ModelState.IsValid)
-                return BadRequest("Please provide all required fields");
-
-            var user = await _userManager.FindByEmailAsync(loginVm.Email);
-            if (user != null && await _userManager.CheckPasswordAsync(user, loginVm.Password))
             {
-                var token = await GenerateJwtToken(user);
-                return Ok(token);
+                return BadRequest("Please, provide all required fields");
             }
 
-            return Unauthorized("Invalid credentials");
+            var user = await _userManager.FindByEmailAsync(loginVm.Email);
+
+            if (user != null && await _userManager.CheckPasswordAsync(user, loginVm.Password))
+            {
+                var tokenValue = await GenerateJwtToken(user);
+
+                return Ok(tokenValue);
+            }
+
+            return Unauthorized();
         }
 
         private async Task<AuthResultVm> GenerateJwtToken(User user)

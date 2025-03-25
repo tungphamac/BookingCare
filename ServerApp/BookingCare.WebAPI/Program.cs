@@ -1,10 +1,14 @@
-﻿using BookingCare.Data.Data;
+﻿using BookingCare.Business.Services;
+using BookingCare.Business.Services.Interfaces;
+using BookingCare.Data.Data;
+using BookingCare.Data.Infrastructure;
 using BookingCare.Data.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Security.Claims;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -42,10 +46,12 @@ builder.Services.AddSwaggerGen(c =>
                          new string[] {}
                     }
                 });
-}); builder.Services.AddDbContext<AppDbContext>(options =>
+});
+ builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("conn"));
 });
+
 builder.Services
     .AddAuthentication(config =>
     {
@@ -53,19 +59,47 @@ builder.Services
         config.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
         config.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
     })
-    .AddJwtBearer(options => {
+    .AddJwtBearer(options =>
+    {
         options.SaveToken = true;
         options.RequireHttpsMetadata = false;
-        options.TokenValidationParameters = new TokenValidationParameters()
+        options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding
-            .ASCII
-            .GetBytes(builder.Configuration["JWT:Secret"].ToString())),
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"])),
             ValidateIssuer = true,
-            ValidIssuer = builder.Configuration["JWT:Issuer"].ToString(),
+            ValidIssuer = builder.Configuration["JWT:Issuer"],
             ValidateAudience = true,
-            ValidAudience = builder.Configuration["JWT:Audience"]
+            ValidAudience = builder.Configuration["JWT:Audience"],
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero,
+            // Ánh xạ claim
+            NameClaimType = ClaimTypes.Name,                         // "khanh2"
+            RoleClaimType = ClaimTypes.Role,                         // "Patient"
+           
+        };
+
+        // Ánh xạ claim
+        options.TokenValidationParameters.NameClaimType = ClaimTypes.Name;
+        options.TokenValidationParameters.RoleClaimType = ClaimTypes.Role;
+
+        options.Events = new JwtBearerEvents
+        {
+            OnAuthenticationFailed = context =>
+            {
+                context.Response.StatusCode = 401;
+                context.Response.ContentType = "application/json";
+                var result = System.Text.Json.JsonSerializer.Serialize(new { message = "Authentication failed." });
+                return context.Response.WriteAsync(result);
+            },
+            OnChallenge = context =>
+            {
+                context.HandleResponse();
+                context.Response.StatusCode = 401;
+                context.Response.ContentType = "application/json";
+                var result = System.Text.Json.JsonSerializer.Serialize(new { message = "Unauthorized. Please provide a valid token." });
+                return context.Response.WriteAsync(result);
+            }
         };
     });
 
@@ -81,6 +115,9 @@ builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
 .AddEntityFrameworkStores<AppDbContext>()
 .AddDefaultTokenProviders();
 
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IAccountService, AccountService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -91,7 +128,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication(); 
 app.UseAuthorization();
 
 app.MapControllers();

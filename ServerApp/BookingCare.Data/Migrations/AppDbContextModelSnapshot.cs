@@ -68,7 +68,7 @@ namespace BookingCare.Data.Migrations
 
                     b.HasIndex("ScheduleId");
 
-                    b.ToTable("Appointments");
+                    b.ToTable("Appointments", (string)null);
 
                     b.HasData(
                         new
@@ -113,7 +113,7 @@ namespace BookingCare.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Clinics");
+                    b.ToTable("Clinics", (string)null);
 
                     b.HasData(
                         new
@@ -161,7 +161,7 @@ namespace BookingCare.Data.Migrations
 
                     b.HasIndex("SpecializationId");
 
-                    b.ToTable("Doctors");
+                    b.ToTable("Doctors", (string)null);
 
                     b.HasData(
                         new
@@ -205,7 +205,7 @@ namespace BookingCare.Data.Migrations
                     b.HasIndex("AppointmentId")
                         .IsUnique();
 
-                    b.ToTable("Feedbacks");
+                    b.ToTable("Feedbacks", (string)null);
 
                     b.HasData(
                         new
@@ -233,7 +233,7 @@ namespace BookingCare.Data.Migrations
                     b.HasIndex("AppointmentId")
                         .IsUnique();
 
-                    b.ToTable("MedicalRecords");
+                    b.ToTable("MedicalRecords", (string)null);
 
                     b.HasData(
                         new
@@ -253,7 +253,7 @@ namespace BookingCare.Data.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("Patients");
+                    b.ToTable("Patients", (string)null);
 
                     b.HasData(
                         new
@@ -295,7 +295,7 @@ namespace BookingCare.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("RefreshTokens");
+                    b.ToTable("RefreshTokens", (string)null);
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.Schedule", b =>
@@ -323,7 +323,7 @@ namespace BookingCare.Data.Migrations
 
                     b.HasIndex("DoctorId");
 
-                    b.ToTable("Schedules");
+                    b.ToTable("Schedules", (string)null);
 
                     b.HasData(
                         new
@@ -366,7 +366,7 @@ namespace BookingCare.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Specializations");
+                    b.ToTable("Specializations", (string)null);
 
                     b.HasData(
                         new
