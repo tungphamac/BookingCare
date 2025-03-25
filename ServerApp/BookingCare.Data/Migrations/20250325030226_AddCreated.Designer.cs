@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookingCare.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250321063510_InitialDb")]
-    partial class InitialDb
+    [Migration("20250325030226_AddCreated")]
+    partial class AddCreated
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,6 +36,9 @@ namespace BookingCare.Data.Migrations
                     b.Property<int>("ClinicId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
@@ -53,10 +56,8 @@ namespace BookingCare.Data.Migrations
                     b.Property<int>("ScheduleId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.Property<TimeSpan>("Time")
                         .HasColumnType("time");
@@ -72,6 +73,21 @@ namespace BookingCare.Data.Migrations
                     b.HasIndex("ScheduleId");
 
                     b.ToTable("Appointments");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ClinicId = 1,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            DoctorId = 2,
+                            PatientId = 4,
+                            Reason = "Checkup for heart condition",
+                            ScheduleId = 1,
+                            Status = 1,
+                            Time = new TimeSpan(0, 10, 0, 0, 0)
+                        });
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.Clinic", b =>
@@ -103,6 +119,26 @@ namespace BookingCare.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Clinics");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "789 Clinic St",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Top clinic in the city",
+                            Name = "City Clinic",
+                            Phone = 1234567890
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "456 Health St",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Comprehensive care",
+                            Name = "Health Center",
+                            Phone = 987654321
+                        });
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.Doctor", b =>
@@ -131,6 +167,24 @@ namespace BookingCare.Data.Migrations
                     b.HasIndex("SpecializationId");
 
                     b.ToTable("Doctors");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 2,
+                            Achievement = "Best Doctor 2023",
+                            ClinicId = 1,
+                            Description = "Experienced cardiologist",
+                            SpecializationId = 1
+                        },
+                        new
+                        {
+                            UserId = 3,
+                            Achievement = "Top Neurologist 2023",
+                            ClinicId = 2,
+                            Description = "Expert in brain disorders",
+                            SpecializationId = 2
+                        });
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.Feedback", b =>
@@ -147,6 +201,9 @@ namespace BookingCare.Data.Migrations
                     b.Property<string>("Comment")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("Rating")
                         .HasColumnType("int");
@@ -176,6 +233,66 @@ namespace BookingCare.Data.Migrations
                         .IsUnique();
 
                     b.ToTable("MedicalRecords");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AppointmentId = 1
+                        });
+                });
+
+            modelBuilder.Entity("BookingCare.Data.Models.Notification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AppointmentId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppointmentId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Notifications");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AppointmentId = 1,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bạn có lịch hẹn mới vào ngày 20/03/2025.",
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AppointmentId = 1,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bệnh nhân patient1@example.com đã đặt lịch hẹn vào ngày 20/03/2025.",
+                            UserId = 2
+                        });
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.Patient", b =>
@@ -189,6 +306,13 @@ namespace BookingCare.Data.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Patients");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 4,
+                            MedicalRecordId = 1
+                        });
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.Schedule", b =>
@@ -205,6 +329,9 @@ namespace BookingCare.Data.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("TimeSlot")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -217,6 +344,26 @@ namespace BookingCare.Data.Migrations
                     b.HasIndex("DoctorId");
 
                     b.ToTable("Schedules");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DoctorId = 2,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 20, 10, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "10:00-11:00",
+                            WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DoctorId = 3,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 20, 14, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "14:00-15:00",
+                            WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc)
+                        });
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.Specialization", b =>
@@ -242,6 +389,22 @@ namespace BookingCare.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Specializations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Heart specialist",
+                            Image = "cardio.jpg",
+                            Name = "Cardiology"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Brain specialist",
+                            Image = "neuro.jpg",
+                            Name = "Neurology"
+                        });
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.User", b =>
@@ -321,6 +484,84 @@ namespace BookingCare.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AccessFailedCount = 0,
+                            Address = "123 Admin St",
+                            Avatar = "admin1.jpg",
+                            ConcurrencyStamp = "concurrency1",
+                            Email = "admin1@example.com",
+                            EmailConfirmed = true,
+                            Gender = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN1@EXAMPLE.COM",
+                            NormalizedUserName = "ADMIN1@EXAMPLE.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp1",
+                            TwoFactorEnabled = false,
+                            UserName = "admin1@example.com"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AccessFailedCount = 0,
+                            Address = "123 Doctor St",
+                            Avatar = "doctor1.jpg",
+                            ConcurrencyStamp = "concurrency2",
+                            Email = "doctor1@example.com",
+                            EmailConfirmed = true,
+                            Gender = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "DOCTOR1@EXAMPLE.COM",
+                            NormalizedUserName = "DOCTOR1@EXAMPLE.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp2",
+                            TwoFactorEnabled = false,
+                            UserName = "doctor1@example.com"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AccessFailedCount = 0,
+                            Address = "456 Doctor St",
+                            Avatar = "doctor2.jpg",
+                            ConcurrencyStamp = "concurrency3",
+                            Email = "doctor2@example.com",
+                            EmailConfirmed = true,
+                            Gender = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "DOCTOR2@EXAMPLE.COM",
+                            NormalizedUserName = "DOCTOR2@EXAMPLE.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp3",
+                            TwoFactorEnabled = false,
+                            UserName = "doctor2@example.com"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AccessFailedCount = 0,
+                            Address = "456 Patient St",
+                            Avatar = "patient1.jpg",
+                            ConcurrencyStamp = "concurrency4",
+                            Email = "patient1@example.com",
+                            EmailConfirmed = true,
+                            Gender = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "PATIENT1@EXAMPLE.COM",
+                            NormalizedUserName = "PATIENT1@EXAMPLE.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp4",
+                            TwoFactorEnabled = false,
+                            UserName = "patient1@example.com"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
@@ -351,6 +592,26 @@ namespace BookingCare.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Doctor",
+                            NormalizedName = "DOCTOR"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Patient",
+                            NormalizedName = "PATIENT"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -433,6 +694,28 @@ namespace BookingCare.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 1,
+                            RoleId = 1
+                        },
+                        new
+                        {
+                            UserId = 2,
+                            RoleId = 2
+                        },
+                        new
+                        {
+                            UserId = 3,
+                            RoleId = 2
+                        },
+                        new
+                        {
+                            UserId = 4,
+                            RoleId = 3
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
@@ -536,6 +819,25 @@ namespace BookingCare.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Appointment");
+                });
+
+            modelBuilder.Entity("BookingCare.Data.Models.Notification", b =>
+                {
+                    b.HasOne("BookingCare.Data.Models.Appointment", "Appointment")
+                        .WithMany()
+                        .HasForeignKey("AppointmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BookingCare.Data.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Appointment");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.Patient", b =>
