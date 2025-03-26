@@ -98,5 +98,10 @@ namespace BookingCare.Data.Repositories
         {
             _dbSet.Update(entity);
         }
+
+        public async Task<T> GetSingleAsync(Expression<Func<T, bool>> predicate)
+        {
+            return await _dbSet.FirstOrDefaultAsync(predicate);
+        }
     }
 }
