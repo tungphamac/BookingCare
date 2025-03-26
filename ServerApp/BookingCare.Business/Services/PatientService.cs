@@ -1,5 +1,7 @@
-﻿using BookingCare.Data.Models;
+﻿using BookingCare.Data.Data;
+using BookingCare.Data.Models;
 using BookingCare.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,36 +12,43 @@ namespace BookingCare.Business.Services
 {
     public class PatientService
     {
-        private readonly PatientRepository _patientRepository;
+        private readonly PatientRepository _repository;
+        private readonly AppDbContext _context;
 
-        public PatientService(PatientRepository patientRepository)
+        public PatientService(PatientRepository repository, AppDbContext context)
         {
-            _patientRepository = patientRepository;
+            _repository = repository;
+            _context = context;
         }
 
+        // Get all patients
         public async Task<List<Patient>> GetAllPatientsAsync()
         {
-            return await _patientRepository.GetAllPatientsAsync();
+            return await _repository.GetAllPatientsAsync();
         }
 
-        public async Task<Patient> GetPatientByIdAsync(int userId)
+        // Get patient by Id
+        public async Task<Patient> GetPatientByIdAsync(int id)
         {
-            return await _patientRepository.GetPatientByIdAsync(userId);
+            return await _repository.GetPatientByIdAsync(id);
         }
 
+        // Add a new patient
         public async Task AddPatientAsync(Patient patient)
         {
-            await _patientRepository.AddPatientAsync(patient);
+            await _repository.AddPatientAsync(patient);
         }
 
+        // Update patient's details
         public async Task UpdatePatientAsync(Patient patient)
         {
-            await _patientRepository.UpdatePatientAsync(patient);
+            await _repository.UpdatePatientAsync(patient);
         }
 
-        public async Task DeletePatientAsync(int userId)
+        // Delete a patient
+        public async Task DeletePatientAsync(int id)
         {
-            await _patientRepository.DeletePatientAsync(userId);
+            await _repository.DeletePatientAsync(id);
         }
     }
 }

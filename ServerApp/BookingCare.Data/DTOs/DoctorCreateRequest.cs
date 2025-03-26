@@ -67,6 +67,15 @@ namespace BookingCare.Data.DTOs
         public string Gender { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+        public string Address { get; set; }
+        public int MedicalRecordId { get; set; }  // Thêm trường này vào DTO
+    }
+    public class SpecializationDTO
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string Image { set; get; }
     }
 
 

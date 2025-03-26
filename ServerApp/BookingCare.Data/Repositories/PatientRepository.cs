@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BookingCare.Business;
 
 namespace BookingCare.Data.Repositories
 {
@@ -19,71 +20,44 @@ namespace BookingCare.Data.Repositories
             _context = context;
         }
 
-        // Lấy danh sách bệnh nhân kèm thông tin User
+        // Get all patients
         public async Task<List<Patient>> GetAllPatientsAsync()
         {
             return await _context.Patients
-                                 .Include(p => p.User)  // Join bảng User
-                                 .Select(p => new Patient
-                                 {
-                                     UserId = p.UserId,
-                                     User = new User
-                                     {
-                                         Id = p.User.Id,
-                                         UserName = p.User.UserName,
-                                         Email = p.User.Email,
-                                         Gender = p.User.Gender,
-                                         Address = p.User.Address,
-                                         Avatar = p.User.Avatar
-                                     },
-                                     MedicalRecordId = p.MedicalRecordId,
-                                     Appointments = p.Appointments
-                                 })
-                                 .ToListAsync();
+                .Include(p => p.User)
+                .Include(p => p.MedicalRecord)
+                .Include(p => p.Appointments)
+                .ToListAsync();
         }
 
-        // Lấy thông tin bệnh nhân theo UserId với thông tin user rút gọn
-        public async Task<Patient?> GetPatientByIdAsync(int userId)
+        // Get patient by Id
+        public async Task<Patient> GetPatientByIdAsync(int id)
         {
             return await _context.Patients
-                                 .Include(p => p.User)
-                                 .Where(p => p.UserId == userId)
-                                 .Select(p => new Patient
-                                 {
-                                     UserId = p.UserId,
-                                     User = new User
-                                     {
-                                         Id = p.User.Id,
-                                         UserName = p.User.UserName,
-                                         Email = p.User.Email,
-                                         Gender = p.User.Gender,
-                                         Address = p.User.Address,
-                                         Avatar = p.User.Avatar
-                                     },
-                                     MedicalRecordId = p.MedicalRecordId,
-                                     Appointments = p.Appointments
-                                 })
-                                 .FirstOrDefaultAsync();
+                .Include(p => p.User)
+                .Include(p => p.MedicalRecord)
+                .Include(p => p.Appointments)
+                .FirstOrDefaultAsync(p => p.UserId == id);
         }
 
-        // Thêm mới bệnh nhân
+        // Add a new patient
         public async Task AddPatientAsync(Patient patient)
         {
             await _context.Patients.AddAsync(patient);
             await _context.SaveChangesAsync();
         }
 
-        // Cập nhật thông tin bệnh nhân
+        // Update a patient's details
         public async Task UpdatePatientAsync(Patient patient)
         {
             _context.Patients.Update(patient);
             await _context.SaveChangesAsync();
         }
 
-        // Xóa bệnh nhân
-        public async Task DeletePatientAsync(int userId)
+        // Delete a patient
+        public async Task DeletePatientAsync(int id)
         {
-            var patient = await _context.Patients.FindAsync(userId);
+            var patient = await GetPatientByIdAsync(id);
             if (patient != null)
             {
                 _context.Patients.Remove(patient);
@@ -91,4 +65,5 @@ namespace BookingCare.Data.Repositories
             }
         }
     }
+
 }

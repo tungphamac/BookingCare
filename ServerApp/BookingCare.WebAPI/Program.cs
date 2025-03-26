@@ -38,11 +38,11 @@ builder.Services.AddScoped<DoctorRepository>();
 builder.Services.AddScoped<DoctorService>();
 builder.Services.AddScoped<ClinicRepository>();
 builder.Services.AddScoped<ClinicService>();
-
-
 builder.Services.AddScoped<PatientService>();
 // If PatientRepository is also used, it should be registered as well
 builder.Services.AddScoped<PatientRepository>();
+builder.Services.AddScoped<SpecializationService>();
+builder.Services.AddScoped<SpecializationRepository>();
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
