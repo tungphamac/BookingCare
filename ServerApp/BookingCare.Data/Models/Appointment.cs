@@ -1,9 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Numerics;
 
 namespace BookingCare.Data.Models
 {
+   
+    public enum AppointmentStatus
+    {
+        Pending,
+        Confirmed,
+        Rejected,
+    }
+
     public class Appointment
     {
         [Key]
@@ -12,8 +19,7 @@ namespace BookingCare.Data.Models
         public TimeSpan Time { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string Status { get; set; }
+        public AppointmentStatus Status { get; set; } = AppointmentStatus.Pending; // Sửa thành AppointmentStatus
 
         [Required]
         [StringLength(1000)]
@@ -28,14 +34,13 @@ namespace BookingCare.Data.Models
         public int ScheduleId { get; set; }
         public Schedule Schedule { get; set; }
 
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
         public int ClinicId { get; set; }
         public Clinic Clinic { get; set; }
 
         public Feedback Feedback { get; set; }
 
         public MedicalRecord MedicalRecord { get; set; }
-
-
-
     }
 }

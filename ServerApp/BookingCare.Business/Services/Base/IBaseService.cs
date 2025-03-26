@@ -1,4 +1,6 @@
-﻿namespace BookingCare.Business.Services.Base
+﻿using BookingCare.Data.Models;
+
+namespace BookingCare.Business.Services.Base
 {
     public interface IBaseService<T> where T : class
     {
@@ -49,6 +51,7 @@
         /// </summary>
         /// <returns>A task that represents the asynchronous operation. The task result contains the collection of entities.</returns>
         Task<IEnumerable<T>> GetAllAsync();
+        Task<int> AddPatientAsync(Patient patient);
 
         /// <summary>
         /// Retrieves a paginated result of entities based on the specified filter, ordering, and pagination parameters.

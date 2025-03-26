@@ -1,6 +1,7 @@
-﻿using BookingCare.Business.Services;
-using BookingCare.Data.DTOs;
+﻿using BookingCare.Business.Dtos;
+using BookingCare.Business.Services.Interfaces;
 using BookingCare.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,109 +11,92 @@ namespace BookingCare.WebAPI.Controllers
     [ApiController]
     public class SpecializationController : ControllerBase
     {
-        private readonly SpecializationService _specializationService;
+        private readonly ISpecializationService _specializationService;
 
-        public SpecializationController(SpecializationService specializationService)
+        public SpecializationController(ISpecializationService specializationService)
         {
             _specializationService = specializationService;
         }
 
-        // GET: api/Specialization
+        // GET: api/specializations
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<SpecializationDTO>>> GetAllSpecializations()
+        public async Task<IActionResult> GetSpecializations()
         {
-            var specializations = await _specializationService.GetAllSpecializationsAsync();
-            var specializationDTOs = specializations.Select(s => new SpecializationDTO
-            {
-                Id = s.Id,
-                Name = s.Name,
-                Description = s.Description,
-                Image = s.Image
-            }).ToList();
-
-            return Ok(specializationDTOs);
+            var specializations = await _specializationService.GetAllAsync();
+            return Ok(specializations);
         }
 
-        // GET: api/Specialization/5
+        // GET: api/specializations/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<SpecializationDTO>> GetSpecializationById(int id)
+        public async Task<IActionResult> GetSpecialization(int id)
         {
-            var specialization = await _specializationService.GetSpecializationByIdAsync(id);
-
+            var specialization = await _specializationService.GetByIdAsync(id);
             if (specialization == null)
             {
-                return NotFound();
+                return NotFound(new { Message = $"Specialization with ID {id} not found." });
             }
-
-            var specializationDTO = new SpecializationDTO
-            {
-                Id = specialization.Id,
-                Name = specialization.Name,
-                Description = specialization.Description,
-                Image = specialization.Image 
-            };
-
-            return Ok(specializationDTO);
+            return Ok(specialization);
         }
 
-        // POST: api/Specialization
-        [HttpPost]
-        public async Task<ActionResult<SpecializationDTO>> CreateSpecialization([FromBody] SpecializationDTO specializationDTO)
+        // POST: api/specializations/create
+        [HttpPost("create")]
+        //[Authorize(Roles = "Admin")]
+        public async Task<IActionResult> CreateSpecialization([FromBody] SpecializationDto specializationDto)
         {
-            if (specializationDTO == null)
-            {
-                return BadRequest("SpecializationDTO is required.");
-            }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
             var specialization = new Specialization
             {
-                Name = specializationDTO.Name,
-                Description = specializationDTO.Description,
-                Image = specializationDTO.Image
+                Name = specializationDto.Name,
+                Description = specializationDto.Description,
+                Image = specializationDto.Image
             };
 
-            await _specializationService.AddSpecializationAsync(specialization);
+            var result = await _specializationService.AddAsync(specialization);
+            if (result <= 0)
+                return StatusCode(500, "An error occurred while creating the specialization.");
 
-            return CreatedAtAction(nameof(GetSpecializationById), new { id = specialization.Id }, specializationDTO);
+            return Ok(new { Message = "Specialization created successfully." });
         }
 
-        // PUT: api/Specialization/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateSpecialization(int id, [FromBody] SpecializationDTO specializationDTO)
+        // PUT: api/specializations/{id}/update
+        [HttpPut("{id}/update")]
+        //[Authorize(Roles = "Admin")]
+        public async Task<IActionResult> UpdateSpecialization(int id, [FromBody] SpecializationDto specializationDto)
         {
-            if (id != specializationDTO.Id)
-            {
-                return BadRequest("Specialization ID mismatch");
-            }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-            var existingSpecialization = await _specializationService.GetSpecializationByIdAsync(id);
+            var existingSpecialization = await _specializationService.GetByIdAsync(id);
             if (existingSpecialization == null)
-            {
-                return NotFound();
-            }
+                return NotFound(new { Message = $"Specialization with ID {id} not found." });
 
-            existingSpecialization.Name = specializationDTO.Name;
-            existingSpecialization.Description = specializationDTO.Description;
+            existingSpecialization.Name = specializationDto.Name;
+            existingSpecialization.Description = specializationDto.Description;
+            existingSpecialization.Image = specializationDto.Image;
 
-            await _specializationService.UpdateSpecializationAsync(existingSpecialization);
+            var result = await _specializationService.UpdateAsync(existingSpecialization);
+            if (!result)
+                return StatusCode(500, "An error occurred while updating the specialization.");
 
-            return NoContent();
+            return Ok(new { Message = "Specialization updated successfully." });
         }
 
-        // DELETE: api/Specialization/5
-        [HttpDelete("{id}")]
+        // DELETE: api/specializations/{id}/delete
+        [HttpDelete("{id}/delete")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteSpecialization(int id)
         {
-            var specialization = await _specializationService.GetSpecializationByIdAsync(id);
-
+            var specialization = await _specializationService.GetByIdAsync(id);
             if (specialization == null)
-            {
-                return NotFound();
-            }
+                return NotFound(new { Message = $"Specialization with ID {id} not found." });
 
-            await _specializationService.DeleteSpecializationAsync(id);
+            var result = await _specializationService.DeleteAsync(specialization);
+            if (!result)
+                return StatusCode(500, "An error occurred while deleting the specialization.");
 
-            return NoContent();
+            return Ok(new { Message = "Specialization deleted successfully." });
         }
     }
 

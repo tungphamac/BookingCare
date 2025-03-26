@@ -16,6 +16,7 @@ namespace BookingCare.Data.Infrastructure
         private IGeneralRepository<Schedule> _scheduleRepository;
         private IGeneralRepository<Specialization> _specializationRepository;
         private IGeneralRepository<User> _userRepository;
+        private IGeneralRepository<Notification> _notificationRepository;
 
         public UnitOfWork(AppDbContext context)
         {
@@ -24,24 +25,25 @@ namespace BookingCare.Data.Infrastructure
 
         public AppDbContext Context => _context;
 
-        public IGeneralRepository<Appointment> AppointmentRepository => _appointmentRepository ?? new GeneralRepository<Appointment>(Context);
+        public IGeneralRepository<Appointment> AppointmentRepository => _appointmentRepository ??= new GeneralRepository<Appointment>(Context);
 
-        public IGeneralRepository<Clinic> ClinicRepository => _clinicRepository ?? new GeneralRepository<Clinic>(Context);
+        public IGeneralRepository<Clinic> ClinicRepository => _clinicRepository ??= new GeneralRepository<Clinic>(Context);
 
-        public IGeneralRepository<Doctor> DoctorRepository => _doctorRepository ?? new GeneralRepository<Doctor>(Context);
+        public IGeneralRepository<Doctor> DoctorRepository => _doctorRepository ??= new GeneralRepository<Doctor>(Context);
 
-        public IGeneralRepository<Feedback> FeedbackRepository => _feedbackRepository ?? new GeneralRepository<Feedback>(Context);
+        public IGeneralRepository<Feedback> FeedbackRepository => _feedbackRepository ??= new GeneralRepository<Feedback>(Context);
 
-        public IGeneralRepository<MedicalRecord> MedicalRecordRepository => _medicalRecordRepository ?? new GeneralRepository<MedicalRecord>(Context);
+        public IGeneralRepository<MedicalRecord> MedicalRecordRepository => _medicalRecordRepository ??= new GeneralRepository<MedicalRecord>(Context);
 
-        public IGeneralRepository<Patient> PatientRepository => _patientRepository ?? new GeneralRepository<Patient>(Context);
+        public IGeneralRepository<Patient> PatientRepository => _patientRepository ??= new GeneralRepository<Patient>(Context);
 
-        public IGeneralRepository<Schedule> ScheduleRepository => _scheduleRepository ?? new GeneralRepository<Schedule>(Context);
+        public IGeneralRepository<Schedule> ScheduleRepository => _scheduleRepository ??= new GeneralRepository<Schedule>(Context);
 
-        public IGeneralRepository<Specialization> SpecializationRepository => _specializationRepository ?? new GeneralRepository<Specialization>(Context);
+        public IGeneralRepository<Specialization> SpecializationRepository => _specializationRepository ??= new GeneralRepository<Specialization>(Context);
 
-        public IGeneralRepository<User> UserRepository => _userRepository ?? new GeneralRepository<User>(Context);
+        public IGeneralRepository<User> UserRepository => _userRepository ??= new GeneralRepository<User>(Context);
 
+        public IGeneralRepository<Notification> NotificationRepository => _notificationRepository ??= new GeneralRepository<Notification>(Context);
 
         public IGeneralRepository<TEntity> GenericRepository<TEntity>() where TEntity : class
         {

@@ -1,58 +1,141 @@
-using BookingCare.Business.Services;
-using BookingCare.Data.Data;
+Ôªøusing BookingCare.Data.Data;
+using BookingCare.Data.Infrastructure;
 using BookingCare.Data.Models;
-using BookingCare.Data.Repositories;
-using Microsoft.AspNetCore.Identity;
+using BookingCare.Business.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+using BookingCare.Business.Services.Interfaces;
+using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
+using System.Text;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyAPI", Version = "v1" });
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = @"JWT Authorization header using the Bearer scheme. \r\n\r\n 
+                      Enter 'Bearer' [space] and then your token in the text input below.
+                      \r\n\r\nExample: 'Bearer 12345abcdef'",
+        Name = "Authorization",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {{
+                          new OpenApiSecurityScheme
+                          {
+                              Reference = new OpenApiReference
+                              {
+                                  Type = ReferenceType.SecurityScheme,
+                                  Id = "Bearer"
+                              }
+                          },
+                         new string[] {}
+                    }
+                });
+});
+// Configure DbContext
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("conn"));
 });
-builder.Services.AddScoped<DoctorRepository>();
 
-//builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
-//{
-//    // T˘y ch?nh yÍu c?u m?t kh?u
-//    options.Password.RequireDigit = false; // KhÙng yÍu c?u ch? s?
-//    options.Password.RequireLowercase = true;
-//    options.Password.RequireUppercase = false; // KhÙng yÍu c?u ch? hoa
-//    options.Password.RequireNonAlphanumeric = false; // KhÙng yÍu c?u k˝ t? ??c bi?t
-//    options.Password.RequiredLength = 6; // ?? d‡i t?i thi?u l‡ 6
-//    options.Password.RequiredUniqueChars = 1;
-//})
-//    .AddEntityFrameworkStores<AppnDbContext>()
-//    .AddDefaultTokenProviders();
-
-builder.Services.AddScoped<DoctorService>();
-builder.Services.AddScoped<ClinicRepository>();
-builder.Services.AddScoped<ClinicService>();
-builder.Services.AddScoped<PatientService>();
-// If PatientRepository is also used, it should be registered as well
-builder.Services.AddScoped<PatientRepository>();
-builder.Services.AddScoped<SpecializationService>();
-builder.Services.AddScoped<SpecializationRepository>();
-builder.Services.AddControllers().AddJsonOptions(options =>
+builder.Services
+    .AddAuthentication(config =>
 {
-    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
-});
+config.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+config.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+config.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+    .AddJwtBearer(options =>
+    {
+    options.SaveToken = true;
+    options.RequireHttpsMetadata = false;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"])),
+        ValidateIssuer = true,
+        ValidIssuer = builder.Configuration["JWT:Issuer"],
+        ValidateAudience = true,
+        ValidAudience = builder.Configuration["JWT:Audience"],
+        ValidateLifetime = true,
+        ClockSkew = TimeSpan.Zero,
+        // √Ånh x·∫° claim
+        NameClaimType = ClaimTypes.Name,                         // "khanh2"
+        RoleClaimType = ClaimTypes.Role,                         // "Patient"
 
-builder.Services.AddIdentity<User, IdentityRole<int>>()
-    .AddEntityFrameworkStores<AppDbContext>()
-    .AddDefaultTokenProviders();
+    };
+        // √Ånh x·∫° claim
+        options.TokenValidationParameters.NameClaimType = ClaimTypes.Name;
+        options.TokenValidationParameters.RoleClaimType = ClaimTypes.Role;
+
+        options.Events = new JwtBearerEvents
+        {
+            OnAuthenticationFailed = context =>
+            {
+                context.Response.StatusCode = 401;
+                context.Response.ContentType = "application/json";
+                var result = System.Text.Json.JsonSerializer.Serialize(new { message = "Authentication failed." });
+                return context.Response.WriteAsync(result);
+            },
+            OnChallenge = context =>
+            {
+                context.HandleResponse();
+                context.Response.StatusCode = 401;
+                context.Response.ContentType = "application/json";
+                var result = System.Text.Json.JsonSerializer.Serialize(new { message = "Unauthorized. Please provide a valid token." });
+                return context.Response.WriteAsync(result);
+            }
+        };
+    });
+// C·∫•u h√¨nh Identity v·ªõi AppUser v√† IdentityRole<int>
+builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
+{
+    options.Password.RequireDigit = true;
+    options.Password.RequiredLength = 6;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false;
+})
+.AddEntityFrameworkStores<AppDbContext>()
+.AddDefaultTokenProviders();
+
+
+// Dependency Injection
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IDoctorService, DoctorService>();
+builder.Services.AddScoped<IPatientService, PatientService>();
+builder.Services.AddScoped<IClinicService, ClinicService>();
+builder.Services.AddScoped<ISearchService, SearchService>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
+builder.Services.AddScoped<IFeedbackService, FeedbackService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<ISpecializationService, SpecializationService>();
 
 var app = builder.Build();
+
+// √Åp d·ª•ng migration
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<AppDbContext>();
+    context.Database.Migrate(); // √Åp d·ª•ng migration
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -62,8 +145,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
+
 
 app.MapControllers();
 

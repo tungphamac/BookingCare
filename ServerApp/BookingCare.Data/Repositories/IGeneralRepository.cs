@@ -1,5 +1,5 @@
 ﻿using System.Linq.Expressions;
-
+using Microsoft.EntityFrameworkCore;
 namespace BookingCare.Data.Repositories
 {
     public interface IGeneralRepository<T> where T : class
@@ -14,6 +14,10 @@ namespace BookingCare.Data.Repositories
         /// Retrieves all entities asynchronously.
         /// </summary>
         /// <returns>A task that represents the asynchronous operation. The task result contains the collection of entities.</returns>
+        /// IQueryable<T> GetQuery(Expression<Func<T, bool>> predicate = null);
+        
+        
+        Task AddAsync(T entity); // Thêm phương thức AddAsync
         Task<IEnumerable<T>> GetAllAsync();
 
         /// <summary>
@@ -78,5 +82,6 @@ namespace BookingCare.Data.Repositories
             Expression<Func<T, bool>>? filter = null,
             Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
             string includeProperties = "");
+
     }
 }

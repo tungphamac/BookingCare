@@ -1,52 +1,52 @@
-﻿using BookingCare.Data.DTOs;
+﻿using BookingCare.API.Dtos;
+using BookingCare.Business.Services.Base;
+using BookingCare.Business.Services.Interfaces;
+using BookingCare.Data.Infrastructure;
 using BookingCare.Data.Models;
 using BookingCare.Data.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
 namespace BookingCare.Business.Services
 {
-    public class ClinicService
+    public class ClinicService : BaseService<Clinic>, IClinicService
     {
-        private readonly ClinicRepository _clinicRepository;
-
-        public ClinicService(ClinicRepository clinicRepository)
+        public ClinicService(ILogger<ClinicService> logger, IUnitOfWork unitOfWork)
+            : base(logger, unitOfWork)
         {
-            _clinicRepository = clinicRepository;
         }
 
-        // Lấy tất cả phòng khám với thông tin bác sĩ
-        public async Task<IEnumerable<ClinicDoctorDto>> GetClinicsWithDoctorsAsync()
+        public async Task<ClinicDetailDto?> GetClinicDetailAsync(int id)
         {
-            return await _clinicRepository.GetClinicsWithDoctorsAsync();
-        }
+            try
+            {
+                var clinic = await _unitOfWork.ClinicRepository
+                    .GetQuery(c => c.Id == id)
+                    .Select(c => new ClinicDetailDto
+                    {
+                        Id = c.Id,
+                        Name = c.Name,
+                        Address = c.Address,
+                        Phone = c.Phone,
+                        Introduction = c.Introduction,
+                        CreateAt = c.CreateAt
+                    })
+                    .FirstOrDefaultAsync();
 
-        // Lấy phòng khám theo ID
-        public async Task<Clinic?> GetClinicByIdAsync(int id)
-        {
-            return await _clinicRepository.GetClinicByIdAsync(id);
-        }
-        // Thêm phòng khám mới
-        public async Task AddClinicAsync(Clinic clinic, List<int> doctorIds)
-        {
-            await _clinicRepository.AddClinicAsync(clinic, doctorIds);
-        }
+                if (clinic == null)
+                {
+                    _logger.LogWarning($"Clinic with ID {id} not found.");
+                    return null;
+                }
 
-        // Cập nhật phòng khám
-        public async Task UpdateClinicAsync(Clinic clinic, List<int> doctorIds)
-        {
-            await _clinicRepository.UpdateClinicAsync(clinic, doctorIds);
-        }
-        // Xóa phòng khám
-        public async Task DeleteClinicAsync(int id)
-        {
-            await _clinicRepository.DeleteClinicAsync(id);
+                return clinic;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving clinic details for ID {id}.");
+                throw;
+            }
         }
     }
-
-
 }

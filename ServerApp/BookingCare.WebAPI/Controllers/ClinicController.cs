@@ -1,109 +1,101 @@
-﻿using BookingCare.Business.Services;
-using BookingCare.Data.DTOs;
+﻿using BookingCare.API.Dtos;
+using BookingCare.Business.Services.Interfaces;
 using BookingCare.Data.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookingCare.WebAPI.Controllers
+namespace BookingCare.API.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("[controller]")]
     public class ClinicController : ControllerBase
     {
-        private readonly ClinicService _clinicService;
+        private readonly IClinicService _clinicService;
 
-        public ClinicController(ClinicService clinicService)
+        public ClinicController(IClinicService clinicService)
         {
             _clinicService = clinicService;
         }
 
-        // API GET để lấy tất cả phòng khám với tên bác sĩ
+        // GET: api/clinic
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Clinic>>> GetClinics()
+        public async Task<ActionResult<IEnumerable<ClinicDetailDto>>> GetClinics()
         {
-            var clinics = await _clinicService.GetClinicsWithDoctorsAsync();
+            var clinics = await _clinicService.GetAllAsync();
             return Ok(clinics);
         }
 
-        // API GET để lấy phòng khám theo ID
+        // GET: api/clinic/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<DoctorCreateRequest>> GetClinic(int id)
+        public async Task<ActionResult<ClinicDetailDto>> GetClinicDetail(int id)
         {
-            var clinic = await _clinicService.GetClinicByIdAsync(id);
+            var clinic = await _clinicService.GetClinicDetailAsync(id);
             if (clinic == null)
             {
-                return NotFound("Clinic not found.");
+                return NotFound(new { Message = $"Clinic with ID {id} not found." });
             }
             return Ok(clinic);
         }
 
-        // API POST để thêm phòng khám
+        // POST: api/clinic
         [HttpPost]
-        public async Task<IActionResult> AddClinic([FromBody] ClinicCreateRequest request)
+        public async Task<ActionResult<ClinicDetailDto>> AddClinic([FromBody] ClinicDetailDto clinicDto)
         {
-            if (ModelState.IsValid)
-            {
-                var clinic = new Clinic
-                {
-                    Name = request.Name,
-                    Address = request.Address,
-                    Phone = request.Phone,
-                    Introduction = request.Introduction,
-                    CreateAt = DateTime.UtcNow // Đặt thời gian tạo phòng khám
-                };
+            if (clinicDto == null)
+                return BadRequest("Clinic data is null");
 
-                // Thêm phòng khám và danh sách bác sĩ
-                await _clinicService.AddClinicAsync(clinic, request.DoctorIds);
-                return Ok("Clinic added successfully.");
+            var clinic = new Clinic
+            {
+                Name = clinicDto.Name,
+                Address = clinicDto.Address,
+                Phone = clinicDto.Phone,
+                Introduction = clinicDto.Introduction,
+                CreateAt = DateTime.UtcNow
+            };
+
+            var result = await _clinicService.AddAsync(clinic);
+            if (result > 0)
+            {
+                return CreatedAtAction(nameof(GetClinicDetail), new { id = clinic.Id }, clinicDto);
             }
-            return BadRequest("Invalid data.");
+            return StatusCode(500, "An error occurred while adding the clinic.");
         }
 
-        // API PUT để cập nhật phòng khám
+        // PUT: api/clinic/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateClinic(int id, [FromBody] ClinicUpdateRequest request)
+        public async Task<IActionResult> UpdateClinic(int id, [FromBody] ClinicDetailDto clinicDto)
         {
-            if (id != request.Id)
-            {
-                return BadRequest("Clinic ID mismatch.");
-            }
+            if (clinicDto == null || id != clinicDto.Id)
+                return BadRequest("Invalid clinic data");
 
-            try
-            {
-                var clinic = new Clinic
-                {
-                    Id = request.Id,
-                    Name = request.Name,
-                    Address = request.Address,
-                    Introduction = request.Introduction,
-                    Phone = request.Phone,
-                    CreateAt = DateTime.UtcNow // Cập nhật thời gian tạo phòng khám
-                };
+            var clinic = await _clinicService.GetByIdAsync(id);
+            if (clinic == null)
+                return NotFound($"Clinic with ID {id} not found.");
 
-                // Cập nhật phòng khám và danh sách bác sĩ
-                await _clinicService.UpdateClinicAsync(clinic, request.DoctorIds);
-                return NoContent(); // Trả về 204 khi cập nhật thành công
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Error updating clinic: {ex.Message}");
-            }
+            clinic.Name = clinicDto.Name;
+            clinic.Address = clinicDto.Address;
+            clinic.Phone = clinicDto.Phone;
+            clinic.Introduction = clinicDto.Introduction;
+
+            var result = await _clinicService.UpdateAsync(clinic);
+            if (result)
+                return NoContent(); // Successfully updated
+
+            return StatusCode(500, "An error occurred while updating the clinic.");
         }
-        // API DELETE để xóa phòng khám
+
+        // DELETE: api/clinic/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteClinic(int id)
         {
-            try
-            {
-                await _clinicService.DeleteClinicAsync(id);
-                return NoContent(); // Trả về 204 khi xóa thành công
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Error deleting clinic: {ex.Message}");
-            }
+            var clinic = await _clinicService.GetByIdAsync(id);
+            if (clinic == null)
+                return NotFound($"Clinic with ID {id} not found.");
+
+            var result = await _clinicService.DeleteAsync(clinic);
+            if (result)
+                return NoContent(); // Successfully deleted
+
+            return StatusCode(500, "An error occurred while deleting the clinic.");
         }
     }
-
-
 }

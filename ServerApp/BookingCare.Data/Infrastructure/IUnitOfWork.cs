@@ -17,7 +17,7 @@ namespace BookingCare.Data.Infrastructure
         IGeneralRepository<Schedule> ScheduleRepository { get; }
         IGeneralRepository<Specialization> SpecializationRepository { get; }
         IGeneralRepository<User> UserRepository { get; }
-
+        IGeneralRepository<Notification> NotificationRepository { get; }
         IGeneralRepository<TEntity> GenericRepository<TEntity>() where TEntity : class;
 
         /// <summary>

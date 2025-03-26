@@ -1,5 +1,6 @@
-﻿using BookingCare.Data.Models;
-using BookingCare.Data.Repositories;
+﻿using BookingCare.Business.Services.Interfaces;
+using BookingCare.Data.Infrastructure;
+using BookingCare.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,43 +9,58 @@ using System.Threading.Tasks;
 
 namespace BookingCare.Business.Services
 {
-    public class SpecializationService
+    public class SpecializationService : ISpecializationService
     {
-        private readonly SpecializationRepository _repository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public SpecializationService(SpecializationRepository repository)
+        public SpecializationService(IUnitOfWork unitOfWork)
         {
-            _repository = repository;
+            _unitOfWork = unitOfWork;
         }
 
-        // Lấy tất cả chuyên khoa
-        public async Task<List<Specialization>> GetAllSpecializationsAsync()
+        // Thêm chuyên khoa mới
+        public async Task<int> AddAsync(Specialization specialization)
         {
-            return await _repository.GetAllSpecializationsAsync();
-        }
-
-        // Lấy chuyên khoa theo ID
-        public async Task<Specialization> GetSpecializationByIdAsync(int id)
-        {
-            return await _repository.GetSpecializationByIdAsync(id);
-        }
-
-        // Thêm chuyên khoa
-        public async Task AddSpecializationAsync(Specialization specialization)
-        {
-            await _repository.AddSpecializationAsync(specialization);
+            if (specialization != null)
+            {
+                await _unitOfWork.SpecializationRepository.AddAsync(specialization);
+                return await _unitOfWork.SaveChangesAsync();
+            }
+            return 0;
         }
 
         // Cập nhật chuyên khoa
-        public async Task UpdateSpecializationAsync(Specialization specialization)
+        public async Task<bool> UpdateAsync(Specialization specialization)
         {
-            await _repository.UpdateSpecializationAsync(specialization);
+            if (specialization != null)
+            {
+                _unitOfWork.SpecializationRepository.Update(specialization);
+                return await _unitOfWork.SaveChangesAsync() > 0;
+            }
+            return false;
         }
 
         // Xóa chuyên khoa
-        public async Task DeleteSpecializationAsync(int id)
+        public async Task<bool> DeleteAsync(Specialization specialization)
         {
-            await _repository.DeleteSpecializationAsync(id);
+            if (specialization != null)
+            {
+                _unitOfWork.SpecializationRepository.Delete(specialization);
+                return await _unitOfWork.SaveChangesAsync() > 0;
+            }
+            return false;
+        }
+
+        // Lấy tất cả chuyên khoa
+        public async Task<IEnumerable<Specialization>> GetAllAsync()
+        {
+            return await _unitOfWork.SpecializationRepository.GetAllAsync();
+        }
+
+        // Lấy chuyên khoa theo ID
+        public async Task<Specialization> GetByIdAsync(int id)
+        {
+            return await _unitOfWork.SpecializationRepository.GetByIdAsync(id);
         }
     }
 
