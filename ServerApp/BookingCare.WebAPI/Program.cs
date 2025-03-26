@@ -13,94 +13,42 @@ using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyAPI", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "BookingCare API", Version = "v1" });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Description = @"JWT Authorization header using the Bearer scheme. \r\n\r\n 
-                      Enter 'Bearer' [space] and then your token in the text input below.
-                      \r\n\r\nExample: 'Bearer 12345abcdef'",
+        Description = "JWT Authorization header using Bearer scheme. Example: 'Bearer {token}'",
         Name = "Authorization",
-        BearerFormat = "JWT",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.ApiKey,
         Scheme = "Bearer"
     });
-
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
-                {{
-                          new OpenApiSecurityScheme
-                          {
-                              Reference = new OpenApiReference
-                              {
-                                  Type = ReferenceType.SecurityScheme,
-                                  Id = "Bearer"
-                              }
-                          },
-                         new string[] {}
-                    }
-                });
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
 });
+
 // Configure DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("conn"));
 });
 
-builder.Services
-    .AddAuthentication(config =>
-{
-config.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-config.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-config.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-    .AddJwtBearer(options =>
-    {
-    options.SaveToken = true;
-    options.RequireHttpsMetadata = false;
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"])),
-        ValidateIssuer = true,
-        ValidIssuer = builder.Configuration["JWT:Issuer"],
-        ValidateAudience = true,
-        ValidAudience = builder.Configuration["JWT:Audience"],
-        ValidateLifetime = true,
-        ClockSkew = TimeSpan.Zero,
-        // Ánh xạ claim
-        NameClaimType = ClaimTypes.Name,                         // "khanh2"
-        RoleClaimType = ClaimTypes.Role,                         // "Patient"
-
-    };
-        // Ánh xạ claim
-        options.TokenValidationParameters.NameClaimType = ClaimTypes.Name;
-        options.TokenValidationParameters.RoleClaimType = ClaimTypes.Role;
-
-        options.Events = new JwtBearerEvents
-        {
-            OnAuthenticationFailed = context =>
-            {
-                context.Response.StatusCode = 401;
-                context.Response.ContentType = "application/json";
-                var result = System.Text.Json.JsonSerializer.Serialize(new { message = "Authentication failed." });
-                return context.Response.WriteAsync(result);
-            },
-            OnChallenge = context =>
-            {
-                context.HandleResponse();
-                context.Response.StatusCode = 401;
-                context.Response.ContentType = "application/json";
-                var result = System.Text.Json.JsonSerializer.Serialize(new { message = "Unauthorized. Please provide a valid token." });
-                return context.Response.WriteAsync(result);
-            }
-        };
-    });
-// Cấu hình Identity với AppUser và IdentityRole<int>
+// Configure Identity
 builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
 {
     options.Password.RequireDigit = true;
@@ -112,6 +60,45 @@ builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
 .AddEntityFrameworkStores<AppDbContext>()
 .AddDefaultTokenProviders();
 
+// Configure JWT Authentication
+builder.Services
+    .AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(options =>
+    {
+        options.SaveToken = true;
+        options.RequireHttpsMetadata = false;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"])),
+            ValidateIssuer = true,
+            ValidIssuer = builder.Configuration["JWT:Issuer"],
+            ValidateAudience = true,
+            ValidAudience = builder.Configuration["JWT:Audience"],
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero,
+            NameClaimType = ClaimTypes.NameIdentifier, // Lấy userId từ NameIdentifier
+            RoleClaimType = ClaimTypes.Role
+        };
+        options.Events = new JwtBearerEvents
+        {
+            OnTokenValidated = context =>
+            {
+                Console.WriteLine("Token validated successfully");
+                return Task.CompletedTask;
+            },
+            OnAuthenticationFailed = context =>
+            {
+                Console.WriteLine("Authentication failed: " + context.Exception.Message);
+                return Task.CompletedTask;
+            }
+        };
+    });
 
 // Dependency Injection
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();

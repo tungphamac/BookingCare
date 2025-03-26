@@ -1140,7 +1140,7 @@
         },
         "runtime": {
           "BookingCare.Business.dll": {
-            "assemblyVersion": "1.0.0.0",
+            "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -1152,7 +1152,7 @@
         },
         "runtime": {
           "BookingCare.Data.dll": {
-            "assemblyVersion": "1.0.0.0",
+            "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
