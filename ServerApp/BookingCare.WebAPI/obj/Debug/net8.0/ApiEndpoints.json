@@ -380,6 +380,27 @@
     ]
   },
   {
+    "ContainingType": "BookingCare.API.Controllers.PatientController",
+    "Method": "UpdatePatient",
+    "RelativePath": "api/Patient/Update-Partient{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "patient",
+        "Type": "BookingCare.Business.ViewModels.UpdatePartientVm",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BookingCare.API.Controllers.SearchController",
     "Method": "GeneralSearch",
     "RelativePath": "api/Search",
