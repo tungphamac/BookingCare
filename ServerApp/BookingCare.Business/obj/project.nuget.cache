@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "m6IhxD9fk5Y=",
+  "dgSpecHash": "tAPHwFmO7Dw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\thanh\\OneDrive\\Máy tính\\GIt 2\\GIt 2\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\BookingCare.Business.csproj",
+  "projectFilePath": "C:\\Users\\thanh\\OneDrive\\Documents\\GitHub\\BookingCare\\ServerApp\\BookingCare.Business\\BookingCare.Business.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\thanh\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\thanh\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
@@ -66,5 +66,12 @@
     "C:\\Users\\thanh\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\thanh\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\thanh\\OneDrive\\Documents\\GitHub\\BookingCare\\ServerApp\\BookingCare.Business\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

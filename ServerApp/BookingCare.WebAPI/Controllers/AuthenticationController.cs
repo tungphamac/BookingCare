@@ -98,6 +98,7 @@ namespace BookingCare.WebAPI.Controllers
             return Unauthorized();
         }
 
+<<<<<<< HEAD
         private async Task<AuthResultVm> GenerateJwtToken(User user)
         {
             var userRoles = await _userManager.GetRolesAsync(user);
@@ -115,6 +116,20 @@ namespace BookingCare.WebAPI.Controllers
             {
                 claims.Add(new Claim(ClaimTypes.Role, role));
             }
+=======
+        private async Task<string> GenerateJwtToken(User user)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+
+            var roles = await _userManager.GetRolesAsync(user);
+            claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
+>>>>>>> main
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -127,6 +142,7 @@ namespace BookingCare.WebAPI.Controllers
                 signingCredentials: creds
             );
 
+<<<<<<< HEAD
             var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
 
             var refreshToken = new RefreshToken
@@ -151,3 +167,9 @@ namespace BookingCare.WebAPI.Controllers
         }
     }
 }
+=======
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+    }
+    }
+>>>>>>> main

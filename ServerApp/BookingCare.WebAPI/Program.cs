@@ -13,11 +13,15 @@ using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
+<<<<<<< HEAD
 // Add services to the container.
+=======
+>>>>>>> main
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
+<<<<<<< HEAD
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyAPI", Version = "v1" });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
@@ -26,10 +30,18 @@ builder.Services.AddSwaggerGen(c =>
                       \r\n\r\nExample: 'Bearer 12345abcdef'",
         Name = "Authorization",
         BearerFormat = "JWT",
+=======
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "BookingCare API", Version = "v1" });
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = "JWT Authorization header using Bearer scheme. Example: 'Bearer {token}'",
+        Name = "Authorization",
+>>>>>>> main
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.ApiKey,
         Scheme = "Bearer"
     });
+<<<<<<< HEAD
 
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {{
@@ -48,11 +60,31 @@ builder.Services.AddSwaggerGen(c =>
 // Configure DbContext
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+=======
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
+});
+
+// Configure DbContext
+>>>>>>> main
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("conn"));
 });
 
+<<<<<<< HEAD
 builder.Services
     .AddAuthentication(config =>
 {
@@ -103,6 +135,9 @@ config.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
         };
     });
 // Cấu hình Identity với AppUser và IdentityRole<int>
+=======
+// Configure Identity
+>>>>>>> main
 builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
 {
     options.Password.RequireDigit = true;
@@ -114,6 +149,48 @@ builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
 .AddEntityFrameworkStores<AppDbContext>()
 .AddDefaultTokenProviders();
 
+<<<<<<< HEAD
+=======
+// Configure JWT Authentication
+builder.Services
+    .AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(options =>
+    {
+        options.SaveToken = true;
+        options.RequireHttpsMetadata = false;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"])),
+            ValidateIssuer = true,
+            ValidIssuer = builder.Configuration["JWT:Issuer"],
+            ValidateAudience = true,
+            ValidAudience = builder.Configuration["JWT:Audience"],
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero,
+            NameClaimType = ClaimTypes.NameIdentifier, // Lấy userId từ NameIdentifier
+            RoleClaimType = ClaimTypes.Role
+        };
+        options.Events = new JwtBearerEvents
+        {
+            OnTokenValidated = context =>
+            {
+                Console.WriteLine("Token validated successfully");
+                return Task.CompletedTask;
+            },
+            OnAuthenticationFailed = context =>
+            {
+                Console.WriteLine("Authentication failed: " + context.Exception.Message);
+                return Task.CompletedTask;
+            }
+        };
+    });
+>>>>>>> main
 
 // Dependency Injection
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -125,7 +202,28 @@ builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<IFeedbackService, FeedbackService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
+<<<<<<< HEAD
 builder.Services.AddScoped<ISpecializationService, SpecializationService>();
+=======
+builder.Services.AddScoped<IAppointmentService, AppointmentService>();
+builder.Services.AddScoped<IMedicalRecordService, MedicalRecordService>();
+builder.Services.AddScoped<ISpecializationService, SpecializationService>();
+builder.Services.AddScoped<IScheduleService, ScheduleService>();
+
+//Config CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200")
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials();
+
+        });
+});
+>>>>>>> main
 
 var app = builder.Build();
 
@@ -137,6 +235,12 @@ using (var scope = app.Services.CreateScope())
     context.Database.Migrate(); // Áp dụng migration
 }
 
+<<<<<<< HEAD
+=======
+// Using CORS
+app.UseCors("AllowAngularApp");
+
+>>>>>>> main
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

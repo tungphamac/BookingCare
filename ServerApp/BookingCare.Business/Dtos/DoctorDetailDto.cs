@@ -15,7 +15,11 @@
     }
     public class CreateDoctorDto
     {
+<<<<<<< HEAD
        
+=======
+
+>>>>>>> main
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; } // Thêm mật khẩu
@@ -40,5 +44,8 @@
         public int ClinicId { get; set; }
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 }
