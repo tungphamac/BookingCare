@@ -20,6 +20,7 @@ namespace BookingCare.Data.Data
         public DbSet<Specialization> Specializations { get; set; }
         public DbSet<MedicalRecord> MedicalRecords { get; set; }
         public DbSet<Notification> Notifications { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {

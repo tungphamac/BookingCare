@@ -52,6 +52,8 @@ namespace BookingCare.Data.Repositories
         /// <param name="id">The Id of the entity to delete.</param>
         void Delete(int id);
 
+        Task DeleteAsync(int id);//Them delete async
+
         /// <summary>
         /// Deletes the specified entity.
         /// </summary>
@@ -82,6 +84,8 @@ namespace BookingCare.Data.Repositories
             Expression<Func<T, bool>>? filter = null,
             Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
             string includeProperties = "");
+
+        Task<T> GetSingleAsync(Expression<Func<T, bool>> predicate);
 
     }
 }

@@ -9,6 +9,6 @@ namespace BookingCare.Business.Services.Interfaces
         Task CreateNotificationAsync(int userId, string message, int appointmentId);
         Task<List<NotificationDto>> GetNotificationsAsync(int userId);
         Task<AppointmentDetailDto> GetAppointmentDetailAsync(int appointmentId);
-        Task RespondToAppointmentAsync(int appointmentId, bool accept);
+        Task RespondToAppointmentAsync(int appointmentId, bool accept, int userId);
     }
 }

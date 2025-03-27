@@ -1,6 +1,8 @@
 ﻿using BookingCare.API.Dtos;
 using BookingCare.Business.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace BookingCare.API.Controllers
 {
@@ -18,6 +20,7 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpGet("notifications")]
+        [Authorize(Roles = "Doctor,Patient,Admin")]
         public async Task<IActionResult> GetNotifications([FromQuery] int userId)
         {
             try
@@ -38,6 +41,7 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpGet("appointment/{appointmentId}")]
+        [Authorize(Roles = "Doctor,Patient,Admin")]
         public async Task<IActionResult> GetAppointmentDetail(int appointmentId)
         {
             try
@@ -58,16 +62,28 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpPost("respond/{appointmentId}")]
+        [Authorize(Roles = "Doctor")] // Chỉ bác sĩ mới được phản hồi lịch hẹn
         public async Task<IActionResult> RespondToAppointment(int appointmentId, [FromQuery] bool accept)
         {
             try
             {
-                await _notificationService.RespondToAppointmentAsync(appointmentId, accept);
+                // Lấy userId từ token
+                var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+                if (userId <= 0)
+                {
+                    return Unauthorized(new { Message = "Invalid user ID." });
+                }
+
+                await _notificationService.RespondToAppointmentAsync(appointmentId, accept, userId);
                 return Ok(new { Message = $"Appointment {appointmentId} has been {(accept ? "accepted" : "rejected")}." });
             }
             catch (ArgumentException ex)
             {
                 return NotFound(ex.Message);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new { Message = ex.Message });
             }
             catch (Exception ex)
             {
