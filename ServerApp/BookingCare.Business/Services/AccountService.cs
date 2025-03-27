@@ -1,6 +1,7 @@
 ﻿using BookingCare.Business.Services.Interfaces;
 using BookingCare.Data.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +12,14 @@ namespace BookingCare.Business.Services
 {
     public class AccountService : IAccountService
     {
-
+        private readonly ILogger<AccountService> _logger;
         private readonly UserManager<User> _userManager;
         private readonly IEmailService _emailService;
-        public AccountService(UserManager<User> userManager, IEmailService emailService)
+        public AccountService(UserManager<User> userManager, IEmailService emailService, ILogger<AccountService> logger)
         {
             _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
             _emailService = emailService ?? throw new ArgumentNullException(nameof(emailService));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
         public async Task<(bool Success, string Message, string[] Errors)> ChangePasswordAsync(int userId, string oldPassword, string newPassword, string confirmNewPassword)
         {
@@ -92,5 +94,72 @@ namespace BookingCare.Business.Services
 
             return (true, "Mật khẩu đã được đặt lại thành công.", null);
         }
+
+        public async Task<bool> LockUserAccountAsync(int userId, DateTime lockUntil)
+        {
+            try
+            {
+                var user = await _userManager.FindByIdAsync(userId.ToString());
+                if (user == null)
+                {
+                    _logger.LogWarning($"User with Id {userId} not found.");
+                    return false;
+                }
+
+
+                //user.LockoutEnabled = true;
+                //user.LockoutEnd = DateTime.UtcNow.AddMinutes(5);;
+
+                var result = await _userManager.UpdateAsync(user);
+                if (result.Succeeded)
+                {
+                    _logger.LogInformation($"User with Id {userId} locked until {lockUntil}.");
+                    return true;
+                }
+
+                _logger.LogError($"Failed to lock account for user {userId}.");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error locking account for user {userId}.");
+                throw;
+            }
+        }
+
+        public async Task<bool> UnlockUserAccountAsync(int userId)
+        {
+            try
+            {
+                var user = await _userManager.FindByIdAsync(userId.ToString());
+                if (user == null)
+                {
+                    _logger.LogWarning($"User with Id {userId} not found.");
+                    return false;
+                }
+
+                user.LockoutEnabled = false;
+                user.LockoutEnd = null;
+
+                var result = await _userManager.UpdateAsync(user);
+                if (result.Succeeded)
+                {
+                    _logger.LogInformation($"User with Id {userId} unlocked.");
+                    return true;
+                }
+
+                _logger.LogError($"Failed to unlock account for user {userId}.");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error unlocking account for user {userId}.");
+                throw;
+            }
+        }
+
+        // Các phương thức khác: ChangePasswordAsync, ForgotPasswordAsync, ResetPasswordAsync
     }
+
 }
+

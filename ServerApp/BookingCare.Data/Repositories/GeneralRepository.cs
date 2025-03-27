@@ -36,6 +36,16 @@ namespace BookingCare.Data.Repositories
             }
         }
 
+        public async Task DeleteAsync(int id)
+        {
+            var entity = await _dbSet.FindAsync(id);
+
+            if (entity != null)
+            {
+                _dbSet.Remove(entity);
+            }
+        }
+
         public void Delete(T entity)
         {
             if (entity != null)

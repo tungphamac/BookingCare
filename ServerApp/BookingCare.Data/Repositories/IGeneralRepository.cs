@@ -52,6 +52,8 @@ namespace BookingCare.Data.Repositories
         /// <param name="id">The Id of the entity to delete.</param>
         void Delete(int id);
 
+        Task DeleteAsync(int id);//Them delete async
+
         /// <summary>
         /// Deletes the specified entity.
         /// </summary>

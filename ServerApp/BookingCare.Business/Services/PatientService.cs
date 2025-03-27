@@ -1,9 +1,9 @@
 ﻿using BookingCare.API.Dtos;
 using BookingCare.Business.Services.Base;
 using BookingCare.Business.Services.Interfaces;
-using BookingCare.Business.ViewModels;
 using BookingCare.Data.Infrastructure;
 using BookingCare.Data.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -11,9 +11,40 @@ namespace BookingCare.Business.Services
 {
     public class PatientService : BaseService<Patient>, IPatientService
     {
-        public PatientService(ILogger<PatientService> logger, IUnitOfWork unitOfWork)
+        private readonly UserManager<User> _userManager;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly ILogger<PatientService> _logger;
+
+        public PatientService(ILogger<PatientService> logger, IUnitOfWork unitOfWork, UserManager<User> userManager)
             : base(logger, unitOfWork)
         {
+            _userManager = userManager;
+            _unitOfWork = unitOfWork;
+            _logger = logger;
+        }
+
+        public async Task<IEnumerable<PatientDetailDto>> GetAllAsync()
+        {
+            var patients = await _unitOfWork.PatientRepository
+                .GetQuery()
+                .Include(p => p.User)
+                .ToListAsync();
+
+            if (patients == null || !patients.Any())
+            {
+                return new List<PatientDetailDto>();
+            }
+
+            return patients.Select(p => new PatientDetailDto
+            {
+                UserId = p.UserId,
+                UserName = p.User?.UserName ?? "No name",
+                Email = p.User?.Email ?? "No email",
+                Gender = p.User?.Gender ?? false,
+                Address = p.User?.Address ?? "No address",
+                Avatar = p.User?.Avatar ?? "default.jpg",
+                MedicalRecordId = p.MedicalRecordId
+            }).ToList();
         }
 
         public async Task<PatientDetailDto?> GetPatientDetailAsync(int id)
@@ -50,59 +81,65 @@ namespace BookingCare.Business.Services
             }
         }
 
-        public async Task<UpdatePartientVm?> UpdatePatientAsync(int id, UpdatePartientVm patient)
+        public async Task<int> AddPatientAsync(Patient patient)
+        {
+            if (patient != null)
+            {
+                await _unitOfWork.PatientRepository.AddAsync(patient);
+                return await _unitOfWork.SaveChangesAsync();
+            }
+            return 0;
+        }
+
+        public async Task<bool> UpdatePatientAsync(Patient patient)
+        {
+            if (patient != null)
+            {
+                _unitOfWork.PatientRepository.Update(patient);
+                return await _unitOfWork.SaveChangesAsync() > 0;
+            }
+            return false;
+        }
+
+        public async Task<bool> DeleteAsync(Patient patient)
+        {
+            if (patient != null)
+            {
+                _unitOfWork.PatientRepository.Delete(patient);
+                return await _unitOfWork.SaveChangesAsync() > 0;
+            }
+            return false;
+        }
+
+        public async Task<bool> LockUserAccountAsync(int userId, DateTime lockUntil)
         {
             try
             {
-                // Tìm Patient theo UserId
-                var existingPatient = await _unitOfWork.PatientRepository
-                    .GetQuery(p => p.UserId == id)
-                    .Include(p => p.User)
-                    .FirstOrDefaultAsync();
+                var user = await _userManager.FindByIdAsync(userId.ToString());
 
-                if (existingPatient == null)
+                if (user == null)
                 {
-                    _logger.LogWarning($"Patient with ID {id} not found.");
-                    return null;
+                    _logger.LogWarning($"User with Id {userId} not found.");
+                    return false;
                 }
 
-                // Cập nhật thông tin User
-                var user = existingPatient.User;
-                user.UserName = patient.UserName ?? user.UserName;
-                user.Email = patient.Email ?? user.Email;
-                user.Gender = patient.Gender; // Giả sử Gender là thuộc tính của User
-                user.Address = patient.Address ?? user.Address;
-                user.Avatar = patient.Avatar ?? user.Avatar;
+                user.LockoutEnabled = true;
+                user.LockoutEnd = lockUntil;
 
-                // Nếu Phone là thuộc tính của User hoặc Patient
-                // Giả sử Phone thuộc User, nếu thuộc Patient thì thêm vào entity Patient
-                if (!string.IsNullOrEmpty(patient.Phone))
+                var result = await _userManager.UpdateAsync(user);
+
+                if (result.Succeeded)
                 {
-                    // Cập nhật Phone vào User (nếu User có thuộc tính PhoneNumber)
-                    // Nếu không, cần thêm Phone vào Patient entity
-                    user.PhoneNumber = patient.Phone;
+                    _logger.LogInformation($"User with Id {userId} has been locked until {lockUntil}.");
+                    return true;
                 }
 
-                // Cập nhật User qua UnitOfWork
-                _unitOfWork.UserRepository.Update(user);
-
-                // Lưu thay đổi vào database
-                await _unitOfWork.SaveChangesAsync();
-
-                // Trả về thông tin vừa cập nhật
-                return new UpdatePartientVm
-                {
-                    UserName = user.UserName,
-                    Gender = user.Gender,
-                    Address = user.Address,
-                    Phone = user.PhoneNumber, // Nếu không có PhoneNumber, bỏ dòng này
-                    Email = user.Email,
-                    Avatar = user.Avatar
-                };
+                _logger.LogError($"Failed to lock account for user {userId}.");
+                return false;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Error updating patient with ID {id}.");
+                _logger.LogError(ex, $"Error locking account for user {userId}.");
                 throw;
             }
         }

@@ -18,4 +18,13 @@ namespace BookingCare.Business.Dtos
         public int ScheduleId { get; set; }
         public int ClinicId { get; set; }
     }
+    public class AppointmentCreateDto
+    {
+        public DateTime Date { get; set; }
+        public TimeSpan Time { get; set; }
+        public string Reason { get; set; }
+        public int DoctorId { get; set; }
+        public int ScheduleId { get; set; }
+        public int ClinicId { get; set; }
+    }
 }
