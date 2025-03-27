@@ -1,10 +1,13 @@
 ﻿using BookingCare.API.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using BookingCare.Business.Services.Interfaces;
+<<<<<<< HEAD
+=======
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using BookingCare.Business.ViewModels;
 
+>>>>>>> main
 namespace BookingCare.API.Controllers
 {
     [Route("api/[controller]")]
@@ -20,6 +23,28 @@ namespace BookingCare.API.Controllers
             _logger = logger;
         }
 
+<<<<<<< HEAD
+        [HttpPost]
+        public async Task<IActionResult> CreateFeedback([FromBody] CreateFeedbackDto feedbackDto)
+        {
+            try
+            {
+                await _feedbackService.CreateFeedbackAsync(feedbackDto);
+                return Ok(new { Message = "Feedback created successfully." });
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { Message = ex.Message });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new { Message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error creating feedback for Appointment ID {feedbackDto.AppointmentId}.");
+                return StatusCode(500, "An error occurred while creating the feedback.");
+=======
         [HttpGet("get-all-feedbacks")]
         public async Task<IActionResult> GetAllFeedbacks()
         {
@@ -103,11 +128,15 @@ namespace BookingCare.API.Controllers
             catch (Exception ex)
             {
                 return Problem($"Error deleting feedback: {ex.Message}");
+>>>>>>> main
             }
         }
 
         [HttpGet("appointment/{appointmentId}")]
+<<<<<<< HEAD
+=======
         [Authorize(Roles = "Doctor,Patient,Admin")] // Bác sĩ, bệnh nhân, hoặc admin có thể xem phản hồi
+>>>>>>> main
         public async Task<IActionResult> GetFeedbackByAppointment(int appointmentId)
         {
             try

@@ -1,8 +1,11 @@
 ﻿using BookingCare.API.Dtos;
 using BookingCare.Business.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+<<<<<<< HEAD
+=======
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+>>>>>>> main
 
 namespace BookingCare.API.Controllers
 {
@@ -20,7 +23,10 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpGet("notifications")]
+<<<<<<< HEAD
+=======
         [Authorize(Roles = "Doctor,Patient,Admin")]
+>>>>>>> main
         public async Task<IActionResult> GetNotifications([FromQuery] int userId)
         {
             try
@@ -41,7 +47,10 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpGet("appointment/{appointmentId}")]
+<<<<<<< HEAD
+=======
         [Authorize(Roles = "Doctor,Patient,Admin")]
+>>>>>>> main
         public async Task<IActionResult> GetAppointmentDetail(int appointmentId)
         {
             try
@@ -62,11 +71,17 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpPost("respond/{appointmentId}")]
+<<<<<<< HEAD
+=======
         [Authorize(Roles = "Doctor")] // Chỉ bác sĩ mới được phản hồi lịch hẹn
+>>>>>>> main
         public async Task<IActionResult> RespondToAppointment(int appointmentId, [FromQuery] bool accept)
         {
             try
             {
+<<<<<<< HEAD
+                await _notificationService.RespondToAppointmentAsync(appointmentId, accept);
+=======
                 // Lấy userId từ token
                 var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
                 if (userId <= 0)
@@ -75,16 +90,20 @@ namespace BookingCare.API.Controllers
                 }
 
                 await _notificationService.RespondToAppointmentAsync(appointmentId, accept, userId);
+>>>>>>> main
                 return Ok(new { Message = $"Appointment {appointmentId} has been {(accept ? "accepted" : "rejected")}." });
             }
             catch (ArgumentException ex)
             {
                 return NotFound(ex.Message);
             }
+<<<<<<< HEAD
+=======
             catch (UnauthorizedAccessException ex)
             {
                 return Unauthorized(new { Message = ex.Message });
             }
+>>>>>>> main
             catch (Exception ex)
             {
                 _logger.LogError(ex, $"Error responding to appointment {appointmentId}.");
@@ -92,4 +111,8 @@ namespace BookingCare.API.Controllers
             }
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> main

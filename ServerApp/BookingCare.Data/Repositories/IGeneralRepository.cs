@@ -85,7 +85,10 @@ namespace BookingCare.Data.Repositories
             Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
             string includeProperties = "");
 
+<<<<<<< HEAD
+=======
         Task<T> GetSingleAsync(Expression<Func<T, bool>> predicate);
 
+>>>>>>> main
     }
 }

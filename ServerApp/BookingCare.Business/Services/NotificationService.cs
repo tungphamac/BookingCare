@@ -10,6 +10,11 @@ namespace BookingCare.Business.Services
 {
     public class NotificationService : BaseService<Notification>, INotificationService
     {
+<<<<<<< HEAD
+        public NotificationService(ILogger<NotificationService> logger, IUnitOfWork unitOfWork)
+            : base(logger, unitOfWork)
+        {
+=======
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<NotificationService> _logger;
 
@@ -18,6 +23,7 @@ namespace BookingCare.Business.Services
         {
             _unitOfWork = unitOfWork;
             _logger = logger;
+>>>>>>> main
         }
 
         public async Task CreateNotificationAsync(int userId, string message, int appointmentId)
@@ -106,7 +112,11 @@ namespace BookingCare.Business.Services
             }
         }
 
+<<<<<<< HEAD
+        public async Task RespondToAppointmentAsync(int appointmentId, bool accept)
+=======
         public async Task RespondToAppointmentAsync(int appointmentId, bool accept, int userId) // Thêm userId làm tham số
+>>>>>>> main
         {
             try
             {
@@ -121,12 +131,15 @@ namespace BookingCare.Business.Services
                     throw new ArgumentException($"Appointment with ID {appointmentId} not found.");
                 }
 
+<<<<<<< HEAD
+=======
                 // Kiểm tra xem userId có phải là bác sĩ của cuộc hẹn không
                 if (appointment.DoctorId != userId)
                 {
                     throw new UnauthorizedAccessException("Only the assigned doctor can respond to this appointment.");
                 }
 
+>>>>>>> main
                 // Cập nhật trạng thái cuộc hẹn
                 appointment.Status = accept ? AppointmentStatus.Confirmed : AppointmentStatus.Rejected;
                 _unitOfWork.AppointmentRepository.Update(appointment);
@@ -146,4 +159,8 @@ namespace BookingCare.Business.Services
             }
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> main

@@ -98,6 +98,25 @@ namespace BookingCare.WebAPI.Controllers
             return Unauthorized();
         }
 
+<<<<<<< HEAD
+        private async Task<AuthResultVm> GenerateJwtToken(User user)
+        {
+            var userRoles = await _userManager.GetRolesAsync(user);
+
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                new Claim(JwtRegisteredClaimNames.Sub, user.Email),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
+
+            foreach (var role in userRoles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
+=======
         private async Task<string> GenerateJwtToken(User user)
         {
             var claims = new List<Claim>
@@ -110,6 +129,7 @@ namespace BookingCare.WebAPI.Controllers
 
             var roles = await _userManager.GetRolesAsync(user);
             claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
+>>>>>>> main
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -122,7 +142,34 @@ namespace BookingCare.WebAPI.Controllers
                 signingCredentials: creds
             );
 
+<<<<<<< HEAD
+            var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
+
+            var refreshToken = new RefreshToken
+            {
+                JwtId = token.Id,
+                UserId = user.Id,
+                Token = Guid.NewGuid().ToString() + "-" + Guid.NewGuid().ToString(),
+                DateAdded = DateTime.UtcNow,
+                DateExpire = DateTime.UtcNow.AddMonths(6),
+                IsRevoked = false
+            };
+
+            await _context.RefreshTokens.AddAsync(refreshToken);
+            await _context.SaveChangesAsync();
+
+            return new AuthResultVm
+            {
+                Token = jwtToken,
+                RefreshToken = refreshToken.Token,
+                ExpiresAt = token.ValidTo
+            };
+        }
+    }
+}
+=======
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
     }
+>>>>>>> main

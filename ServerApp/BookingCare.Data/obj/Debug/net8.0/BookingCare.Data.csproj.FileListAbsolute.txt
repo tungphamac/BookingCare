@@ -28,6 +28,32 @@ D:\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\refint\BookingCar
 D:\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.pdb
 D:\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.genruntimeconfig.cache
 D:\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\ref\BookingCare.Data.dll
+<<<<<<< HEAD
+D:\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.csproj.AssemblyReference.cache
+D:\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.AssemblyInfoInputs.cache
+D:\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.AssemblyInfo.cs
+D:\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.csproj.CoreCompileInputs.cache
+D:\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.sourcelink.json
+D:\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.dll
+D:\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\refint\BookingCare.Data.dll
+D:\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.pdb
+C:\Users\thanh\OneDrive\Máy tính\GIt 2\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\bin\Debug\net8.0\BookingCare.Data.deps.json
+C:\Users\thanh\OneDrive\Máy tính\GIt 2\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\bin\Debug\net8.0\BookingCare.Data.runtimeconfig.json
+C:\Users\thanh\OneDrive\Máy tính\GIt 2\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\bin\Debug\net8.0\BookingCare.Data.dll
+C:\Users\thanh\OneDrive\Máy tính\GIt 2\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\bin\Debug\net8.0\BookingCare.Data.pdb
+C:\Users\thanh\OneDrive\Máy tính\GIt 2\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.csproj.AssemblyReference.cache
+C:\Users\thanh\OneDrive\Máy tính\GIt 2\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\thanh\OneDrive\Máy tính\GIt 2\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.AssemblyInfoInputs.cache
+C:\Users\thanh\OneDrive\Máy tính\GIt 2\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.AssemblyInfo.cs
+C:\Users\thanh\OneDrive\Máy tính\GIt 2\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.csproj.CoreCompileInputs.cache
+C:\Users\thanh\OneDrive\Máy tính\GIt 2\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.sourcelink.json
+C:\Users\thanh\OneDrive\Máy tính\GIt 2\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.dll
+C:\Users\thanh\OneDrive\Máy tính\GIt 2\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\refint\BookingCare.Data.dll
+C:\Users\thanh\OneDrive\Máy tính\GIt 2\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.pdb
+C:\Users\thanh\OneDrive\Máy tính\GIt 2\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.genruntimeconfig.cache
+C:\Users\thanh\OneDrive\Máy tính\GIt 2\GIt 2\GIt\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\ref\BookingCare.Data.dll
+=======
 C:\Users\khanh\Downloads\Project\BookingCare\ServerApp\BookingCare.Data\bin\Debug\net8.0\BookingCare.Data.deps.json
 C:\Users\khanh\Downloads\Project\BookingCare\ServerApp\BookingCare.Data\bin\Debug\net8.0\BookingCare.Data.runtimeconfig.json
 C:\Users\khanh\Downloads\Project\BookingCare\ServerApp\BookingCare.Data\bin\Debug\net8.0\BookingCare.Data.dll
@@ -58,18 +84,4 @@ D:\Project\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\refint\Bookin
 D:\Project\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.pdb
 D:\Project\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.genruntimeconfig.cache
 D:\Project\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\ref\BookingCare.Data.dll
-C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.Data\bin\Debug\net8.0\BookingCare.Data.deps.json
-C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.Data\bin\Debug\net8.0\BookingCare.Data.runtimeconfig.json
-C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.Data\bin\Debug\net8.0\BookingCare.Data.dll
-C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.Data\bin\Debug\net8.0\BookingCare.Data.pdb
-C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.csproj.AssemblyReference.cache
-C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.AssemblyInfoInputs.cache
-C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.AssemblyInfo.cs
-C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.csproj.CoreCompileInputs.cache
-C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.sourcelink.json
-C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.dll
-C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\refint\BookingCare.Data.dll
-C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.pdb
-C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.genruntimeconfig.cache
-C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\ref\BookingCare.Data.dll
+>>>>>>> main

@@ -1,30 +1,45 @@
 ﻿using BookingCare.API.Dtos;
 using BookingCare.Business.Services.Base;
 using BookingCare.Business.Services.Interfaces;
+<<<<<<< HEAD
+=======
 using BookingCare.Business.ViewModels;
+>>>>>>> main
 using BookingCare.Data.Infrastructure;
 using BookingCare.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+<<<<<<< HEAD
+=======
 using System.Security.Claims;
+>>>>>>> main
 
 namespace BookingCare.Business.Services
 {
     public class FeedbackService : BaseService<Feedback>, IFeedbackService
     {
         private readonly INotificationService _notificationService;
+<<<<<<< HEAD
+=======
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<FeedbackService> _logger;
+>>>>>>> main
 
         public FeedbackService(ILogger<FeedbackService> logger, IUnitOfWork unitOfWork, INotificationService notificationService)
             : base(logger, unitOfWork)
         {
             _notificationService = notificationService;
+<<<<<<< HEAD
+        }
+
+        public async Task CreateFeedbackAsync(CreateFeedbackDto feedbackDto)
+=======
             _unitOfWork = unitOfWork;
             _logger = logger;
         }
 
         public async Task CreateFeedbackAsync(CreateFeedbackDto feedbackDto, int userId) // Thêm userId làm tham số
+>>>>>>> main
         {
             try
             {
@@ -40,12 +55,15 @@ namespace BookingCare.Business.Services
                     throw new ArgumentException($"Appointment with ID {feedbackDto.AppointmentId} not found.");
                 }
 
+<<<<<<< HEAD
+=======
                 // Kiểm tra xem userId có phải là bệnh nhân của cuộc hẹn không
                 if (appointment.PatientId != userId)
                 {
                     throw new UnauthorizedAccessException("Only the patient of this appointment can submit feedback.");
                 }
 
+>>>>>>> main
                 // Kiểm tra xem cuộc hẹn đã có phản hồi chưa
                 var existingFeedback = await _unitOfWork.FeedbackRepository
                     .GetQuery(f => f.AppointmentId == feedbackDto.AppointmentId)
@@ -111,6 +129,8 @@ namespace BookingCare.Business.Services
                 throw;
             }
         }
+<<<<<<< HEAD
+=======
 
         public async Task<IEnumerable<FeedbackVm>> GetAllFeedbacksAsync()
         {
@@ -209,5 +229,6 @@ namespace BookingCare.Business.Services
             if (feedbackVm.Rating < 1 || feedbackVm.Rating > 5) throw new ArgumentException("Rating must be between 1 and 5.");
             if (string.IsNullOrWhiteSpace(feedbackVm.Comment)) throw new ArgumentException("Comment cannot be empty.");
         }
+>>>>>>> main
     }
 }

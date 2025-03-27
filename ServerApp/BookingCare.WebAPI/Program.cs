@@ -13,19 +13,54 @@ using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
+<<<<<<< HEAD
+// Add services to the container.
+=======
+>>>>>>> main
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
+<<<<<<< HEAD
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyAPI", Version = "v1" });
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = @"JWT Authorization header using the Bearer scheme. \r\n\r\n 
+                      Enter 'Bearer' [space] and then your token in the text input below.
+                      \r\n\r\nExample: 'Bearer 12345abcdef'",
+        Name = "Authorization",
+        BearerFormat = "JWT",
+=======
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "BookingCare API", Version = "v1" });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "JWT Authorization header using Bearer scheme. Example: 'Bearer {token}'",
         Name = "Authorization",
+>>>>>>> main
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.ApiKey,
         Scheme = "Bearer"
     });
+<<<<<<< HEAD
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {{
+                          new OpenApiSecurityScheme
+                          {
+                              Reference = new OpenApiReference
+                              {
+                                  Type = ReferenceType.SecurityScheme,
+                                  Id = "Bearer"
+                              }
+                          },
+                         new string[] {}
+                    }
+                });
+});
+// Configure DbContext
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+=======
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
@@ -43,12 +78,66 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 // Configure DbContext
+>>>>>>> main
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("conn"));
 });
 
+<<<<<<< HEAD
+builder.Services
+    .AddAuthentication(config =>
+{
+config.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+config.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+config.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+    .AddJwtBearer(options =>
+    {
+    options.SaveToken = true;
+    options.RequireHttpsMetadata = false;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"])),
+        ValidateIssuer = true,
+        ValidIssuer = builder.Configuration["JWT:Issuer"],
+        ValidateAudience = true,
+        ValidAudience = builder.Configuration["JWT:Audience"],
+        ValidateLifetime = true,
+        ClockSkew = TimeSpan.Zero,
+        // Ánh xạ claim
+        NameClaimType = ClaimTypes.Name,                         // "khanh2"
+        RoleClaimType = ClaimTypes.Role,                         // "Patient"
+
+    };
+        // Ánh xạ claim
+        options.TokenValidationParameters.NameClaimType = ClaimTypes.Name;
+        options.TokenValidationParameters.RoleClaimType = ClaimTypes.Role;
+
+        options.Events = new JwtBearerEvents
+        {
+            OnAuthenticationFailed = context =>
+            {
+                context.Response.StatusCode = 401;
+                context.Response.ContentType = "application/json";
+                var result = System.Text.Json.JsonSerializer.Serialize(new { message = "Authentication failed." });
+                return context.Response.WriteAsync(result);
+            },
+            OnChallenge = context =>
+            {
+                context.HandleResponse();
+                context.Response.StatusCode = 401;
+                context.Response.ContentType = "application/json";
+                var result = System.Text.Json.JsonSerializer.Serialize(new { message = "Unauthorized. Please provide a valid token." });
+                return context.Response.WriteAsync(result);
+            }
+        };
+    });
+// Cấu hình Identity với AppUser và IdentityRole<int>
+=======
 // Configure Identity
+>>>>>>> main
 builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
 {
     options.Password.RequireDigit = true;
@@ -60,6 +149,8 @@ builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
 .AddEntityFrameworkStores<AppDbContext>()
 .AddDefaultTokenProviders();
 
+<<<<<<< HEAD
+=======
 // Configure JWT Authentication
 builder.Services
     .AddAuthentication(options =>
@@ -99,6 +190,7 @@ builder.Services
             }
         };
     });
+>>>>>>> main
 
 // Dependency Injection
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -110,6 +202,9 @@ builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<IFeedbackService, FeedbackService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
+<<<<<<< HEAD
+builder.Services.AddScoped<ISpecializationService, SpecializationService>();
+=======
 builder.Services.AddScoped<IAppointmentService, AppointmentService>();
 builder.Services.AddScoped<IMedicalRecordService, MedicalRecordService>();
 builder.Services.AddScoped<ISpecializationService, SpecializationService>();
@@ -128,6 +223,7 @@ builder.Services.AddCors(options =>
 
         });
 });
+>>>>>>> main
 
 var app = builder.Build();
 
@@ -139,9 +235,12 @@ using (var scope = app.Services.CreateScope())
     context.Database.Migrate(); // Áp dụng migration
 }
 
+<<<<<<< HEAD
+=======
 // Using CORS
 app.UseCors("AllowAngularApp");
 
+>>>>>>> main
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

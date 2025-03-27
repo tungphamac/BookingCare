@@ -1,4 +1,5 @@
 ﻿using BookingCare.Data.Infrastructure;
+using BookingCare.Data.Models;
 using Microsoft.Extensions.Logging;
 
 namespace BookingCare.Business.Services.Base
@@ -24,6 +25,13 @@ namespace BookingCare.Business.Services.Base
 
             _logger.LogError("Entity is null!");
             throw new ArgumentNullException(nameof(entity));
+        }
+        public async Task<int> AddPatientAsync(Patient patient)
+        {
+            // Thêm bệnh nhân vào cơ sở dữ liệu
+            _unitOfWork.PatientRepository.Add(patient);
+            await _unitOfWork.SaveChangesAsync();
+            return patient.UserId; // Trả về ID của bệnh nhân vừa thêm
         }
 
         public virtual bool Delete(int id)

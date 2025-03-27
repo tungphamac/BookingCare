@@ -1,16 +1,33 @@
 ﻿using BookingCare.API.Dtos;
 using BookingCare.Business.Services.Base;
 using BookingCare.Business.Services.Interfaces;
+<<<<<<< HEAD
+using BookingCare.Data.Infrastructure;
+using BookingCare.Data.Models;
+using BookingCare.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
+=======
 using BookingCare.Business.ViewModels;
 using BookingCare.Data.Infrastructure;
 using BookingCare.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+>>>>>>> main
 
 namespace BookingCare.Business.Services
 {
     public class ClinicService : BaseService<Clinic>, IClinicService
     {
+<<<<<<< HEAD
+        public ClinicService(ILogger<ClinicService> logger, IUnitOfWork unitOfWork)
+            : base(logger, unitOfWork)
+        {
+        }
+
+        public async Task<ClinicDetailDto?> GetClinicDetailAsync(int id)
+=======
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<ClinicService> _logger;
 
@@ -22,6 +39,7 @@ namespace BookingCare.Business.Services
         }
 
         public async Task<ClinicDetailDto> GetClinicByIdAsync(int id)
+>>>>>>> main
         {
             try
             {
@@ -33,7 +51,11 @@ namespace BookingCare.Business.Services
                         Name = c.Name,
                         Address = c.Address,
                         Phone = c.Phone,
+<<<<<<< HEAD
+                        Introduction = c.Introduction,
+=======
                         Introduction = c.Introduction, // Sửa từ Description thành Introduction
+>>>>>>> main
                         CreateAt = c.CreateAt
                     })
                     .FirstOrDefaultAsync();
@@ -41,13 +63,25 @@ namespace BookingCare.Business.Services
                 if (clinic == null)
                 {
                     _logger.LogWarning($"Clinic with ID {id} not found.");
+<<<<<<< HEAD
+                    return null;
+=======
                     throw new ArgumentException($"Clinic with ID {id} not found.");
+>>>>>>> main
                 }
 
                 return clinic;
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
+                _logger.LogError(ex, $"Error retrieving clinic details for ID {id}.");
+                throw;
+            }
+        }
+    }
+}
+=======
                 _logger.LogError(ex, $"Error retrieving clinic with ID {id}.");
                 throw;
             }
@@ -203,3 +237,4 @@ namespace BookingCare.Business.Services
         }
     }
 }
+>>>>>>> main
