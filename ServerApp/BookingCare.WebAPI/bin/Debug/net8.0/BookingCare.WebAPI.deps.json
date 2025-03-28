@@ -1139,10 +1139,7 @@
           "BookingCare.Data": "1.0.0"
         },
         "runtime": {
-          "BookingCare.Business.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "BookingCare.Business.dll": {}
         }
       },
       "BookingCare.Data/1.0.0": {
@@ -1151,10 +1148,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.3"
         },
         "runtime": {
-          "BookingCare.Data.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "BookingCare.Data.dll": {}
         }
       }
     }
