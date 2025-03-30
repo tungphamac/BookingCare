@@ -28,9 +28,18 @@
 
                 <!-- Login & Register -->
                 <div class="auth-buttons">
-                    <button class="btn btn-outline-primary">Đăng nhập</button>
-                    <button class="btn btn-primary">Đăng ký</button>
+                    <ng-container *ngIf="user===undefined;else showLogout">
+                        <a [routerLink]="['/login']" class="btn btn-primary">Đăng Nhập</a>
+                    </ng-container>
+
                 </div>
+                <ng-template #showLogout>
+                    <div class="d-flex align-item-center">
+                        <span>Welcome: {{user?.email}}</span>
+                        <button class="btn btn-primary ms-3" (click)="onLogout()">Logout</button>
+                    </div>
+                </ng-template>
+
             </div>
         </nav>
     </div>

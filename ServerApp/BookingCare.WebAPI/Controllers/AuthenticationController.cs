@@ -40,7 +40,7 @@ namespace BookingCare.WebAPI.Controllers
 
             var userExists = await _userManager.FindByEmailAsync(registerVm.Email);
             if (userExists != null)
-                return BadRequest($"User {registerVm.Email} already exists");
+                return BadRequest(new { message = "Email đã tồn tại" });
 
             var newUser = new User
             {
@@ -48,6 +48,7 @@ namespace BookingCare.WebAPI.Controllers
                 Email = registerVm.Email,
                 Gender = registerVm.Gender,
                 Address = registerVm.Address,
+                PhoneNumber = registerVm.Phone,
                 Avatar = registerVm.Avatar,
                 SecurityStamp = Guid.NewGuid().ToString()
             };
@@ -76,7 +77,7 @@ namespace BookingCare.WebAPI.Controllers
             await _context.Patients.AddAsync(newPatient);
             await _context.SaveChangesAsync();
 
-            return Ok($"User {registerVm.Email} created successfully with role 'Patient'");
+            return Ok(new { message = $"User {registerVm.Email} created successfully with role 'Patient'" });
         }
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginVm loginVm)
@@ -92,7 +93,7 @@ namespace BookingCare.WebAPI.Controllers
             {
                 var tokenValue = await GenerateJwtToken(user);
 
-                return Ok(tokenValue);
+                return Ok(new { token = tokenValue });
             }
 
             return Unauthorized();
