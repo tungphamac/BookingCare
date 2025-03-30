@@ -35,7 +35,9 @@ namespace BookingCare.WebAPI.Controllers
         public async Task<IActionResult> Register([FromBody] RegisterVm registerVm)
         {
             if (!ModelState.IsValid)
-                return BadRequest("Please provide all required fields");
+            {
+                return BadRequest(ModelState); // Trả về lỗi chi tiết nếu request sai
+            }
 
             var userExists = await _userManager.FindByEmailAsync(registerVm.Email);
             if (userExists != null)
@@ -46,6 +48,7 @@ namespace BookingCare.WebAPI.Controllers
                 UserName = registerVm.UserName,
                 Email = registerVm.Email,
                 Gender = registerVm.Gender,
+                PhoneNumber = registerVm.Phone,
                 Address = registerVm.Address,
                 Avatar = registerVm.Avatar,
                 SecurityStamp = Guid.NewGuid().ToString()
@@ -91,7 +94,7 @@ namespace BookingCare.WebAPI.Controllers
             {
                 var tokenValue = await GenerateJwtToken(user);
 
-                return Ok(tokenValue);
+                return Ok(new { token = tokenValue });
             }
 
             return Unauthorized();

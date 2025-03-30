@@ -1,0 +1,75 @@
+/* Footer tổng thể */
+.footer {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+    font-size: 14px;
+    margin-top: 10%;
+}
+
+/* Container */
+.footer .container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Cột */
+.footer .row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Logo & mô tả */
+.footer-brand img {
+    height: 35px;
+    margin-bottom: 10px;
+}
+
+.footer-desc {
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+/* Tiêu đề */
+.footer-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Danh sách thông tin */
+.footer-list {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    color: #6c757d;
+}
+
+/* Mạng xã hội */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    color: #333;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #007bff;
+}
+
+/* Copyright */
+.footer-bottom {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #e9ecef;
+    margin-top: 20px;
+}
