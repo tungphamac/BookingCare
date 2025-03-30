@@ -4,7 +4,7 @@
 
         <form #ngForm (ngSubmit)="onFormSubmit()">
             <div class="form-group">
-                <label for="username">Tên đăng nhập</label>
+                <label for="Gmail">Gmail</label>
                 <input type="text" id="username" class="form-control" [(ngModel)]="model.email" name="username"
                     required>
             </div>
@@ -29,6 +29,9 @@
 
         <div class="register-link">
             Chưa có tài khoản?<a [routerLink]="['/register']" class="btn btn-primary">Register</a>
+        </div>
+        <div class="Forgotpassword-link">
+            Bạn Quên Mật Khẩu?<a [routerLink]="['/forgot-password']" class="btn btn-primary">Quên Mật Khẩu</a>
         </div>
     </div>
 </div>

@@ -35,8 +35,14 @@ namespace BookingCare.WebAPI.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterVm registerVm)
         {
+
             if (!ModelState.IsValid)
-                return BadRequest("Please provide all required fields");
+            {
+                var errors = ModelState.Values.SelectMany(v => v.Errors)
+                                              .Select(e => e.ErrorMessage)
+                                              .ToList();
+                return BadRequest(new { message = "Dữ liệu không hợp lệ", errors });
+            }
 
             var userExists = await _userManager.FindByEmailAsync(registerVm.Email);
             if (userExists != null)

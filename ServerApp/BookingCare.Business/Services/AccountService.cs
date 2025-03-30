@@ -52,7 +52,7 @@ namespace BookingCare.Business.Services
                 return (false, "Email không tồn tại.");
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-            var resetLink = $"https://yourdomain.com/reset-password?email={email}&token={Uri.EscapeDataString(token)}";
+            var resetLink = $"https://localhost:7182/api/Account/reset-password?email={email}&token={Uri.EscapeDataString(token)}";
 
             try
             {
