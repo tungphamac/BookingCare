@@ -1,0 +1,73 @@
+<div class="admin-container">
+    <div class="header">
+        <h2>Feedback Management</h2>
+        <div class="filters">
+            <select [(ngModel)]="ratingFilter" (change)="applyFilters()">
+                <option value="all">All Ratings</option>
+                <option value="5">5 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="2">2 Stars</option>
+                <option value="1">1 Star</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="stats-container">
+        <div class="stat-card">
+            <div class="stat-title">Total Feedback</div>
+            <div class="stat-value">{{ feedbackList.length }}</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-title">Average Rating</div>
+            <div class="stat-value">{{ calculateAverageRating() }} ★</div>
+        </div>
+    </div>
+
+    <div>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="'/feedbacks/add'">Add Feedback</a>
+        </li>
+    </div>
+    <div class="feedback-list">
+        <div class="list-header">
+            <div class="col">Id</div>
+            <div class="col">Appointment ID</div>
+            <div class="col">Rating</div>
+            <div class="col">Comment</div>
+            <div class="col actions">Actions</div>
+        </div>
+
+        <div *ngFor="let feedback of getPaginatedFeedback()" class="list-item">
+            <div class="col"> {{ feedback.id }}</div>
+            <div class="col">{{ feedback.appointmentId }}</div>
+            <div class="col">
+                <div class="rating">
+                    <span *ngFor="let star of [1,2,3,4,5]" [class.active]="star <= feedback.rating">★</span>
+                </div>
+            </div>
+            <div class="col comment">{{ feedback.comment }}</div>
+            <div class="col actions">
+                <button class="action-button delete" (click)="deleteFeedback(feedback.id)">
+                    Delete
+                </button>
+            </div>
+        </div>
+
+        <div *ngIf="getPaginatedFeedback().length === 0" class="no-data">
+            No feedback found.
+        </div>
+
+        <div class="pagination">
+            <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+
+            <button *ngFor="let page of getPageNumbers()" (click)="goToPage(page)"
+                [class.active]="page === currentPage">
+                {{ page }}
+            </button>
+
+            <button (click)="nextPage()" [disabled]="currentPage >= getTotalPages()">Next</button>
+        </div>
+    </div>
+
+</div>
