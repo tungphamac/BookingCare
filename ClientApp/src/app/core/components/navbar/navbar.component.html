@@ -29,10 +29,20 @@
                     <input type="text" placeholder="Tìm bác sĩ, chuyên khoa">
                 </div>
 
-                <!-- Login & Register -->
+                <!-- Login & User Profile -->
                 <div class="auth-buttons">
-                    <button class="btn btn-outline-primary">Đăng nhập</button>
-                    <button class="btn btn-primary">Đăng ký</button>
+                    <ng-container *ngIf="user===undefined; else showUserProfile">
+                        <a [routerLink]="['/login']" class="btn btn-primary">Đăng Nhập</a>
+                    </ng-container>
+
+                    <ng-template #showUserProfile>
+                        <div class="user-profile">
+                            <a [routerLink]="['/manage-account']" class="user-email">
+                                Xin chào, {{user?.email}}
+                            </a>
+                            <button class="btn btn-primary ms-2" (click)="onLogout()">Đăng xuất</button>
+                        </div>
+                    </ng-template>
                 </div>
             </div>
         </nav>

@@ -1,1 +1,35 @@
-<p>login works!</p>
+<div class="login-container">
+    <div class="card">
+        <h2>Đăng nhập</h2>
+        <form #ngForm (ngSubmit)="onFormSubmit()" class="login-form">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" [(ngModel)]="model.email" name="email" required
+                    placeholder="Nhập email của bạn" />
+            </div>
+
+            <div class="form-group">
+                <label for="password">Mật khẩu</label>
+                <input type="password" id="password" class="form-control" [(ngModel)]="model.password" name="password"
+                    required placeholder="Nhập mật khẩu của bạn" />
+            </div>
+
+            <div class="mt-2">
+                <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+                    {{ isLoading ? 'Đang đăng nhập...' : 'Đăng nhập' }}
+                </button>
+            </div>
+        </form>
+
+        <p *ngIf="errorMessage" class="message error">{{ errorMessage }}</p>
+
+        <div class="links">
+            <div class="register-link">
+                Chưa có tài khoản? <a [routerLink]="['/register']" class="link">Đăng ký</a>
+            </div>
+            <div class="forgot-password-link">
+                Quên mật khẩu? <a [routerLink]="['/forgot-password']" class="link">Khôi phục</a>
+            </div>
+        </div>
+    </div>
+</div>
