@@ -412,7 +412,7 @@
               "RelativeDocumentMoniker": "BookingCare.WebAPI\\appsettings.json",
               "ToolTip": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\appsettings.json",
               "RelativeToolTip": "BookingCare.WebAPI\\appsettings.json",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAmwB4AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAmwBEAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-03-21T02:21:08.341Z",
               "EditorCaption": ""
@@ -439,8 +439,7 @@
               "RelativeToolTip": "BookingCare.Business\\ViewModels\\ResetPasswordVm.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T10:01:01.79Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T10:01:01.79Z"
             },
             {
               "$type": "Document",
@@ -476,8 +475,7 @@
               "RelativeToolTip": "BookingCare.Business\\Services\\AccountService.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAUwGQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T10:01:55.756Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T10:01:55.756Z"
             },
             {
               "$type": "Document",
@@ -489,8 +487,7 @@
               "RelativeToolTip": "BookingCare.Business\\Services\\AppointmentService.cs",
               "ViewState": "AgIAAEoAAAAAAAAAAAAwwF4AAABaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T06:06:36.977Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T06:06:36.977Z"
             },
             {
               "$type": "Document",
