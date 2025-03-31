@@ -160,5 +160,42 @@ namespace BookingCare.Business.Services
                 throw;
             }
         }
+
+        public async Task<ICollection<SpecializationDetailDto>> GetTopSpecializationsAsync(int top)
+        {
+            var result = await _unitOfWork.Context.Appointments
+                        .GroupBy(a => a.DoctorId)
+                        .Select(g => new
+                        {
+                            DoctorId = g.Key,
+                            AppointmentCount = g.Count()
+                        })
+                        .OrderByDescending(g => g.AppointmentCount)
+                        .Take(top)
+                        .Join(_unitOfWork.Context.Doctors,
+                        app => app.DoctorId,
+                        doc => doc.UserId,
+                        (app, doc) =>new { doc.SpecializationId, app.AppointmentCount})
+                        .GroupBy(d => d.SpecializationId)
+                        .Select(g => new
+                        {
+                            SpecializationId = g.Key,
+                            DoctorCount = g.Count()
+                        })
+                        .OrderByDescending(s => s.DoctorCount)
+                        .Join(_unitOfWork.Context.Specializations,
+                        specInfo => specInfo.SpecializationId,
+                        spec => spec.Id,
+                        (specInfo, spec) => new SpecializationDetailDto()
+                        {
+                            Id = spec.Id,
+                            Name = spec.Name,
+                            Description = spec.Description,
+                            Image = spec.Image,
+                        })
+                        .ToListAsync();
+
+            return result;
+        }
     }
 }
