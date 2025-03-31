@@ -1,0 +1,16 @@
+<!-- Specialization Section -->
+<section class="specializations">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4" *ngFor="let specialization of specializations">
+                <div class="specialization-card">
+                    <div class="specialization-header">
+                        <img src="{{ specialization.image }}" alt="{{ specialization.name }}"
+                            class="specialization-img">
+                    </div>
+                    <h5 class="specialization-name">{{ specialization.name }}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

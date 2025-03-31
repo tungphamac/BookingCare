@@ -1,0 +1,131 @@
+.specializations {
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.specializations h2 {
+    text-align: center;
+    /* Căn giữa tiêu đề */
+    width: 100%;
+    max-width: 1200px;
+    padding-bottom: 20px;
+    font-size: 24px;
+    /* Tăng kích thước chữ */
+    font-weight: bold;
+}
+
+.specialization-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1300px;
+    /* Nới rộng container */
+    position: relative;
+}
+
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 25px;
+    /* Giãn cách các card */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 15px;
+    width: 100%;
+}
+
+.col-md-4 {
+    flex: 0 0 auto;
+    width: 320px;
+    /* Tăng kích thước card */
+    scroll-snap-align: center;
+}
+
+.specialization-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    /* Đổ bóng mạnh hơn */
+    text-align: center;
+    padding: 25px;
+    /* Tăng padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.specialization-card:hover {
+    transform: translateY(-8px);
+    /* Nhảy cao hơn */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    /* Hiệu ứng hover */
+}
+
+.specialization-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #ffffff, #f3f3f3);
+    border-radius: 12px;
+    width: 100%;
+    padding: 18px;
+}
+
+.specialization-img {
+    width: 140px;
+    /* Ảnh lớn hơn */
+    height: 140px;
+    object-fit: contain;
+}
+
+.specialization-name {
+    font-size: 18px;
+    /* Chữ lớn hơn */
+    font-weight: bold;
+    margin-top: 12px;
+    color: #222;
+}
+
+/* Nút Xem thêm */
+.see-more {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e0f2f1;
+    color: #00796b;
+    padding: 10px 14px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.see-more:hover {
+    background: #b2dfdb;
+}
+
+/* Nút điều hướng */
+.navigation-button {
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #e0f2f1;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.navigation-button:hover {
+    background: #b2dfdb;
+}

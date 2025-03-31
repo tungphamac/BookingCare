@@ -11,5 +11,6 @@ namespace BookingCare.Business.Services.Interfaces
         Task<int> CreateSpecializationAsync(SpecializationDetailDto specializationDto);
         Task<bool> UpdateSpecializationAsync(int id, SpecializationDetailDto specializationDto);
         Task<bool> DeleteSpecializationAsync(int id);
+        Task<ICollection<SpecializationDetailDto>> GetTopSpecializationsAsync(int top);
     }
 }
