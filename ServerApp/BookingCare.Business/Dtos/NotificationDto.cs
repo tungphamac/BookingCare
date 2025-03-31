@@ -15,7 +15,10 @@
         public string DoctorName { get; set; }
         public string PatientName { get; set; }
         public DateTime ScheduleTime { get; set; }
+
+        public string Reason { get; set; }
+        public int ClinicId { get; set; }
         public string Status { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; }       
     }
 }

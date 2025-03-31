@@ -24,7 +24,7 @@ namespace BookingCare.Business.Services
 
         public async Task<int> CreateAppointmentAsync(Appointment appointment)
         {
-            // Validate schedule availability
+
             var schedule = await _unitOfWork.ScheduleRepository.GetByIdAsync(appointment.ScheduleId);
             if (schedule == null || schedule.Status != ScheduleStatus.Available)
             {
@@ -77,30 +77,78 @@ namespace BookingCare.Business.Services
 
             return appointment;
         }
+        public async Task<List<Appointment>> GetAppointmentsAsync(int userId, string role, int pageNumber = 1, int pageSize = 10)
+        {
+            if (string.IsNullOrEmpty(role) || (role != "Doctor" && role != "Patient"))
+            {
+                throw new ArgumentException("Role phải là 'Doctor' hoặc 'Patient'.", nameof(role));
+            }
+
+            IQueryable<Appointment> query;
+            if (role == "Doctor")
+            {
+                var doctor = await _unitOfWork.DoctorRepository
+                    .GetQuery(d => d.UserId == userId)
+                    .FirstOrDefaultAsync();
+                if (doctor == null)
+                {
+                    throw new Exception("Không tìm thấy thông tin bác sĩ.");
+                }
+
+                query = _unitOfWork.AppointmentRepository
+                    .GetQuery(a => a.DoctorId == doctor.UserId)
+                    .Include(a => a.Doctor).ThenInclude(d => d.User)
+                    .Include(a => a.Patient).ThenInclude(p => p.User);
+            }
+            else // role == "Patient"
+            {
+                query = _unitOfWork.AppointmentRepository
+                    .GetQuery(a => a.PatientId == userId)
+                    .Include(a => a.Doctor).ThenInclude(d => d.User)
+                    .Include(a => a.Patient).ThenInclude(p => p.User);
+            }
+
+            // Áp dụng phân trang
+            return await query
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+        }
+
 
         public async Task<bool> ManageAppointmentAsync(int appointmentId, AppointmentStatus status, int userId)
         {
             var appointment = await GetByIdAsync(appointmentId);
             if (appointment == null) return false;
 
-            // Check if user is doctor or patient
+            var doctor = await _unitOfWork.DoctorRepository.GetByIdAsync(appointment.DoctorId);
+            if (doctor == null)
+                throw new Exception("Doctor not found");
+
+            var doctorUserId = doctor.UserId;
+
+            // Kiểm tra quyền của bệnh nhân: Chỉ cho phép hủy (Rejected) nếu là bệnh nhân của lịch hẹn
             if (status == AppointmentStatus.Rejected && appointment.PatientId != userId)
                 throw new Exception("Only patient can cancel appointment");
-            if ((status == AppointmentStatus.Confirmed || status == AppointmentStatus.Rejected) && appointment.DoctorId != userId)
-                throw new Exception("Only doctor can accept/decline appointment");
+
+            // Kiểm tra quyền của bác sĩ: Cho phép bác sĩ cả xác nhận (Confirmed) và hủy (Rejected)
+            if (status == AppointmentStatus.Confirmed && doctorUserId != userId)
+                throw new Exception("Only doctor can confirm or reject appointment");
 
             appointment.Status = status;
             if (status == AppointmentStatus.Rejected)
             {
                 var schedule = await _unitOfWork.ScheduleRepository.GetByIdAsync(appointment.ScheduleId);
+                if (schedule == null)
+                    throw new Exception("Schedule not found");
+
                 schedule.Status = ScheduleStatus.Available;
                 _unitOfWork.ScheduleRepository.Update(schedule);
             }
 
-            // Tạo thông báo cho bên còn lại
-            if (status != AppointmentStatus.Pending) // Chỉ tạo thông báo khi trạng thái thay đổi (Confirmed hoặc Rejected)
+            if (status != AppointmentStatus.Pending)
             {
-                var doctor = await _unitOfWork.DoctorRepository
+                var doctorEntity = await _unitOfWork.DoctorRepository
                     .GetQuery(d => d.UserId == appointment.DoctorId)
                     .Include(d => d.User)
                     .FirstOrDefaultAsync();
@@ -110,24 +158,25 @@ namespace BookingCare.Business.Services
                     .Include(p => p.User)
                     .FirstOrDefaultAsync();
 
-                if (doctor != null && patient != null)
+                if (doctorEntity != null && patient != null)
                 {
-                    if (userId == appointment.DoctorId) // Bác sĩ thực hiện hành động
+                    if (userId == doctorUserId)
                     {
-                        var message = $"Bác sĩ {doctor.User.UserName} đã {(status == AppointmentStatus.Confirmed ? "đồng ý" : "từ chối")} lịch hẹn của bạn vào ngày {appointment.Date:dd/MM/yyyy} lúc {appointment.Time}.";
+                        var message = $"Bác sĩ {doctorEntity.User.UserName} đã {(status == AppointmentStatus.Confirmed ? "đồng ý" : "từ chối")} lịch hẹn của bạn vào ngày {appointment.Date:dd/MM/yyyy} lúc {appointment.Time}.";
                         await _notificationService.CreateNotificationAsync(appointment.PatientId, message, appointmentId);
                     }
-                    else if (userId == appointment.PatientId) // Bệnh nhân thực hiện hành động (hủy)
+                    else if (userId == appointment.PatientId)
                     {
                         var message = $"Bệnh nhân {patient.User.UserName} đã hủy lịch hẹn vào ngày {appointment.Date:dd/MM/yyyy} lúc {appointment.Time}.";
-                        await _notificationService.CreateNotificationAsync(appointment.DoctorId, message, appointmentId);
+                        await _notificationService.CreateNotificationAsync(doctorUserId, message, appointmentId);
                     }
                 }
             }
 
             return await UpdateAsync(appointment);
         }
-
+                
+            
         public async Task<bool> UpdateAppointmentAsync(Appointment appointment, int patientId)
         {
             var existing = await GetByIdAsync(appointment.Id);

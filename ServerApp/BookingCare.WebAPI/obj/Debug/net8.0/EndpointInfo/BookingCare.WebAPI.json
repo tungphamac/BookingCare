@@ -230,6 +230,27 @@
             "schema": {
               "$ref": "#/components/schemas/AppointmentStatus"
             }
+<<<<<<< HEAD
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+=======
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
           }
         ],
         "responses": {
@@ -832,17 +853,29 @@
           "content": {
             "application/json": {
               "schema": {
+<<<<<<< HEAD
+                "$ref": "#/components/schemas/MedicalRecordCreateDto"
+=======
                 "$ref": "#/components/schemas/MedicalRecordDTO"
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
               }
             },
             "text/json": {
               "schema": {
+<<<<<<< HEAD
+                "$ref": "#/components/schemas/MedicalRecordCreateDto"
+=======
                 "$ref": "#/components/schemas/MedicalRecordDTO"
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
               }
             },
             "application/*+json": {
               "schema": {
+<<<<<<< HEAD
+                "$ref": "#/components/schemas/MedicalRecordCreateDto"
+=======
                 "$ref": "#/components/schemas/MedicalRecordDTO"
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
               }
             }
           }
@@ -874,17 +907,29 @@
           "content": {
             "application/json": {
               "schema": {
+<<<<<<< HEAD
+                "$ref": "#/components/schemas/MedicalRecordUpdateDto"
+=======
                 "$ref": "#/components/schemas/MedicalRecordDTO"
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
               }
             },
             "text/json": {
               "schema": {
+<<<<<<< HEAD
+                "$ref": "#/components/schemas/MedicalRecordUpdateDto"
+=======
                 "$ref": "#/components/schemas/MedicalRecordDTO"
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
               }
             },
             "application/*+json": {
               "schema": {
+<<<<<<< HEAD
+                "$ref": "#/components/schemas/MedicalRecordUpdateDto"
+=======
                 "$ref": "#/components/schemas/MedicalRecordDTO"
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
               }
             }
           }
@@ -1878,6 +1923,44 @@
         },
         "additionalProperties": false
       },
+<<<<<<< HEAD
+      "MedicalRecordCreateDto": {
+        "type": "object",
+        "properties": {
+          "appointmentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "diagnosis": {
+            "type": "string",
+            "nullable": true
+          },
+          "prescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MedicalRecordUpdateDto": {
+        "type": "object",
+        "properties": {
+          "diagnosis": {
+            "type": "string",
+            "nullable": true
+          },
+          "prescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+=======
       "MedicalRecordDTO": {
         "type": "object",
         "properties": {
@@ -1888,6 +1971,7 @@
           "appointmentId": {
             "type": "integer",
             "format": "int32"
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
           }
         },
         "additionalProperties": false

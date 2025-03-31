@@ -7,8 +7,11 @@ import { LoginRequest } from '../login/Models/login-request.model';
 import { LoginResponse } from '../login/Models/login-response.model';
 import { API_URL } from '../../../app.config';
 import { RegisterVm } from '../../register/Models/register.model';
+<<<<<<< HEAD
+=======
 import { resetPasswordVm } from '../../ResetPassword/Models/resetPass.model';
 import { forgotPasswordVm } from '../../ForgotPassword/Models/forgot.model';
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
 
 
 @Injectable({
@@ -50,6 +53,19 @@ export class AuthService {
     this.cookieService.delete("Authentication", "/");
     this.$user.next(undefined);
   }
+<<<<<<< HEAD
+  register(userData: RegisterVm): Observable<any> {
+    return this.http.post<any>(`${API_URL}/Authentication/register`, userData)
+      .pipe(
+        catchError(error => {
+          console.error('Register error:', error);
+          return throwError(() => new Error(error.message));
+        })
+      );
+
+  }
+}
+=======
 
   forgotPassword(model: forgotPasswordVm): Observable<any> {
     return this.http.post<any>(`${API_URL}/Account/forgot-password`, model);
@@ -78,3 +94,4 @@ export class AuthService {
   }
 }
 
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06

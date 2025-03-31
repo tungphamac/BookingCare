@@ -175,6 +175,25 @@ namespace BookingCare.Data.Data
                     WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc),
                     Status = ScheduleStatus.Available,
                     Time = new DateTime(2025, 3, 20, 14, 0, 0, DateTimeKind.Utc)
+                },
+                new Schedule
+                {
+                    Id = 3,
+                    DoctorId = 3,
+                    TimeSlot = "15:00-16:00",
+                    WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc),
+                    Status = ScheduleStatus.Available,
+                    Time = new DateTime(2025, 3, 20, 14, 0, 0, DateTimeKind.Utc)
+                },
+                new Schedule
+                {
+                    Id = 4,
+                    DoctorId = 2,
+                    TimeSlot = "15:00-16:00",
+                    WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc),
+                    Status = ScheduleStatus.Available,
+                    Time = new DateTime(2025, 3, 20, 14, 0, 0, DateTimeKind.Utc)
+
                 }
             );
 
@@ -200,7 +219,12 @@ namespace BookingCare.Data.Data
                 new MedicalRecord
                 {
                     Id = 1,
-                    AppointmentId = 1
+                    AppointmentId = 1,
+                    Diagnosis = "Cảm cúm thông thường",
+                    Prescription = "Paracetamol 500mg, uống 2 lần/ngày",
+                    Notes = "Nghỉ ngơi nhiều, uống đủ nước",
+                    CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc),
+                    CreatedBy = 2
                 }
             );
 

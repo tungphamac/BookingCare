@@ -36,6 +36,8 @@ namespace BookingCare.WebAPI.Controllers
         public async Task<IActionResult> Register([FromBody] RegisterVm registerVm)
         {
 
+
+
             if (!ModelState.IsValid)
             {
                 var errors = ModelState.Values.SelectMany(v => v.Errors)
@@ -98,6 +100,8 @@ namespace BookingCare.WebAPI.Controllers
             if (user != null && await _userManager.CheckPasswordAsync(user, loginVm.Password))
             {
                 var tokenValue = await GenerateJwtToken(user);
+
+
 
                 return Ok(new { token = tokenValue });
             }

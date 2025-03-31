@@ -161,6 +161,7 @@ namespace BookingCare.Business.Services
             }
         }
 
+
         public async Task<ICollection<SpecializationDetailDto>> GetTopSpecializationsAsync(int top)
         {
             var result = await _unitOfWork.Context.Appointments
@@ -175,7 +176,7 @@ namespace BookingCare.Business.Services
                         .Join(_unitOfWork.Context.Doctors,
                         app => app.DoctorId,
                         doc => doc.UserId,
-                        (app, doc) =>new { doc.SpecializationId, app.AppointmentCount})
+                        (app, doc) => new { doc.SpecializationId, app.AppointmentCount })
                         .GroupBy(d => d.SpecializationId)
                         .Select(g => new
                         {

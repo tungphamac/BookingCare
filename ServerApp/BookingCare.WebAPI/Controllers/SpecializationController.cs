@@ -114,6 +114,7 @@ namespace BookingCare.API.Controllers
             }
         }
 
+
         [HttpGet("get-top-specializations")]
         public async Task<IActionResult> GetTopSpecializations()
         {
@@ -128,5 +129,6 @@ namespace BookingCare.API.Controllers
                 return StatusCode(500, "An error occurred while retrieving specializations.");
             }
         }
+
     }
 }

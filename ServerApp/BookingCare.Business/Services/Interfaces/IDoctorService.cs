@@ -14,6 +14,6 @@ namespace BookingCare.Business.Services.Interfaces
         Task<bool> DeleteDoctorAsync(int doctorId);
         Task<bool> LockUserAccountAsync(int userId, DateTime lockUntil); // Đã có sẵn
         Task<ICollection<FeaturedDoctorVm>> GetFeaturedDoctors(int top);// lấy top doctor được đặt lịch nhiều nhất
-        Task<ICollection<TopRatingDoctorVm>> GetTopRatingDoctors(int top);// lấy top doctor có rating trung bình cao nhất
+      Task<ICollection<TopRatingDoctorVm>> GetTopRatingDoctors(int top);// lấy top doctor có rating trung bình cao nhất
     }
 }

@@ -2,6 +2,7 @@
 using BookingCare.Business.Services.Base;
 using BookingCare.Data.Models;
 
+
 namespace BookingCare.Business.Services.Interfaces
 {
     public interface ISpecializationService : IBaseService<Specialization>

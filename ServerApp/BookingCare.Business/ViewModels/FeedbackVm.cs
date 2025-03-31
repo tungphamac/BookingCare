@@ -2,6 +2,7 @@
 {
     public class FeedbackVm
     {
+
         public int Id { get; set; }
         public int AppointmentId { get; set; }
         public int Rating { get; set; }

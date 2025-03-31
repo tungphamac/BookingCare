@@ -4,19 +4,30 @@ import { LoginRequest } from './Models/login-request.model';
 import { AuthService } from '../services/auth.service';
 import { Router, RouterModule } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+<<<<<<< HEAD
+=======
 import { CommonModule } from '@angular/common';
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
 
 
 @Component({
   selector: 'app-login',
+<<<<<<< HEAD
+  imports: [FormsModule, RouterModule],
+=======
   imports: [FormsModule, RouterModule, CommonModule],
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
   model: LoginRequest;
+<<<<<<< HEAD
+
+=======
   errorMessage: string = '';
   isLoading: boolean = false;
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
   constructor(private authService: AuthService, private cookieService: CookieService, private router: Router) {
     this.model = {
       email: '',
@@ -25,6 +36,15 @@ export class LoginComponent {
   }
 
   onFormSubmit() {
+<<<<<<< HEAD
+    this.authService.login(this.model).subscribe({
+      next: response => {
+        console.log(response.token);
+
+        this.cookieService.set('Authentication', `${response.token}`, undefined, '/', undefined, true, 'Strict');
+        this.authService.setUser({ email: this.model.email });
+        this.router.navigateByUrl('/');
+=======
 
     if (!this.model.email || !this.model.password) {
       this.errorMessage = 'Email và mật khẩu là bắt buộc';
@@ -65,6 +85,7 @@ export class LoginComponent {
         } else {
           this.errorMessage = 'Đăng nhập thất bại. Vui lòng thử lại sau!';
         }
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
       }
     });
 

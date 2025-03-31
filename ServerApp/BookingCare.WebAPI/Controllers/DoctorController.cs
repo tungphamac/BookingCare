@@ -148,6 +148,7 @@ namespace BookingCare.API.Controllers
             }
         }
 
+
         [HttpGet("get-top-rating-doctors")]
         public async Task<IActionResult> GetTopRatingDoctors()
         {
