@@ -160,8 +160,7 @@ namespace BookingCare.Business.Services
                 throw;
             }
         }
-<<<<<<< HEAD
-=======
+
 
         public async Task<ICollection<SpecializationDetailDto>> GetTopSpecializationsAsync(int top)
         {
@@ -177,7 +176,7 @@ namespace BookingCare.Business.Services
                         .Join(_unitOfWork.Context.Doctors,
                         app => app.DoctorId,
                         doc => doc.UserId,
-                        (app, doc) =>new { doc.SpecializationId, app.AppointmentCount})
+                        (app, doc) => new { doc.SpecializationId, app.AppointmentCount })
                         .GroupBy(d => d.SpecializationId)
                         .Select(g => new
                         {
@@ -199,6 +198,5 @@ namespace BookingCare.Business.Services
 
             return result;
         }
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
     }
 }

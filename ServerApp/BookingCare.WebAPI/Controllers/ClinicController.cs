@@ -19,10 +19,8 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpGet("{id}")]
-<<<<<<< HEAD
-=======
+
         [Authorize(Roles = "Admin,Patient,Doctor")] // Admin, Patient, Doctor có thể xem chi tiết clinic
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
         public async Task<IActionResult> GetClinicById(int id)
         {
             try
@@ -42,10 +40,8 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpGet]
-<<<<<<< HEAD
-=======
+
         [Authorize(Roles = "Admin")] // Chỉ Admin được lấy danh sách clinic
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
         public async Task<IActionResult> GetAllClinics()
         {
             try

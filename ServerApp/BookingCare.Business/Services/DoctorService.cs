@@ -278,8 +278,6 @@ namespace BookingCare.Business.Services
 
             return result;
         }
-<<<<<<< HEAD
-=======
 
         public async Task<ICollection<TopRatingDoctorVm>> GetTopRatingDoctors(int top)
         {
@@ -316,6 +314,5 @@ namespace BookingCare.Business.Services
 
             return topRatingDoctors;
         }
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
     }
 }

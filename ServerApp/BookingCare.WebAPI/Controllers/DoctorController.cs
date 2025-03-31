@@ -147,8 +147,7 @@ namespace BookingCare.API.Controllers
                 return Problem($"Error fetching top doctors: {ex.Message}");
             }
         }
-<<<<<<< HEAD
-=======
+
 
         [HttpGet("get-top-rating-doctors")]
         public async Task<IActionResult> GetTopRatingDoctors()
@@ -163,6 +162,5 @@ namespace BookingCare.API.Controllers
                 return Problem($"Error fetching top doctors: {ex.Message}");
             }
         }
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
     }
 }

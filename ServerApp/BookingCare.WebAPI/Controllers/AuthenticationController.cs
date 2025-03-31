@@ -35,14 +35,8 @@ namespace BookingCare.WebAPI.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterVm registerVm)
         {
-<<<<<<< HEAD
-            if (!ModelState.IsValid)
-                return BadRequest("Please provide all required fields");
 
-            var userExists = await _userManager.FindByEmailAsync(registerVm.Email);
-            if (userExists != null)
-                return BadRequest($"User {registerVm.Email} already exists");
-=======
+
 
             if (!ModelState.IsValid)
             {
@@ -55,7 +49,6 @@ namespace BookingCare.WebAPI.Controllers
             var userExists = await _userManager.FindByEmailAsync(registerVm.Email);
             if (userExists != null)
                 return BadRequest(new { message = "Email đã tồn tại" });
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
 
             var newUser = new User
             {
@@ -63,10 +56,7 @@ namespace BookingCare.WebAPI.Controllers
                 Email = registerVm.Email,
                 Gender = registerVm.Gender,
                 Address = registerVm.Address,
-<<<<<<< HEAD
-=======
                 PhoneNumber = registerVm.Phone,
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
                 Avatar = registerVm.Avatar,
                 SecurityStamp = Guid.NewGuid().ToString()
             };
@@ -95,11 +85,7 @@ namespace BookingCare.WebAPI.Controllers
             await _context.Patients.AddAsync(newPatient);
             await _context.SaveChangesAsync();
 
-<<<<<<< HEAD
-            return Ok($"User {registerVm.Email} created successfully with role 'Patient'");
-=======
             return Ok(new { message = $"User {registerVm.Email} created successfully with role 'Patient'" });
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
         }
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginVm loginVm)
@@ -115,11 +101,9 @@ namespace BookingCare.WebAPI.Controllers
             {
                 var tokenValue = await GenerateJwtToken(user);
 
-<<<<<<< HEAD
-                return Ok(tokenValue);
-=======
+
+
                 return Ok(new { token = tokenValue });
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
             }
 
             return Unauthorized();
