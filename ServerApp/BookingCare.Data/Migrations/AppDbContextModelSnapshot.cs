@@ -479,7 +479,6 @@ namespace BookingCare.Data.Migrations
                             Time = new DateTime(2025, 3, 20, 14, 0, 0, 0, DateTimeKind.Utc),
                             TimeSlot = "14:00-15:00",
                             WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc)
-<<<<<<< HEAD
                         },
                         new
                         {
@@ -498,8 +497,7 @@ namespace BookingCare.Data.Migrations
                             Time = new DateTime(2025, 3, 20, 14, 0, 0, 0, DateTimeKind.Utc),
                             TimeSlot = "15:00-16:00",
                             WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc)
-=======
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
+
                         });
                 });
 

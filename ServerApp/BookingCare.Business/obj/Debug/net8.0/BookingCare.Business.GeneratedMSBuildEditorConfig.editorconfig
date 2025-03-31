@@ -8,11 +8,7 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BookingCare.Business
-<<<<<<< HEAD
 build_property.ProjectDir = D:\Project\BookingCare\ServerApp\BookingCare.Business\
-=======
-build_property.ProjectDir = C:\Users\khanh\Downloads\Project\BookingCare\ServerApp\BookingCare.Business\
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 8.0

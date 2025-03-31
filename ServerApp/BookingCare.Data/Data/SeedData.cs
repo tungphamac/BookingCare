@@ -175,7 +175,6 @@ namespace BookingCare.Data.Data
                     WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc),
                     Status = ScheduleStatus.Available,
                     Time = new DateTime(2025, 3, 20, 14, 0, 0, DateTimeKind.Utc)
-<<<<<<< HEAD
                 },
                 new Schedule
                 {
@@ -194,8 +193,7 @@ namespace BookingCare.Data.Data
                     WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc),
                     Status = ScheduleStatus.Available,
                     Time = new DateTime(2025, 3, 20, 14, 0, 0, DateTimeKind.Utc)
-=======
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
+
                 }
             );
 

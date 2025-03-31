@@ -24,11 +24,7 @@ namespace BookingCare.Business.Services
 
         public async Task<int> CreateAppointmentAsync(Appointment appointment)
         {
-<<<<<<< HEAD
-            // Xác thực Schedule còn trống
-=======
-            // Validate schedule availability
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
+
             var schedule = await _unitOfWork.ScheduleRepository.GetByIdAsync(appointment.ScheduleId);
             if (schedule == null || schedule.Status != ScheduleStatus.Available)
             {
@@ -81,8 +77,6 @@ namespace BookingCare.Business.Services
 
             return appointment;
         }
-
-<<<<<<< HEAD
         public async Task<List<Appointment>> GetAppointmentsAsync(int userId, string role, int pageNumber = 1, int pageSize = 10)
         {
             if (string.IsNullOrEmpty(role) || (role != "Doctor" && role != "Patient"))
@@ -121,14 +115,12 @@ namespace BookingCare.Business.Services
                 .ToListAsync();
         }
 
-=======
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
+
         public async Task<bool> ManageAppointmentAsync(int appointmentId, AppointmentStatus status, int userId)
         {
             var appointment = await GetByIdAsync(appointmentId);
             if (appointment == null) return false;
 
-<<<<<<< HEAD
             var doctor = await _unitOfWork.DoctorRepository.GetByIdAsync(appointment.DoctorId);
             if (doctor == null)
                 throw new Exception("Doctor not found");
@@ -142,82 +134,71 @@ namespace BookingCare.Business.Services
             // Kiểm tra quyền của bác sĩ: Cho phép bác sĩ cả xác nhận (Confirmed) và hủy (Rejected)
             if (status == AppointmentStatus.Confirmed && doctorUserId != userId)
                 throw new Exception("Only doctor can confirm or reject appointment");
-=======
+
             // Check if user is doctor or patient
             if (status == AppointmentStatus.Rejected && appointment.PatientId != userId)
                 throw new Exception("Only patient can cancel appointment");
             if ((status == AppointmentStatus.Confirmed || status == AppointmentStatus.Rejected) && appointment.DoctorId != userId)
                 throw new Exception("Only doctor can accept/decline appointment");
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
 
             appointment.Status = status;
             if (status == AppointmentStatus.Rejected)
             {
                 var schedule = await _unitOfWork.ScheduleRepository.GetByIdAsync(appointment.ScheduleId);
-<<<<<<< HEAD
                 if (schedule == null)
                     throw new Exception("Schedule not found");
 
-=======
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
+
                 schedule.Status = ScheduleStatus.Available;
                 _unitOfWork.ScheduleRepository.Update(schedule);
             }
 
-<<<<<<< HEAD
             if (status != AppointmentStatus.Pending)
             {
-                var doctorEntity = await _unitOfWork.DoctorRepository
-=======
+                var doctorEntity = await _unitOfWork.DoctorRepository.GetAllAsync();
             // Tạo thông báo cho bên còn lại
             if (status != AppointmentStatus.Pending) // Chỉ tạo thông báo khi trạng thái thay đổi (Confirmed hoặc Rejected)
-            {
-                var doctor = await _unitOfWork.DoctorRepository
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
-                    .GetQuery(d => d.UserId == appointment.DoctorId)
-                    .Include(d => d.User)
-                    .FirstOrDefaultAsync();
-
-                var patient = await _unitOfWork.PatientRepository
-                    .GetQuery(p => p.UserId == appointment.PatientId)
-                    .Include(p => p.User)
-                    .FirstOrDefaultAsync();
-
-<<<<<<< HEAD
-                if (doctorEntity != null && patient != null)
                 {
-                    if (userId == doctorUserId)
-                    {
-                        var message = $"Bác sĩ {doctorEntity.User.UserName} đã {(status == AppointmentStatus.Confirmed ? "đồng ý" : "từ chối")} lịch hẹn của bạn vào ngày {appointment.Date:dd/MM/yyyy} lúc {appointment.Time}.";
-                        await _notificationService.CreateNotificationAsync(appointment.PatientId, message, appointmentId);
-                    }
-                    else if (userId == appointment.PatientId)
-                    {
-                        var message = $"Bệnh nhân {patient.User.UserName} đã hủy lịch hẹn vào ngày {appointment.Date:dd/MM/yyyy} lúc {appointment.Time}.";
-                        await _notificationService.CreateNotificationAsync(doctorUserId, message, appointmentId);
-=======
-                if (doctor != null && patient != null)
-                {
-                    if (userId == appointment.DoctorId) // Bác sĩ thực hiện hành động
-                    {
-                        var message = $"Bác sĩ {doctor.User.UserName} đã {(status == AppointmentStatus.Confirmed ? "đồng ý" : "từ chối")} lịch hẹn của bạn vào ngày {appointment.Date:dd/MM/yyyy} lúc {appointment.Time}.";
-                        await _notificationService.CreateNotificationAsync(appointment.PatientId, message, appointmentId);
-                    }
-                    else if (userId == appointment.PatientId) // Bệnh nhân thực hiện hành động (hủy)
-                    {
-                        var message = $"Bệnh nhân {patient.User.UserName} đã hủy lịch hẹn vào ngày {appointment.Date:dd/MM/yyyy} lúc {appointment.Time}.";
-                        await _notificationService.CreateNotificationAsync(appointment.DoctorId, message, appointmentId);
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
-                    }
-                }
-            }
+                    var doctor = await _unitOfWork.DoctorRepository
+                        .GetQuery(d => d.UserId == appointment.DoctorId)
+                        .Include(d => d.User)
+                        .FirstOrDefaultAsync();
 
-            return await UpdateAsync(appointment);
-        }
-<<<<<<< HEAD
-=======
+                    var patient = await _unitOfWork.PatientRepository
+                        .GetQuery(p => p.UserId == appointment.PatientId)
+                        .Include(p => p.User)
+                        .FirstOrDefaultAsync();
 
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
+                    if (doctorEntity != null && patient != null)
+                    {
+                        if (userId == doctorUserId)
+                        {
+                            var message = $"Bác sĩ {doctorEntity.User.UserName} đã {(status == AppointmentStatus.Confirmed ? "đồng ý" : "từ chối")} lịch hẹn của bạn vào ngày {appointment.Date:dd/MM/yyyy} lúc {appointment.Time}.";
+                            await _notificationService.CreateNotificationAsync(appointment.PatientId, message, appointmentId);
+                        }
+                        else if (userId == appointment.PatientId)
+                        {
+                            var message = $"Bệnh nhân {patient.User.UserName} đã hủy lịch hẹn vào ngày {appointment.Date:dd/MM/yyyy} lúc {appointment.Time}.";
+                            await _notificationService.CreateNotificationAsync(doctorUserId, message, appointmentId);
+
+                            if (doctor != null && patient != null)
+                            {
+                                if (userId == appointment.DoctorId) // Bác sĩ thực hiện hành động
+                                {
+                                    var message = $"Bác sĩ {doctor.User.UserName} đã {(status == AppointmentStatus.Confirmed ? "đồng ý" : "từ chối")} lịch hẹn của bạn vào ngày {appointment.Date:dd/MM/yyyy} lúc {appointment.Time}.";
+                                    await _notificationService.CreateNotificationAsync(appointment.PatientId, message, appointmentId);
+                                }
+                                else if (userId == appointment.PatientId) // Bệnh nhân thực hiện hành động (hủy)
+                                {
+                                    var message = $"Bệnh nhân {patient.User.UserName} đã hủy lịch hẹn vào ngày {appointment.Date:dd/MM/yyyy} lúc {appointment.Time}.";
+                                    await _notificationService.CreateNotificationAsync(appointment.DoctorId, message, appointmentId);
+                                }
+                            }
+                        }
+
+                        return await UpdateAsync(appointment);
+                    
+            
         public async Task<bool> UpdateAppointmentAsync(Appointment appointment, int patientId)
         {
             var existing = await GetByIdAsync(appointment.Id);

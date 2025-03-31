@@ -1,16 +1,10 @@
 ﻿using BookingCare.Business.Services.Interfaces;
 using BookingCare.Data.Models;
 using Microsoft.AspNetCore.Identity;
-<<<<<<< HEAD
-=======
+
 using Microsoft.Extensions.Configuration;
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BookingCare.Business.Services
 {
@@ -19,21 +13,15 @@ namespace BookingCare.Business.Services
         private readonly ILogger<AccountService> _logger;
         private readonly UserManager<User> _userManager;
         private readonly IEmailService _emailService;
-<<<<<<< HEAD
-        public AccountService(UserManager<User> userManager, IEmailService emailService, ILogger<AccountService> logger)
-=======
         private readonly string _frontendUrl;
 
         public AccountService(UserManager<User> userManager, IEmailService emailService, ILogger<AccountService> logger,IConfiguration configuration)
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
         {
             _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
             _emailService = emailService ?? throw new ArgumentNullException(nameof(emailService));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-<<<<<<< HEAD
-=======
+
             _frontendUrl = configuration["FrontendUrl"];
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
         }
         public async Task<(bool Success, string Message, string[] Errors)> ChangePasswordAsync(int userId, string oldPassword, string newPassword, string confirmNewPassword)
         {
@@ -66,11 +54,7 @@ namespace BookingCare.Business.Services
                 return (false, "Email không tồn tại.");
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-<<<<<<< HEAD
-            var resetLink = $"https://yourdomain.com/reset-password?email={email}&token={Uri.EscapeDataString(token)}";
-=======
             var resetLink = $"{_frontendUrl}/reset-password?email={email}&token={Uri.EscapeDataString(token)}";
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
 
             try
             {
