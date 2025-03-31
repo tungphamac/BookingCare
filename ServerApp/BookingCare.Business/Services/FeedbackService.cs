@@ -117,6 +117,7 @@ namespace BookingCare.Business.Services
             var feedbacks = await _unitOfWork.FeedbackRepository.GetAllAsync();
             return feedbacks.Select(f => new FeedbackVm
             {
+                Id= f.Id,
                 AppointmentId = f.AppointmentId,
                 Rating = f.Rating,
                 Comment = f.Comment
