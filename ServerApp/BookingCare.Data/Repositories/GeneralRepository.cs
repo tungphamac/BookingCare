@@ -21,9 +21,24 @@ namespace BookingCare.Data.Repositories
             _dbSet.Add(entity);
         }
 
+        public async Task AddAsync(T entity)
+        {
+            await _dbSet.AddAsync(entity);
+        }
+
         public void Delete(int id)
         {
             var entity = _dbSet.Find(id);
+
+            if (entity != null)
+            {
+                _dbSet.Remove(entity);
+            }
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var entity = await _dbSet.FindAsync(id);
 
             if (entity != null)
             {

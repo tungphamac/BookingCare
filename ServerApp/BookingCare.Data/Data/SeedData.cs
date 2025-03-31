@@ -1,7 +1,6 @@
 ﻿using BookingCare.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 
 namespace BookingCare.Data.Data
 {
@@ -9,7 +8,6 @@ namespace BookingCare.Data.Data
     {
         public static void Seed(ModelBuilder modelBuilder)
         {
-
             // Seed Roles
             modelBuilder.Entity<IdentityRole<int>>().HasData(
                 new IdentityRole<int> { Id = 1, Name = "Admin", NormalizedName = "ADMIN" },
@@ -27,7 +25,7 @@ namespace BookingCare.Data.Data
                     Email = "admin1@example.com",
                     NormalizedEmail = "ADMIN1@EXAMPLE.COM",
                     EmailConfirmed = true,
-                    PasswordHash = "AQAAAAIAAYagAAAAEGXs6jlQ0fcRlYEIS79CtCpXBe5FWbJ1DrY8WfEl1rfeWk1uYzS31Z26uSCKTdTLzg==",
+                    PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
                     SecurityStamp = "stamp1",
                     ConcurrencyStamp = "concurrency1",
                     Gender = true,
@@ -42,7 +40,7 @@ namespace BookingCare.Data.Data
                     Email = "doctor1@example.com",
                     NormalizedEmail = "DOCTOR1@EXAMPLE.COM",
                     EmailConfirmed = true,
-                    PasswordHash = "AQAAAAIAAYagAAAAEBdqsT6m3NC+7WLrfiDuhbO8Q1erkBM5/mIXYTD6dXiY8IgOtLVSkgIwLQkKB/si3A==",
+                    PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
                     SecurityStamp = "stamp2",
                     ConcurrencyStamp = "concurrency2",
                     Gender = true,
@@ -57,7 +55,7 @@ namespace BookingCare.Data.Data
                     Email = "doctor2@example.com",
                     NormalizedEmail = "DOCTOR2@EXAMPLE.COM",
                     EmailConfirmed = true,
-                    PasswordHash = "AQAAAAIAAYagAAAAEBdqsT6m3NC+7WLrfiDuhbO8Q1erkBM5/mIXYTD6dXiY8IgOtLVSkgIwLQkKB/si3A==",
+                    PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
                     SecurityStamp = "stamp3",
                     ConcurrencyStamp = "concurrency3",
                     Gender = false,
@@ -72,7 +70,7 @@ namespace BookingCare.Data.Data
                     Email = "patient1@example.com",
                     NormalizedEmail = "PATIENT1@EXAMPLE.COM",
                     EmailConfirmed = true,
-                    PasswordHash = "AQAAAAIAAYagAAAAELwmoQmUgF0dngxTkAHHQx1B/cyP4U3Af+3eekWM6ZLLVSHH9oFjnvZB653+9EsaMg==",
+                    PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
                     SecurityStamp = "stamp4",
                     ConcurrencyStamp = "concurrency4",
                     Gender = false,
@@ -113,10 +111,10 @@ namespace BookingCare.Data.Data
                 {
                     Id = 1,
                     Name = "City Clinic",
-                    Phone = 1234567890, // Lưu ý: Phone là int, nên không cần dấu "-"
+                    Phone = 1234567890,
                     Address = "789 Clinic St",
                     Introduction = "Top clinic in the city",
-                    CreateAt = new DateTime(2025, 3, 20, 12, 0, 0),
+                    CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc),
                 },
                 new Clinic
                 {
@@ -125,7 +123,7 @@ namespace BookingCare.Data.Data
                     Phone = 987654321,
                     Address = "456 Health St",
                     Introduction = "Comprehensive care",
-                    CreateAt = new DateTime(2025, 3, 20, 12, 0, 0),
+                    CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc),
                 }
             );
 
@@ -136,16 +134,16 @@ namespace BookingCare.Data.Data
                     UserId = 2,
                     Achievement = "Best Doctor 2023",
                     Description = "Experienced cardiologist",
-                    SpecializationId = 1, // Thuộc Specialization "Cardiology"
-                    ClinicId = 1 // Thuộc Clinic "City Clinic"
+                    SpecializationId = 1,
+                    ClinicId = 1
                 },
                 new Doctor
                 {
                     UserId = 3,
                     Achievement = "Top Neurologist 2023",
                     Description = "Expert in brain disorders",
-                    SpecializationId = 2, // Thuộc Specialization "Neurology"
-                    ClinicId = 2 // Thuộc Clinic "Health Center"
+                    SpecializationId = 2,
+                    ClinicId = 2
                 }
             );
 
@@ -154,7 +152,7 @@ namespace BookingCare.Data.Data
                 new Patient
                 {
                     UserId = 4,
-                    MedicalRecordId = 1 // Sẽ liên kết với MedicalRecord sau
+                    MedicalRecordId = 1
                 }
             );
 
@@ -165,16 +163,36 @@ namespace BookingCare.Data.Data
                     Id = 1,
                     DoctorId = 2,
                     TimeSlot = "10:00-11:00",
-                    WorkDate = new DateTime(2025, 3, 20, 12, 0, 0),
-                    Status = ScheduleStatus.Available
+                    WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc),
+                    Status = ScheduleStatus.Available,
+                    Time = new DateTime(2025, 3, 20, 10, 0, 0, DateTimeKind.Utc)
                 },
                 new Schedule
                 {
                     Id = 2,
                     DoctorId = 3,
                     TimeSlot = "14:00-15:00",
-                    WorkDate = new DateTime(2025, 3, 20, 12, 0, 0),
-                    Status = ScheduleStatus.Available
+                    WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc),
+                    Status = ScheduleStatus.Available,
+                    Time = new DateTime(2025, 3, 20, 14, 0, 0, DateTimeKind.Utc)
+                },
+                new Schedule
+                {
+                    Id = 3,
+                    DoctorId = 3,
+                    TimeSlot = "15:00-16:00",
+                    WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc),
+                    Status = ScheduleStatus.Available,
+                    Time = new DateTime(2025, 3, 20, 14, 0, 0, DateTimeKind.Utc)
+                },
+                new Schedule
+                {
+                    Id = 4,
+                    DoctorId = 2,
+                    TimeSlot = "15:00-16:00",
+                    WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc),
+                    Status = ScheduleStatus.Available,
+                    Time = new DateTime(2025, 3, 20, 14, 0, 0, DateTimeKind.Utc)
                 }
             );
 
@@ -183,14 +201,15 @@ namespace BookingCare.Data.Data
                 new Appointment
                 {
                     Id = 1,
-                    Date = new DateTime(2025, 3, 20, 12, 0, 0),
-                    Time = new TimeSpan(10, 0, 0), // 10:00:00
-                    Status = "Scheduled",
+                    Date = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc),
+                    Time = new TimeSpan(10, 0, 0),
+                    Status = AppointmentStatus.Confirmed,
                     Reason = "Checkup for heart condition",
                     DoctorId = 2,
                     PatientId = 4,
                     ScheduleId = 1,
-                    ClinicId = 1
+                    ClinicId = 1,
+                    CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc)
                 }
             );
 
@@ -199,20 +218,48 @@ namespace BookingCare.Data.Data
                 new MedicalRecord
                 {
                     Id = 1,
-                    AppointmentId = 1
+                    AppointmentId = 1,
+                    Diagnosis = "Cảm cúm thông thường",
+                    Prescription = "Paracetamol 500mg, uống 2 lần/ngày",
+                    Notes = "Nghỉ ngơi nhiều, uống đủ nước",
+                    CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc),
+                    CreatedBy = 2
                 }
             );
 
             // Seed Feedback
-            modelBuilder.Entity<Feedback>().HasData(
-                new Feedback
+            //modelBuilder.Entity<Feedback>().HasData(
+            //    new Feedback
+            //    {
+            //        Id = 1,
+            //        AppointmentId = 1,
+            //        Rating = 5,
+            //        Comment = "Great service!",
+            //        CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc) 
+            //    }
+            //);
+
+            // Seed Notifications
+            modelBuilder.Entity<Notification>().HasData(
+                new Notification
                 {
                     Id = 1,
+                    UserId = 4,
+                    Message = "Bạn có lịch hẹn mới vào ngày 20/03/2025.",
                     AppointmentId = 1,
-                    Rating = 5,
-                    Comment = "Great service!"
+                    IsRead = false,
+                    CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc)
+                },
+                new Notification
+                {
+                    Id = 2,
+                    UserId = 2,
+                    Message = "Bệnh nhân patient1@example.com đã đặt lịch hẹn vào ngày 20/03/2025.",
+                    AppointmentId = 1,
+                    IsRead = false,
+                    CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc)
                 }
-                );
+            );
         }
     }
 }

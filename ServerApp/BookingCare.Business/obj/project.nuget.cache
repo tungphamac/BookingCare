@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xiRV9vB+rAQ=",
+  "dgSpecHash": "EYn+BxUgVEo=",
   "success": true,
-  "projectFilePath": "D:\\Project\\BookingCare\\BookingCare\\ServerApp\\BookingCare.Business\\BookingCare.Business.csproj",
+  "projectFilePath": "D:\\Project\\BookingCare\\ServerApp\\BookingCare.Business\\BookingCare.Business.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jackd\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\jackd\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project\\BookingCare\\BookingCare\\ServerApp\\BookingCare.Data\\BookingCare.Data.csproj": {}
+    "D:\\Project\\BookingCare\\ServerApp\\BookingCare.Data\\BookingCare.Data.csproj": {}
   },
   "projects": {
-    "D:\\Project\\BookingCare\\BookingCare\\ServerApp\\BookingCare.Data\\BookingCare.Data.csproj": {
+    "D:\\Project\\BookingCare\\ServerApp\\BookingCare.Data\\BookingCare.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\BookingCare\\BookingCare\\ServerApp\\BookingCare.Data\\BookingCare.Data.csproj",
+        "projectUniqueName": "D:\\Project\\BookingCare\\ServerApp\\BookingCare.Data\\BookingCare.Data.csproj",
         "projectName": "BookingCare.Data",
-        "projectPath": "D:\\Project\\BookingCare\\BookingCare\\ServerApp\\BookingCare.Data\\BookingCare.Data.csproj",
+        "projectPath": "D:\\Project\\BookingCare\\ServerApp\\BookingCare.Data\\BookingCare.Data.csproj",
         "packagesPath": "C:\\Users\\jackd\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\BookingCare\\BookingCare\\ServerApp\\BookingCare.Data\\obj\\",
+        "outputPath": "D:\\Project\\BookingCare\\ServerApp\\BookingCare.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -53,12 +53,6 @@
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.14, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[9.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
