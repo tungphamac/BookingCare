@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="profile-card">
+        <h2 class="section-title">Doctor Profile Management</h2>
+
+        <div class="profile-header">
+            <div class="avatar-container">
+                <img [src]="doctor.avatar || 'https://via.placeholder.com/150'" alt="Doctor avatar" class="avatar">
+                <button type="button" class="btn-avatar" (click)="changeAvatar()">Change Avatar</button>
+            </div>
+            <div class="profile-info">
+                <h2>{{ doctor.name || 'Doctor Name' }}</h2>
+                <p>{{ doctor.email || 'doctor@example.com' }}</p>
+            </div>
+        </div>
+
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" class="form-control" [(ngModel)]="doctor.name" name="name">
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="gender-group">
+                    <label>
+                        <input type="radio" [value]="true" [(ngModel)]="doctor.gender" name="gender"> Male
+                    </label>
+                    <label>
+                        <input type="radio" [value]="false" [(ngModel)]="doctor.gender" name="gender"> Female
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" [(ngModel)]="doctor.email" name="email">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" class="form-control" [(ngModel)]="doctor.phone" name="phone">
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" class="form-control" [(ngModel)]="doctor.address" name="address">
+            </div>
+
+            <div class="form-group">
+                <label for="avatar">Avatar URL</label>
+                <input type="text" id="avatar" class="form-control" [(ngModel)]="doctor.avatar" name="avatar">
+            </div>
+
+            <div class="form-group">
+                <label for="achievement">Achievements</label>
+                <textarea id="achievement" class="form-control" [(ngModel)]="doctor.achievement"
+                    name="achievement"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" class="form-control" [(ngModel)]="doctor.description"
+                    name="description"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="specializationId">Specialization ID</label>
+                <input type="number" id="specializationId" class="form-control" [(ngModel)]="doctor.specializationId"
+                    name="specializationId">
+            </div>
+
+            <div class="form-group">
+                <label for="clinicId">Clinic ID</label>
+                <input type="number" id="clinicId" class="form-control" [(ngModel)]="doctor.clinicId" name="clinicId">
+            </div>
+
+            <button type="submit" class="btn">Save Profile</button>
+        </form>
+    </div>
+</div>

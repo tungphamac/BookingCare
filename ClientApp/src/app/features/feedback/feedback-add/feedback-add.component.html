@@ -1,0 +1,25 @@
+<div class="feedback-container">
+    <h2>Appointment Feedback</h2>
+
+    <div class="feedback-form">
+        <div class="rating-section">
+            <label>Rating:</label>
+            <div class="stars">
+                <span *ngFor="let star of [1,2,3,4,5]" (click)="setRating(star)"
+                    [class.active]="star <= feedback.rating">
+                    ★
+                </span>
+            </div>
+        </div>
+
+        <div class="comment-section">
+            <label for="comment">Your Comment:</label>
+            <textarea id="comment" [(ngModel)]="feedback.comment" rows="4"
+                placeholder="Please share your experience..."></textarea>
+        </div>
+
+        <button (click)="submitFeedback()" [disabled]="!isValid()">
+            Send
+        </button>
+    </div>
+</div>

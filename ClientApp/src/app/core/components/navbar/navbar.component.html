@@ -3,20 +3,23 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <!-- Logo -->
-                <a class="navbar-brand" routerLink="/">
+                <a class="navbar-brand" routerLink="">
                     <img src="https://bookingcare.vn/assets/icon/bookingcare-2020.svg" alt="BookingCare">
                 </a>
 
                 <!-- Menu -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="#">Bác sĩ</a>
+                        <a class="nav-link" routerLink="doctors/profile">Bác sĩ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" routerLink="#">Phòng khám</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" routerLink="#">Chuyên khoa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="feedbacks/list">Feedback</a>
                     </li>
                 </ul>
 
@@ -26,10 +29,20 @@
                     <input type="text" placeholder="Tìm bác sĩ, chuyên khoa">
                 </div>
 
-                <!-- Login & Register -->
+                <!-- Login & User Profile -->
                 <div class="auth-buttons">
-                    <button class="btn btn-outline-primary">Đăng nhập</button>
-                    <button class="btn btn-primary">Đăng ký</button>
+                    <ng-container *ngIf="user===undefined; else showUserProfile">
+                        <a [routerLink]="['/login']" class="btn btn-primary">Đăng Nhập</a>
+                    </ng-container>
+
+                    <ng-template #showUserProfile>
+                        <div class="user-profile">
+                            <a [routerLink]="['/manage-account']" class="user-email">
+                                Xin chào, {{user?.email}}
+                            </a>
+                            <button class="btn btn-primary ms-2" (click)="onLogout()">Đăng xuất</button>
+                        </div>
+                    </ng-template>
                 </div>
             </div>
         </nav>

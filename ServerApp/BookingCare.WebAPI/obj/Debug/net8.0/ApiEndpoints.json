@@ -380,6 +380,16 @@
   },
   {
     "ContainingType": "BookingCare.API.Controllers.DoctorController",
+    "Method": "GetTopRatingDoctors",
+    "RelativePath": "api/Doctor/get-top-rating-doctors",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.DoctorController",
     "Method": "LockDoctorAccount",
     "RelativePath": "api/Doctor/lock/{id}",
     "HttpMethod": "POST",
@@ -858,16 +868,6 @@
   },
   {
     "ContainingType": "BookingCare.API.Controllers.SpecializationController",
-    "Method": "GetAllSpecializations",
-    "RelativePath": "api/Specialization",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BookingCare.API.Controllers.SpecializationController",
     "Method": "CreateSpecialization",
     "RelativePath": "api/Specialization",
     "HttpMethod": "POST",
@@ -933,6 +933,26 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.SpecializationController",
+    "Method": "GetAllSpecializations",
+    "RelativePath": "api/Specialization/get-all-specializations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.SpecializationController",
+    "Method": "GetTopSpecializations",
+    "RelativePath": "api/Specialization/get-top-specializations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
