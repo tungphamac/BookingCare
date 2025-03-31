@@ -1,37 +1,35 @@
 <div class="login-container">
-    <div class="login-form">
+    <div class="card">
         <h2>Đăng nhập</h2>
-
-        <form #ngForm (ngSubmit)="onFormSubmit()">
+        <form #ngForm (ngSubmit)="onFormSubmit()" class="login-form">
             <div class="form-group">
-                <label for="Gmail">Gmail</label>
-                <input type="text" id="username" class="form-control" [(ngModel)]="model.email" name="username"
-                    required>
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" [(ngModel)]="model.email" name="email" required
+                    placeholder="Nhập email của bạn" />
             </div>
 
             <div class="form-group">
                 <label for="password">Mật khẩu</label>
                 <input type="password" id="password" class="form-control" [(ngModel)]="model.password" name="password"
-                    required>
+                    required placeholder="Nhập mật khẩu của bạn" />
             </div>
 
-            <!-- <div class="error-message" *ngIf="errorMessage">
-          {{ errorMessage }}
-        </div>
-   -->
-            <!-- <button type="submit" class="btn btn-primary" [disabled]="[errorMessage]">
-                {{ isLoading ? 'Đang đăng nhập...' : 'Đăng nhập' }}
-            </button> -->
             <div class="mt-2">
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+                    {{ isLoading ? 'Đang đăng nhập...' : 'Đăng nhập' }}
+                </button>
             </div>
         </form>
 
-        <div class="register-link">
-            Chưa có tài khoản?<a [routerLink]="['/register']" class="btn btn-primary">Register</a>
-        </div>
-        <div class="Forgotpassword-link">
-            Bạn Quên Mật Khẩu?<a [routerLink]="['/forgot-password']" class="btn btn-primary">Quên Mật Khẩu</a>
+        <p *ngIf="errorMessage" class="message error">{{ errorMessage }}</p>
+
+        <div class="links">
+            <div class="register-link">
+                Chưa có tài khoản? <a [routerLink]="['/register']" class="link">Đăng ký</a>
+            </div>
+            <div class="forgot-password-link">
+                Quên mật khẩu? <a [routerLink]="['/forgot-password']" class="link">Khôi phục</a>
+            </div>
         </div>
     </div>
 </div>

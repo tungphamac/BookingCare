@@ -1,47 +1,138 @@
+/* Reset mặc định và thiết lập font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Căn giữa container và thêm background gradient */
 .register-container {
-    width: 400px;
-    margin-top: 200px;
-    margin-left: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
+}
+
+/* Thiết kế thẻ (card) chứa form */
+.card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 450px;
+    /* Tăng max-width để chứa nhiều trường hơn */
     text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
-h2 {
-    margin-bottom: 20px;
+/* Hiệu ứng fade-in cho card */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Style cho tiêu đề */
+.card h2 {
+    font-size: 28px;
     color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
 }
 
+/* Style cho form */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Style cho form-group */
 .form-group {
-    margin-bottom: 15px;
+    text-align: left;
 }
 
-input,
-select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #0056b3;
-}
-
-.message {
-    margin-top: 15px;
+/* Style cho label */
+.form-group label {
     font-size: 14px;
-    color: green;
+    color: #555;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 500;
+}
+
+/* Style cho input và select */
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng khi focus vào input/select */
+.form-control:focus {
+    border-color: #6e8efb;
+    box-shadow: 0 0 8px rgba(110, 142, 251, 0.2);
+}
+
+/* Style cho select */
+.form-control[multiple],
+.form-control[size] {
+    height: auto;
+}
+
+/* Style cho nút "Đăng ký" */
+.btn {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng hover cho nút */
+.btn:hover {
+    background: linear-gradient(135deg, #5a75e3, #8f5ed1);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(110, 142, 251, 0.3);
+}
+
+/* Hiệu ứng active cho nút */
+.btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Style cho thông báo */
+.message {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Thông báo thành công */
+.message.success {
+    color: #28a745;
+}
+
+/* Thông báo lỗi (nếu có) */
+.message.error {
+    color: #dc3545;
 }

@@ -1,6 +1,7 @@
 ﻿using BookingCare.Business.Services.Interfaces;
 using BookingCare.Data.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,14 @@ namespace BookingCare.Business.Services
         private readonly ILogger<AccountService> _logger;
         private readonly UserManager<User> _userManager;
         private readonly IEmailService _emailService;
-        public AccountService(UserManager<User> userManager, IEmailService emailService, ILogger<AccountService> logger)
+        private readonly string _frontendUrl;
+
+        public AccountService(UserManager<User> userManager, IEmailService emailService, ILogger<AccountService> logger,IConfiguration configuration)
         {
             _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
             _emailService = emailService ?? throw new ArgumentNullException(nameof(emailService));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _frontendUrl = configuration["FrontendUrl"];
         }
         public async Task<(bool Success, string Message, string[] Errors)> ChangePasswordAsync(int userId, string oldPassword, string newPassword, string confirmNewPassword)
         {
@@ -52,7 +56,7 @@ namespace BookingCare.Business.Services
                 return (false, "Email không tồn tại.");
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-            var resetLink = $"https://localhost:7182/api/Account/reset-password?email={email}&token={Uri.EscapeDataString(token)}";
+            var resetLink = $"{_frontendUrl}/reset-password?email={email}&token={Uri.EscapeDataString(token)}";
 
             try
             {

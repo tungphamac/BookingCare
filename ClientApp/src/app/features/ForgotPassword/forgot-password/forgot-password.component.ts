@@ -14,11 +14,24 @@ import { Router, RouterLink, RouterModule } from '@angular/router';
 export class ForgotPasswordComponent {
   model: forgotPasswordVm = { Email: '' };
   message: string = '';
+  errorMessage: string = '';
   constructor(private authService: AuthService, private router: Router) {
 
   }
 
   onFormSubmit() {
+    // Validation phía client
+    if (!this.model.Email) {
+      this.errorMessage = 'Email là bắt buộc';
+      return;
+    }
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(this.model.Email)) {
+      this.errorMessage = 'Email không hợp lệ';
+      return;
+    }
+
+    this.errorMessage = ''; // Xóa thông báo lỗi nếu validation thành công
     this.authService.forgotPassword(this.model).subscribe({
       next: (res) => {
         this.message = "Email đặt lại mật khẩu đã được gửi!";

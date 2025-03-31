@@ -15,10 +15,10 @@ export class ResetPasswordComponent implements OnInit {
   model: resetPasswordVm = {
     Email: '',
     NewPassword: '',
-    ConfirmPassword: '',
+    ConfirmNewPassword: '',
     Token: ''
   };
-  message: string = '';
+  errorMessage: string = '';
 
   constructor(private authService: AuthService, private route: ActivatedRoute) { }
 
@@ -28,12 +28,37 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   onFormSubmit() {
+    if (!this.model.NewPassword || !this.model.ConfirmNewPassword) {
+      this.errorMessage = 'Mật khẩu mới và xác nhận mật khẩu là bắt buộc';
+      return;
+    }
+    if (this.model.NewPassword !== this.model.ConfirmNewPassword) {
+      this.errorMessage = 'Mật khẩu xác nhận không khớp';
+      return;
+    }
+    if (this.model.NewPassword.length < 6) {
+      this.errorMessage = 'Mật khẩu phải có ít nhất 6 ký tự';
+      return;
+    }
+
+    this.errorMessage = '';
     this.authService.resetPassword(this.model).subscribe({
       next: (res) => {
-        this.message = "Mật khẩu đã được đặt lại thành công!";
+        this.errorMessage = 'Mật khẩu đã được đặt lại thành công!';
       },
       error: (err) => {
-        this.message = err.error.message || "Có lỗi xảy ra!";
+        // Hiển thị lỗi chi tiết từ server
+        if (err.error.errors) {
+          // Lỗi từ ModelState
+          const errors = Object.values(err.error.errors).flat().join(', ');
+          this.errorMessage = errors;
+        } else if (err.error.message) {
+          // Lỗi từ ResetPasswordAsync
+          const errors = err.error.errors ? err.error.errors.join(', ') : '';
+          this.errorMessage = `${err.error.message}${errors ? ': ' + errors : ''}`;
+        } else {
+          this.errorMessage = 'Có lỗi xảy ra!';
+        }
       }
     });
   }

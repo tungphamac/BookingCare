@@ -1,6 +1,6 @@
 export interface resetPasswordVm {
     Email: string;
     NewPassword: string;
-    ConfirmPassword: string;
+    ConfirmNewPassword: string;
     Token: string;
 }

@@ -52,11 +52,11 @@ export class AuthService {
   }
 
   forgotPassword(model: forgotPasswordVm): Observable<any> {
-    return this.http.post<any>(`${API_URL}/Account/forgot-password`, { model });
+    return this.http.post<any>(`${API_URL}/Account/forgot-password`, model);
   }
 
   resetPassword(model: resetPasswordVm): Observable<any> {
-    return this.http.post<any>(`${API_URL}/Account/reset-password`, { model });
+    return this.http.post<any>(`${API_URL}/Account/reset-password`, model);
   }
 
   register(userData: RegisterVm): Observable<any> {
