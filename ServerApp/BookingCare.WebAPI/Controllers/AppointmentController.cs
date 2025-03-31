@@ -1,11 +1,17 @@
 ﻿using BookingCare.API.Dtos;
 using BookingCare.Business.Dtos;
 using BookingCare.Business.Services.Interfaces;
+<<<<<<< HEAD
 using BookingCare.Data.Infrastructure;
 using BookingCare.Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+=======
+using BookingCare.Data.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
 using System.Security.Claims;
 
 namespace BookingCare.API.Controllers
@@ -15,6 +21,7 @@ namespace BookingCare.API.Controllers
     public class AppointmentController : ControllerBase
     {
         private readonly IAppointmentService _appointmentService;
+<<<<<<< HEAD
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<AppointmentController> _logger;
 
@@ -25,6 +32,13 @@ namespace BookingCare.API.Controllers
         {
             _appointmentService = appointmentService;
             _unitOfWork = unitOfWork;
+=======
+        private readonly ILogger<AppointmentController> _logger;
+
+        public AppointmentController(IAppointmentService appointmentService, ILogger<AppointmentController> logger)
+        {
+            _appointmentService = appointmentService;
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
             _logger = logger;
         }
 
@@ -37,15 +51,25 @@ namespace BookingCare.API.Controllers
                 // Kiểm tra dữ liệu đầu vào
                 if (dto == null || !ModelState.IsValid)
                 {
+<<<<<<< HEAD
                     _logger.LogWarning("Invalid appointment data provided: {Errors}", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
                     return BadRequest(new { Success = false, Message = "Invalid appointment data.", Errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage) });
+=======
+                    _logger.LogWarning("Invalid appointment data provided.");
+                    return BadRequest(new { Success = false, Message = "Invalid appointment data." });
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
                 }
 
                 // Lấy PatientId từ token
                 if (!int.TryParse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value, out var patientId))
                 {
+<<<<<<< HEAD
                     _logger.LogWarning("Invalid user ID in token for creating appointment.");
                     return Unauthorized(new { Success = false, Message = "Invalid user ID in token." });
+=======
+                    _logger.LogWarning("Invalid user ID in token.");
+                    return Unauthorized(new { Success = false, Message = "Invalid user ID." });
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
                 }
 
                 var appointment = new Appointment
@@ -62,7 +86,11 @@ namespace BookingCare.API.Controllers
                 };
 
                 var result = await _appointmentService.CreateAppointmentAsync(appointment);
+<<<<<<< HEAD
                 _logger.LogInformation("Appointment {AppointmentId} created successfully by Patient ID {PatientId}.", result, patientId);
+=======
+                _logger.LogInformation($"Appointment {result} created successfully by Patient ID {patientId}.");
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
 
                 return Ok(new
                 {
@@ -73,27 +101,42 @@ namespace BookingCare.API.Controllers
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
                 _logger.LogError(ex, "Error creating new appointment for Patient ID {PatientId}.", User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
                 return StatusCode(500, new { Success = false, Message = "Đã xảy ra lỗi khi tạo lịch hẹn: " + ex.Message });
+=======
+                _logger.LogError(ex, "Error creating new appointment.");
+                return StatusCode(500, new { Success = false, Message = ex.Message });
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
             }
         }
 
         [HttpPut("{id}/manage")]
         [Authorize(Roles = "Doctor,Patient")]
+<<<<<<< HEAD
         public async Task<IActionResult> ManageAppointment(int id, [FromQuery] AppointmentStatus status, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
+=======
+        public async Task<IActionResult> ManageAppointment(int id, [FromQuery] AppointmentStatus status)
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
         {
             try
             {
                 // Kiểm tra trạng thái hợp lệ
                 if (!Enum.IsDefined(typeof(AppointmentStatus), status))
                 {
+<<<<<<< HEAD
                     _logger.LogWarning("Invalid appointment status provided: {Status}.", status);
                     return BadRequest(new { Success = false, Message = $"Trạng thái lịch hẹn không hợp lệ: {status}." });
+=======
+                    _logger.LogWarning($"Invalid appointment status: {status}.");
+                    return BadRequest(new { Success = false, Message = "Invalid appointment status." });
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
                 }
 
                 // Lấy userId từ token
                 if (!int.TryParse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value, out var userId))
                 {
+<<<<<<< HEAD
                     _logger.LogWarning("Invalid user ID in token for managing appointment ID {AppointmentId}.", id);
                     return Unauthorized(new { Success = false, Message = "Invalid user ID in token." });
                 }
@@ -142,6 +185,26 @@ namespace BookingCare.API.Controllers
             {
                 _logger.LogError(ex, "Error managing appointment with ID {AppointmentId} by User ID {UserId}.", id, User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
                 return StatusCode(500, new { Success = false, Message = "Đã xảy ra lỗi khi quản lý lịch hẹn: " + ex.Message });
+=======
+                    _logger.LogWarning("Invalid user ID in token.");
+                    return Unauthorized(new { Success = false, Message = "Invalid user ID." });
+                }
+
+                var result = await _appointmentService.ManageAppointmentAsync(id, status, userId);
+                if (!result)
+                {
+                    _logger.LogWarning($"Appointment with ID {id} not found.");
+                    return NotFound(new { Success = false, Message = $"Appointment with ID {id} not found." });
+                }
+
+                _logger.LogInformation($"Appointment {id} status updated to {status} by User ID {userId}.");
+                return Ok(new { Success = true, Message = "Cập nhật trạng thái lịch hẹn thành công" });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error managing appointment with ID {id}.");
+                return StatusCode(500, new { Success = false, Message = ex.Message });
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
             }
         }
 
@@ -154,15 +217,25 @@ namespace BookingCare.API.Controllers
                 // Kiểm tra dữ liệu đầu vào
                 if (dto == null || !ModelState.IsValid)
                 {
+<<<<<<< HEAD
                     _logger.LogWarning("Invalid appointment data provided for update: {Errors}", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
                     return BadRequest(new { Success = false, Message = "Invalid appointment data.", Errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage) });
+=======
+                    _logger.LogWarning("Invalid appointment data provided for update.");
+                    return BadRequest(new { Success = false, Message = "Invalid appointment data." });
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
                 }
 
                 // Lấy userId từ token
                 if (!int.TryParse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value, out var userId))
                 {
+<<<<<<< HEAD
                     _logger.LogWarning("Invalid user ID in token for updating appointment ID {AppointmentId}.", id);
                     return Unauthorized(new { Success = false, Message = "Invalid user ID in token." });
+=======
+                    _logger.LogWarning("Invalid user ID in token.");
+                    return Unauthorized(new { Success = false, Message = "Invalid user ID." });
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
                 }
 
                 var appointment = new Appointment
@@ -177,17 +250,30 @@ namespace BookingCare.API.Controllers
                 var result = await _appointmentService.UpdateAppointmentAsync(appointment, userId);
                 if (!result)
                 {
+<<<<<<< HEAD
                     _logger.LogWarning("Appointment with ID {AppointmentId} not found or user {UserId} is not authorized to update it.", id, userId);
                     return NotFound(new { Success = false, Message = $"Không tìm thấy lịch hẹn với ID {id} hoặc bạn không có quyền cập nhật lịch hẹn này." });
                 }
 
                 _logger.LogInformation("Appointment {AppointmentId} updated successfully by Patient ID {PatientId}.", id, userId);
+=======
+                    _logger.LogWarning($"Appointment with ID {id} not found or user {userId} is not authorized.");
+                    return NotFound(new { Success = false, Message = $"Appointment with ID {id} not found or you are not authorized to update it." });
+                }
+
+                _logger.LogInformation($"Appointment {id} updated successfully by Patient ID {userId}.");
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
                 return Ok(new { Success = true, Message = "Cập nhật lịch hẹn thành công" });
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
                 _logger.LogError(ex, "Error updating appointment with ID {AppointmentId} by Patient ID {PatientId}.", id, User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
                 return StatusCode(500, new { Success = false, Message = "Đã xảy ra lỗi khi cập nhật lịch hẹn: " + ex.Message });
+=======
+                _logger.LogError(ex, $"Error updating appointment with ID {id}.");
+                return StatusCode(500, new { Success = false, Message = ex.Message });
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
             }
         }
 
@@ -200,13 +286,19 @@ namespace BookingCare.API.Controllers
                 // Lấy userId từ token
                 if (!int.TryParse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value, out var userId))
                 {
+<<<<<<< HEAD
                     _logger.LogWarning("Invalid user ID in token for retrieving appointment ID {AppointmentId}.", id);
                     return Unauthorized(new { Success = false, Message = "Invalid user ID in token." });
+=======
+                    _logger.LogWarning("Invalid user ID in token.");
+                    return Unauthorized(new { Success = false, Message = "Invalid user ID." });
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
                 }
 
                 var appointment = await _appointmentService.GetAppointmentDetailAsync(id, userId);
                 if (appointment == null)
                 {
+<<<<<<< HEAD
                     _logger.LogWarning("Appointment with ID {AppointmentId} not found for User ID {UserId}.", id, userId);
                     return NotFound(new { Success = false, Message = $"Không tìm thấy lịch hẹn với ID {id}." });
                 }
@@ -236,12 +328,34 @@ namespace BookingCare.API.Controllers
                 };
 
                 _logger.LogInformation("Retrieved appointment details for ID {AppointmentId} by User ID {UserId}.", id, userId);
+=======
+                    _logger.LogWarning($"Appointment with ID {id} not found.");
+                    return NotFound(new { Success = false, Message = $"Appointment with ID {id} not found." });
+                }
+
+                // Ánh xạ sang DTO để kiểm soát dữ liệu trả về
+                var appointmentDto = new AppointmentDetailDto
+                {
+                    Id = appointment.Id,
+                    DoctorName = appointment.Doctor?.User?.UserName ?? "Unknown",
+                    PatientName = appointment.Patient?.User?.UserName ?? "Unknown",
+                    ScheduleTime = appointment.Date.Add(appointment.Time),
+                    Status = appointment.Status.ToString(),
+                    CreatedAt = appointment.CreatedAt
+                };
+
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
                 return Ok(new { Success = true, Message = "Lấy chi tiết lịch hẹn thành công", Data = appointmentDto });
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
                 _logger.LogError(ex, "Error retrieving appointment with ID {AppointmentId} by User ID {UserId}.", id, User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
                 return StatusCode(500, new { Success = false, Message = "Đã xảy ra lỗi khi lấy chi tiết lịch hẹn: " + ex.Message });
+=======
+                _logger.LogError(ex, $"Error retrieving appointment with ID {id}.");
+                return StatusCode(500, new { Success = false, Message = ex.Message });
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
             }
         }
     }

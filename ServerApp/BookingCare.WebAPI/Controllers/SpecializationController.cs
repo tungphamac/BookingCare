@@ -38,7 +38,11 @@ namespace BookingCare.API.Controllers
             }
         }
 
+<<<<<<< HEAD
         [HttpGet]
+=======
+        [HttpGet("get-all-specializations")]
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
         [Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem danh sách specialization
         public async Task<IActionResult> GetAllSpecializations()
         {
@@ -113,5 +117,23 @@ namespace BookingCare.API.Controllers
                 return StatusCode(500, "An error occurred while deleting the specialization.");
             }
         }
+<<<<<<< HEAD
+=======
+
+        [HttpGet("get-top-specializations")]
+        public async Task<IActionResult> GetTopSpecializations()
+        {
+            try
+            {
+                var topSpecializations = await _specializationService.GetTopSpecializationsAsync(3);
+                return Ok(topSpecializations);
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving all specializations.");
+                return StatusCode(500, "An error occurred while retrieving specializations.");
+            }
+        }
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
     }
 }

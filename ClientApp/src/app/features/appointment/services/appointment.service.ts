@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
+<<<<<<< HEAD
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { API_URL } from '../../../app.config';
 import { AppointmentCreate } from '../models/appointment-create.model';
 import { AppointmentDetail } from '../models/appointment-detail.model';
 import { AppointmentStatus } from '../models/appointment-status.enum';
+=======
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppointmentService {
+<<<<<<< HEAD
   private apiUrl = `${API_URL}/Appointment`;
 
   constructor(private http: HttpClient) {}
@@ -47,4 +51,8 @@ export class AppointmentService {
   getAppointments(pageNumber: number = 1, pageSize: number = 10): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}?pageNumber=${pageNumber}&pageSize=${pageSize}`, { headers: this.getHeaders() });
   }
+=======
+
+  constructor() { }
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
 }

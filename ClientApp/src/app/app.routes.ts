@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomepageComponent } from './core/components/homepage/homepage.component';
+<<<<<<< HEAD
 import { LoginComponent } from './features/auth/login/login.component';
 import { RegisterComponent } from './features/register/register/register.component';
 import { CreateAppointmentComponent } from './features/appointment/components/create-appointment/create-appointment.component';
@@ -8,6 +9,16 @@ import { UpdateAppointmentComponent } from './features/appointment/components/up
 import { ViewAppointmentDetailComponent } from './features/appointment/components/view-appointment-detail/view-appointment-detail.component';
 import { ManageMedicalRecordComponent } from './features/medicalRecord/component/manage-medical-record/manage-medical-record.component';
 
+=======
+import { TopClinicListComponent } from './features/clinic/top-clinic-list/top-clinic-list.component';
+import { FeedbackListComponent } from './features/feedback/feedback-list/feedback-list.component';
+import { FeedbackAddComponent } from './features/feedback/feedback-add/feedback-add.component';
+import { DoctorProfileComponent } from './features/doctor/doctor-profile/doctor-profile.component';
+import { LoginComponent } from './features/auth/login/login.component';
+import { RegisterComponent } from './features/register/register/register.component';
+import { ForgotPasswordComponent } from './features/ForgotPassword/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './features/ResetPassword/reset-password/reset-password.component';
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
 
 export const routes: Routes = [
     { path: '', component: HomepageComponent },
@@ -20,6 +31,7 @@ export const routes: Routes = [
         path: 'register',
         component: RegisterComponent
     },
+<<<<<<< HEAD
     { 
         path: 'appointments/create', 
         component: CreateAppointmentComponent 
@@ -44,4 +56,25 @@ export const routes: Routes = [
         path: 'medical-records/:id', 
         component: ManageMedicalRecordComponent 
     }
+=======
+    {
+        path: 'forgot-password',
+        component: ForgotPasswordComponent
+    },
+
+    {
+        path: 'reset-password',
+        component: ResetPasswordComponent
+    },
+
+
+
+
+    { path: '', component: HomepageComponent },
+    { path: 'clinics/top-clinic', component: TopClinicListComponent },
+    { path: 'feedbacks/list', component: FeedbackListComponent },
+    { path: 'feedbacks/add', component: FeedbackAddComponent },
+    { path: 'doctors/profile', component: DoctorProfileComponent }
+
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
 ];

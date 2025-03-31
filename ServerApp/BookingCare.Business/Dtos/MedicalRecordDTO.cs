@@ -10,6 +10,7 @@ namespace BookingCare.Business.Dtos
     {
         public int Id { get; set; }
         public int AppointmentId { get; set; }
+<<<<<<< HEAD
         public string Diagnosis { get; set; }
         public string Prescription { get; set; }
         public string Notes { get; set; }
@@ -31,5 +32,7 @@ namespace BookingCare.Business.Dtos
         public string Diagnosis { get; set; }
         public string Prescription { get; set; }
         public string Notes { get; set; }
+=======
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
     }
 }

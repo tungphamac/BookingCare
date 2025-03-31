@@ -7,6 +7,11 @@ import { LoginRequest } from '../login/Models/login-request.model';
 import { LoginResponse } from '../login/Models/login-response.model';
 import { API_URL } from '../../../app.config';
 import { RegisterVm } from '../../register/Models/register.model';
+<<<<<<< HEAD
+=======
+import { resetPasswordVm } from '../../ResetPassword/Models/resetPass.model';
+import { forgotPasswordVm } from '../../ForgotPassword/Models/forgot.model';
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
 
 
 @Injectable({
@@ -48,6 +53,7 @@ export class AuthService {
     this.cookieService.delete("Authentication", "/");
     this.$user.next(undefined);
   }
+<<<<<<< HEAD
   register(userData: RegisterVm): Observable<any> {
     return this.http.post<any>(`${API_URL}/Authentication/register`, userData)
       .pipe(
@@ -59,3 +65,33 @@ export class AuthService {
 
   }
 }
+=======
+
+  forgotPassword(model: forgotPasswordVm): Observable<any> {
+    return this.http.post<any>(`${API_URL}/Account/forgot-password`, model);
+  }
+
+  resetPassword(model: resetPasswordVm): Observable<any> {
+    return this.http.post<any>(`${API_URL}/Account/reset-password`, model);
+  }
+
+  register(userData: RegisterVm): Observable<any> {
+    return this.http.post<any>(`${API_URL}/Authentication/register`, userData).pipe(
+      catchError(error => {
+        console.error('Lỗi đăng ký:', error);
+        let errorMessage = 'UserName Đã tồn tại';
+
+        if (error.error) {
+          if (error.error.message) errorMessage = error.error.message;
+          if (error.error.errors) errorMessage += '\n' + error.error.errors.join('\n');
+        }
+
+        return throwError(() => new Error(errorMessage));
+      })
+    );
+
+
+  }
+}
+
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06

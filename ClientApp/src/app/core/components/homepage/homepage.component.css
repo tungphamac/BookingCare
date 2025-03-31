@@ -55,11 +55,14 @@ body {
     font-size: 16px;
 }
 
+<<<<<<< HEAD
 .services img {
     width: 50px;
     margin-bottom: 10px;
 }
 
+=======
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
 .doctors {
     background-color: #f8f9fa;
     padding: 50px 0;

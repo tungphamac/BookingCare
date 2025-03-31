@@ -1,4 +1,5 @@
 <div class="register-container">
+<<<<<<< HEAD
     <h2>Đăng Ký</h2>
     <form (ngSubmit)="onFormSubmit()" #registerForm="ngForm">
         <div class="form-group">
@@ -40,4 +41,64 @@
         <button type="submit" class="btn">Đăng ký</button>
     </form>
     <p *ngIf="message" class="message">{{ message }}</p>
+=======
+    <div class="card">
+        <h2>Đăng Ký</h2>
+        <form (ngSubmit)="onFormSubmit()" #registerForm="ngForm" class="register-form">
+            <div class="form-group">
+                <label for="UserName">Tên đăng nhập</label>
+                <input type="text" id="UserName" [(ngModel)]="model.UserName" name="UserName" required
+                    placeholder="Nhập tên đăng nhập" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="email" id="Email" [(ngModel)]="model.Email" name="Email" required
+                    placeholder="Nhập email của bạn" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="Password">Mật khẩu</label>
+                <input type="password" id="Password" [(ngModel)]="model.Password" name="Password" required
+                    placeholder="Nhập mật khẩu (ít nhất 6 ký tự)" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="Phone">Số điện thoại</label>
+                <input type="text" id="Phone" [(ngModel)]="model.Phone" name="Phone" required
+                    placeholder="Nhập số điện thoại" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="Address">Địa chỉ</label>
+                <input type="text" id="Address" [(ngModel)]="model.Address" name="Address"
+                    placeholder="Nhập địa chỉ (không bắt buộc)" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="Avatar">Avatar URL</label>
+                <input type="text" id="Avatar" [(ngModel)]="model.Avatar" name="Avatar"
+                    placeholder="Nhập URL ảnh đại diện (không bắt buộc)" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="Gender">Giới tính</label>
+                <select id="Gender" [(ngModel)]="model.Gender" name="Gender" class="form-control">
+                    <option value="" disabled selected>Chọn giới tính</option>
+                    <option [value]="true">Nam</option>
+                    <option [value]="false">Nữ</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="MedicalHistory">Lịch sử bệnh án</label>
+                <input type="number" id="MedicalHistory" [(ngModel)]="model.MedicalHistory" name="MedicalHistory"
+                    placeholder="Nhập số bệnh án (không bắt buộc)" class="form-control" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Đăng ký</button>
+        </form>
+        <p *ngIf="message" class="message success">{{ message }}</p>
+    </div>
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
 </div>

@@ -164,6 +164,7 @@
         "Name": "status",
         "Type": "System.String",
         "IsRequired": false
+<<<<<<< HEAD
       },
       {
         "Name": "pageNumber",
@@ -174,6 +175,8 @@
         "Name": "pageSize",
         "Type": "System.Int32",
         "IsRequired": false
+=======
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
       }
     ],
     "ReturnTypes": []
@@ -390,6 +393,19 @@
   },
   {
     "ContainingType": "BookingCare.API.Controllers.DoctorController",
+<<<<<<< HEAD
+=======
+    "Method": "GetTopRatingDoctors",
+    "RelativePath": "api/Doctor/get-top-rating-doctors",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.DoctorController",
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
     "Method": "LockDoctorAccount",
     "RelativePath": "api/Doctor/lock/{id}",
     "HttpMethod": "POST",
@@ -514,7 +530,11 @@
     "Parameters": [
       {
         "Name": "dto",
+<<<<<<< HEAD
         "Type": "BookingCare.Business.Dtos.MedicalRecordCreateDto",
+=======
+        "Type": "BookingCare.Business.Dtos.MedicalRecordDTO",
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
         "IsRequired": true
       }
     ],
@@ -535,7 +555,11 @@
       },
       {
         "Name": "dto",
+<<<<<<< HEAD
         "Type": "BookingCare.Business.Dtos.MedicalRecordUpdateDto",
+=======
+        "Type": "BookingCare.Business.Dtos.MedicalRecordDTO",
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
         "IsRequired": true
       }
     ],
@@ -868,6 +892,7 @@
   },
   {
     "ContainingType": "BookingCare.API.Controllers.SpecializationController",
+<<<<<<< HEAD
     "Method": "GetAllSpecializations",
     "RelativePath": "api/Specialization",
     "HttpMethod": "GET",
@@ -878,6 +903,8 @@
   },
   {
     "ContainingType": "BookingCare.API.Controllers.SpecializationController",
+=======
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
     "Method": "CreateSpecialization",
     "RelativePath": "api/Specialization",
     "HttpMethod": "POST",
@@ -946,6 +973,29 @@
     "ReturnTypes": []
   },
   {
+<<<<<<< HEAD
+=======
+    "ContainingType": "BookingCare.API.Controllers.SpecializationController",
+    "Method": "GetAllSpecializations",
+    "RelativePath": "api/Specialization/get-all-specializations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.SpecializationController",
+    "Method": "GetTopSpecializations",
+    "RelativePath": "api/Specialization/get-top-specializations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
     "ContainingType": "BookingCare.WebAPI.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",

@@ -278,5 +278,44 @@ namespace BookingCare.Business.Services
 
             return result;
         }
+<<<<<<< HEAD
+=======
+
+        public async Task<ICollection<TopRatingDoctorVm>> GetTopRatingDoctors(int top)
+        {
+            var topRatingDoctors = await _unitOfWork.Context.Feedbacks
+        .GroupBy(f => f.Appointment.DoctorId)
+        .Select(g => new
+        {
+            DoctorId = g.Key,
+            AverageRating = g.Average(f => f.Rating),
+            TotalReviews = g.Count()
+        })
+        .OrderByDescending(d => d.AverageRating)
+        .ThenByDescending(d => d.TotalReviews)
+        .Take(top)
+        .Join(_unitOfWork.Context.Doctors,
+              rating => rating.DoctorId,
+              doctor => doctor.UserId,
+              (rating, doctor) => new { rating, doctor })
+        .Join(_unitOfWork.Context.Users,
+              combined => combined.doctor.UserId,
+              user => user.Id,
+              (combined, user) => new TopRatingDoctorVm
+              {
+                  DoctorId = combined.doctor.UserId,
+                  DoctorName = user.UserName, // Lấy từ bảng Users
+                  Address = user.Address, // Lấy từ bảng Users
+                  Avatar = user.Avatar, // Lấy từ bảng Users
+                  Description = combined.doctor.Description,
+                  Achievement = combined.doctor.Achievement,
+                  AverageRating = combined.rating.AverageRating,
+                  TotalReviews = combined.rating.TotalReviews
+              })
+        .ToListAsync();
+
+            return topRatingDoctors;
+        }
+>>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
     }
 }
