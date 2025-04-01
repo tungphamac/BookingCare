@@ -28,7 +28,7 @@ namespace BookingCare.API.Controllers
         }
 
         // GET: api/patient/{id}
-        [HttpGet("{id}")]
+        [HttpGet("get-patient-by-id/{id}")]
         [Authorize(Roles = "Admin,Doctor,Patient")] // Admin, Doctor, Patient có thể xem chi tiết bệnh nhân
         public async Task<ActionResult<PatientDetailDto>> GetPatientDetail(int id)
         {

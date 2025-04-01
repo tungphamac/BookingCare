@@ -8,35 +8,26 @@ import { LoginComponent } from './features/auth/login/login.component';
 import { RegisterComponent } from './features/register/register/register.component';
 import { ForgotPasswordComponent } from './features/ForgotPassword/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './features/ResetPassword/reset-password/reset-password.component';
+import { ClinicDetailComponent } from './features/clinic/clinic-detail/clinic-detail.component';
+import { DoctorDetailComponent } from './features/doctor/doctorc-detail/doctorc-detail.component';
+import { PatientDetailComponent } from './features/patient/patientc-detail/patientc-detail.component';
+import { NotificationListComponent } from './features/notification/notification-list/notification-list.component';
+import { SearchComponent } from './features/search/search/search.component';
 
 export const routes: Routes = [
-    { path: '', component: HomepageComponent },
-
-    {
-        path: 'login',
-        component: LoginComponent
-    },
-    {
-        path: 'register',
-        component: RegisterComponent
-    },
-    {
-        path: 'forgot-password',
-        component: ForgotPasswordComponent
-    },
-
-    {
-        path: 'reset-password',
-        component: ResetPasswordComponent
-    },
-
-
-
-
-    { path: '', component: HomepageComponent },
-    { path: 'clinics/top-clinic', component: TopClinicListComponent },
-    { path: 'feedbacks/list', component: FeedbackListComponent },
-    { path: 'feedbacks/add', component: FeedbackAddComponent },
-    { path: 'doctors/profile', component: DoctorProfileComponent }
-
+  { path: '', component: HomepageComponent },
+  
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'patients/:id', component: PatientDetailComponent },
+  { path: 'clinics/top-clinic', component: TopClinicListComponent },
+  { path: 'clinics/:id', component: ClinicDetailComponent },
+  { path: 'doctors/:id', component: DoctorDetailComponent }, // Thêm route cho DoctorDetail
+  { path: 'feedbacks/list', component: FeedbackListComponent },
+  { path: 'feedbacks/add', component: FeedbackAddComponent },
+  { path: 'doctors/profile', component: DoctorProfileComponent },
+  { path: 'notifications', component: NotificationListComponent },
+  { path: 'search', component: SearchComponent }
 ];

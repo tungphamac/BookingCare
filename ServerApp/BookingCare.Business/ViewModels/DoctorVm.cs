@@ -1,7 +1,8 @@
 ﻿namespace BookingCare.Business.ViewModels
 {
     public class DoctorVm
-    {
+    {   
+
         public string Name { get; set; }
         public bool Gender { get; set; }
         public string Password { get; set; }

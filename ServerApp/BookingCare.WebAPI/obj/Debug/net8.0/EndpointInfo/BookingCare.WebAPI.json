@@ -364,69 +364,8 @@
         }
       }
     },
-    "/api/Clinic/{id}": {
+    "/api/Clinic/get-clinic-by-id/{id}": {
       "get": {
-        "tags": [
-          "Clinic"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Clinic"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ClinicDetailDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ClinicDetailDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ClinicDetailDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "delete": {
         "tags": [
           "Clinic"
         ],
@@ -489,6 +428,69 @@
         }
       }
     },
+    "/api/Clinic/{id}": {
+      "put": {
+        "tags": [
+          "Clinic"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClinicDetailDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClinicDetailDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClinicDetailDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Clinic"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Clinic/get-top-clinic": {
       "get": {
         "tags": [
@@ -501,7 +503,7 @@
         }
       }
     },
-    "/api/Doctor/{id}": {
+    "/api/Doctor/get-doctor-by-id/{id}": {
       "get": {
         "tags": [
           "Doctor"
@@ -522,7 +524,52 @@
             "description": "Success"
           }
         }
-      },
+      }
+    },
+    "/api/Doctor": {
+      "get": {
+        "tags": [
+          "Doctor"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Doctor/add_doctor": {
+      "post": {
+        "tags": [
+          "Doctor"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Doctor/{id}": {
       "put": {
         "tags": [
           "Doctor"
@@ -585,47 +632,6 @@
         }
       }
     },
-    "/api/Doctor": {
-      "get": {
-        "tags": [
-          "Doctor"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Doctor"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateDoctorDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateDoctorDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateDoctorDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
     "/api/Doctor/lock/{id}": {
       "post": {
         "tags": [
@@ -658,6 +664,18 @@
       }
     },
     "/api/Doctor/get-top-doctors": {
+      "get": {
+        "tags": [
+          "Doctor"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Doctor/get-top-rating-doctors": {
       "get": {
         "tags": [
           "Doctor"
@@ -992,7 +1010,7 @@
         }
       }
     },
-    "/api/Patient/{id}": {
+    "/api/Patient/get-patient-by-id/{id}": {
       "get": {
         "tags": [
           "Patient"
@@ -1489,7 +1507,7 @@
         }
       }
     },
-    "/api/Specialization": {
+    "/api/Specialization/get-all-specializations": {
       "get": {
         "tags": [
           "Specialization"
@@ -1499,7 +1517,9 @@
             "description": "Success"
           }
         }
-      },
+      }
+    },
+    "/api/Specialization": {
       "post": {
         "tags": [
           "Specialization"
@@ -1523,6 +1543,18 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Specialization/get-top-specializations": {
+      "get": {
+        "tags": [
+          "Specialization"
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -1835,6 +1867,10 @@
       "FeedbackVm": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
           "appointmentId": {
             "type": "integer",
             "format": "int32"
@@ -1942,6 +1978,10 @@
           },
           "gender": {
             "type": "boolean"
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
           },
           "address": {
             "type": "string",

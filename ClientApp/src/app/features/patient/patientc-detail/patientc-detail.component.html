@@ -1,0 +1,58 @@
+<div class="container">
+    <!-- Thông báo lỗi -->
+    <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+      {{ errorMessage }}
+      <button type="button" class="btn-close" (click)="errorMessage = null" aria-label="Đóng"></button>
+    </div>
+  
+    <!-- Nội dung chính -->
+    <div *ngIf="patient; else dangTai" class="profile-card">
+      <h2 class="section-title">Patient Details</h2>
+  
+      <div class="profile-header">
+        <div class="avatar-container">
+          <img [src]="patient.Avatar || 'https://via.placeholder.com/150'" alt="Patient avatar" class="avatar">
+        </div>
+        <div class="profile-info">
+          <h2>{{ patient.UserName || 'Patient Name' }}</h2>
+          <p>{{ patient.Email || 'patient@example.com' }}</p>
+        </div>
+        <button (click)="goBack()" class="btn btn-light nut-quay-lai">
+          <i class="fas fa-arrow-left"></i> Quay lại
+        </button>
+      </div>
+  
+      <div class="info-table">
+        <div class="info-row">
+          <div class="info-label">User ID</div>
+          <div class="info-value">{{ patient.UserId || 'N/A' }}</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Gender</div>
+          <div class="info-value">{{ patient.Gender ? 'Male' : 'Female' }}</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Email</div>
+          <div class="info-value">{{ patient.Email || 'N/A' }}</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Address</div>
+          <div class="info-value">{{ patient.Address || 'N/A' }}</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Medical Record ID</div>
+          <div class="info-value">{{ patient.MedicalRecordId || 'N/A' }}</div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Đang tải -->
+    <ng-template #dangTai>
+      <div class="khu-dang-tai">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Đang tải...</span>
+        </div>
+        <p>Đang tải thông tin bệnh nhân...</p>
+      </div>
+    </ng-template>
+  </div>

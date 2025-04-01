@@ -228,22 +228,6 @@
   },
   {
     "ContainingType": "BookingCare.API.Controllers.ClinicController",
-    "Method": "GetClinicById",
-    "RelativePath": "api/Clinic/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BookingCare.API.Controllers.ClinicController",
     "Method": "UpdateClinic",
     "RelativePath": "api/Clinic/{id}",
     "HttpMethod": "PUT",
@@ -281,6 +265,22 @@
   },
   {
     "ContainingType": "BookingCare.API.Controllers.ClinicController",
+    "Method": "GetClinicById",
+    "RelativePath": "api/Clinic/get-clinic-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.ClinicController",
     "Method": "GetTopClinics",
     "RelativePath": "api/Clinic/get-top-clinic",
     "HttpMethod": "GET",
@@ -297,38 +297,6 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BookingCare.API.Controllers.DoctorController",
-    "Method": "CreateDoctor",
-    "RelativePath": "api/Doctor",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "createDoctorDto",
-        "Type": "BookingCare.API.Dtos.CreateDoctorDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BookingCare.API.Controllers.DoctorController",
-    "Method": "GetDoctorById",
-    "RelativePath": "api/Doctor/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
     "ReturnTypes": []
   },
   {
@@ -357,6 +325,38 @@
     "Method": "DeleteDoctor",
     "RelativePath": "api/Doctor/{id}",
     "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.DoctorController",
+    "Method": "CreateDoctor",
+    "RelativePath": "api/Doctor/add_doctor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createDoctorDto",
+        "Type": "BookingCare.API.Dtos.CreateDoctorDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.DoctorController",
+    "Method": "GetDoctorById",
+    "RelativePath": "api/Doctor/get-doctor-by-id/{id}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -632,32 +632,6 @@
   },
   {
     "ContainingType": "BookingCare.API.Controllers.PatientController",
-    "Method": "GetPatientDetail",
-    "RelativePath": "api/Patient/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "BookingCare.API.Dtos.PatientDetailDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "BookingCare.API.Controllers.PatientController",
     "Method": "AddPatient",
     "RelativePath": "api/Patient/add",
     "HttpMethod": "POST",
@@ -687,6 +661,32 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.PatientController",
+    "Method": "GetPatientDetail",
+    "RelativePath": "api/Patient/get-patient-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BookingCare.API.Dtos.PatientDetailDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "BookingCare.API.Controllers.PatientController",

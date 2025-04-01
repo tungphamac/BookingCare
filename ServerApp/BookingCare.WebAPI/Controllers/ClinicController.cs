@@ -18,7 +18,7 @@ namespace BookingCare.API.Controllers
             _logger = logger;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("get-clinic-by-id/{id}")]
         public async Task<IActionResult> GetClinicById(int id)
         {
             try

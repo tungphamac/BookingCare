@@ -5,33 +5,36 @@ import { CommonModule } from '@angular/common';
 import { User } from '../../../features/auth/login/Models/user.model';
 import { AuthService } from '../../../features/auth/services/auth.service';
 
-
 @Component({
   selector: 'app-navbar',
+  standalone: true, // Thêm standalone nếu cần
   imports: [FormsModule, RouterLink, CommonModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
   user?: User;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService) {}
 
-  }
   ngOnInit(): void {
-    this.authService.user().subscribe(
-      {
-        next: response => {
-
-          this.user = response;
-        }
+    // Lấy user từ AuthService thông qua Observable
+    this.authService.user().subscribe({
+      next: response => {
+        this.user = response;
+      },
+      error: err => {
+        console.error('Error fetching user:', err);
+        this.user = undefined;
       }
-    );
+    });
 
+    // Lấy user từ AuthService (nếu đã lưu trong localStorage hoặc token)
     this.user = this.authService.getUser();
   }
 
-  onLogout() {
+  onLogout(): void {
     this.authService.logout();
+    this.user = undefined;
   }
 }
