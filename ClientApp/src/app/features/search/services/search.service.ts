@@ -19,4 +19,8 @@ export class SearchService {
   searchBySpecialization(keyword: string): Observable<SearchResult> {
     return this.http.get<SearchResult>(`${API_URL}/Search/Specialization?keyword=${keyword}`);
   }
+
+  searchPatients(doctorId: number, keyword: string): Observable<SearchResult> {
+    return this.http.get<SearchResult>(`${API_URL}/Search/Patients?doctorId=${doctorId}&keyword=${keyword}`);
+  }
 }

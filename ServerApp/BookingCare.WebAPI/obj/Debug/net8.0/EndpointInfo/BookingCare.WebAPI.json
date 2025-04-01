@@ -1423,6 +1423,52 @@
         }
       }
     },
+    "/api/Search/Patients": {
+      "get": {
+        "tags": [
+          "Search"
+        ],
+        "parameters": [
+          {
+            "name": "doctorId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "keyword",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchResultDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchResultDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchResultDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Specialization/{id}": {
       "get": {
         "tags": [
@@ -1931,10 +1977,6 @@
       "PatientDetailDto": {
         "type": "object",
         "properties": {
-          "userId": {
-            "type": "integer",
-            "format": "int32"
-          },
           "userName": {
             "type": "string",
             "nullable": true
@@ -2071,6 +2113,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SpecializationSearchDto"
+            },
+            "nullable": true
+          },
+          "patients": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PatientDetailDto"
             },
             "nullable": true
           }

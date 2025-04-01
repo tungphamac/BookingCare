@@ -62,10 +62,7 @@
   
               <h2>Thông tin cơ bản</h2>
               <div class="khu-thong-tin">
-                <div class="muc-thong-tin">
-                  <i class="fas fa-id-badge"></i>
-                  <span><strong>ID:</strong> {{ clinic.id || 'N/A' }}</span>
-                </div>
+                
                 <div class="muc-thong-tin">
                   <i class="fas fa-calendar-alt"></i>
                   <span><strong>Ngày tạo:</strong> {{ clinic.createAt ? (clinic.createAt | date:'medium') : 'N/A' }}</span>

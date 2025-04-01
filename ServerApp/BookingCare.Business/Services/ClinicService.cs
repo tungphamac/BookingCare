@@ -29,7 +29,7 @@ namespace BookingCare.Business.Services
                     .GetQuery(c => c.Id == id)
                     .Select(c => new ClinicDetailDto
                     {
-                        Id = c.Id,
+                        
                         Name = c.Name,
                         Address = c.Address,
                         Phone = c.Phone,

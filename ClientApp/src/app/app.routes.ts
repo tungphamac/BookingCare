@@ -13,10 +13,10 @@ import { DoctorDetailComponent } from './features/doctor/doctorc-detail/doctorc-
 import { PatientDetailComponent } from './features/patient/patientc-detail/patientc-detail.component';
 import { NotificationListComponent } from './features/notification/notification-list/notification-list.component';
 import { SearchComponent } from './features/search/search/search.component';
+import { PatientSearchComponent } from './features/search/patient-search/patient-search.component'; // Thêm import
 
 export const routes: Routes = [
   { path: '', component: HomepageComponent },
-  
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
@@ -24,10 +24,11 @@ export const routes: Routes = [
   { path: 'patients/:id', component: PatientDetailComponent },
   { path: 'clinics/top-clinic', component: TopClinicListComponent },
   { path: 'clinics/:id', component: ClinicDetailComponent },
-  { path: 'doctors/:id', component: DoctorDetailComponent }, // Thêm route cho DoctorDetail
+  { path: 'doctors/:id', component: DoctorDetailComponent },
   { path: 'feedbacks/list', component: FeedbackListComponent },
   { path: 'feedbacks/add', component: FeedbackAddComponent },
   { path: 'doctors/profile', component: DoctorProfileComponent },
   { path: 'notifications', component: NotificationListComponent },
-  { path: 'search', component: SearchComponent }
+  { path: 'search', component: SearchComponent },
+  { path: 'patient-search', component: PatientSearchComponent } // Thêm route mới
 ];

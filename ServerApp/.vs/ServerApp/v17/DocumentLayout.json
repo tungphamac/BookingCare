@@ -3,20 +3,68 @@
   "WorkspaceRootPath": "D:\\GIt\\BookingCare\\ServerApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\dtos\\searchresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\dtos\\searchresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\services\\interfaces\\isearchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\services\\interfaces\\isearchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4688106B-BAA3-4D4A-A29E-1FE19371A67F}|BookingCare.WebAPI\\BookingCare.WebAPI.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.webapi\\controllers\\searchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4688106B-BAA3-4D4A-A29E-1FE19371A67F}|BookingCare.WebAPI\\BookingCare.WebAPI.csproj|solutionrelative:bookingcare.webapi\\controllers\\searchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\services\\searchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\services\\searchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4688106B-BAA3-4D4A-A29E-1FE19371A67F}|BookingCare.WebAPI\\BookingCare.WebAPI.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.webapi\\controllers\\searchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4688106B-BAA3-4D4A-A29E-1FE19371A67F}|BookingCare.WebAPI\\BookingCare.WebAPI.csproj|solutionrelative:bookingcare.webapi\\controllers\\searchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\dtos\\searchresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\dtos\\searchresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\dtos\\scheduledetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\dtos\\scheduledetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\services\\interfaces\\isearchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\services\\interfaces\\isearchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\services\\interfaces\\idoctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\services\\interfaces\\idoctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\services\\patientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\services\\patientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CBED6397-3637-4BFC-8957-C0334D7FF5E3}|BookingCare.Data\\BookingCare.Data.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.data\\models\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBED6397-3637-4BFC-8957-C0334D7FF5E3}|BookingCare.Data\\BookingCare.Data.csproj|solutionrelative:bookingcare.data\\models\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\services\\clinicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\services\\clinicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\dtos\\clinicdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\dtos\\clinicdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\dtos\\patientdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\dtos\\patientdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\viewmodels\\clinicvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\viewmodels\\clinicvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4688106B-BAA3-4D4A-A29E-1FE19371A67F}|BookingCare.WebAPI\\BookingCare.WebAPI.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.webapi\\controllers\\cliniccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4688106B-BAA3-4D4A-A29E-1FE19371A67F}|BookingCare.WebAPI\\BookingCare.WebAPI.csproj|solutionrelative:bookingcare.webapi\\controllers\\cliniccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4688106B-BAA3-4D4A-A29E-1FE19371A67F}|BookingCare.WebAPI\\BookingCare.WebAPI.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.webapi\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4688106B-BAA3-4D4A-A29E-1FE19371A67F}|BookingCare.WebAPI\\BookingCare.WebAPI.csproj|solutionrelative:bookingcare.webapi\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\services\\doctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\services\\doctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\dtos\\doctordetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\dtos\\doctordetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4688106B-BAA3-4D4A-A29E-1FE19371A67F}|BookingCare.WebAPI\\BookingCare.WebAPI.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.webapi\\controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,14 +87,6 @@
       "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\dtos\\notificationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\services\\doctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\services\\doctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\services\\clinicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\services\\clinicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\viewmodels\\topratingdoctorvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\viewmodels\\topratingdoctorvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -67,14 +107,6 @@
       "RelativeMoniker": "D:0:0:{CBED6397-3637-4BFC-8957-C0334D7FF5E3}|BookingCare.Data\\BookingCare.Data.csproj|solutionrelative:bookingcare.data\\models\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4688106B-BAA3-4D4A-A29E-1FE19371A67F}|BookingCare.WebAPI\\BookingCare.WebAPI.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.webapi\\controllers\\cliniccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4688106B-BAA3-4D4A-A29E-1FE19371A67F}|BookingCare.WebAPI\\BookingCare.WebAPI.csproj|solutionrelative:bookingcare.webapi\\controllers\\cliniccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\viewmodels\\clinicvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\viewmodels\\clinicvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CBED6397-3637-4BFC-8957-C0334D7FF5E3}|BookingCare.Data\\BookingCare.Data.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.data\\models\\clinic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CBED6397-3637-4BFC-8957-C0334D7FF5E3}|BookingCare.Data\\BookingCare.Data.csproj|solutionrelative:bookingcare.data\\models\\clinic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -83,24 +115,12 @@
       "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\services\\interfaces\\iclinicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\services\\patientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\services\\patientservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4688106B-BAA3-4D4A-A29E-1FE19371A67F}|BookingCare.WebAPI\\BookingCare.WebAPI.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.webapi\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4688106B-BAA3-4D4A-A29E-1FE19371A67F}|BookingCare.WebAPI\\BookingCare.WebAPI.csproj|solutionrelative:bookingcare.webapi\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4688106B-BAA3-4D4A-A29E-1FE19371A67F}|BookingCare.WebAPI\\BookingCare.WebAPI.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.webapi\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4688106B-BAA3-4D4A-A29E-1FE19371A67F}|BookingCare.WebAPI\\BookingCare.WebAPI.csproj|solutionrelative:bookingcare.webapi\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4688106B-BAA3-4D4A-A29E-1FE19371A67F}|BookingCare.WebAPI\\BookingCare.WebAPI.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{4688106B-BAA3-4D4A-A29E-1FE19371A67F}|BookingCare.WebAPI\\BookingCare.WebAPI.csproj|solutionrelative:bookingcare.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\dtos\\patientdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\dtos\\patientdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\viewmodels\\partientvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -109,18 +129,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{CBED6397-3637-4BFC-8957-C0334D7FF5E3}|BookingCare.Data\\BookingCare.Data.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.data\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CBED6397-3637-4BFC-8957-C0334D7FF5E3}|BookingCare.Data\\BookingCare.Data.csproj|solutionrelative:bookingcare.data\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CBED6397-3637-4BFC-8957-C0334D7FF5E3}|BookingCare.Data\\BookingCare.Data.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.data\\models\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CBED6397-3637-4BFC-8957-C0334D7FF5E3}|BookingCare.Data\\BookingCare.Data.csproj|solutionrelative:bookingcare.data\\models\\patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\dtos\\doctordetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\dtos\\doctordetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\dtos\\clinicdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\dtos\\clinicdetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4688106B-BAA3-4D4A-A29E-1FE19371A67F}|BookingCare.WebAPI\\BookingCare.WebAPI.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.webapi\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -231,16 +239,8 @@
       "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\services\\interfaces\\ischeduleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\dtos\\scheduledetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\dtos\\scheduledetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\services\\interfaces\\ispecializationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\services\\interfaces\\ispecializationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\services\\interfaces\\idoctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|solutionrelative:bookingcare.business\\services\\interfaces\\idoctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F52F2B25-2111-4C24-A7AA-825CB7BED3E8}|BookingCare.Business\\BookingCare.Business.csproj|d:\\git\\bookingcare\\serverapp\\bookingcare.business\\dtos\\feedbackdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -386,7 +386,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -402,111 +402,137 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "NotificationService.cs",
-              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\NotificationService.cs",
-              "RelativeDocumentMoniker": "BookingCare.Business\\Services\\NotificationService.cs",
-              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\NotificationService.cs",
-              "RelativeToolTip": "BookingCare.Business\\Services\\NotificationService.cs",
-              "ViewState": "AgIAAHkAAAAAAAAAAAAowJUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T09:17:08.018Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Notification.cs",
-              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Data\\Models\\Notification.cs",
-              "RelativeDocumentMoniker": "BookingCare.Data\\Models\\Notification.cs",
-              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Data\\Models\\Notification.cs",
-              "RelativeToolTip": "BookingCare.Data\\Models\\Notification.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T09:17:08.06Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Appointment.cs",
-              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Data\\Models\\Appointment.cs",
-              "RelativeDocumentMoniker": "BookingCare.Data\\Models\\Appointment.cs",
-              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Data\\Models\\Appointment.cs",
-              "RelativeToolTip": "BookingCare.Data\\Models\\Appointment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T09:17:08.062Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "NotificationController.cs",
-              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\NotificationController.cs",
-              "RelativeDocumentMoniker": "BookingCare.WebAPI\\Controllers\\NotificationController.cs",
-              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\NotificationController.cs",
-              "RelativeToolTip": "BookingCare.WebAPI\\Controllers\\NotificationController.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAqwFsAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T09:17:08Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SearchController.cs",
-              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\SearchController.cs",
-              "RelativeDocumentMoniker": "BookingCare.WebAPI\\Controllers\\SearchController.cs",
-              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\SearchController.cs",
-              "RelativeToolTip": "BookingCare.WebAPI\\Controllers\\SearchController.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAkwDQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T09:17:08.032Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "SearchService.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\SearchService.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\Services\\SearchService.cs",
               "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\SearchService.cs",
               "RelativeToolTip": "BookingCare.Business\\Services\\SearchService.cs",
-              "ViewState": "AgIAAHkAAAAAAAAAAAAowIwAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAJoAAAAAAAAAAAAgwMMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-31T09:17:08.005Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ISearchService.cs",
-              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\Interfaces\\ISearchService.cs",
-              "RelativeDocumentMoniker": "BookingCare.Business\\Services\\Interfaces\\ISearchService.cs",
-              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\Interfaces\\ISearchService.cs",
-              "RelativeToolTip": "BookingCare.Business\\Services\\Interfaces\\ISearchService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T09:17:08.172Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "SearchResultDto.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Dtos\\SearchResultDto.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\Dtos\\SearchResultDto.cs",
               "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Dtos\\SearchResultDto.cs",
               "RelativeToolTip": "BookingCare.Business\\Dtos\\SearchResultDto.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAcwBoAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAowCIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-31T09:17:08.119Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ScheduleDetailDto.cs",
+              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Dtos\\ScheduleDetailDto.cs",
+              "RelativeDocumentMoniker": "BookingCare.Business\\Dtos\\ScheduleDetailDto.cs",
+              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Dtos\\ScheduleDetailDto.cs",
+              "RelativeToolTip": "BookingCare.Business\\Dtos\\ScheduleDetailDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T09:17:08.07Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SearchController.cs",
+              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\SearchController.cs",
+              "RelativeDocumentMoniker": "BookingCare.WebAPI\\Controllers\\SearchController.cs",
+              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\SearchController.cs",
+              "RelativeToolTip": "BookingCare.WebAPI\\Controllers\\SearchController.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAgwEIAAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T09:17:08.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ISearchService.cs",
+              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\Interfaces\\ISearchService.cs",
+              "RelativeDocumentMoniker": "BookingCare.Business\\Services\\Interfaces\\ISearchService.cs",
+              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\Interfaces\\ISearchService.cs",
+              "RelativeToolTip": "BookingCare.Business\\Services\\Interfaces\\ISearchService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T09:17:08.172Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IDoctorService.cs",
+              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\Interfaces\\IDoctorService.cs",
+              "RelativeDocumentMoniker": "BookingCare.Business\\Services\\Interfaces\\IDoctorService.cs",
+              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\Interfaces\\IDoctorService.cs",
+              "RelativeToolTip": "BookingCare.Business\\Services\\Interfaces\\IDoctorService.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAA8AAAByAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T09:17:08.093Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PatientService.cs",
+              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\PatientService.cs",
+              "RelativeDocumentMoniker": "BookingCare.Business\\Services\\PatientService.cs",
+              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\PatientService.cs",
+              "RelativeToolTip": "BookingCare.Business\\Services\\PatientService.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAwwD8AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T09:17:08.117Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PatientDetailDto.cs",
+              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Dtos\\PatientDetailDto.cs",
+              "RelativeDocumentMoniker": "BookingCare.Business\\Dtos\\PatientDetailDto.cs",
+              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Dtos\\PatientDetailDto.cs",
+              "RelativeToolTip": "BookingCare.Business\\Dtos\\PatientDetailDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T09:17:08.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ClinicDetailDto.cs",
+              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Dtos\\ClinicDetailDto.cs",
+              "RelativeDocumentMoniker": "BookingCare.Business\\Dtos\\ClinicDetailDto.cs",
+              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Dtos\\ClinicDetailDto.cs",
+              "RelativeToolTip": "BookingCare.Business\\Dtos\\ClinicDetailDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T09:17:08.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "ClinicService.cs",
+              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\ClinicService.cs",
+              "RelativeDocumentMoniker": "BookingCare.Business\\Services\\ClinicService.cs",
+              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\ClinicService.cs",
+              "RelativeToolTip": "BookingCare.Business\\Services\\ClinicService.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAgwD8AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T09:17:08.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
               "Title": "NotificationDto.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Dtos\\NotificationDto.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\Dtos\\NotificationDto.cs",
@@ -514,25 +540,137 @@
               "RelativeToolTip": "BookingCare.Business\\Dtos\\NotificationDto.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAUwBQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T09:17:08.052Z",
+              "WhenOpened": "2025-03-31T09:17:08.052Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Patient.cs",
+              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Data\\Models\\Patient.cs",
+              "RelativeDocumentMoniker": "BookingCare.Data\\Models\\Patient.cs",
+              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Data\\Models\\Patient.cs",
+              "RelativeToolTip": "BookingCare.Data\\Models\\Patient.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T09:17:07.786Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
+              "Title": "ClinicVm.cs",
+              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\ViewModels\\ClinicVm.cs",
+              "RelativeDocumentMoniker": "BookingCare.Business\\ViewModels\\ClinicVm.cs",
+              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\ViewModels\\ClinicVm.cs",
+              "RelativeToolTip": "BookingCare.Business\\ViewModels\\ClinicVm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAQAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T09:17:08.083Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ClinicController.cs",
+              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\ClinicController.cs",
+              "RelativeDocumentMoniker": "BookingCare.WebAPI\\Controllers\\ClinicController.cs",
+              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\ClinicController.cs",
+              "RelativeToolTip": "BookingCare.WebAPI\\Controllers\\ClinicController.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAgwBQAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T09:17:08.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Notification.cs",
+              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Data\\Models\\Notification.cs",
+              "RelativeDocumentMoniker": "BookingCare.Data\\Models\\Notification.cs",
+              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Data\\Models\\Notification.cs",
+              "RelativeToolTip": "BookingCare.Data\\Models\\Notification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T09:17:08.06Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DoctorDetailDto.cs",
+              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Dtos\\DoctorDetailDto.cs",
+              "RelativeDocumentMoniker": "BookingCare.Business\\Dtos\\DoctorDetailDto.cs",
+              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Dtos\\DoctorDetailDto.cs",
+              "RelativeToolTip": "BookingCare.Business\\Dtos\\DoctorDetailDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T09:17:08.058Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DoctorController.cs",
+              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\DoctorController.cs",
+              "RelativeDocumentMoniker": "BookingCare.WebAPI\\Controllers\\DoctorController.cs",
+              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\DoctorController.cs",
+              "RelativeToolTip": "BookingCare.WebAPI\\Controllers\\DoctorController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB0AAABZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T09:17:08.025Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "DoctorService.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\DoctorService.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\Services\\DoctorService.cs",
               "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\DoctorService.cs",
               "RelativeToolTip": "BookingCare.Business\\Services\\DoctorService.cs",
-              "ViewState": "AgIAABwBAAAAAAAAAAAAAA0BAAApAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAowEwAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-31T09:17:08.089Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
+              "Title": "NotificationController.cs",
+              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\NotificationController.cs",
+              "RelativeDocumentMoniker": "BookingCare.WebAPI\\Controllers\\NotificationController.cs",
+              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\NotificationController.cs",
+              "RelativeToolTip": "BookingCare.WebAPI\\Controllers\\NotificationController.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAqwFsAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T09:17:08Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Appointment.cs",
+              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Data\\Models\\Appointment.cs",
+              "RelativeDocumentMoniker": "BookingCare.Data\\Models\\Appointment.cs",
+              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Data\\Models\\Appointment.cs",
+              "RelativeToolTip": "BookingCare.Data\\Models\\Appointment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T09:17:08.062Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "NotificationService.cs",
+              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\NotificationService.cs",
+              "RelativeDocumentMoniker": "BookingCare.Business\\Services\\NotificationService.cs",
+              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\NotificationService.cs",
+              "RelativeToolTip": "BookingCare.Business\\Services\\NotificationService.cs",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAowJUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-31T09:17:08.018Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "FeaturedDoctorVm.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\ViewModels\\FeaturedDoctorVm.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\ViewModels\\FeaturedDoctorVm.cs",
@@ -544,7 +682,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 24,
               "Title": "DoctorVm.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\ViewModels\\DoctorVm.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\ViewModels\\DoctorVm.cs",
@@ -556,7 +694,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 25,
               "Title": "Doctor.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Data\\Models\\Doctor.cs",
               "RelativeDocumentMoniker": "BookingCare.Data\\Models\\Doctor.cs",
@@ -568,43 +706,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ClinicService.cs",
-              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\ClinicService.cs",
-              "RelativeDocumentMoniker": "BookingCare.Business\\Services\\ClinicService.cs",
-              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\ClinicService.cs",
-              "RelativeToolTip": "BookingCare.Business\\Services\\ClinicService.cs",
-              "ViewState": "AgIAAIAAAAAAAAAAAAAQwKYAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T09:17:08.068Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ClinicVm.cs",
-              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\ViewModels\\ClinicVm.cs",
-              "RelativeDocumentMoniker": "BookingCare.Business\\ViewModels\\ClinicVm.cs",
-              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\ViewModels\\ClinicVm.cs",
-              "RelativeToolTip": "BookingCare.Business\\ViewModels\\ClinicVm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAQAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T09:17:08.083Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ClinicController.cs",
-              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\ClinicController.cs",
-              "RelativeDocumentMoniker": "BookingCare.WebAPI\\Controllers\\ClinicController.cs",
-              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\ClinicController.cs",
-              "RelativeToolTip": "BookingCare.WebAPI\\Controllers\\ClinicController.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAA5wBQAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T09:17:08.043Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 21,
               "Title": "TopRatingDoctorVm.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\ViewModels\\TopRatingDoctorVm.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\ViewModels\\TopRatingDoctorVm.cs",
@@ -616,7 +718,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 23,
               "Title": "ForgotPasswordVm.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\ViewModels\\ForgotPasswordVm.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\ViewModels\\ForgotPasswordVm.cs",
@@ -628,7 +730,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 27,
               "Title": "IClinicService.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\Interfaces\\IClinicService.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\Services\\Interfaces\\IClinicService.cs",
@@ -640,19 +742,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "PatientService.cs",
-              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\PatientService.cs",
-              "RelativeDocumentMoniker": "BookingCare.Business\\Services\\PatientService.cs",
-              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\PatientService.cs",
-              "RelativeToolTip": "BookingCare.Business\\Services\\PatientService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T09:17:08.117Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 29,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\appsettings.json",
               "RelativeDocumentMoniker": "BookingCare.WebAPI\\appsettings.json",
@@ -664,19 +754,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "DoctorController.cs",
-              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\DoctorController.cs",
-              "RelativeDocumentMoniker": "BookingCare.WebAPI\\Controllers\\DoctorController.cs",
-              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\DoctorController.cs",
-              "RelativeToolTip": "BookingCare.WebAPI\\Controllers\\DoctorController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwB0AAABZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T09:17:08.025Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 26,
               "Title": "Clinic.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Data\\Models\\Clinic.cs",
               "RelativeDocumentMoniker": "BookingCare.Data\\Models\\Clinic.cs",
@@ -688,7 +766,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 28,
               "Title": "PatientController.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\PatientController.cs",
               "RelativeDocumentMoniker": "BookingCare.WebAPI\\Controllers\\PatientController.cs",
@@ -700,19 +778,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "Patient.cs",
-              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Data\\Models\\Patient.cs",
-              "RelativeDocumentMoniker": "BookingCare.Data\\Models\\Patient.cs",
-              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Data\\Models\\Patient.cs",
-              "RelativeToolTip": "BookingCare.Data\\Models\\Patient.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T09:17:07.786Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "FeedbackController.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\FeedbackController.cs",
               "RelativeDocumentMoniker": "BookingCare.WebAPI\\Controllers\\FeedbackController.cs",
@@ -724,19 +790,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "DoctorDetailDto.cs",
-              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Dtos\\DoctorDetailDto.cs",
-              "RelativeDocumentMoniker": "BookingCare.Business\\Dtos\\DoctorDetailDto.cs",
-              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Dtos\\DoctorDetailDto.cs",
-              "RelativeToolTip": "BookingCare.Business\\Dtos\\DoctorDetailDto.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T09:17:08.058Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 35,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Program.cs",
               "RelativeDocumentMoniker": "BookingCare.WebAPI\\Program.cs",
@@ -748,7 +802,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 31,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Data\\Models\\User.cs",
               "RelativeDocumentMoniker": "BookingCare.Data\\Models\\User.cs",
@@ -760,7 +814,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 30,
               "Title": "PartientVm.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\ViewModels\\PartientVm.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\ViewModels\\PartientVm.cs",
@@ -772,31 +826,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "PatientDetailDto.cs",
-              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Dtos\\PatientDetailDto.cs",
-              "RelativeDocumentMoniker": "BookingCare.Business\\Dtos\\PatientDetailDto.cs",
-              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Dtos\\PatientDetailDto.cs",
-              "RelativeToolTip": "BookingCare.Business\\Dtos\\PatientDetailDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T09:17:08.123Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "ClinicDetailDto.cs",
-              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Dtos\\ClinicDetailDto.cs",
-              "RelativeDocumentMoniker": "BookingCare.Business\\Dtos\\ClinicDetailDto.cs",
-              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Dtos\\ClinicDetailDto.cs",
-              "RelativeToolTip": "BookingCare.Business\\Dtos\\ClinicDetailDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T09:17:08.136Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 33,
               "Title": "MedicalRecordController.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\MedicalRecordController.cs",
               "RelativeDocumentMoniker": "BookingCare.WebAPI\\Controllers\\MedicalRecordController.cs",
@@ -808,7 +838,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "FeedbackService.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\FeedbackService.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\Services\\FeedbackService.cs",
@@ -820,7 +850,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 41,
               "Title": "AuthenticationController.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\AuthenticationController.cs",
               "RelativeDocumentMoniker": "BookingCare.WebAPI\\Controllers\\AuthenticationController.cs",
@@ -832,7 +862,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 38,
               "Title": "AuthResultVm.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\ViewModels\\AuthResultVm.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\ViewModels\\AuthResultVm.cs",
@@ -844,7 +874,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 48,
               "Title": "RegisterVm.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\ViewModels\\RegisterVm.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\ViewModels\\RegisterVm.cs",
@@ -856,7 +886,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 40,
               "Title": "AppointmentService.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\AppointmentService.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\Services\\AppointmentService.cs",
@@ -868,7 +898,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 39,
               "Title": "AccountService.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\AccountService.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\Services\\AccountService.cs",
@@ -880,7 +910,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 42,
               "Title": "IAccountService.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\Interfaces\\IAccountService.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\Services\\Interfaces\\IAccountService.cs",
@@ -892,7 +922,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 37,
               "Title": "AccountController.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "BookingCare.WebAPI\\Controllers\\AccountController.cs",
@@ -904,7 +934,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 36,
               "Title": "ResetPasswordVm.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\ViewModels\\ResetPasswordVm.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\ViewModels\\ResetPasswordVm.cs",
@@ -916,7 +946,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 43,
               "Title": "AppointmentController.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\AppointmentController.cs",
               "RelativeDocumentMoniker": "BookingCare.WebAPI\\Controllers\\AppointmentController.cs",
@@ -928,7 +958,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 45,
               "Title": "20250325100840_CreateTableRefeshToken.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Data\\Migrations\\20250325100840_CreateTableRefeshToken.cs",
               "RelativeDocumentMoniker": "BookingCare.Data\\Migrations\\20250325100840_CreateTableRefeshToken.cs",
@@ -940,7 +970,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 46,
               "Title": "20250325024901_AddCreate.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Data\\Migrations\\20250325024901_AddCreate.cs",
               "RelativeDocumentMoniker": "BookingCare.Data\\Migrations\\20250325024901_AddCreate.cs",
@@ -952,7 +982,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 44,
               "Title": "20250325030226_AddCreated.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Data\\Migrations\\20250325030226_AddCreated.cs",
               "RelativeDocumentMoniker": "BookingCare.Data\\Migrations\\20250325030226_AddCreated.cs",
@@ -964,7 +994,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 47,
               "Title": "BookingCare.WebAPI.http",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\BookingCare.WebAPI.http",
               "RelativeDocumentMoniker": "BookingCare.WebAPI\\BookingCare.WebAPI.http",
@@ -976,7 +1006,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 50,
               "Title": "FeedbackVm.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\ViewModels\\FeedbackVm.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\ViewModels\\FeedbackVm.cs",
@@ -988,7 +1018,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 49,
               "Title": "EmailService.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\EmailService.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\Services\\EmailService.cs",
@@ -1000,7 +1030,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 52,
               "Title": "ScheduleController.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\ScheduleController.cs",
               "RelativeDocumentMoniker": "BookingCare.WebAPI\\Controllers\\ScheduleController.cs",
@@ -1012,7 +1042,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 51,
               "Title": "SpecializationController.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\Controllers\\SpecializationController.cs",
               "RelativeDocumentMoniker": "BookingCare.WebAPI\\Controllers\\SpecializationController.cs",
@@ -1024,7 +1054,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 53,
               "Title": "INotificationService.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\Interfaces\\INotificationService.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\Services\\Interfaces\\INotificationService.cs",
@@ -1036,7 +1066,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 54,
               "Title": "IAppointmentService.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\Interfaces\\IAppointmentService.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\Services\\Interfaces\\IAppointmentService.cs",
@@ -1048,7 +1078,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 55,
               "Title": "AppointmentDTO.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Dtos\\AppointmentDTO.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\Dtos\\AppointmentDTO.cs",
@@ -1060,7 +1090,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 56,
               "Title": "Schedule.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Data\\Models\\Schedule.cs",
               "RelativeDocumentMoniker": "BookingCare.Data\\Models\\Schedule.cs",
@@ -1072,19 +1102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "ScheduleDetailDto.cs",
-              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Dtos\\ScheduleDetailDto.cs",
-              "RelativeDocumentMoniker": "BookingCare.Business\\Dtos\\ScheduleDetailDto.cs",
-              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Dtos\\ScheduleDetailDto.cs",
-              "RelativeToolTip": "BookingCare.Business\\Dtos\\ScheduleDetailDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T09:17:08.07Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 58,
               "Title": "IScheduleService.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\Interfaces\\IScheduleService.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\Services\\Interfaces\\IScheduleService.cs",
@@ -1096,7 +1114,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 57,
               "Title": "IScheduleService.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\IScheduleService.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\Services\\IScheduleService.cs",
@@ -1108,7 +1126,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 59,
               "Title": "ISpecializationService.cs",
               "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\Interfaces\\ISpecializationService.cs",
               "RelativeDocumentMoniker": "BookingCare.Business\\Services\\Interfaces\\ISpecializationService.cs",
@@ -1117,18 +1135,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-31T09:17:08.087Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 59,
-              "Title": "IDoctorService.cs",
-              "DocumentMoniker": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\Interfaces\\IDoctorService.cs",
-              "RelativeDocumentMoniker": "BookingCare.Business\\Services\\Interfaces\\IDoctorService.cs",
-              "ToolTip": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.Business\\Services\\Interfaces\\IDoctorService.cs",
-              "RelativeToolTip": "BookingCare.Business\\Services\\Interfaces\\IDoctorService.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAAAA8AAAByAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T09:17:08.093Z"
             },
             {
               "$type": "Document",

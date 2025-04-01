@@ -1,0 +1,92 @@
+<div class="patient-search-container">
+    <h2 class="section-title">Tìm kiếm bệnh nhân</h2>
+    <p class="section-description">Tìm kiếm bệnh nhân đã từng khám tại phòng khám của bạn</p>
+  
+    <!-- Form tìm kiếm -->
+    <div class="search-form">
+      <!-- Thanh tìm kiếm -->
+      <div class="search-bar">
+        <div class="input-group">
+          <span class="input-group-text">
+            <i class="bi bi-search"></i>
+          </span>
+          <input 
+            type="text" 
+            class="form-control" 
+            [(ngModel)]="keyword" 
+            placeholder="Tìm theo tên, email hoặc địa chỉ..." 
+            (keyup.enter)="onSearch()" />
+        </div>
+        
+        <div class="search-buttons">
+          <button class="btn btn-primary" (click)="onSearch()" [disabled]="isLoading || !doctorId">
+            <i class="bi bi-search"></i> Tìm kiếm
+          </button>
+        </div>
+      </div>
+  
+      <!-- Tìm kiếm gần đây -->
+      <div class="recent-searches" *ngIf="recentSearches.length > 0">
+        <h6>Tìm kiếm gần đây:</h6>
+        <div class="recent-tags">
+          <span 
+            *ngFor="let term of recentSearches" 
+            class="recent-tag" 
+            (click)="selectRecentSearch(term)">
+            {{ term }}
+          </span>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Loading -->
+    <div *ngIf="isLoading" class="loading">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Đang tải...</span>
+      </div>
+      <p>Đang tìm kiếm bệnh nhân...</p>
+    </div>
+  
+    <!-- Error message -->
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+  
+    <!-- Kết quả tìm kiếm -->
+    <div *ngIf="searchResult && !isLoading" class="search-results">
+      <h3 class="result-message">{{ searchResult.message }}</h3>
+  
+      <!-- Kết quả bệnh nhân -->
+      <div *ngIf="searchResult.patients && searchResult.patients.length > 0" class="result-section">
+        <h4><i class="bi bi-people"></i> Bệnh nhân</h4>
+        <div class="result-grid">
+          <div *ngFor="let patient of searchResult.patients" class="result-card patient-card">
+            <div class="card-avatar">
+              <img *ngIf="patient.avatar" [src]="patient.avatar" alt="{{ patient.userName }}" class="patient-avatar">
+              <i *ngIf="!patient.avatar" class="bi bi-person-circle"></i>
+            </div>
+            <div class="card-content">
+              <h5>{{ patient.userName }}</h5>
+              <p><i class="bi bi-envelope"></i> {{ patient.email }}</p>
+              <p><i class="bi bi-gender-ambiguous"></i> {{ patient.gender ? 'Nam' : 'Nữ' }}</p> <!-- Sửa cách hiển thị gender -->
+              <p *ngIf="patient.address"><i class="bi bi-geo-alt"></i> {{ patient.address }}</p>
+            </div>
+            <div class="card-actions">
+              <button 
+                *ngIf="patient.medicalRecordId" 
+                class="btn btn-outline-primary btn-sm btn-record"
+                (click)="viewMedicalRecord(patient.medicalRecordId)">
+                <i class="bi bi-journal-medical"></i> Xem hồ sơ bệnh án
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Không có kết quả -->
+      <div *ngIf="!searchResult.patients || searchResult.patients.length === 0" class="no-results">
+        <i class="bi bi-search"></i>
+        <p>Không tìm thấy bệnh nhân phù hợp với từ khóa "{{ keyword }}"</p>
+      </div>
+    </div>
+  </div>

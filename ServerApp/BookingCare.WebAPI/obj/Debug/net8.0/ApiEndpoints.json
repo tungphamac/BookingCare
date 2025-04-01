@@ -842,6 +842,37 @@
   },
   {
     "ContainingType": "BookingCare.API.Controllers.SearchController",
+    "Method": "SearchPatientsForDoctor",
+    "RelativePath": "api/Search/Patients",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctorId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "keyword",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BookingCare.API.Dtos.SearchResultDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.SearchController",
     "Method": "SearchBySpecialization",
     "RelativePath": "api/Search/Specialization",
     "HttpMethod": "GET",

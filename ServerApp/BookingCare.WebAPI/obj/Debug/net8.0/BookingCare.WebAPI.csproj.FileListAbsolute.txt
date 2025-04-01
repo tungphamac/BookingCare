@@ -339,7 +339,6 @@ D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.Web
 D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.WebAPI.AssemblyInfoInputs.cache
 D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.WebAPI.AssemblyInfo.cs
 D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.WebAPI.csproj.CoreCompileInputs.cache
-D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.WebAPI.MvcApplicationPartsAssemblyInfo.cs
 D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.WebAPI.MvcApplicationPartsAssemblyInfo.cache
 D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.WebAPI.sourcelink.json
 D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\scopedcss\bundle\BookingCare.WebAPI.styles.css

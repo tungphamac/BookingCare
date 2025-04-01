@@ -37,7 +37,7 @@ namespace BookingCare.Business.Services
 
             return patients.Select(p => new PatientDetailDto
             {
-                UserId = p.UserId,
+               
                 UserName = p.User?.UserName ?? "No name",
                 Email = p.User?.Email ?? "No email",
                 Gender = p.User?.Gender ?? false,
@@ -56,7 +56,7 @@ namespace BookingCare.Business.Services
                     .Include(p => p.User)
                     .Select(p => new PatientDetailDto
                     {
-                        UserId = p.UserId,
+                        
                         UserName = p.User.UserName,
                         Email = p.User.Email,
                         Gender = p.User.Gender,
