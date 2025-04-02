@@ -38,8 +38,8 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpGet]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được lấy danh sách clinic
+        [HttpGet("get-all-clinics")]
+        //[Authorize(Roles = "Admin")] // Chỉ Admin được lấy danh sách clinic
         public async Task<IActionResult> GetAllClinics()
         {
             try

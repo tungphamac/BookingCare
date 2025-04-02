@@ -19,11 +19,19 @@ export class FeedbackService {
     return this.http.get<Feedback>(`${API_URL}/Feedback/get-feedback-by-id/${id}`);
   }
 
-  addFeedback(feedback: Feedback): Observable<Feedback> {
-    return this.http.post<Feedback>(`${API_URL}/Feedback/add-feedback`, feedback);
+  addFeedback(feedback: Feedback): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(`${API_URL}/Feedback/add-feedback`, feedback);
   }
 
   deleteFeedback(id: number): Observable<void> {
     return this.http.delete<void>(`${API_URL}/Feedback/delete-feedback-by-id/${id}`);
+  }
+
+  getFeedbacksByDoctor(doctorId: number): Observable<Feedback[]> {
+    return this.http.get<Feedback[]>(`${API_URL}/Feedback/get-feedbacks-by-doctorId/${doctorId}`);
+  }
+
+  getFeedbackByAppointment(appointmentId: number): Observable<Feedback> {
+    return this.http.get<Feedback>(`${API_URL}/Feedback/get-feedback-by-appointment/${appointmentId}`);
   }
 }

@@ -8,4 +8,5 @@ export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideHttpClient()]
 };
 export const API_URL = 'https://localhost:7182/api';
+export const UPLOAD_URL = 'http://localhost:5000/uploads';
 

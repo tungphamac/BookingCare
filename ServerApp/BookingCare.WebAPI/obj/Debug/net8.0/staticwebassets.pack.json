@@ -1,0 +1,57 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\CampusLink\\PNET\\src\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\0f89c7d0-9d22-40fc-b9e6-f236d3f9c878_clinic_logo.png",
+      "PackagePath": "staticwebassets\\uploads\\0f89c7d0-9d22-40fc-b9e6-f236d3f9c878_clinic_logo.png"
+    },
+    {
+      "Id": "D:\\CampusLink\\PNET\\src\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\1b5d66f1-4895-4f57-8d47-2b7576dab4fb_bacsithuy.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\1b5d66f1-4895-4f57-8d47-2b7576dab4fb_bacsithuy.jpeg"
+    },
+    {
+      "Id": "D:\\CampusLink\\PNET\\src\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\513cb6d9-9123-44a4-809c-6c6a51f4d26c_neurology_logo.png",
+      "PackagePath": "staticwebassets\\uploads\\513cb6d9-9123-44a4-809c-6c6a51f4d26c_neurology_logo.png"
+    },
+    {
+      "Id": "D:\\CampusLink\\PNET\\src\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\a2c314dc-d64b-4a1d-a2ae-b46dcfd95953_bacsithuy.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\a2c314dc-d64b-4a1d-a2ae-b46dcfd95953_bacsithuy.jpeg"
+    },
+    {
+      "Id": "D:\\CampusLink\\PNET\\src\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\a513e512-633b-4b32-98c5-e1bb27d25f89_alzheimer.jpg",
+      "PackagePath": "staticwebassets\\uploads\\a513e512-633b-4b32-98c5-e1bb27d25f89_alzheimer.jpg"
+    },
+    {
+      "Id": "D:\\CampusLink\\PNET\\src\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\c2e28c9d-0929-4e1f-ac2b-722b0e630cc4_cardiology_logo.png",
+      "PackagePath": "staticwebassets\\uploads\\c2e28c9d-0929-4e1f-ac2b-722b0e630cc4_cardiology_logo.png"
+    },
+    {
+      "Id": "D:\\CampusLink\\PNET\\src\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\d0f7a2eb-197b-40e1-9909-d867f451638c_bacsithuy.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\d0f7a2eb-197b-40e1-9909-d867f451638c_bacsithuy.jpeg"
+    },
+    {
+      "Id": "D:\\CampusLink\\PNET\\src\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\ea13d084-5936-45a1-bac5-25cce34425a6_4.jpg",
+      "PackagePath": "staticwebassets\\uploads\\ea13d084-5936-45a1-bac5-25cce34425a6_4.jpg"
+    },
+    {
+      "Id": "D:\\CampusLink\\PNET\\src\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\home_picture_5fd7a311-7f2f-4d02-b80c-ef57754b0a33.png",
+      "PackagePath": "staticwebassets\\uploads\\home_picture_5fd7a311-7f2f-4d02-b80c-ef57754b0a33.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BookingCare.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.BookingCare.WebAPI.props",
+      "PackagePath": "build\\BookingCare.WebAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.BookingCare.WebAPI.props",
+      "PackagePath": "buildMultiTargeting\\BookingCare.WebAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.BookingCare.WebAPI.props",
+      "PackagePath": "buildTransitive\\BookingCare.WebAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

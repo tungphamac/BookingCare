@@ -2,6 +2,7 @@
 using BookingCare.Business.Services.Base;
 using BookingCare.Business.ViewModels;
 using BookingCare.Data.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace BookingCare.Business.Services.Interfaces
 {
@@ -15,5 +16,7 @@ namespace BookingCare.Business.Services.Interfaces
         Task<bool> LockUserAccountAsync(int userId, DateTime lockUntil); // Đã có sẵn
         Task<ICollection<FeaturedDoctorVm>> GetFeaturedDoctors(int top);// lấy top doctor được đặt lịch nhiều nhất
         Task<ICollection<TopRatingDoctorVm>> GetTopRatingDoctors(int top);// lấy top doctor có rating trung bình cao nhất
+        Task<bool> UpdateDoctorProfileAsync(int doctorId, UpdateDoctorVm updateDoctorVm);// update doctor profile, change avatar
+        Task<DoctorVm> GetDoctorByIdAsync(int doctorId);
     }
 }

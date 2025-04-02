@@ -39,7 +39,7 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpGet("get-all-specializations")]
-        [Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem danh sách specialization
+        //[Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem danh sách specialization
         public async Task<IActionResult> GetAllSpecializations()
         {
             try

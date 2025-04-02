@@ -1,37 +1,203 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { DoctorService } from '../services/doctor.service'; // Ensure this service is implemented to fetch data
+import { ClinicService } from '../../clinic/services/clinic.service';
+import { SpecializationService } from '../../specialization/services/specialization.service';
+import { ActivatedRoute } from '@angular/router';
+import { Clinic } from '../../clinic/models/clinic.model';
+import { Specialization } from '../../specialization/models/specialization.model';
 
 @Component({
   selector: 'app-doctor-profile',
   imports: [CommonModule, FormsModule],
   templateUrl: './doctor-profile.component.html',
-  styleUrl: './doctor-profile.component.css'
+  styleUrls: ['./doctor-profile.component.css']
 })
-export class DoctorProfileComponent {
+export class DoctorProfileComponent implements OnInit {
   doctor: any = {
     name: '',
     gender: true,
-    password: '',
     email: '',
     phone: '',
     address: '',
-    avatar: '',
+    avatar: '',  // URL to preview the avatar
     achievement: '',
     description: '',
     specializationId: 0,
     clinicId: 0
   };
 
-  onSubmit() {
-    console.log('Saving doctor profile:', this.doctor);
-    // Here you would typically make an API call to save the doctor's profile
-    alert('Profile saved successfully!');
+  avatarFile: File | null = null;
+  specializations: Specialization[] = [];
+  clinics: Clinic[] = [];
+  doctorId: number = 0;
+
+  constructor(
+    private doctorService: DoctorService,
+    private clinicService: ClinicService,
+    private specializationService: SpecializationService,
+    private route: ActivatedRoute
+  ) { }
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.doctorId = +params['doctorId'];
+
+      if (this.doctorId) {
+        Promise.all([this.getSpecializations(), this.getClinics()]).then(() => {
+          this.getDoctorDetails(this.doctorId);
+        });
+      }
+    });
   }
-  changeAvatar() {
-    const newAvatar = prompt('Enter new avatar URL:');
-    if (newAvatar) {
-      this.doctor.avatar = newAvatar;
+
+  getSpecializations(): Promise<void> {
+    return new Promise((resolve) => {
+      this.specializationService.getAllSpecializations().subscribe({
+        next: (response) => {
+          this.specializations = response;
+          resolve();
+        },
+        error: (error) => {
+          console.error('Error fetching specializations:', error);
+          resolve(); // Dù có lỗi cũng gọi resolve để không làm delay các thao tác khác
+        }
+      });
+    });
+  }
+
+  getClinics(): Promise<void> {
+    return new Promise((resolve) => {
+      this.clinicService.getAllClinics().subscribe({
+        next: (response) => {
+          this.clinics = response;
+          resolve();
+        },
+        error: (error) => {
+          console.error('Error fetching clinics:', error);
+          resolve();
+        }
+      });
+    });
+  }
+  // Fetch the doctor's details based on the doctorId
+  getDoctorDetails(doctorId: number): void {
+    this.doctorService.getDoctorById(doctorId).subscribe({
+      next: (response) => {
+        this.doctor = response;
+
+        // Nếu avatar có dữ liệu, cập nhật lại đường dẫn
+        if (this.doctor.avatar) {
+          console.log('Avatar URL:', this.doctor.avatar); // Kiểm tra đường dẫn
+
+          this.doctor.avatar = `http://localhost:5032/uploads/${this.doctor.avatar}`;
+          console.log('sau khi them url: ', this.doctor.avatar);
+        }
+      },
+      error: (error) => {
+        console.error('Error fetching doctor details:', error);
+      }
+    });
+  }
+
+  // Trigger file input for avatar
+  triggerAvatarInput(): void {
+    const input = document.getElementById('avatarInput') as HTMLInputElement;
+    input.click();
+  }
+
+  onAvatarChange(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const file = input.files ? input.files[0] : null;  // Check if file selected
+
+    if (file) {
+      this.avatarFile = file; // Assign file to avatarFile
+      this.previewAvatar(file); // Preview the selected avatar file
+    } else {
+      console.log("No file selected");
     }
+  }
+
+  previewAvatar(file: File): void {
+    if (!file) {
+      console.warn("No file selected");
+      return;
+    }
+
+    // Kiểm tra định dạng file (chỉ cho phép ảnh)
+    if (!file.type.startsWith("image/")) {
+      alert("Please select a valid image file (JPG, PNG, etc.)");
+      return;
+    }
+
+    // Kiểm tra kích thước file (giới hạn 5MB)
+    const maxSize = 5 * 1024 * 1024; // 5MB
+    if (file.size > maxSize) {
+      alert("Image size must be less than 5MB");
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.doctor.avatar = reader.result as string; // Gán URL xem trước
+    };
+    console.log(this.doctor.avatar)
+    reader.onerror = (error) => {
+      console.error("Error reading file:", error);
+      alert("Error previewing image");
+    };
+
+    reader.readAsDataURL(file);
+  }
+
+  uploadAvatar(file: File): void {
+    const formData = new FormData();
+    formData.append('avatar', file);
+
+    this.doctorService.uploadImage(formData).subscribe({
+      next: (response) => {
+        this.doctor.avatar = response.imageUrl; // Cập nhật avatar URL
+        console.log("Avatar uploaded successfully:", response.imageUrl);
+      },
+      error: (error) => {
+        console.error("Error uploading avatar:", error);
+        alert("Failed to upload avatar");
+      }
+    });
+  }
+
+  // Submit form data
+  onSubmit(): void {
+    if (!this.avatarFile) {
+      alert('Please select an avatar image!');
+      return; // Stop if no avatar selected
+    }
+
+    const formData = new FormData();
+    formData.append('name', this.doctor.name);
+    formData.append('gender', this.doctor.gender.toString());
+    formData.append('email', this.doctor.email);
+    formData.append('phone', this.doctor.phone || '');
+    formData.append('address', this.doctor.address);
+    formData.append('achievement', this.doctor.achievement);
+    formData.append('description', this.doctor.description);
+
+    if (this.avatarFile) {
+      formData.append('avatar', this.avatarFile, this.avatarFile.name); // Append the avatar file
+      console.log(this.avatarFile);
+    }
+
+    // Send form data to the backend
+    this.doctorService.updateDoctorProfile(this.doctorId, formData).subscribe({
+      next: (response) => {
+        console.log('Profile updated successfully:', response);
+        alert('Profile saved successfully!');
+      },
+      error: (error) => {
+        console.error('Error updating profile:', error, this.doctor);
+        alert('Error saving profile.');
+      }
+    });
   }
 }

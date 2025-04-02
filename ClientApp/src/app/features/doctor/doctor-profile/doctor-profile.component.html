@@ -1,11 +1,17 @@
+<br />
 <div class="container">
     <div class="profile-card">
         <h2 class="section-title">Doctor Profile Management</h2>
 
+        <br />
         <div class="profile-header">
             <div class="avatar-container">
-                <img [src]="doctor.avatar || 'https://via.placeholder.com/150'" alt="Doctor avatar" class="avatar">
-                <button type="button" class="btn-avatar" (click)="changeAvatar()">Change Avatar</button>
+                <img [src]="doctor.avatar ? doctor.avatar : 'assets/doctor_avatar.png'" alt="Doctor avatar"
+                    class="avatar">
+                <input id="avatarInput" type="file" (change)="onAvatarChange($event)" style="display: none;">
+                <button type="button" class="btn-avatar" (click)="triggerAvatarInput()">
+                    <i class="fa fa-sync-alt"></i> Cập nhật
+                </button>
             </div>
             <div class="profile-info">
                 <h2>{{ doctor.name || 'Doctor Name' }}</h2>
@@ -13,6 +19,7 @@
             </div>
         </div>
 
+        <br />
         <form (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label for="name">Full Name</label>
@@ -47,11 +54,6 @@
             </div>
 
             <div class="form-group">
-                <label for="avatar">Avatar URL</label>
-                <input type="text" id="avatar" class="form-control" [(ngModel)]="doctor.avatar" name="avatar">
-            </div>
-
-            <div class="form-group">
                 <label for="achievement">Achievements</label>
                 <textarea id="achievement" class="form-control" [(ngModel)]="doctor.achievement"
                     name="achievement"></textarea>
@@ -63,15 +65,27 @@
                     name="description"></textarea>
             </div>
 
+            <!-- Specialization Dropdown -->
             <div class="form-group">
-                <label for="specializationId">Specialization ID</label>
-                <input type="number" id="specializationId" class="form-control" [(ngModel)]="doctor.specializationId"
+                <label for="specializationId">Specialization</label>
+                <select id="specializationId" class="form-control" [(ngModel)]="doctor.specializationId"
                     name="specializationId">
+                    <option value="" disabled selected>-- Select Specialization --</option>
+                    <option *ngFor="let specialization of specializations" [value]="specialization.id">
+                        {{ specialization.name }}
+                    </option>
+                </select>
             </div>
 
+            <!-- Clinic Dropdown -->
             <div class="form-group">
-                <label for="clinicId">Clinic ID</label>
-                <input type="number" id="clinicId" class="form-control" [(ngModel)]="doctor.clinicId" name="clinicId">
+                <label for="clinicId">Clinic</label>
+                <select id="clinicId" class="form-control" [(ngModel)]="doctor.clinicId" name="clinicId">
+                    <option value="" disabled selected>-- Select Clinic --</option>
+                    <option *ngFor="let clinic of clinics" [value]="clinic.id">
+                        {{ clinic.name }}
+                    </option>
+                </select>
             </div>
 
             <button type="submit" class="btn">Save Profile</button>

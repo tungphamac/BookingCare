@@ -8,6 +8,7 @@ import { LoginComponent } from './features/auth/login/login.component';
 import { RegisterComponent } from './features/register/register/register.component';
 import { ForgotPasswordComponent } from './features/ForgotPassword/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './features/ResetPassword/reset-password/reset-password.component';
+import { FeedbackViewComponent } from './features/feedback/feedback-view/feedback-view.component';
 
 export const routes: Routes = [
     { path: '', component: HomepageComponent },
@@ -33,10 +34,10 @@ export const routes: Routes = [
 
 
 
-    { path: '', component: HomepageComponent },
     { path: 'clinics/top-clinic', component: TopClinicListComponent },
     { path: 'feedbacks/list', component: FeedbackListComponent },
-    { path: 'feedbacks/add', component: FeedbackAddComponent },
-    { path: 'doctors/profile', component: DoctorProfileComponent }
+    { path: 'feedbacks/add/:appointmentId', component: FeedbackAddComponent },
+    { path: 'doctors/profile/:doctorId', component: DoctorProfileComponent },
+    { path: 'feedbacks/view/:doctorId', component: FeedbackViewComponent }
 
 ];

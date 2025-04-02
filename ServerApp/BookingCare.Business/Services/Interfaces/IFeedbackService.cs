@@ -14,5 +14,6 @@ namespace BookingCare.Business.Services.Interfaces
         Task<bool> UpdateFeedback(int id, UpdateFeedbackVm updateFeedbackVm);
         Task<bool> DeleteFeedbackAsync(int id);
         Task<FeedbackDetailDto> GetFeedbackByAppointmentAsync(int appointmentId);
+        Task<ICollection<FeedbackVm>> GetFeedbacksByDoctor(int doctorId);
     }
 }
