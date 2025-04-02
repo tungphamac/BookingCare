@@ -1,0 +1,43 @@
+<div class="appointment-list-container">
+  <h2>Quản lý Lịch Hẹn</h2>
+  <div class="loading" *ngIf="isLoading">Đang tải dữ liệu...</div>
+  <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+  <button [routerLink]="['/appointments/create']">Tạo lịch hẹn</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Bác sĩ</th>
+        <th>Bệnh nhân</th>
+        <th>Thời gian</th>
+        <th>Trạng thái</th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointment of appointments">
+        <td>{{ appointment.id }}</td>
+        <td>{{ appointment.doctorName }}</td>
+        <td>{{ appointment.patientName }}</td>
+        <td>{{ appointment.scheduleTime | date:'dd/MM/yyyy HH:mm' }}</td>
+        <td>{{ appointment.status }}</td>
+        <td>
+          <!-- Nếu là Doctor và trạng thái là Pending -->
+          <ng-container *ngIf="appointment.status === 'Pending'">
+            <button (click)="manage(appointment.id, 1)">Xác nhận</button>
+            <button (click)="manage(appointment.id, 2)">Từ chối</button>
+          </ng-container>
+          <!-- Nếu là Patient và trạng thái là Pending -->
+          <ng-container *ngIf="appointment.status === 'Pending'">
+            <button (click)="manage(appointment.id, 2)">Hủy</button>
+          </ng-container>
+          <button [routerLink]="['/appointments', appointment.id]">Xem chi tiết</button>
+          <button [routerLink]="['/appointments/update', appointment.id]">Cập Nhật</button>
+          <button *ngIf="appointment.status === 'Confirmed'" (click)="viewMedicalRecord(appointment.id)">
+            Xem Hồ sơ Y tế
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

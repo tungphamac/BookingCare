@@ -1,0 +1,29 @@
+<div class="manage-medical-record-container">
+  <h2>Cập nhật Hồ sơ Y tế</h2>
+  <div class="loading" *ngIf="isLoading">Đang tải dữ liệu...</div>
+  <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+  <form *ngIf="!isLoading" (ngSubmit)="onSubmit()" #medicalRecordForm="ngForm">
+    <div class="form-group">
+      <label for="appointmentId">Lịch hẹn</label>
+      <select id="appointmentId" [(ngModel)]="record.appointmentId" name="appointmentId" required>
+        <option value="0" disabled>Chọn lịch hẹn</option>
+        <option *ngFor="let appointment of appointments" [value]="appointment.id">
+          {{ appointment.id }} - {{ appointment.doctorName }} ({{ appointment.scheduleTime | date:'dd/MM/yyyy HH:mm' }})
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="diagnosis">Chẩn đoán</label>
+      <input type="text" id="diagnosis" [(ngModel)]="record.diagnosis" name="diagnosis" required />
+    </div>
+    <div class="form-group">
+      <label for="prescription">Đơn thuốc</label>
+      <textarea id="prescription" [(ngModel)]="record.prescription" name="prescription" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="notes">Ghi chú</label>
+      <textarea id="notes" [(ngModel)]="record.notes" name="notes"></textarea>
+    </div>
+    <button type="submit" [disabled]="medicalRecordForm.invalid || isLoading">Cập nhật Hồ sơ</button>
+  </form>
+</div>

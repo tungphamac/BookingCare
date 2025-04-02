@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, tap, throwError } from 'rxjs';
 import { User } from '../login/Models/user.model';
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
@@ -20,7 +20,27 @@ export class AuthService {
   constructor(private http: HttpClient, private cookieService: CookieService) { }
 
   login(request: LoginRequest): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${API_URL}/Authentication/login`, request);
+    return this.http.post<LoginResponse>(`${API_URL}/Authentication/login`, request).pipe( //Them tu .pipe den het login
+      tap(response => {
+        if (response.token) {
+          // Lưu token vào localStorage
+          localStorage.setItem('Authentication', response.token);
+          // Lưu role nếu có trong response
+          if (response.role) {
+            localStorage.setItem('role', response.role);
+          }
+          // Lưu thông tin user
+          this.setUser({ email: request.email });
+        }
+      }),
+      catchError(error => {
+        let errorMessage = 'Đăng nhập thất bại. Vui lòng kiểm tra email và mật khẩu.';
+        if (error.error?.message) {
+          errorMessage = error.error.message;
+        }
+        return throwError(() => new Error(errorMessage));
+      })
+    );
   }
 
   setUser(user: User): void {

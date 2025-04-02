@@ -1,0 +1,27 @@
+<div class="view-appointment-detail-container" *ngIf="appointment">
+    <h2>Chi tiết Lịch Hẹn</h2>
+    <div class="detail-item">
+      <label>ID:</label>
+      {{ appointment.id }}
+    </div>
+    <div class="detail-item">
+      <label>Bác sĩ:</label>
+      {{ appointment.doctorName }}
+    </div>
+    <div class="detail-item">
+      <label>Bệnh nhân:</label>
+      {{ appointment.patientName }}
+    </div>
+    <div class="detail-item">
+      <label>Thời gian:</label>
+      {{ appointment.scheduleTime | date:'dd/MM/yyyy HH:mm' }}
+    </div>
+    <div class="detail-item">
+      <label>Trạng thái:</label>
+      {{ appointment.status }}
+    </div>
+    <div class="detail-item">
+      <label>Ngày tạo:</label>
+      {{ appointment.createdAt | date:'dd/MM/yyyy HH:mm' }}
+    </div>
+  </div>

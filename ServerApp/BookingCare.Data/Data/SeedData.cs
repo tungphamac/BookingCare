@@ -200,7 +200,12 @@ namespace BookingCare.Data.Data
                 new MedicalRecord
                 {
                     Id = 1,
-                    AppointmentId = 1
+                    AppointmentId = 1,
+                    Diagnosis = "Cảm cúm thông thường",
+                    Prescription = "Paracetamol 500mg, uống 2 lần/ngày",
+                    Notes = "Nghỉ ngơi nhiều, uống đủ nước",
+                    CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc),
+                    CreatedBy = 2
                 }
             );
 

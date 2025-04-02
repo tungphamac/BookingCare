@@ -224,10 +224,36 @@ namespace BookingCare.Data.Migrations
                     b.Property<int>("AppointmentId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Diagnosis")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("Notes")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<string>("Prescription")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AppointmentId")
                         .IsUnique();
+
+                    b.HasIndex("CreatedBy");
 
                     b.ToTable("MedicalRecords");
 
@@ -235,7 +261,12 @@ namespace BookingCare.Data.Migrations
                         new
                         {
                             Id = 1,
-                            AppointmentId = 1
+                            AppointmentId = 1,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedBy = 2,
+                            Diagnosis = "Cảm cúm thông thường",
+                            Notes = "Nghỉ ngơi nhiều, uống đủ nước",
+                            Prescription = "Paracetamol 500mg, uống 2 lần/ngày"
                         });
                 });
 
@@ -850,7 +881,15 @@ namespace BookingCare.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("BookingCare.Data.Models.Doctor", "CreatedByDoctor")
+                        .WithMany()
+                        .HasForeignKey("CreatedBy")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Appointment");
+
+                    b.Navigation("CreatedByDoctor");
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.Notification", b =>

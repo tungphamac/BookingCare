@@ -714,7 +714,6 @@ D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\staticwebas
 D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.BookingCare.WebAPI.props
 D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.BookingCare.WebAPI.props
 D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\staticwebassets.pack.json
-D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingC.CE63961E.Up2Date
 D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.WebAPI.dll
 D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\refint\BookingCare.WebAPI.dll
@@ -722,3 +721,4 @@ D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare
 D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.WebAPI.genruntimeconfig.cache
 D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\ref\BookingCare.WebAPI.dll
 D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.WebAPI.MvcApplicationPartsAssemblyInfo.cs
+D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
