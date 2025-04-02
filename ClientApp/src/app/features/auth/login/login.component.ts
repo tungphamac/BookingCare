@@ -6,30 +6,26 @@ import { Router, RouterModule } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { CommonModule } from '@angular/common';
 
+
 @Component({
   selector: 'app-login',
-  standalone: true, // Thêm standalone
   imports: [FormsModule, RouterModule, CommonModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrl: './login.component.css'
 })
 export class LoginComponent {
   model: LoginRequest;
   errorMessage: string = '';
   isLoading: boolean = false;
-
-  constructor(
-    private authService: AuthService,
-    private cookieService: CookieService,
-    private router: Router
-  ) {
+  constructor(private authService: AuthService, private cookieService: CookieService, private router: Router) {
     this.model = {
       email: '',
       password: ''
-    };
+    }
   }
 
   onFormSubmit() {
+
     if (!this.model.email || !this.model.password) {
       this.errorMessage = 'Email và mật khẩu là bắt buộc';
       return;
@@ -46,27 +42,22 @@ export class LoginComponent {
       return;
     }
 
+    // Xóa thông báo lỗi trước khi gửi yêu cầu
     this.errorMessage = '';
-    this.isLoading = true;
+    this.isLoading = true; // Bật trạng thái loading
 
+    // Gửi yêu cầu đăng nhập
     this.authService.login(this.model).subscribe({
-      next: (response) => {
-        this.cookieService.set(
-          'Authentication',
-          `${response.token}`,
-          undefined,
-          '/',
-          undefined,
-          true,
-          'Strict'
-        );
-        // Sử dụng id và email từ response
-        this.authService.setUser({ email: response.email, id: response.id });
+      next: response => {
+        // Đăng nhập thành công
+        this.cookieService.set('Authentication', `${response.token}`, undefined, '/', undefined, true, 'Strict');
+        this.authService.setUser({ email: this.model.email });
         this.router.navigateByUrl('/');
-        this.isLoading = false;
+        this.isLoading = false; // Tắt trạng thái loading
       },
-      error: (err) => {
-        this.isLoading = false;
+      error: err => {
+        // Xử lý lỗi từ server
+        this.isLoading = false; // Tắt trạng thái loading
         if (err.status === 401) {
           this.errorMessage = 'Email hoặc mật khẩu không đúng';
         } else if (err.status === 400) {
@@ -76,5 +67,7 @@ export class LoginComponent {
         }
       }
     });
+
   }
+
 }

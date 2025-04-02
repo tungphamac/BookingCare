@@ -10,13 +10,14 @@ import { RegisterVm } from '../../register/Models/register.model';
 import { resetPasswordVm } from '../../ResetPassword/Models/resetPass.model';
 import { forgotPasswordVm } from '../../ForgotPassword/Models/forgot.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  $user = new BehaviorSubject<User | undefined>(undefined);
 
-  constructor(private http: HttpClient, private cookieService: CookieService) {}
+  $user = new BehaviorSubject<User | undefined>(undefined);
+  constructor(private http: HttpClient, private cookieService: CookieService) { }
 
   login(request: LoginRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${API_URL}/Authentication/login`, request);
@@ -24,8 +25,7 @@ export class AuthService {
 
   setUser(user: User): void {
     this.$user.next(user);
-    localStorage.setItem('user-email', user.email);
-    localStorage.setItem('user-id', user.id.toString()); // Lưu id
+    localStorage.setItem('user-namename', user.email);
   }
 
   user(): Observable<User | undefined> {
@@ -33,26 +33,21 @@ export class AuthService {
   }
 
   getUser(): User | undefined {
-    const email = localStorage.getItem('user-email');
-    const id = localStorage.getItem('user-id');
+    const email = localStorage.getItem("user-email");
 
-    if (email && id) {
+    if (email) {
       return {
-        email: email,
-        id: Number(id) // Chuyển id từ string sang number
+        email: email
       };
     }
 
     return undefined;
   }
 
-  getToken(): string | null {
-    return this.cookieService.get('Authentication');
-  }
-
   logout(): void {
+    //localStorage.removeItem("user-email");
     localStorage.clear();
-    this.cookieService.delete('Authentication', '/');
+    this.cookieService.delete("Authentication", "/");
     this.$user.next(undefined);
   }
 
@@ -62,6 +57,10 @@ export class AuthService {
 
   resetPassword(model: resetPasswordVm): Observable<any> {
     return this.http.post<any>(`${API_URL}/Account/reset-password`, model);
+  }
+
+  getUserById(id: string): Observable<any> {
+    return this.http.get(`${API_URL}/Patient/${id}`);
   }
 
   register(userData: RegisterVm): Observable<any> {
@@ -78,5 +77,7 @@ export class AuthService {
         return throwError(() => new Error(errorMessage));
       })
     );
+
+
   }
 }
