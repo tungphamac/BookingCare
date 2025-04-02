@@ -28,22 +28,22 @@ namespace BookingCare.API.Controllers
         }
 
         // GET: api/patient/{id}
-        [HttpGet("{id}")]
-        [Authorize(Roles = "Admin,Doctor,Patient")] // Admin, Doctor, Patient có thể xem chi tiết bệnh nhân
+        [HttpGet("get-patient-by-id/{id}")]
+        //[Authorize(Roles = "Admin,Doctor,Patient")] // Admin, Doctor, Patient có thể xem chi tiết bệnh nhân
         public async Task<ActionResult<PatientDetailDto>> GetPatientDetail(int id)
         {
             try
             {
                 // Lấy UserId từ token
-                var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
-                var userRole = User.FindFirst(ClaimTypes.Role)?.Value;
+                //var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+                //var userRole = User.FindFirst(ClaimTypes.Role)?.Value;
 
                 // Nếu là Patient, chỉ được xem thông tin của chính mình
-                if (userRole == "Patient" && userId != id)
-                {
-                    _logger.LogWarning($"Patient with UserId {userId} attempted to access details of Patient with UserId {id}.");
-                    return Unauthorized(new { Message = "Patients can only view their own details." });
-                }
+               // if (userRole == "Patient" && userId != id)
+                //{
+                //    _logger.LogWarning($"Patient with UserId {userId} attempted to access details of Patient with UserId {id}.");
+                //    return Unauthorized(new { Message = "Patients can only view their own details." });
+                //}
 
                 var patient = await _patientService.GetPatientDetailAsync(id);
                 if (patient == null)

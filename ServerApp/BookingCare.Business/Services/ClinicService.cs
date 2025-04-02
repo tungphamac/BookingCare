@@ -190,7 +190,8 @@ namespace BookingCare.Business.Services
              clinicInfo => clinicInfo.ClinicId,
              clinic => clinic.Id,
              (clinicInfo, clinic) => new ClinicVm()
-             {
+             { 
+                 Id = clinic.Id,
                  Name = clinic.Name,
                  Address = clinic.Address,
                  Phone = clinic.Phone,

@@ -86,6 +86,7 @@ namespace BookingCare.WebAPI.Controllers
             return Ok(new { message = $"User {registerVm.Email} created successfully with role 'Patient'" });
         }
         [HttpPost("login")]
+        
         public async Task<IActionResult> Login([FromBody] LoginVm loginVm)
         {
             if (!ModelState.IsValid)
@@ -99,7 +100,13 @@ namespace BookingCare.WebAPI.Controllers
             {
                 var tokenValue = await GenerateJwtToken(user);
 
-                return Ok(new { token = tokenValue });
+                // Return token, email, and id as expected by the frontend
+                return Ok(new
+                {
+                    token = tokenValue,
+                    email = user.Email,
+                    id = user.Id
+                });
             }
 
             return Unauthorized();

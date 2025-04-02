@@ -37,7 +37,7 @@
 
                     <ng-template #showUserProfile>
                         <div class="user-profile">
-                            <a [routerLink]="['/manage-account']" class="user-email">
+                            <a (click)="onNavigateToProfile()" class="user-email">
                                 Xin chào, {{user?.email}}
                             </a>
                             <button class="btn btn-primary ms-2" (click)="onLogout()">Đăng xuất</button>

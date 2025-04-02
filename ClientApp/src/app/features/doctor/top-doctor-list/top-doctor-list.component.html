@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row g-4">
             <div class="col-md-4" *ngFor="let doctor of topDoctors">
-                <div class="doctor-card">
+                <div [routerLink]="['/doctors/', doctor.id]" class="doctor-card">
                     <div class="doctor-header">
                         <img src="assets/doctor_avatar.png" alt="Doctor Avatar" class="doctor-img">
                     </div>

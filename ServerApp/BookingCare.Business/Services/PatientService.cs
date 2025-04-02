@@ -37,7 +37,7 @@ namespace BookingCare.Business.Services
 
             return patients.Select(p => new PatientDetailDto
             {
-               
+               Id = p.UserId,
                 UserName = p.User?.UserName ?? "No name",
                 Email = p.User?.Email ?? "No email",
                 Gender = p.User?.Gender ?? false,

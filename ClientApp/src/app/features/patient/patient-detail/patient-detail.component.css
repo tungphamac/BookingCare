@@ -1,0 +1,117 @@
+.patient-detail-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px 15px;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #3a3a3a;
+  }
+  
+  /* Loading */
+  .loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: #555;
+  }
+  
+  .loading p {
+    margin-top: 10px;
+    font-weight: 500;
+  }
+  
+  /* Alert */
+  .alert {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  
+  /* Thông tin bệnh nhân */
+  .patient-info {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .patient-info:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .patient-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .card-avatar {
+    margin-bottom: 20px;
+  }
+  
+  .patient-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .card-avatar i {
+    font-size: 4rem;
+    color: #17a2b8;
+  }
+  
+  .card-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .card-content p {
+    margin: 8px 0;
+    font-size: 1.1rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .card-content p i {
+    color: #6c757d;
+    font-size: 1rem;
+  }
+  
+  .card-content p strong {
+    color: #333;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .patient-detail-container {
+      padding: 20px 10px;
+    }
+  
+    .patient-avatar {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .card-content h3 {
+      font-size: 1.5rem;
+    }
+  
+    .card-content p {
+      font-size: 1rem;
+    }
+  }
