@@ -59,6 +59,10 @@ export class AuthService {
     return this.http.post<any>(`${API_URL}/Account/reset-password`, model);
   }
 
+  getUserById(id: string): Observable<any> {
+    return this.http.get(`${API_URL}/Patient/${id}`);
+  }
+
   register(userData: RegisterVm): Observable<any> {
     return this.http.post<any>(`${API_URL}/Authentication/register`, userData).pipe(
       catchError(error => {

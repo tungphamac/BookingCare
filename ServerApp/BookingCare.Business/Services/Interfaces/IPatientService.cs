@@ -7,6 +7,8 @@ namespace BookingCare.Business.Services.Interfaces
     public interface IPatientService : IBaseService<Patient>
     {
         Task<PatientDetailDto?> GetPatientDetailAsync(int id);
+        Task<PatientDetailDto?> GetPatientByGmailAsync(string email);
+
         Task<IEnumerable<PatientDetailDto>> GetAllAsync();
         Task<int> AddPatientAsync(Patient patient);
         Task<bool> UpdatePatientAsync(Patient patient);

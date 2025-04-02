@@ -690,6 +690,26 @@
   },
   {
     "ContainingType": "BookingCare.API.Controllers.PatientController",
+    "Method": "GetPatientInfo",
+    "RelativePath": "api/Patient/Get-patient-info",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "BookingCare.API.Dtos.PatientDetailDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.PatientController",
     "Method": "LockPatientAccount",
     "RelativePath": "api/Patient/lock/{id}",
     "HttpMethod": "POST",
