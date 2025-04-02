@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-doctor-detail',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule], // Đảm bảo CommonModule được import
   templateUrl: './doctorc-detail.component.html',
   styleUrl: './doctorc-detail.component.css'
 })

@@ -24,4 +24,5 @@ export class DoctorService {
   getDoctorById(id: number): Observable<Doctor> {
     return this.http.get<Doctor>(`${API_URL}/Doctor/get-doctor-by-id/${id}`);
   }
+  
 }

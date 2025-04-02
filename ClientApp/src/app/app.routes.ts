@@ -3,7 +3,6 @@ import { HomepageComponent } from './core/components/homepage/homepage.component
 import { TopClinicListComponent } from './features/clinic/top-clinic-list/top-clinic-list.component';
 import { FeedbackListComponent } from './features/feedback/feedback-list/feedback-list.component';
 import { FeedbackAddComponent } from './features/feedback/feedback-add/feedback-add.component';
-import { DoctorProfileComponent } from './features/doctor/doctor-profile/doctor-profile.component';
 import { LoginComponent } from './features/auth/login/login.component';
 import { RegisterComponent } from './features/register/register/register.component';
 import { ForgotPasswordComponent } from './features/ForgotPassword/forgot-password/forgot-password.component';
@@ -14,6 +13,7 @@ import { PatientDetailComponent } from './features/patient/patientc-detail/patie
 import { NotificationListComponent } from './features/notification/notification-list/notification-list.component';
 import { SearchComponent } from './features/search/search/search.component';
 import { PatientSearchComponent } from './features/search/patient-search/patient-search.component'; // Thêm import
+import { DoctorProfileComponent } from './features/doctor/doctor-profile/doctor-profile.component';
 
 export const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -27,8 +27,8 @@ export const routes: Routes = [
   { path: 'doctors/:id', component: DoctorDetailComponent },
   { path: 'feedbacks/list', component: FeedbackListComponent },
   { path: 'feedbacks/add', component: FeedbackAddComponent },
-  { path: 'doctors/profile', component: DoctorProfileComponent },
   { path: 'notifications', component: NotificationListComponent },
   { path: 'search', component: SearchComponent },
-  { path: 'patient-search', component: PatientSearchComponent } // Thêm route mới
+  { path: 'patient-search', component: PatientSearchComponent }, // Thêm route mới
+  { path: 'doctor-profile/:id', component: DoctorProfileComponent },
 ];

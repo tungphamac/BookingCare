@@ -181,15 +181,7 @@ namespace BookingCare.Business.Services
         }
 
 
-        Task<SearchResultDto> ISearchService.GeneralSearchAsync(string filter, string keyword)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<SearchResultDto> ISearchService.SearchBySpecializationAsync(string keyword)
-        {
-            throw new NotImplementedException();
-        }
+        
 
        
     }
