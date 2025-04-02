@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project\\BookingCare\\ServerApp\\BookingCare.Business\\BookingCare.Business.csproj": {}
+    "D:\\CampusLink\\PNET\\src\\BookingCare\\ServerApp\\BookingCare.Business\\BookingCare.Business.csproj": {}
   },
   "projects": {
-    "D:\\Project\\BookingCare\\ServerApp\\BookingCare.Business\\BookingCare.Business.csproj": {
+    "D:\\CampusLink\\PNET\\src\\BookingCare\\ServerApp\\BookingCare.Business\\BookingCare.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\BookingCare\\ServerApp\\BookingCare.Business\\BookingCare.Business.csproj",
+        "projectUniqueName": "D:\\CampusLink\\PNET\\src\\BookingCare\\ServerApp\\BookingCare.Business\\BookingCare.Business.csproj",
         "projectName": "BookingCare.Business",
-        "projectPath": "D:\\Project\\BookingCare\\ServerApp\\BookingCare.Business\\BookingCare.Business.csproj",
-        "packagesPath": "C:\\Users\\jackd\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\BookingCare\\ServerApp\\BookingCare.Business\\obj\\",
+        "projectPath": "D:\\CampusLink\\PNET\\src\\BookingCare\\ServerApp\\BookingCare.Business\\BookingCare.Business.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "D:\\CampusLink\\PNET\\src\\BookingCare\\ServerApp\\BookingCare.Business\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\jackd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -32,8 +32,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Project\\BookingCare\\ServerApp\\BookingCare.Data\\BookingCare.Data.csproj": {
-                "projectPath": "D:\\Project\\BookingCare\\ServerApp\\BookingCare.Data\\BookingCare.Data.csproj"
+              "D:\\CampusLink\\PNET\\src\\BookingCare\\ServerApp\\BookingCare.Data\\BookingCare.Data.csproj": {
+                "projectPath": "D:\\CampusLink\\PNET\\src\\BookingCare\\ServerApp\\BookingCare.Data\\BookingCare.Data.csproj"
               }
             }
           }
@@ -47,8 +47,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -69,24 +68,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.103/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Project\\BookingCare\\ServerApp\\BookingCare.Data\\BookingCare.Data.csproj": {
+    "D:\\CampusLink\\PNET\\src\\BookingCare\\ServerApp\\BookingCare.Data\\BookingCare.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\BookingCare\\ServerApp\\BookingCare.Data\\BookingCare.Data.csproj",
+        "projectUniqueName": "D:\\CampusLink\\PNET\\src\\BookingCare\\ServerApp\\BookingCare.Data\\BookingCare.Data.csproj",
         "projectName": "BookingCare.Data",
-        "projectPath": "D:\\Project\\BookingCare\\ServerApp\\BookingCare.Data\\BookingCare.Data.csproj",
-        "packagesPath": "C:\\Users\\jackd\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\BookingCare\\ServerApp\\BookingCare.Data\\obj\\",
+        "projectPath": "D:\\CampusLink\\PNET\\src\\BookingCare\\ServerApp\\BookingCare.Data\\BookingCare.Data.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "D:\\CampusLink\\PNET\\src\\BookingCare\\ServerApp\\BookingCare.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\jackd\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -112,8 +111,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -150,7 +148,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.103/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
