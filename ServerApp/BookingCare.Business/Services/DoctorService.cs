@@ -346,6 +346,7 @@ namespace BookingCare.Business.Services
                             Description = docInfo.doc.Description,
                             Achievement = docInfo.doc.Achievement,
                             Address = user.Address,
+                            SpecializationId = docInfo.doc.SpecializationId,
                             Avatar = user.Avatar
                         })
                         .ToListAsync();

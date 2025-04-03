@@ -151,22 +151,6 @@ export class DoctorProfileComponent implements OnInit {
     reader.readAsDataURL(file);
   }
 
-  uploadAvatar(file: File): void {
-    const formData = new FormData();
-    formData.append('avatar', file);
-
-    this.doctorService.uploadImage(formData).subscribe({
-      next: (response) => {
-        this.doctor.avatar = response.imageUrl; // Cập nhật avatar URL
-        console.log("Avatar uploaded successfully:", response.imageUrl);
-      },
-      error: (error) => {
-        console.error("Error uploading avatar:", error);
-        alert("Failed to upload avatar");
-      }
-    });
-  }
-
   // Submit form data
   onSubmit(): void {
     if (!this.avatarFile) {

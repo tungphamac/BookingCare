@@ -5,7 +5,7 @@ interface DoctorProfile {
     email: string;
     phone: number;
     address: string;
-    avatar: string;
+    avatar: File;
     achievement: string;
     description: string;
     specializationId: number;

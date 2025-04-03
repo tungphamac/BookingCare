@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TopDoctor } from '../models/top-doctor.model';
-import { API_URL, UPLOAD_URL } from '../../../app.config';
+import { API_URL } from '../../../app.config';
 import { TopRatingDoctor } from '../models/top-rating-doctor.model';
 import { Doctor } from '../models/doctor.model';
 
@@ -29,9 +29,5 @@ export class DoctorService {
 
     // Gửi yêu cầu PUT đến API
     return this.http.put(`${API_URL}/Doctor/update-doctor-profile/${doctorId}`, formData);
-  }
-
-  uploadImage(formData: FormData): Observable<{ imageUrl: string }> {
-    return this.http.post<{ imageUrl: string }>(`${UPLOAD_URL}/Upload/upload-image`, formData);
   }
 }
