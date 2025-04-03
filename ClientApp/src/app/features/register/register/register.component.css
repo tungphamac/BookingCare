@@ -1,51 +1,4 @@
-<<<<<<< HEAD
-.register-container {
-    width: 400px;
-    margin-top: 200px;
-    margin-left: 700px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
-    text-align: center;
-}
 
-h2 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-input,
-select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #0056b3;
-}
-
-.message {
-    margin-top: 15px;
-    font-size: 14px;
-    color: green;
-=======
 /* Reset mặc định và thiết lập font */
 * {
     margin: 0;
@@ -183,5 +136,5 @@ select {
 /* Thông báo lỗi (nếu có) */
 .message.error {
     color: #dc3545;
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
+
 }

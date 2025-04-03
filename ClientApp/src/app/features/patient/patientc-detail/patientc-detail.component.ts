@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PatientService } from '../services/patient.service';
 import { Patient } from '../models/patient';
 import { Location } from '@angular/common';
+import { PatientDetail } from '../models/patient-detail.model';
 
 @Component({
   selector: 'app-patient-detail',
@@ -13,7 +14,7 @@ import { Location } from '@angular/common';
   styleUrl: './patientc-detail.component.css'
 })
 export class PatientDetailComponent implements OnInit {
-  patient: Patient | null = null;
+  patient: PatientDetail | null = null;
   errorMessage: string | null = null;
 
   constructor(
@@ -26,8 +27,8 @@ export class PatientDetailComponent implements OnInit {
     const idParam = this.route.snapshot.paramMap.get('id');
     const id = idParam ? Number(idParam) : null;
     if (id !== null && !isNaN(id)) {
-      this.patientService.getPatientById(id).subscribe({
-        next: (data: Patient) => {
+      this.patientService.getPatientDetail(id).subscribe({
+        next: (data: PatientDetail) => {
           this.patient = data;
         },
         error: (err) => {

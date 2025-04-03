@@ -164,6 +164,16 @@
         "Name": "status",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -301,22 +311,6 @@
   },
   {
     "ContainingType": "BookingCare.API.Controllers.DoctorController",
-    "Method": "CreateDoctor",
-    "RelativePath": "api/Doctor",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "createDoctorDto",
-        "Type": "BookingCare.API.Dtos.CreateDoctorDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BookingCare.API.Controllers.DoctorController",
     "Method": "UpdateDoctor",
     "RelativePath": "api/Doctor/{id}",
     "HttpMethod": "PUT",
@@ -347,6 +341,22 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.DoctorController",
+    "Method": "CreateDoctor",
+    "RelativePath": "api/Doctor/add_doctor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createDoctorDto",
+        "Type": "BookingCare.API.Dtos.CreateDoctorDto",
         "IsRequired": true
       }
     ],
@@ -514,7 +524,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "BookingCare.Business.Dtos.MedicalRecordDTO",
+        "Type": "BookingCare.Business.Dtos.MedicalRecordCreateDto",
         "IsRequired": true
       }
     ],
@@ -535,7 +545,7 @@
       },
       {
         "Name": "dto",
-        "Type": "BookingCare.Business.Dtos.MedicalRecordDTO",
+        "Type": "BookingCare.Business.Dtos.MedicalRecordUpdateDto",
         "IsRequired": true
       }
     ],
@@ -840,6 +850,37 @@
       {
         "Name": "filter",
         "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "keyword",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BookingCare.API.Dtos.SearchResultDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.SearchController",
+    "Method": "SearchPatientsForDoctor",
+    "RelativePath": "api/Search/Patients",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctorId",
+        "Type": "System.Int32",
         "IsRequired": false
       },
       {

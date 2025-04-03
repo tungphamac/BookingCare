@@ -721,3 +721,4 @@ D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare
 D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.WebAPI.genruntimeconfig.cache
 D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\ref\BookingCare.WebAPI.dll
 D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.WebAPI.MvcApplicationPartsAssemblyInfo.cs
+D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.WebAPI.MvcApplicationPartsAssemblyInfo.cs

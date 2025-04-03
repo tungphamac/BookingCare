@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BookingCare.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+634dcdb22f1772473b71ebf7d80301b5eeddbb07")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bfa73cbc932247dc12361822794060e77f05c626")]
 [assembly: System.Reflection.AssemblyProductAttribute("BookingCare.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BookingCare.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

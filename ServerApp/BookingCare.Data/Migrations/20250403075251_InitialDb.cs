@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BookingCare.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class AddCreate : Migration
+    public partial class InitialDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -214,6 +214,30 @@ namespace BookingCare.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "RefreshTokens",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    Token = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    JwtId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsRevoked = table.Column<bool>(type: "bit", nullable: false),
+                    DateAdded = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DateExpire = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RefreshTokens", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_RefreshTokens_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Doctors",
                 columns: table => new
                 {
@@ -342,7 +366,13 @@ namespace BookingCare.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    AppointmentId = table.Column<int>(type: "int", nullable: false)
+                    AppointmentId = table.Column<int>(type: "int", nullable: false),
+                    Diagnosis = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
+                    Prescription = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
+                    Notes = table.Column<string>(type: "nvarchar(2000)", maxLength: 2000, nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CreatedBy = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -352,6 +382,12 @@ namespace BookingCare.Data.Migrations
                         column: x => x.AppointmentId,
                         principalTable: "Appointments",
                         principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_MedicalRecords_Doctors_CreatedBy",
+                        column: x => x.CreatedBy,
+                        principalTable: "Doctors",
+                        principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -454,7 +490,9 @@ namespace BookingCare.Data.Migrations
                 values: new object[,]
                 {
                     { 1, 2, 0, new DateTime(2025, 3, 20, 10, 0, 0, 0, DateTimeKind.Utc), "10:00-11:00", new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc) },
-                    { 2, 3, 0, new DateTime(2025, 3, 20, 14, 0, 0, 0, DateTimeKind.Utc), "14:00-15:00", new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc) }
+                    { 2, 3, 0, new DateTime(2025, 3, 20, 14, 0, 0, 0, DateTimeKind.Utc), "14:00-15:00", new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc) },
+                    { 3, 3, 0, new DateTime(2025, 3, 20, 14, 0, 0, 0, DateTimeKind.Utc), "15:00-16:00", new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc) },
+                    { 4, 2, 0, new DateTime(2025, 3, 20, 14, 0, 0, 0, DateTimeKind.Utc), "15:00-16:00", new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc) }
                 });
 
             migrationBuilder.InsertData(
@@ -463,14 +501,9 @@ namespace BookingCare.Data.Migrations
                 values: new object[] { 1, 1, new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc), new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc), 2, 4, "Checkup for heart condition", 1, 1, new TimeSpan(0, 10, 0, 0, 0) });
 
             migrationBuilder.InsertData(
-                table: "Feedbacks",
-                columns: new[] { "Id", "AppointmentId", "Comment", "CreatedAt", "Rating" },
-                values: new object[] { 1, 1, "Great service!", new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc), 5 });
-
-            migrationBuilder.InsertData(
                 table: "MedicalRecords",
-                columns: new[] { "Id", "AppointmentId" },
-                values: new object[] { 1, 1 });
+                columns: new[] { "Id", "AppointmentId", "CreatedAt", "CreatedBy", "Diagnosis", "Notes", "Prescription", "UpdatedAt" },
+                values: new object[] { 1, 1, new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc), 2, "Cảm cúm thông thường", "Nghỉ ngơi nhiều, uống đủ nước", "Paracetamol 500mg, uống 2 lần/ngày", null });
 
             migrationBuilder.InsertData(
                 table: "Notifications",
@@ -558,6 +591,11 @@ namespace BookingCare.Data.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_MedicalRecords_CreatedBy",
+                table: "MedicalRecords",
+                column: "CreatedBy");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Notifications_AppointmentId",
                 table: "Notifications",
                 column: "AppointmentId");
@@ -565,6 +603,11 @@ namespace BookingCare.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Notifications_UserId",
                 table: "Notifications",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RefreshTokens_UserId",
+                table: "RefreshTokens",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -599,6 +642,9 @@ namespace BookingCare.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Notifications");
+
+            migrationBuilder.DropTable(
+                name: "RefreshTokens");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
