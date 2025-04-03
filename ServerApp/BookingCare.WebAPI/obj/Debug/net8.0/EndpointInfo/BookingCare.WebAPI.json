@@ -405,7 +405,7 @@
         }
       }
     },
-    "/api/Clinic": {
+    "/api/Clinic/getall": {
       "get": {
         "tags": [
           "Clinic"
@@ -415,7 +415,9 @@
             "description": "Success"
           }
         }
-      },
+      }
+    },
+    "/api/Clinic/add": {
       "post": {
         "tags": [
           "Clinic"
@@ -446,7 +448,7 @@
         }
       }
     },
-    "/api/Clinic/{id}": {
+    "/api/Clinic/update/{id}": {
       "put": {
         "tags": [
           "Clinic"
@@ -486,7 +488,9 @@
             "description": "Success"
           }
         }
-      },
+      }
+    },
+    "/api/Clinic/delete/{id}": {
       "delete": {
         "tags": [
           "Clinic"
@@ -544,7 +548,7 @@
         }
       }
     },
-    "/api/Doctor": {
+    "/api/Doctor/getall": {
       "get": {
         "tags": [
           "Doctor"
@@ -587,7 +591,7 @@
         }
       }
     },
-    "/api/Doctor/{id}": {
+    "/api/Doctor/update/{id}": {
       "put": {
         "tags": [
           "Doctor"
@@ -627,7 +631,9 @@
             "description": "Success"
           }
         }
-      },
+      }
+    },
+    "/api/Doctor/delete/{id}": {
       "delete": {
         "tags": [
           "Doctor"
@@ -1097,7 +1103,7 @@
         }
       }
     },
-    "/api/Patient": {
+    "/api/Patient/getall": {
       "get": {
         "tags": [
           "Patient"
@@ -1516,7 +1522,7 @@
         }
       }
     },
-    "/api/Specialization/{id}": {
+    "/api/Specialization/getby/{id}": {
       "get": {
         "tags": [
           "Specialization"
@@ -1537,7 +1543,52 @@
             "description": "Success"
           }
         }
-      },
+      }
+    },
+    "/api/Specialization/get-all-specializations": {
+      "get": {
+        "tags": [
+          "Specialization"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Specialization/add": {
+      "post": {
+        "tags": [
+          "Specialization"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpecializationDetailDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpecializationDetailDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpecializationDetailDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Specialization/update/{id}": {
       "put": {
         "tags": [
           "Specialization"
@@ -1577,7 +1628,9 @@
             "description": "Success"
           }
         }
-      },
+      }
+    },
+    "/api/Specialization/delete/{id}": {
       "delete": {
         "tags": [
           "Specialization"
@@ -1600,7 +1653,7 @@
         }
       }
     },
-    "/api/Specialization/get-all-specializations": {
+    "/api/Specialization/get-top-specializations": {
       "get": {
         "tags": [
           "Specialization"
@@ -1612,42 +1665,31 @@
         }
       }
     },
-    "/api/Specialization": {
+    "/api/Specialization/upload": {
       "post": {
         "tags": [
           "Specialization"
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/SpecializationDetailDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SpecializationDetailDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/SpecializationDetailDto"
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "file": {
+                  "style": "form"
+                }
               }
             }
           }
         },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Specialization/get-top-specializations": {
-      "get": {
-        "tags": [
-          "Specialization"
-        ],
         "responses": {
           "200": {
             "description": "Success"

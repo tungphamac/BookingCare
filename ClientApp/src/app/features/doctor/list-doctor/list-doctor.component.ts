@@ -48,20 +48,20 @@ export class ListDoctorComponent implements OnInit {
       }
     });
   }  
-  addDoctor(): void {
-    const newDoctor: Doctor = {
-      userId: this.userId.nativeElement.value,
-      // Set other properties similarly
-    };
+  // addDoctor(): void {
+  //   const newDoctor: Doctor = {
+  //     userId: this.userId.nativeElement.value,
+  //     // Set other properties similarly
+  //   };
     
-    this.doctorService.addDoctor(newDoctor).subscribe({
-      next: (doctor) => {
-        this.doctors.push(doctor);
-        // Reset fields or close modal here if needed
-      },
-      error: (error) => console.error('Failed to add doctor:', error)
-    });
-  }
+  //   this.doctorService.addDoctor(newDoctor).subscribe({
+  //     next: (doctor) => {
+  //       this.doctors.push(doctor);
+  //       // Reset fields or close modal here if needed
+  //     },
+  //     error: (error) => console.error('Failed to add doctor:', error)
+  //   });
+  // }
   editDoctor(doctor: Doctor): void {
     this.selectedDoctor = { ...doctor };
   }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { DoctorService } from '../services/doctor.service';
 import { Router } from '@angular/router';
-import { CreateDoctorDto, Doctor } from '../list-doctor/models/doctor.model';
+import { CreateDoctorDto} from '../list-doctor/models/doctor.model';
 import { FormsModule } from '@angular/forms';
 
 @Component({

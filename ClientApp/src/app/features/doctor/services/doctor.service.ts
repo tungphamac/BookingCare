@@ -6,7 +6,7 @@ import { API_URL } from '../../../app.config';
 import { TopRatingDoctor } from '../models/top-rating-doctor.model';
 import { Doctor } from '../models/doctor.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { IonicModule } from '@ionic/angular';
+import { CreateDoctorDto } from '../list-doctor/models/doctor.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,15 +32,15 @@ export class DoctorService {
     return this.http.get<Doctor[]>(`${API_URL}/Doctor/getall`);
   
   }
-  addDoctor(doctor: Doctor): Observable<Doctor> {
-    return this.http.post<Doctor>(`${API_URL}/Doctor/add`, doctor);
+  addDoctor(doctor: CreateDoctorDto): Observable<CreateDoctorDto> {
+    return this.http.post<CreateDoctorDto>(`${API_URL}/Doctor/add_doctor`, doctor);
   }
    // Xóa bác sĩ từ backend
    deleteDoctor(userId: number): Observable<void> {
-    return this.http.delete<void>(`${API_URL}/Doctor/delete${userId}`);
+    return this.http.delete<void>(`${API_URL}/Doctor/delete/${userId}`);
   }
   updateDoctor(id: number, doctor: Doctor): Observable<Doctor> {
-    return this.http.put<Doctor>(`${API_URL}/Doctor/update${id}`, doctor);
+    return this.http.put<Doctor>(`${API_URL}/Doctor/update/${id}`, doctor);
 
 }
 lockDoctorAccount(id: number, lockUntil: Date | null): Observable<any> {
