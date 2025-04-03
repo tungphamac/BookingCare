@@ -18,10 +18,7 @@ namespace BookingCare.API.Controllers
             _logger = logger;
         }
 
-
         [HttpGet("get-clinic-by-id/{id}")]
-        //[Authorize(Roles = "Admin,Patient,Doctor")] // Admin, Patient, Doctor có thể xem chi tiết clinic
-
         public async Task<IActionResult> GetClinicById(int id)
         {
             try
@@ -41,8 +38,7 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpGet]
-
-        [Authorize(Roles = "Admin")] // Chỉ Admin được lấy danh sách clinic
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllClinics()
         {
             try
@@ -58,7 +54,7 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được tạo clinic
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateClinic([FromBody] ClinicDetailDto clinicDto)
         {
             try
@@ -74,7 +70,7 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được sửa clinic
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateClinic(int id, [FromBody] ClinicDetailDto clinicDto)
         {
             try
@@ -94,7 +90,7 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được xóa clinic
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteClinic(int id)
         {
             try
@@ -125,9 +121,43 @@ namespace BookingCare.API.Controllers
                 var clinics = await _clinicService.GetTopClinics(3);
                 return Ok(clinics);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return Problem($"Error get top clinics: {ex.Message}");
+            }
+        }
+
+        [HttpGet("get-doctors-by-clinic-id/{clinicId}")]
+        public async Task<IActionResult> GetDoctorsByClinicId(int clinicId)
+        {
+            try
+            {
+                var doctors = await _clinicService.GetDoctorsByClinicIdAsync(clinicId);
+                return Ok(doctors);
+            }
+            catch (ArgumentException ex)
+            {
+                return NotFound(new { Message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving doctors for clinic ID {clinicId}.");
+                return StatusCode(500, "An error occurred while retrieving doctors.");
+            }
+        }
+
+        [HttpGet("get-clinics-by-specialization/{specializationId}")]
+        public async Task<IActionResult> GetClinicsBySpecializationId(int specializationId)
+        {
+            try
+            {
+                var clinics = await _clinicService.GetClinicsBySpecializationIdAsync(specializationId);
+                return Ok(clinics);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving clinics for Specialization ID {specializationId}.");
+                return StatusCode(500, "An error occurred while retrieving clinics.");
             }
         }
     }

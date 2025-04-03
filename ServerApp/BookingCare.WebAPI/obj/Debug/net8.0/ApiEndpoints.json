@@ -291,6 +291,38 @@
   },
   {
     "ContainingType": "BookingCare.API.Controllers.ClinicController",
+    "Method": "GetClinicsBySpecializationId",
+    "RelativePath": "api/Clinic/get-clinics-by-specialization/{specializationId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "specializationId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.ClinicController",
+    "Method": "GetDoctorsByClinicId",
+    "RelativePath": "api/Clinic/get-doctors-by-clinic-id/{clinicId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clinicId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.ClinicController",
     "Method": "GetTopClinics",
     "RelativePath": "api/Clinic/get-top-clinic",
     "HttpMethod": "GET",
@@ -372,6 +404,22 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.DoctorController",
+    "Method": "GetDoctorsBySpecializationId",
+    "RelativePath": "api/Doctor/get-doctors-by-specialization/{specializationId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "specializationId",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -773,14 +821,19 @@
   {
     "ContainingType": "BookingCare.API.Controllers.ScheduleController",
     "Method": "CreateSchedule",
-    "RelativePath": "api/Schedule",
+    "RelativePath": "api/Schedule/Create-schedule-by-doctor/{doctorId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
+        "Name": "doctorId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
         "Name": "scheduleDto",
-        "Type": "BookingCare.API.Dtos.ScheduleDetailDto",
+        "Type": "BookingCare.API.Dtos.CreateScheduleDto",
         "IsRequired": true
       }
     ],
@@ -788,9 +841,9 @@
   },
   {
     "ContainingType": "BookingCare.API.Controllers.ScheduleController",
-    "Method": "GetScheduleById",
-    "RelativePath": "api/Schedule/{id}",
-    "HttpMethod": "GET",
+    "Method": "DeleteSchedule",
+    "RelativePath": "api/Schedule/delete-schedule-by-id/{id}",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -805,7 +858,7 @@
   {
     "ContainingType": "BookingCare.API.Controllers.ScheduleController",
     "Method": "UpdateSchedule",
-    "RelativePath": "api/Schedule/{id}",
+    "RelativePath": "api/Schedule/edit-schedule-by-id/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -817,7 +870,7 @@
       },
       {
         "Name": "scheduleDto",
-        "Type": "BookingCare.API.Dtos.ScheduleDetailDto",
+        "Type": "BookingCare.API.Dtos.UpdateScheduleDto",
         "IsRequired": true
       }
     ],
@@ -825,14 +878,30 @@
   },
   {
     "ContainingType": "BookingCare.API.Controllers.ScheduleController",
-    "Method": "DeleteSchedule",
-    "RelativePath": "api/Schedule/{id}",
-    "HttpMethod": "DELETE",
+    "Method": "GetScheduleById",
+    "RelativePath": "api/Schedule/get-schedule-by-id/{id}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.ScheduleController",
+    "Method": "GetSchedulesByDoctorId",
+    "RelativePath": "api/Schedule/get-schedules-by-id/{doctorId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctorId",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -945,22 +1014,6 @@
   },
   {
     "ContainingType": "BookingCare.API.Controllers.SpecializationController",
-    "Method": "GetSpecializationById",
-    "RelativePath": "api/Specialization/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BookingCare.API.Controllers.SpecializationController",
     "Method": "UpdateSpecialization",
     "RelativePath": "api/Specialization/{id}",
     "HttpMethod": "PUT",
@@ -998,12 +1051,44 @@
   },
   {
     "ContainingType": "BookingCare.API.Controllers.SpecializationController",
+    "Method": "GetSpecializationsByClinicId",
+    "RelativePath": "api/Specialization/clinic/{clinicId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "clinicId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.SpecializationController",
     "Method": "GetAllSpecializations",
     "RelativePath": "api/Specialization/get-all-specializations",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.SpecializationController",
+    "Method": "GetSpecializationById",
+    "RelativePath": "api/Specialization/get-specialization-by-id/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

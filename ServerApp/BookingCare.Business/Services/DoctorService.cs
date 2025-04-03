@@ -315,5 +315,43 @@ namespace BookingCare.Business.Services
 
             return topRatingDoctors;
         }
+
+        public async Task<List<DoctorDetailDto>> GetDoctorsBySpecializationIdAsync(int specializationId)
+        {
+            try
+            {
+                var doctors = await _unitOfWork.DoctorRepository
+                    .GetQuery(d => d.SpecializationId == specializationId)
+                    .Include(d => d.User)
+                    .Include(d => d.Specialization)
+                    .Include(d => d.Clinic)
+                    .Select(d => new DoctorDetailDto
+                    {
+                        Id = d.UserId,
+                        UserName = d.User.UserName,
+                        Email = d.User.Email,
+                        Gender = d.User.Gender,
+                        Address = d.User.Address,
+                        Avatar = d.User.Avatar,
+                        Achievement = d.Achievement,
+                        Description = d.Description,
+                        SpecializationName = d.Specialization.Name,
+                        ClinicName = d.Clinic.Name
+                    })
+                    .ToListAsync();
+
+                if (doctors.Count == 0)
+                {
+                    _logger.LogWarning($"No doctors found for Specialization ID {specializationId}.");
+                }
+
+                return doctors;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving doctors for Specialization ID {specializationId}.");
+                throw;
+            }
+        }
     }
 }

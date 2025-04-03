@@ -8,8 +8,10 @@ namespace BookingCare.Business.Services.Interfaces
     {
         Task<ScheduleDetailDto?> GetScheduleByIdAsync(int id);
         Task<List<ScheduleDetailDto>> GetAllSchedulesAsync();
-        Task<int> CreateScheduleAsync(ScheduleDetailDto scheduleDto, int doctorId);
-        Task<bool> UpdateScheduleAsync(int id, ScheduleDetailDto scheduleDto, int doctorId);
-        Task<bool> DeleteScheduleAsync(int id, int doctorId);
+        Task<int> CreateScheduleAsync(CreateScheduleDto scheduleDto, int doctorId); // Sửa DTO
+        Task<bool> UpdateScheduleAsync(int id, UpdateScheduleDto scheduleDto);
+        Task<bool> DeleteScheduleAsync(int id);
+        Task<List<ScheduleDetailDto>> GetSchedulesByDoctorIdAsync(int doctorId);
+
     }
 }

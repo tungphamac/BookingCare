@@ -1,0 +1,104 @@
+.specialization-detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  .error-message {
+    text-align: center;
+    padding: 20px;
+    color: #d32f2f;
+    font-size: 1.1rem;
+  }
+  
+  .specialization-info {
+    margin-bottom: 40px;
+  }
+  
+  .specialization-info h1 {
+    font-size: 2.5rem;
+    color: #1976d2;
+    margin-bottom: 20px;
+  }
+  
+  .specialization-description h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .specialization-description p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .doctors-list, .clinics-list {
+    margin-bottom: 40px;
+  }
+  
+  .doctors-list h2, .clinics-list h2 {
+    font-size: 2rem;
+    color: #1976d2;
+    margin-bottom: 20px;
+  }
+  
+  .doctors-grid, .clinics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .doctor-card, .clinic-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .doctor-card:hover, .clinic-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .doctor-card h3, .clinic-card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .doctor-card p, .clinic-card p {
+    font-size: 1rem;
+    color: #666;
+    margin: 5px 0;
+  }
+  
+  .btn-view-doctor, .btn-view-clinic {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #1976d2;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-view-doctor:hover, .btn-view-clinic:hover {
+    background-color: #1565c0;
+  }
+  
+  .no-data {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1rem;
+    color: #666;
+  }

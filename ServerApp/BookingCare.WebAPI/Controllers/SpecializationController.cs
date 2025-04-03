@@ -18,8 +18,8 @@ namespace BookingCare.API.Controllers
             _logger = logger;
         }
 
-        [HttpGet("{id}")]
-        [Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem chi tiết specialization
+        [HttpGet("get-specialization-by-id/{id}")]
+        
         public async Task<IActionResult> GetSpecializationById(int id)
         {
             try
@@ -39,7 +39,7 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpGet("get-all-specializations")]
-        [Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem danh sách specialization
+        //[Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem danh sách specialization
         public async Task<IActionResult> GetAllSpecializations()
         {
             try
@@ -55,7 +55,7 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được tạo specialization
+        //[Authorize(Roles = "Admin")] // Chỉ Admin được tạo specialization
         public async Task<IActionResult> CreateSpecialization([FromBody] SpecializationDetailDto specializationDto)
         {
             try
@@ -71,7 +71,7 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được sửa specialization
+        //[Authorize(Roles = "Admin")] // Chỉ Admin được sửa specialization
         public async Task<IActionResult> UpdateSpecialization(int id, [FromBody] SpecializationDetailDto specializationDto)
         {
             try
@@ -91,7 +91,7 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được xóa specialization
+        //[Authorize(Roles = "Admin")] // Chỉ Admin được xóa specialization
         public async Task<IActionResult> DeleteSpecialization(int id)
         {
             try
@@ -129,6 +129,20 @@ namespace BookingCare.API.Controllers
                 return StatusCode(500, "An error occurred while retrieving specializations.");
             }
         }
-
+        [HttpGet("clinic/{clinicId}")]
+        //[Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem danh sách specialization theo clinic
+        public async Task<IActionResult> GetSpecializationsByClinicId(int clinicId)
+        {
+            try
+            {
+                var specializations = await _specializationService.GetSpecializationsByClinicIdAsync(clinicId);
+                return Ok(specializations);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving specializations for Clinic with ID {clinicId}.");
+                return StatusCode(500, "An error occurred while retrieving specializations for the clinic.");
+            }
+        }
     }
 }
