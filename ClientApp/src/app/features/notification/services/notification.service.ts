@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { API_URL } from '../../../app.config';
-import { Notification } from '../models/notification.model';
+
+import { NotificationDto } from '../models/notification.model';
+import { AppointmentDetailDto } from '../models/appointment-detail.model';
 
 
 @Injectable({
@@ -11,14 +13,15 @@ import { Notification } from '../models/notification.model';
 export class NotificationService {
   constructor(private http: HttpClient) {}
 
-  // Lấy danh sách thông báo của người dùng
-  getNotifications(userId: number): Observable<Notification[]> {
-    return this.http.get<Notification[]>(`${API_URL}/Notification/notifications?userId=${userId}`);
+
+  // Lấy danh sách thông báo theo userId
+  getNotifications(userId: number): Observable<NotificationDto[]> {
+    return this.http.get<NotificationDto[]>(`${API_URL}/Notification/notifications?userId=${userId}`);
   }
 
+  // Lấy chi tiết cuộc hẹn theo appointmentId
+  getAppointmentDetail(appointmentId: number): Observable<AppointmentDetailDto> {
+    return this.http.get<AppointmentDetailDto>(`${API_URL}/Notification/appointment/${appointmentId}`);
 
-  // Phản hồi cuộc hẹn (chỉ dành cho bác sĩ)
-  respondToAppointment(appointmentId: number, accept: boolean): Observable<any> {
-    return this.http.post(`${API_URL}/Notification/respond/${appointmentId}?accept=${accept}`, {});
   }
 }

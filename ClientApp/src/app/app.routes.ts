@@ -9,12 +9,14 @@ import { ForgotPasswordComponent } from './features/ForgotPassword/forgot-passwo
 import { ResetPasswordComponent } from './features/ResetPassword/reset-password/reset-password.component';
 import { ClinicDetailComponent } from './features/clinic/clinic-detail/clinic-detail.component';
 import { DoctorDetailComponent } from './features/doctor/doctorc-detail/doctorc-detail.component';
-import { PatientDetailComponent } from './features/patient/patientc-detail/patientc-detail.component';
-// import { NotificationListComponent } from './features/notification/notification-list/notification-list.component';
+
 import { SearchComponent } from './features/search/search/search.component';
-import { PatientSearchComponent } from './features/search/patient-search/patient-search.component'; // Thêm import
+import { PatientSearchComponent } from './features/search/patient-search/patient-search.component';
 import { DoctorProfileComponent } from './features/doctor/doctor-profile/doctor-profile.component';
 import { ClinicProfileComponent } from './features/clinic/clinic-profile/clinic-profile.component';
+import { NotificationListComponent } from './features/notification/notification-list/notification-list.component'; // Thêm import
+import { PatientDetailComponent } from './features/patient/patientc-detail/patientc-detail.component';
+
 
 export const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -22,15 +24,19 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
+
   { path: 'patients/:id', component: PatientDetailComponent },
+
   { path: 'clinics/top-clinic', component: TopClinicListComponent },
   { path: 'clinics/:id', component: ClinicDetailComponent },
   { path: 'doctors/:id', component: DoctorDetailComponent },
   { path: 'feedbacks/list', component: FeedbackListComponent },
   { path: 'feedbacks/add', component: FeedbackAddComponent },
-  // { path: 'notifications', component: NotificationListComponent },
   { path: 'search', component: SearchComponent },
-  { path: 'patient-search', component: PatientSearchComponent }, // Thêm route mới
+  { path: 'patient-search', component: PatientSearchComponent },
   { path: 'doctor-profile/:id', component: DoctorProfileComponent },
   { path: 'clinic-profile/:id', component: ClinicProfileComponent },
+  { path: 'patients/:id', component: PatientDetailComponent },
+  { path: 'notifications', component: NotificationListComponent } // Thêm route để test
+
 ];

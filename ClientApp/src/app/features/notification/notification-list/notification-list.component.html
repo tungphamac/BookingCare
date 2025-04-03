@@ -1,4 +1,9 @@
 <div class="notification-container">
+<<<<<<< HEAD
+    <h2 class="section-title">Danh sách thông báo</h2>
+  
+=======
+>>>>>>> nam
     <!-- Loading -->
     <div *ngIf="isLoading" class="loading">
       <div class="spinner-border text-primary" role="status">
@@ -12,6 +17,20 @@
       {{ errorMessage }}
     </div>
   
+<<<<<<< HEAD
+    <!-- Danh sách thông báo -->
+    <div *ngIf="notifications && notifications.length > 0 && !isLoading" class="notification-list">
+      <div *ngFor="let notification of notifications" class="notification-card" [ngClass]="{'unread': !notification.isRead}">
+        <div class="notification-content">
+          <p><strong>Thông báo:</strong> {{ notification.message }}</p>
+          <p><strong>Thời gian:</strong> {{ notification.createdAt | date:'medium' }}</p>
+          <p><strong>Trạng thái:</strong> {{ notification.isRead ? 'Đã đọc' : 'Chưa đọc' }}</p>
+        </div>
+        <div class="notification-actions">
+          <button class="btn btn-outline-primary btn-sm" (click)="viewAppointmentDetail(notification.appointmentId)">
+            <i class="bi bi-eye"></i> Xem chi tiết cuộc hẹn
+          </button>
+=======
     <!-- Danh sách thông báo
     <div *ngIf="!isLoading && notifications.length > 0" class="notification-list">
       <h2 class="section-title">Thông báo</h2>
@@ -19,12 +38,34 @@
         <div class="notification-header">
           <h5>{{A notification.message }}</h5>
           <span class="date">{{ notification.createdAt | date:'medium' }}</span>
+>>>>>>> nam
         </div>
       </div>
     </div>
   
     <!-- Không có thông báo -->
+<<<<<<< HEAD
+    <div *ngIf="notifications && notifications.length === 0 && !isLoading" class="no-notifications">
+      <i class="bi bi-bell-slash"></i>
+      <p>Không có thông báo nào.</p>
+    </div>
+  
+    <!-- Chi tiết cuộc hẹn -->
+    <div *ngIf="selectedAppointment && !isLoading" class="appointment-detail">
+      <h3 class="section-title">Chi tiết cuộc hẹn</h3>
+      <div class="appointment-card">
+        <p><strong>ID Cuộc hẹn:</strong> {{ selectedAppointment.id }}</p>
+        <p><strong>Bác sĩ:</strong> {{ selectedAppointment.doctorName }}</p>
+        <p><strong>Bệnh nhân:</strong> {{ selectedAppointment.patientName }}</p>
+        <p><strong>Thời gian:</strong> {{ selectedAppointment.scheduleTime | date:'medium' }}</p>
+        <p><strong>Trạng thái:</strong> {{ selectedAppointment.status }}</p>
+        <p><strong>Ngày tạo:</strong> {{ selectedAppointment.createdAt | date:'medium' }}</p>
+      </div>
+    </div>
+  </div>
+=======
     <div *ngIf="!isLoading && notifications.length === 0" class="no-notifications">
       <p>Không có thông báo nào.</p>
     </div>
   </div> -->
+>>>>>>> nam
