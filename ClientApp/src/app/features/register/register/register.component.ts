@@ -4,7 +4,6 @@ import { AuthService } from '../../auth/services/auth.service';
 import { FormBuilder, FormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
 import { Route } from '@angular/router';
 
 @Component({

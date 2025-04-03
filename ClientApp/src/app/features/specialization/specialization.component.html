@@ -1,0 +1,96 @@
+<div class="layout-wrapper d-flex">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">BookingCare Admin</div>
+      <nav class="nav flex-column">
+        <a routerLink="/Clinic/getall" class="nav-link">Phòng khám</a>
+        <a routerLink="/Doctor/getall" class="nav-link">Bác sĩ</a>
+        <a routerLink="/Specialization/getall" class="nav-link active">Chuyên khoa</a>
+      </nav>
+    </aside>
+  
+    <!-- Main content -->
+    <main class="main-content">
+      <h3 class="mb-4 fw-bold">Danh sách chuyên khoa</h3>
+  
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="search-box" style="flex: 1; max-width: 400px;">
+          <input
+            type="text"
+            [(ngModel)]="searchText"
+            (ngModelChange)="filterSpecializations()"
+            class="form-control"
+            placeholder="🔍 Tìm chuyên khoa theo tên..."
+          />
+        </div>
+        <app-import></app-import>
+        <!-- Nút Thêm chuyên khoa -->
+        <div>
+          <a routerLink="/Specialization/add" class="btn btn-success">Thêm chuyên khoa</a>
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+  
+      <div *ngIf="isLoading" class="text-muted">Đang tải...</div>
+      <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
+  
+      <table *ngIf="!isLoading && filteredSpecializations.length > 0" class="table table-bordered table-hover">
+        <thead class="table-light">
+          <tr>
+            <th>ID</th>
+            <th>Tên</th>
+            <th>Mô tả</th>
+            <th>Hình ảnh</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let s of pagedSpecializations">
+            <td>{{ s.id }}</td>
+            <td>{{ s.name }}</td>
+            <td>{{ s.description }}</td>
+            <td>
+              <img
+                [src]="'https://localhost:7182/uploads/' + s.image"
+                width="160"
+                height="160"
+                style="object-fit: cover; border-radius: 8px"
+              />
+            </td>
+            <td>
+              <a [routerLink]="['/Specialization/update', s.id]" class="btn btn-sm btn-primary me-2">Sửa</a>
+              <button class="btn btn-sm btn-danger" (click)="deleteSpecialization(s.id)">Xoá</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <!-- PHÂN TRANG -->
+       
+      <nav *ngIf="totalPages > 1" class="mt-3">
+        <ul class="pagination justify-content-center">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <button class="page-link" (click)="changePage(currentPage - 1)">«</button>
+          </li>
+  
+          <li
+            class="page-item"
+            *ngFor="let page of [].constructor(totalPages); let i = index"
+            [class.active]="currentPage === i + 1"
+          >
+            <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+          </li>
+  
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <button class="page-link" (click)="changePage(currentPage + 1)">»</button>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </div>
+  

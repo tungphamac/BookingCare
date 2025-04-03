@@ -24,3 +24,4 @@ export class SearchService {
     return this.http.get<SearchResult>(`${API_URL}/Search/Patients?doctorId=${doctorId}&keyword=${keyword}`);
   }
 }
+

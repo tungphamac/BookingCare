@@ -29,6 +29,7 @@ namespace BookingCare.API.Controllers
 
         // GET: api/patient/{id}
         [HttpGet("get-patient-by-id/{id}")]
+
         //[Authorize(Roles = "Admin,Doctor,Patient")] // Admin, Doctor, Patient có thể xem chi tiết bệnh nhân
         public async Task<ActionResult<PatientDetailDto>> GetPatientDetail(int id)
         {
@@ -100,8 +101,8 @@ namespace BookingCare.API.Controllers
         }
 
         // GET: api/patient
-        [HttpGet]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được lấy danh sách bệnh nhân
+        [HttpGet("getall")]
+        //[Authorize(Roles = "Admin")] // Chỉ Admin được lấy danh sách bệnh nhân
         public async Task<ActionResult<IEnumerable<PatientDetailDto>>> GetPatients()
         {
             try
@@ -123,7 +124,7 @@ namespace BookingCare.API.Controllers
 
         // POST: api/patient/add
         [HttpPost("add")]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được thêm bệnh nhân
+        //[Authorize(Roles = "Admin")] // Chỉ Admin được thêm bệnh nhân
         public async Task<IActionResult> AddPatient([FromBody] RegisterVm registerVm)
         {
             try
@@ -184,7 +185,7 @@ namespace BookingCare.API.Controllers
 
         // PUT: api/patient/update/{id}
         [HttpPut("update/{id}")]
-        [Authorize(Roles = "Patient,Admin")] // Chỉ Admin/Patient được cập nhật bệnh nhân
+        //[Authorize(Roles = "Patient,Admin")] // Chỉ Admin/Patient được cập nhật bệnh nhân
         public async Task<IActionResult> UpdatePatient(int id, [FromBody] RegisterVm updateVm)
         {
             try
@@ -247,7 +248,7 @@ namespace BookingCare.API.Controllers
 
         // DELETE: api/patient/delete/{id}
         [HttpDelete("delete/{id}")]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được xóa bệnh nhân
+        //[Authorize(Roles = "Admin")] // Chỉ Admin được xóa bệnh nhân
         public async Task<IActionResult> DeletePatient(int id)
         {
             try
@@ -292,7 +293,7 @@ namespace BookingCare.API.Controllers
 
         // POST: api/patient/lock/{id}
         [HttpPost("lock/{id}")]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được khóa/mở khóa tài khoản bệnh nhân
+        //[Authorize(Roles = "Admin")] // Chỉ Admin được khóa/mở khóa tài khoản bệnh nhân
         public async Task<IActionResult> LockPatientAccount(int id, [FromQuery] DateTime lockUntil)
         {
             try

@@ -1,0 +1,43 @@
+<div [ngClass]="{ 'dark-root': isDarkMode, 'light-root': !isDarkMode }" class="page-wrapper">
+    <button class="btn btn-sm btn-toggle-mode" (click)="toggleDarkMode()">
+      {{ isDarkMode ? '🌞 Chế độ sáng' : '🌙 Chế độ tối' }}
+    </button>
+  
+    <div class="form-wrapper">
+      <h3>🩺 Thêm phòng khám mới</h3>
+      <form (ngSubmit)="addClinic(clinicForm)" #clinicForm="ngForm" novalidate>
+
+    <!-- <form (ngSubmit)="addClinic()" #clinicForm="ngForm" novalidate> -->
+      <div class="form-group">
+        <label for="name">Tên phòng khám *</label>
+        <input type="text" id="name" [(ngModel)]="clinic.name" name="name" required class="form-control"
+               [ngClass]="{'is-invalid': clinicForm.submitted && !clinic.name}">
+      </div>
+  
+      <div class="form-group">
+        <label for="address">Địa chỉ *</label>
+        <input type="text" id="address" [(ngModel)]="clinic.address" name="address" required class="form-control"
+               [ngClass]="{'is-invalid': clinicForm.submitted && !clinic.address}">
+      </div>
+  
+      <div class="form-group">
+        <label for="phone">Số điện thoại *</label>
+        <input type="number" id="phone" [(ngModel)]="clinic.phone" name="phone" required class="form-control"
+               [ngClass]="{'is-invalid': clinicForm.submitted && !clinic.phone}">
+      </div>
+  
+      <div class="form-group">
+        <label for="introduction">Giới thiệu</label>
+        <textarea id="introduction" rows="3" [(ngModel)]="clinic.introduction" name="introduction" class="form-control"></textarea>
+      </div>
+  
+      <button type="submit" class="btn btn-success w-100 mt-3">Lưu phòng khám</button>
+      <button type="button" class="btn btn-outline-secondary w-100 mt-2" (click)="goBack()">Huỷ</button>
+
+  
+      <div *ngIf="errorMessage" class="text-danger text-center mt-3">
+        {{ errorMessage }}
+      </div>
+    </form>
+  </div>
+</div>

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Feedback } from '../models/feedback';
 import { API_URL } from '../../../app.config';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -27,4 +28,5 @@ export class FeedbackService {
   deleteFeedback(id: number): Observable<void> {
     return this.http.delete<void>(`${API_URL}/Feedback/delete-feedback-by-id/${id}`);
   }
+
 }

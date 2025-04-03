@@ -9,3 +9,4 @@ export const appConfig: ApplicationConfig = {
 };
 export const API_URL = 'https://localhost:7182/api';
 
+
