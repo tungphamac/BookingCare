@@ -9,12 +9,13 @@ import { ForgotPasswordComponent } from './features/ForgotPassword/forgot-passwo
 import { ResetPasswordComponent } from './features/ResetPassword/reset-password/reset-password.component';
 import { ClinicDetailComponent } from './features/clinic/clinic-detail/clinic-detail.component';
 import { DoctorDetailComponent } from './features/doctor/doctorc-detail/doctorc-detail.component';
-import { PatientDetailComponent } from './features/patient/patient-detail/patient-detail.component';
+
 import { SearchComponent } from './features/search/search/search.component';
 import { PatientSearchComponent } from './features/search/patient-search/patient-search.component';
 import { DoctorProfileComponent } from './features/doctor/doctor-profile/doctor-profile.component';
 import { ClinicProfileComponent } from './features/clinic/clinic-profile/clinic-profile.component';
 import { NotificationListComponent } from './features/notification/notification-list/notification-list.component'; // Thêm import
+import { PatientDetailComponent } from './features/patient/patientc-detail/patientc-detail.component';
 
 
 export const routes: Routes = [
