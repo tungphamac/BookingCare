@@ -20,7 +20,7 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpGet("notifications")]
-        [Authorize(Roles = "Doctor,Patient,Admin")]
+        //[Authorize(Roles = "Doctor,Patient,Admin")]
         public async Task<IActionResult> GetNotifications([FromQuery] int userId)
         {
             try
@@ -41,7 +41,7 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpGet("appointment/{appointmentId}")]
-        [Authorize(Roles = "Doctor,Patient,Admin")]
+       // [Authorize(Roles = "Doctor,Patient,Admin")]
         public async Task<IActionResult> GetAppointmentDetail(int appointmentId)
         {
             try
@@ -62,7 +62,7 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpPost("respond/{appointmentId}")]
-        [Authorize(Roles = "Doctor")] // Chỉ bác sĩ mới được phản hồi lịch hẹn
+       // [Authorize(Roles = "Doctor")] // Chỉ bác sĩ mới được phản hồi lịch hẹn
         public async Task<IActionResult> RespondToAppointment(int appointmentId, [FromQuery] bool accept)
         {
             try

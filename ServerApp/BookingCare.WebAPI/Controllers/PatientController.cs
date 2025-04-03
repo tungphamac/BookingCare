@@ -29,17 +29,17 @@ namespace BookingCare.API.Controllers
 
         // GET: api/patient/{id}
         [HttpGet("get-patient-by-id/{id}")]
-       // [Authorize(Roles = "Admin,Doctor,Patient")] // Admin, Doctor, Patient có thể xem chi tiết bệnh nhân
+        //[Authorize(Roles = "Admin,Doctor,Patient")] // Admin, Doctor, Patient có thể xem chi tiết bệnh nhân
         public async Task<ActionResult<PatientDetailDto>> GetPatientDetail(int id)
         {
             try
             {
                 // Lấy UserId từ token
-               // var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
-               // var userRole = User.FindFirst(ClaimTypes.Role)?.Value;
+                //var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+                //var userRole = User.FindFirst(ClaimTypes.Role)?.Value;
 
                 // Nếu là Patient, chỉ được xem thông tin của chính mình
-                //if (userRole == "Patient" && userId != id)
+               // if (userRole == "Patient" && userId != id)
                 //{
                 //    _logger.LogWarning($"Patient with UserId {userId} attempted to access details of Patient with UserId {id}.");
                 //    return Unauthorized(new { Message = "Patients can only view their own details." });
@@ -57,6 +57,44 @@ namespace BookingCare.API.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, $"Error retrieving patient with ID {id}.");
+                return StatusCode(500, "An error occurred while retrieving the patient.");
+            }
+        }
+        [HttpGet("Get-patient-info")]
+        [Authorize(Roles = "Admin,Doctor,Patient")]
+        public async Task<ActionResult<PatientDetailDto>> GetPatientInfo()
+        {
+            try
+            {
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                var userEmail = User.FindFirst(ClaimTypes.Email)?.Value;
+                var userRole = User.FindFirst(ClaimTypes.Role)?.Value;
+
+                if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(userEmail))
+                {
+                    _logger.LogWarning("UserId or Email not found in token.");
+                    return Unauthorized(new { Message = "Invalid user token." });
+                }
+
+                var patient = await _patientService.GetPatientByGmailAsync(userEmail);
+                if (patient == null)
+                {
+                    _logger.LogWarning($"Patient with email {userEmail} not found.");
+                    return NotFound(new { Message = $"Patient with email {userEmail} not found." });
+                }
+
+                // Nếu user là bệnh nhân, chỉ cho phép họ xem thông tin của chính họ
+                if (userRole == "Patient" && userId != patient.Id.ToString())
+                {
+                    _logger.LogWarning($"Patient with UserId {userId} attempted to access another patient's details.");
+                    return Unauthorized(new { Message = "Patients can only view their own details." });
+                }
+
+                return Ok(patient);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving patient with email.");
                 return StatusCode(500, "An error occurred while retrieving the patient.");
             }
         }

@@ -536,9 +536,7 @@
             "description": "Success"
           }
         }
-      }
-    },
-    "/api/Doctor/add_doctor": {
+      },
       "post": {
         "tags": [
           "Doctor"
@@ -1050,6 +1048,35 @@
         }
       }
     },
+    "/api/Patient/Get-patient-info": {
+      "get": {
+        "tags": [
+          "Patient"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDetailDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDetailDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientDetailDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Patient": {
       "get": {
         "tags": [
@@ -1391,52 +1418,6 @@
           "Search"
         ],
         "parameters": [
-          {
-            "name": "keyword",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/SearchResultDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SearchResultDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SearchResultDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Search/Patients": {
-      "get": {
-        "tags": [
-          "Search"
-        ],
-        "parameters": [
-          {
-            "name": "doctorId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
           {
             "name": "keyword",
             "in": "query",
@@ -1992,6 +1973,10 @@
           "gender": {
             "type": "boolean"
           },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
           "address": {
             "type": "string",
             "nullable": true
@@ -2117,13 +2102,6 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SpecializationSearchDto"
-            },
-            "nullable": true
-          },
-          "patients": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PatientDetailDto"
             },
             "nullable": true
           }

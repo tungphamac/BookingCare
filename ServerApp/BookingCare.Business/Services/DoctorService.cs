@@ -35,7 +35,7 @@ namespace BookingCare.Business.Services
                     .Include(d => d.Clinic)
                     .Select(d => new DoctorDetailDto
                     {
-                       
+                        UserId = d.UserId,
                         UserName = d.User.UserName,
                         Email = d.User.Email,
                         Gender = d.User.Gender,
@@ -74,7 +74,7 @@ namespace BookingCare.Business.Services
                     .Include(d => d.Clinic)
                     .Select(d => new DoctorDetailDto
                     {
-                       
+                        UserId = d.UserId,
                         UserName = d.User.UserName,
                         Email = d.User.Email,
                         Gender = d.User.Gender,
@@ -267,7 +267,8 @@ namespace BookingCare.Business.Services
                         , docInfo => docInfo.doc.UserId
                         , user => user.Id
                         , (docInfo, user) => new FeaturedDoctorVm
-                        {   Id = user.Id,
+                        {
+                            Id = user.Id,
                             DoctorName = user.UserName,
                             Description = docInfo.doc.Description,
                             Achievement = docInfo.doc.Achievement,
