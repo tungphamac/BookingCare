@@ -268,6 +268,7 @@ namespace BookingCare.Business.Services
                         , user => user.Id
                         , (docInfo, user) => new FeaturedDoctorVm
                         {
+                            Id = user.Id,
                             DoctorName = user.UserName,
                             Description = docInfo.doc.Description,
                             Achievement = docInfo.doc.Achievement,

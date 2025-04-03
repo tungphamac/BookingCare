@@ -54,7 +54,7 @@ export class LoginComponent {
       next: response => {
         // Đăng nhập thành công
         this.cookieService.set('Authentication', `${response.token}`, undefined, '/', undefined, true, 'Strict');
-        this.authService.setUser({ email: this.model.email });
+        this.authService.setUser({ email: response.email, id: response.id, role: response.role }); // Truyền cả email và id
         this.router.navigateByUrl('/');
         this.isLoading = false; // Tắt trạng thái loading
       },

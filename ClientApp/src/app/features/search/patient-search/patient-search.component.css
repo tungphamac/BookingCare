@@ -1,0 +1,283 @@
+.patient-search-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 15px;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #3a3a3a;
+  }
+  
+  .section-description {
+    text-align: center;
+    color: #6c757d;
+    margin-bottom: 25px;
+  }
+  
+  /* Form tìm kiếm */
+  .search-form {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+  }
+  
+  .search-form:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Thanh tìm kiếm */
+  .search-bar {
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 15px;
+  }
+  
+  .input-group-text {
+    background-color: #f8f9fa;
+    border: none;
+    color: #6c757d;
+    padding: 0 15px;
+  }
+  
+  .form-control {
+    border: none;
+    padding: 15px;
+    font-size: 1.1rem;
+  }
+  
+  .form-control:focus {
+    box-shadow: none;
+    outline: none;
+  }
+  
+  /* Nút tìm kiếm */
+  .search-buttons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0069d9;
+    transform: translateY(-2px);
+  }
+  
+  .btn i {
+    margin-right: 5px;
+  }
+  
+  /* Tìm kiếm gần đây */
+  .recent-searches {
+    margin-top: 15px;
+  }
+  
+  .recent-searches h6 {
+    color: #6c757d;
+    margin-bottom: 8px;
+  }
+  
+  .recent-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .recent-tag {
+    background-color: #f1f1f1;
+    color: #555;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .recent-tag:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+  }
+  
+  /* Loading */
+  .loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: #555;
+  }
+  
+  .loading p {
+    margin-top: 10px;
+    font-weight: 500;
+  }
+  
+  /* Alert */
+  .alert {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  
+  /* Kết quả tìm kiếm */
+  .search-results {
+    margin-top: 30px;
+  }
+  
+  .result-message {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .result-section {
+    margin-bottom: 40px;
+  }
+  
+  .result-section h4 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f1f1f1;
+  }
+  
+  .result-section h4 i {
+    color: #007bff;
+  }
+  
+  /* Grid layout cho kết quả */
+  .result-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .result-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-top: 4px solid #007bff;
+  }
+  
+  .result-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+  
+  .patient-card {
+    border-top-color: #17a2b8;
+  }
+  
+  .card-avatar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  
+  .card-avatar i {
+    font-size: 3rem;
+    color: #17a2b8;
+  }
+  
+  .patient-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .card-content {
+    flex: 1;
+  }
+  
+  .card-content h5 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .card-content p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .card-content p i {
+    color: #6c757d;
+    font-size: 0.9rem;
+  }
+  
+  .card-actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .btn-record {
+    width: 100%;
+    padding: 8px;
+  }
+  
+  /* Không có kết quả */
+  .no-results {
+    text-align: center;
+    padding: 40px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  }
+  
+  .no-results i {
+    font-size: 3rem;
+    color: #6c757d;
+    margin-bottom: 15px;
+  }
+  
+  .no-results p {
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .result-grid {
+      grid-template-columns: 1fr;
+    }
+  }

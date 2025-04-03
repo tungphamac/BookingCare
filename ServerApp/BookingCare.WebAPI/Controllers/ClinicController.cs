@@ -18,9 +18,10 @@ namespace BookingCare.API.Controllers
             _logger = logger;
         }
 
-        [HttpGet("{id}")]
 
-        [Authorize(Roles = "Admin,Patient,Doctor")] // Admin, Patient, Doctor có thể xem chi tiết clinic
+        [HttpGet("get-clinic-by-id/{id}")]
+        //[Authorize(Roles = "Admin,Patient,Doctor")] // Admin, Patient, Doctor có thể xem chi tiết clinic
+
         public async Task<IActionResult> GetClinicById(int id)
         {
             try

@@ -37,10 +37,11 @@ namespace BookingCare.Business.Services
 
             return patients.Select(p => new PatientDetailDto
             {
-                UserId = p.UserId,
+               Id = p.UserId,
                 UserName = p.User?.UserName ?? "No name",
                 Email = p.User?.Email ?? "No email",
                 Gender = p.User?.Gender ?? false,
+                Phone = p.User.PhoneNumber,
                 Address = p.User?.Address ?? "No address",
                 Avatar = p.User?.Avatar ?? "default.jpg",
                 MedicalRecordId = p.MedicalRecordId
@@ -56,10 +57,11 @@ namespace BookingCare.Business.Services
                     .Include(p => p.User)
                     .Select(p => new PatientDetailDto
                     {
-                        UserId = p.UserId,
+                        Id = p.User.Id,
                         UserName = p.User.UserName,
                         Email = p.User.Email,
                         Gender = p.User.Gender,
+                        Phone = p.User.PhoneNumber,
                         Address = p.User.Address,
                         Avatar = p.User.Avatar,
                         MedicalRecordId = p.MedicalRecordId
@@ -80,7 +82,40 @@ namespace BookingCare.Business.Services
                 throw;
             }
         }
+        public async Task<PatientDetailDto?> GetPatientByGmailAsync(string email)
+        {
+            try
+            {
+                var patient = await _unitOfWork.PatientRepository
+                    .GetQuery(p => p.User.Email == email)
+                    .Include(p => p.User)
+                    .Select(p => new PatientDetailDto
+                    {
+                        Id = p.User.Id,
+                        UserName = p.User.UserName,
+                        Email = p.User.Email,
+                        Gender = p.User.Gender,
+                        Phone = p.User.PhoneNumber,
+                        Address = p.User.Address,
+                        Avatar = p.User.Avatar,
+                        MedicalRecordId = p.MedicalRecordId
+                    })
+                    .FirstOrDefaultAsync();
 
+                if (patient == null)
+                {
+                    _logger.LogWarning($"Patient with ID {email} not found.");
+                    return null;
+                }
+
+                return patient;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving patient details for ID {email}.");
+                throw;
+            }
+        }
         public async Task<int> AddPatientAsync(Patient patient)
         {
             if (patient != null)
@@ -143,5 +178,7 @@ namespace BookingCare.Business.Services
                 throw;
             }
         }
+
+      
     }
 }

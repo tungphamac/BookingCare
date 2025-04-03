@@ -8,8 +8,10 @@ import { LoginResponse } from '../login/Models/login-response.model';
 import { API_URL } from '../../../app.config';
 import { RegisterVm } from '../../register/Models/register.model';
 import { forgotPasswordVm } from '../../ForgotPassword/Models/forgot.model';
+
 import { resetPasswordVm } from '../../ResetPassword/Models/resetPass.model';
 
+import { tap } from 'rxjs/operators';
 
 
 @Injectable({
@@ -21,8 +23,15 @@ export class AuthService {
   constructor(private http: HttpClient, private cookieService: CookieService) { }
 
   login(request: LoginRequest): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${API_URL}/Authentication/login`, request);
-  }
+    return this.http.post<LoginResponse>(`${API_URL}/Authentication/login`, request).pipe(
+        tap((response: LoginResponse) => {
+            this.$user.next({ email: response.email, id: response.id, role: response.role }); // Lưu role
+            localStorage.setItem('user-id', response.id.toString());
+            localStorage.setItem('user-email', response.email);
+            localStorage.setItem('user-role', response.role); // Lưu role vào localStorage
+        })
+    );
+}
 
   setUser(user: User): void {
     this.$user.next(user);
@@ -35,16 +44,19 @@ export class AuthService {
 
   getUser(): User | undefined {
     const email = localStorage.getItem("user-email");
+    const id = localStorage.getItem("user-id");
+    const role = localStorage.getItem("user-role");
 
-    if (email) {
-      return {
-        email: email
-      };
+    if (email && id && role) {
+        return {
+            email: email,
+            id: +id,
+            role: role
+        };
     }
 
     return undefined;
-  }
-
+}
   logout(): void {
     //localStorage.removeItem("user-email");
     localStorage.clear();
@@ -57,6 +69,10 @@ export class AuthService {
 
   resetPassword(model: resetPasswordVm): Observable<any> {
     return this.http.post<any>(`${API_URL}/Account/reset-password`, model);
+  }
+
+  getUserById(id: string): Observable<any> {
+    return this.http.get(`${API_URL}/Patient/${id}`);
   }
 
   register(userData: RegisterVm): Observable<any> {
@@ -77,4 +93,3 @@ export class AuthService {
 
   }
 }
-
