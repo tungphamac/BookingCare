@@ -364,7 +364,7 @@
         }
       }
     },
-    "/api/Clinic/{id}": {
+    "/api/Clinic/getby{id}": {
       "get": {
         "tags": [
           "Clinic"
@@ -385,7 +385,52 @@
             "description": "Success"
           }
         }
-      },
+      }
+    },
+    "/api/Clinic/getall": {
+      "get": {
+        "tags": [
+          "Clinic"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Clinic/add": {
+      "post": {
+        "tags": [
+          "Clinic"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClinicDetailDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClinicDetailDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClinicDetailDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Clinic/update/{id}": {
       "put": {
         "tags": [
           "Clinic"
@@ -425,7 +470,9 @@
             "description": "Success"
           }
         }
-      },
+      }
+    },
+    "/api/Clinic/delete/{id}": {
       "delete": {
         "tags": [
           "Clinic"
@@ -441,47 +488,6 @@
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Clinic": {
-      "get": {
-        "tags": [
-          "Clinic"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Clinic"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ClinicDetailDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ClinicDetailDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ClinicDetailDto"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "Success"
@@ -501,7 +507,7 @@
         }
       }
     },
-    "/api/Doctor/{id}": {
+    "/api/Doctor/getby/{id}": {
       "get": {
         "tags": [
           "Doctor"
@@ -522,7 +528,52 @@
             "description": "Success"
           }
         }
-      },
+      }
+    },
+    "/api/Doctor/getall": {
+      "get": {
+        "tags": [
+          "Doctor"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Doctor/add-doctor": {
+      "post": {
+        "tags": [
+          "Doctor"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Doctor/update/{id}": {
       "put": {
         "tags": [
           "Doctor"
@@ -562,7 +613,9 @@
             "description": "Success"
           }
         }
-      },
+      }
+    },
+    "/api/Doctor/delete/{id}": {
       "delete": {
         "tags": [
           "Doctor"
@@ -578,47 +631,6 @@
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Doctor": {
-      "get": {
-        "tags": [
-          "Doctor"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Doctor"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateDoctorDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateDoctorDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateDoctorDto"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "Success"
@@ -992,7 +1004,7 @@
         }
       }
     },
-    "/api/Patient/{id}": {
+    "/api/Patient/getby/{id}": {
       "get": {
         "tags": [
           "Patient"
@@ -1032,7 +1044,7 @@
         }
       }
     },
-    "/api/Patient": {
+    "/api/Patient/getall": {
       "get": {
         "tags": [
           "Patient"
@@ -1405,7 +1417,7 @@
         }
       }
     },
-    "/api/Specialization/{id}": {
+    "/api/Specialization/getby/{id}": {
       "get": {
         "tags": [
           "Specialization"
@@ -1426,7 +1438,52 @@
             "description": "Success"
           }
         }
-      },
+      }
+    },
+    "/api/Specialization/getall": {
+      "get": {
+        "tags": [
+          "Specialization"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Specialization/add": {
+      "post": {
+        "tags": [
+          "Specialization"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpecializationDetailDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpecializationDetailDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpecializationDetailDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Specialization/update/{id}": {
       "put": {
         "tags": [
           "Specialization"
@@ -1466,7 +1523,9 @@
             "description": "Success"
           }
         }
-      },
+      }
+    },
+    "/api/Specialization/delete/{id}": {
       "delete": {
         "tags": [
           "Specialization"
@@ -1489,36 +1548,59 @@
         }
       }
     },
-    "/api/Specialization": {
-      "get": {
-        "tags": [
-          "Specialization"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
+    "/api/Specialization/upload": {
       "post": {
         "tags": [
           "Specialization"
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/SpecializationDetailDto"
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "file": {
+                  "style": "form"
+                }
               }
-            },
-            "text/json": {
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Specialization/import": {
+      "post": {
+        "tags": [
+          "Specialization"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/SpecializationDetailDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/SpecializationDetailDto"
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "file": {
+                  "style": "form"
+                }
               }
             }
           }

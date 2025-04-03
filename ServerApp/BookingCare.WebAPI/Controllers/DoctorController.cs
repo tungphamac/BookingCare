@@ -18,8 +18,8 @@ namespace BookingCare.API.Controllers
             _logger = logger;
         }
 
-        [HttpGet("{id}")]
-        [Authorize(Roles = "Admin,Patient,Doctor")] // Admin, Patient, Doctor có thể xem chi tiết bác sĩ
+        [HttpGet("getby/{id}")]
+        //[Authorize(Roles = "Admin,Patient,Doctor")] // Admin, Patient, Doctor có thể xem chi tiết bác sĩ
         public async Task<IActionResult> GetDoctorById(int id)
         {
             try
@@ -38,8 +38,8 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpGet]
-        [Authorize(Roles = "Admin,Patient")] // Chỉ Admin, patient được lấy danh sách bác sĩ
+        [HttpGet("getall")]
+        //[Authorize(Roles = "Admin,Patient")] // Chỉ Admin, patient được lấy danh sách bác sĩ
         public async Task<IActionResult> GetAllDoctors()
         {
             try
@@ -54,8 +54,8 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpPost]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được tạo bác sĩ
+        [HttpPost("add-doctor")]
+        //[Authorize(Roles = "Admin")] // Chỉ Admin được tạo bác sĩ
         public async Task<IActionResult> CreateDoctor([FromBody] CreateDoctorDto createDoctorDto)
         {
             try
@@ -74,7 +74,7 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("update/{id}")]
         [Authorize(Roles = "Admin")] // Chỉ Admin được sửa bác sĩ
         public async Task<IActionResult> UpdateDoctor(int id, [FromBody] DoctorUpdateDto doctorUpdateDto)
         {
@@ -94,7 +94,7 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("delete/{id}")]
         [Authorize(Roles = "Admin")] // Chỉ Admin được xóa bác sĩ
         public async Task<IActionResult> DeleteDoctor(int id)
         {

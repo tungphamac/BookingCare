@@ -1,0 +1,54 @@
+<div class="d-flex">
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading">Doctor Management</div>
+        <div class="list-group list-group-flush">
+            <a href="/Patient/getall" class="list-group-item list-group-item-action bg-light">Quản lý bệnh nhân</a>
+            <a href="/Doctor/getall" class="list-group-item list-group-item-action bg-light">Quản lý bác sĩ</a>
+            <a href="/Clinic/getall" class="list-group-item list-group-item-action bg-light">Quản lý phòng khám</a>
+
+            <a href="#" class="list-group-item list-group-item-action bg-light">Settings</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container-fluid">
+        <h2>Danh sách bệnh nhân</h2>
+        <button type="button" class="btn-add" data-bs-toggle="modal" data-bs-target="#patientModal">
+            Thêm Bệnh Nhân
+          </button>
+          
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Avatar</th>
+                        <th scope="col">Tên</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Giới Tính</th>
+                        <th scope="col">Địa Chỉ</th>
+                        <th scope="col">Chức Năng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let patient of patients; let i = index">
+                        <td>{{ patient.userId }}</td>
+                        <td><img src="{{ patient.avatar }}" alt="Avatar" class="img-fluid rounded-circle"></td>
+                        <td>{{ patient.userName }}</td>
+                        <td>{{ patient.email }}</td>
+                        <td>{{ patient.gender ? 'Nam' : 'Nữ' }}</td>
+                        <td>{{ patient.address }}</td>
+                        <td>
+                           <!-- ✅ Phải có dấu / ở đầu để là absolute route -->
+<a class="btn btn-info" [routerLink]="['/Patient/update', patient.userId]">Sửa</a>
+
+
+                            <button  class="btn btn-danger" *ngIf="patient.userId !== undefined" (click)="deletePatient(patient.userId)">Xóa</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

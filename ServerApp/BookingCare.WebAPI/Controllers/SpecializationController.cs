@@ -1,7 +1,9 @@
 ﻿using BookingCare.API.Dtos;
 using BookingCare.Business.Services.Interfaces;
+using BookingCare.Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using OfficeOpenXml;
 
 namespace BookingCare.API.Controllers
 {
@@ -18,8 +20,8 @@ namespace BookingCare.API.Controllers
             _logger = logger;
         }
 
-        [HttpGet("{id}")]
-        [Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem chi tiết specialization
+        [HttpGet("getby/{id}")]
+        //[Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem chi tiết specialization
         public async Task<IActionResult> GetSpecializationById(int id)
         {
             try
@@ -38,8 +40,8 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpGet]
-        [Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem danh sách specialization
+        [HttpGet("getall")]
+        //[Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem danh sách specialization
         public async Task<IActionResult> GetAllSpecializations()
         {
             try
@@ -54,8 +56,8 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpPost]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được tạo specialization
+        [HttpPost("add")]
+        //[Authorize(Roles = "Admin")] // Chỉ Admin được tạo specialization
         public async Task<IActionResult> CreateSpecialization([FromBody] SpecializationDetailDto specializationDto)
         {
             try
@@ -70,8 +72,8 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được sửa specialization
+        [HttpPut("update/{id}")]
+        //[Authorize(Roles = "Admin")] // Chỉ Admin được sửa specialization
         public async Task<IActionResult> UpdateSpecialization(int id, [FromBody] SpecializationDetailDto specializationDto)
         {
             try
@@ -90,8 +92,8 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được xóa specialization
+        [HttpDelete("delete/{id}")]
+        //[Authorize(Roles = "Admin")] // Chỉ Admin được xóa specialization
         public async Task<IActionResult> DeleteSpecialization(int id)
         {
             try
@@ -113,5 +115,33 @@ namespace BookingCare.API.Controllers
                 return StatusCode(500, "An error occurred while deleting the specialization.");
             }
         }
+        [HttpPost("upload")]
+        public async Task<IActionResult> UploadImage(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+            {
+                return BadRequest(new { Message = "No file uploaded." });
+            }
+
+            // Đảm bảo thư mục 'uploads' tồn tại
+            var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+            if (!Directory.Exists(uploadPath))
+            {
+                Directory.CreateDirectory(uploadPath);  // Tạo thư mục nếu chưa có
+            }
+
+            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);  // Tạo tên file ngẫu nhiên
+            var filePath = Path.Combine(uploadPath, fileName);  // Đường dẫn lưu file
+
+            // Lưu file vào thư mục
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            return Ok(new { fileName = fileName });  // Trả lại tên file đã lưu
+        }
+       
+
     }
 }

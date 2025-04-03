@@ -18,8 +18,8 @@ namespace BookingCare.API.Controllers
             _logger = logger;
         }
 
-        [HttpGet("{id}")]
-        [Authorize(Roles = "Admin,Patient,Doctor")] // Admin, Patient, Doctor có thể xem chi tiết clinic
+        [HttpGet("getby{id}")]
+        //[Authorize(Roles = "Admin,Patient,Doctor")] // Admin, Patient, Doctor có thể xem chi tiết clinic
         public async Task<IActionResult> GetClinicById(int id)
         {
             try
@@ -38,8 +38,8 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpGet]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được lấy danh sách clinic
+        [HttpGet("getall")]
+        //[Authorize(Roles = "Admin")] // Chỉ Admin được lấy danh sách clinic
         public async Task<IActionResult> GetAllClinics()
         {
             try
@@ -54,8 +54,8 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpPost]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được tạo clinic
+        [HttpPost("add")]
+        //[Authorize(Roles = "Admin")] // Chỉ Admin được tạo clinic
         public async Task<IActionResult> CreateClinic([FromBody] ClinicDetailDto clinicDto)
         {
             try
@@ -70,8 +70,8 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được sửa clinic
+        [HttpPut("update/{id}")]
+        //[Authorize(Roles = "Admin")] // Chỉ Admin được sửa clinic
         public async Task<IActionResult> UpdateClinic(int id, [FromBody] ClinicDetailDto clinicDto)
         {
             try
@@ -90,8 +90,8 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được xóa clinic
+        [HttpDelete("delete/{id}")]
+        //[Authorize(Roles = "Admin")] // Chỉ Admin được xóa clinic
         public async Task<IActionResult> DeleteClinic(int id)
         {
             try
