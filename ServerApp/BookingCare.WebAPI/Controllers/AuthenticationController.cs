@@ -86,7 +86,6 @@ namespace BookingCare.WebAPI.Controllers
             return Ok(new { message = $"User {registerVm.Email} created successfully with role 'Patient'" });
         }
         [HttpPost("login")]
-        
         public async Task<IActionResult> Login([FromBody] LoginVm loginVm)
         {
             if (!ModelState.IsValid)
@@ -100,12 +99,19 @@ namespace BookingCare.WebAPI.Controllers
             {
                 var tokenValue = await GenerateJwtToken(user);
 
-                // Return token, email, and id as expected by the frontend
+                // Kiểm tra vai trò dựa trên quan hệ với bảng Patient hoặc Doctor
+                var isPatient = _context.Patients.Any(p => p.UserId == user.Id);
+                var isDoctor = _context.Doctors.Any(d => d.UserId == user.Id);
+
+                string role = isPatient ? "Patient" : isDoctor ? "Doctor" : "Unknown";
+
+                // Trả về token, email, id và vai trò
                 return Ok(new
                 {
                     token = tokenValue,
                     email = user.Email,
-                    id = user.Id
+                    id = user.Id,
+                    role = role
                 });
             }
 

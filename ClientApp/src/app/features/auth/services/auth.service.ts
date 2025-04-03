@@ -21,10 +21,11 @@ export class AuthService {
 
   login(request: LoginRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${API_URL}/Authentication/login`, request).pipe(
-        tap(response => {
-            this.$user.next({ email: response.email, id: response.id }); // Lưu thêm id
-            localStorage.setItem('user-id', response.id.toString()); // Lưu id vào localStorage
+        tap((response: LoginResponse) => {
+            this.$user.next({ email: response.email, id: response.id, role: response.role }); // Lưu role
+            localStorage.setItem('user-id', response.id.toString());
             localStorage.setItem('user-email', response.email);
+            localStorage.setItem('user-role', response.role); // Lưu role vào localStorage
         })
     );
 }
@@ -41,11 +42,13 @@ export class AuthService {
   getUser(): User | undefined {
     const email = localStorage.getItem("user-email");
     const id = localStorage.getItem("user-id");
+    const role = localStorage.getItem("user-role");
 
-    if (email && id) {
+    if (email && id && role) {
         return {
             email: email,
-            id: +id
+            id: +id,
+            role: role
         };
     }
 
