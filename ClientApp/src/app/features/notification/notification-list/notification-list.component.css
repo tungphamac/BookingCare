@@ -1,5 +1,7 @@
 .notification-container {
+
     max-width: 1000px;
+
     margin: 0 auto;
     padding: 30px 15px;
   }
@@ -35,6 +37,7 @@
   }
   
   /* Danh sách thông báo */
+
   .notification-list {
     display: flex;
     flex-direction: column;
@@ -43,6 +46,7 @@
   
   .notification-card {
     background: white;
+
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
@@ -161,4 +165,5 @@
       width: 100%;
       text-align: center;
     }
+
   }

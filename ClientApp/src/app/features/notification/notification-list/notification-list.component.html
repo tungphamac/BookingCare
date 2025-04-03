@@ -1,6 +1,9 @@
 <div class="notification-container">
+<<<<<<< HEAD
     <h2 class="section-title">Danh sách thông báo</h2>
   
+=======
+>>>>>>> nam
     <!-- Loading -->
     <div *ngIf="isLoading" class="loading">
       <div class="spinner-border text-primary" role="status">
@@ -14,6 +17,7 @@
       {{ errorMessage }}
     </div>
   
+<<<<<<< HEAD
     <!-- Danh sách thông báo -->
     <div *ngIf="notifications && notifications.length > 0 && !isLoading" class="notification-list">
       <div *ngFor="let notification of notifications" class="notification-card" [ngClass]="{'unread': !notification.isRead}">
@@ -26,11 +30,21 @@
           <button class="btn btn-outline-primary btn-sm" (click)="viewAppointmentDetail(notification.appointmentId)">
             <i class="bi bi-eye"></i> Xem chi tiết cuộc hẹn
           </button>
+=======
+    <!-- Danh sách thông báo
+    <div *ngIf="!isLoading && notifications.length > 0" class="notification-list">
+      <h2 class="section-title">Thông báo</h2>
+      <div *ngFor="let notification of notifications" class="notification-card" [ngClass]="{'unread': !notification.isRead}">
+        <div class="notification-header">
+          <h5>{{A notification.message }}</h5>
+          <span class="date">{{ notification.createdAt | date:'medium' }}</span>
+>>>>>>> nam
         </div>
       </div>
     </div>
   
     <!-- Không có thông báo -->
+<<<<<<< HEAD
     <div *ngIf="notifications && notifications.length === 0 && !isLoading" class="no-notifications">
       <i class="bi bi-bell-slash"></i>
       <p>Không có thông báo nào.</p>
@@ -49,3 +63,9 @@
       </div>
     </div>
   </div>
+=======
+    <div *ngIf="!isLoading && notifications.length === 0" class="no-notifications">
+      <p>Không có thông báo nào.</p>
+    </div>
+  </div> -->
+>>>>>>> nam

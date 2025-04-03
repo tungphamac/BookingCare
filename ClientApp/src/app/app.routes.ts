@@ -16,12 +16,16 @@ import { DoctorProfileComponent } from './features/doctor/doctor-profile/doctor-
 import { ClinicProfileComponent } from './features/clinic/clinic-profile/clinic-profile.component';
 import { NotificationListComponent } from './features/notification/notification-list/notification-list.component'; // Thêm import
 
+
 export const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
+
+  { path: 'patients/:id', component: PatientDetailComponent },
+
   { path: 'clinics/top-clinic', component: TopClinicListComponent },
   { path: 'clinics/:id', component: ClinicDetailComponent },
   { path: 'doctors/:id', component: DoctorDetailComponent },
@@ -33,4 +37,5 @@ export const routes: Routes = [
   { path: 'clinic-profile/:id', component: ClinicProfileComponent },
   { path: 'patients/:id', component: PatientDetailComponent },
   { path: 'notifications', component: NotificationListComponent } // Thêm route để test
+
 ];
