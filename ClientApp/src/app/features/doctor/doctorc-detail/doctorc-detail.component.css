@@ -1,0 +1,154 @@
+.trang-chi-tiet-bac-si {
+  padding: 20px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.noi-dung-chinh {
+  margin-top: 20px;
+}
+
+.the-noi-dung {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.the-noi-dung h2 {
+  font-size: 2rem;
+  color: #1976d2;
+  margin-bottom: 15px;
+}
+
+.the-noi-dung h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.mo-ta-bac-si {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.chuyen-khoa .the-chuyen-khoa {
+  background-color: #e3f2fd;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 1rem;
+  color: #1976d2;
+}
+
+.thanh-tuu p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.khu-thong-tin .muc-thong-tin {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #666;
+}
+
+.khu-thong-tin .muc-thong-tin i {
+  margin-right: 10px;
+  color: #1976d2;
+}
+
+.the-schedules, .the-dia-diem {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.the-schedules h3, .the-dia-diem h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.table-responsive {
+  margin-top: 15px;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+}
+
+.badge.bg-success {
+  background-color: #28a745 !important;
+}
+
+.badge.bg-danger {
+  background-color: #dc3545 !important;
+}
+
+.alert-info {
+  font-size: 1rem;
+  color: #31708f;
+}
+
+.khu-dang-tai {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.khu-dang-tai p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 10px;
+}
+
+.btn-primary {
+  background-color: #1976d2;
+  border: none;
+  transition: background-color 0.3s;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.btn-primary:hover {
+  background-color: #1565c0;
+}
+
+.dia-chi {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.dia-chi i {
+  font-size: 1.5rem;
+  color: #1976d2;
+  margin-right: 10px;
+}
+
+.dia-chi p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.ban-do iframe {
+  border-radius: 8px;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}

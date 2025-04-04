@@ -4,11 +4,13 @@ import { LoginRequest } from './Models/login-request.model';
 import { AuthService } from '../services/auth.service';
 import { Router, RouterModule } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+
 import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-login',
+
   imports: [FormsModule, RouterModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
@@ -25,6 +27,7 @@ export class LoginComponent {
   }
 
   onFormSubmit() {
+
 
     if (!this.model.email || !this.model.password) {
       this.errorMessage = 'Email và mật khẩu là bắt buộc';
@@ -51,7 +54,7 @@ export class LoginComponent {
       next: response => {
         // Đăng nhập thành công
         this.cookieService.set('Authentication', `${response.token}`, undefined, '/', undefined, true, 'Strict');
-        this.authService.setUser({ email: this.model.email });
+        this.authService.setUser({ email: response.email, id: response.id, role: response.role }); // Truyền cả email và id
         this.router.navigateByUrl('/');
         this.isLoading = false; // Tắt trạng thái loading
       },

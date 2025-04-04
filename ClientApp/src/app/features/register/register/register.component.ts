@@ -18,6 +18,7 @@ export class RegisterComponent {
   message: string = '';
 
 
+
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.model = {
       UserName: "",
@@ -34,6 +35,7 @@ export class RegisterComponent {
     console.log("Dữ liệu gửi đi:", this.model);
     this.authService.register(this.model).subscribe({
       next: (response) => {
+
         console.log("Đăng ký thành công", response);
         alert("Đăng ký thành công!");
         this.router.navigate(['/login']); // Chuyển hướng về trang đăng nhập

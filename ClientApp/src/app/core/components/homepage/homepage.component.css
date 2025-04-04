@@ -55,6 +55,11 @@ body {
     font-size: 16px;
 }
 
+.services img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
 .doctors {
     background-color: #f8f9fa;
     padding: 50px 0;

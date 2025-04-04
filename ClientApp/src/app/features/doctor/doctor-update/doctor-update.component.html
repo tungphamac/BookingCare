@@ -1,0 +1,93 @@
+<br />
+<div class="container">
+    <div class="profile-card">
+        <h2 class="section-title">Doctor Profile</h2>
+
+        <br />
+        <div class="profile-header">
+            <div class="avatar-container">
+                <img [src]="doctor.avatar ? doctor.avatar : 'assets/doctor_avatar.png'" alt="Doctor avatar"
+                    class="avatar">
+                <input id="avatarInput" type="file" (change)="onAvatarChange($event)" style="display: none;">
+                <button type="button" class="btn-avatar" (click)="triggerAvatarInput()">
+                    <i class="fa fa-sync-alt"></i> Cập nhật
+                </button>
+            </div>
+            <div class="profile-info">
+                <h2>{{ doctor.name || 'Doctor Name' }}</h2>
+                <p>{{ doctor.email || 'doctor@example.com' }}</p>
+            </div>
+        </div>
+
+        <br />
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" class="form-control" [(ngModel)]="doctor.name" name="name">
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="gender-group">
+                    <label>
+                        <input type="radio" [value]="true" [(ngModel)]="doctor.gender" name="gender"> Male
+                    </label>
+                    <label>
+                        <input type="radio" [value]="false" [(ngModel)]="doctor.gender" name="gender"> Female
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" [(ngModel)]="doctor.email" name="email">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" class="form-control" [(ngModel)]="doctor.phone" name="phone">
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" class="form-control" [(ngModel)]="doctor.address" name="address">
+            </div>
+
+            <div class="form-group">
+                <label for="achievement">Achievements</label>
+                <textarea id="achievement" class="form-control" [(ngModel)]="doctor.achievement"
+                    name="achievement"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" class="form-control" [(ngModel)]="doctor.description"
+                    name="description"></textarea>
+            </div>
+
+            <!-- Specialization Dropdown -->
+            <div class="form-group">
+                <label for="specializationId">Specialization</label>
+                <select id="specializationId" class="form-control" [(ngModel)]="doctor.specializationId"
+                    name="specializationId">
+                    <option value="" disabled selected>-- Select Specialization --</option>
+                    <option *ngFor="let specialization of specializations" [value]="specialization.id">
+                        {{ specialization.name }}
+                    </option>
+                </select>
+            </div>
+
+            <!-- Clinic Dropdown -->
+            <div class="form-group">
+                <label for="clinicId">Clinic</label>
+                <select id="clinicId" class="form-control" [(ngModel)]="doctor.clinicId" name="clinicId">
+                    <option value="" disabled selected>-- Select Clinic --</option>
+                    <option *ngFor="let clinic of clinics" [value]="clinic.id">
+                        {{ clinic.name }}
+                    </option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Save Profile</button>
+        </form>
+    </div>

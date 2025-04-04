@@ -1,7 +1,9 @@
 ﻿using BookingCare.API.Dtos;
 using BookingCare.Business.Services.Interfaces;
+using BookingCare.Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using OfficeOpenXml;
 
 namespace BookingCare.API.Controllers
 {
@@ -18,8 +20,8 @@ namespace BookingCare.API.Controllers
             _logger = logger;
         }
 
-        [HttpGet("{id}")]
-        [Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem chi tiết specialization
+        //[Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem chi tiết specialization
+        [HttpGet("get-specialization-by-id/{id}")]
         public async Task<IActionResult> GetSpecializationById(int id)
         {
             try
@@ -39,7 +41,7 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpGet("get-all-specializations")]
-        [Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem danh sách specialization
+        //[Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem danh sách specialization
         public async Task<IActionResult> GetAllSpecializations()
         {
             try
@@ -55,7 +57,7 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được tạo specialization
+        //[Authorize(Roles = "Admin")] // Chỉ Admin được tạo specialization
         public async Task<IActionResult> CreateSpecialization([FromBody] SpecializationDetailDto specializationDto)
         {
             try
@@ -70,8 +72,9 @@ namespace BookingCare.API.Controllers
             }
         }
 
+
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được sửa specialization
+        //[Authorize(Roles = "Admin")] // Chỉ Admin được sửa specialization
         public async Task<IActionResult> UpdateSpecialization(int id, [FromBody] SpecializationDetailDto specializationDto)
         {
             try
@@ -91,7 +94,7 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được xóa specialization
+        //[Authorize(Roles = "Admin")] // Chỉ Admin được xóa specialization
         public async Task<IActionResult> DeleteSpecialization(int id)
         {
             try
@@ -114,6 +117,8 @@ namespace BookingCare.API.Controllers
             }
         }
 
+
+
         [HttpGet("get-top-specializations")]
         public async Task<IActionResult> GetTopSpecializations()
         {
@@ -126,6 +131,49 @@ namespace BookingCare.API.Controllers
             {
                 _logger.LogError(ex, "Error retrieving all specializations.");
                 return StatusCode(500, "An error occurred while retrieving specializations.");
+            }
+        }
+
+        [HttpPost("upload")]
+        public async Task<IActionResult> UploadImage(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+            {
+                return BadRequest(new { Message = "No file uploaded." });
+            }
+
+            // Đảm bảo thư mục 'uploads' tồn tại
+            var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+            if (!Directory.Exists(uploadPath))
+            {
+                Directory.CreateDirectory(uploadPath);  // Tạo thư mục nếu chưa có
+            }
+
+            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);  // Tạo tên file ngẫu nhiên
+            var filePath = Path.Combine(uploadPath, fileName);  // Đường dẫn lưu file
+
+            // Lưu file vào thư mục
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            return Ok(new { fileName = fileName });  // Trả lại tên file đã lưu
+        }
+
+        [HttpGet("clinic/{clinicId}")]
+        //[Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem danh sách specialization theo clinic
+        public async Task<IActionResult> GetSpecializationsByClinicId(int clinicId)
+        {
+            try
+            {
+                var specializations = await _specializationService.GetSpecializationsByClinicIdAsync(clinicId);
+                return Ok(specializations);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving specializations for Clinic with ID {clinicId}.");
+                return StatusCode(500, "An error occurred while retrieving specializations for the clinic.");
             }
         }
     }

@@ -6,13 +6,15 @@ import { AppointmentCreate } from '../models/appointment-create.model';
 import { AppointmentDetail } from '../models/appointment-detail.model';
 import { AppointmentStatus } from '../models/appointment-status.enum';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class AppointmentService {
+
   private apiUrl = `${API_URL}/Appointment`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // Lấy header với token
   private getHeaders(): HttpHeaders {
@@ -44,10 +46,7 @@ export class AppointmentService {
   }
 
   // Lấy danh sách lịch hẹn (Doctor hoặc Patient)
-  getAppointments(pageNumber: number = 1, pageSize: number = 10): Observable<{ success: boolean; message: string; data: AppointmentDetail[] }> {
-    return this.http.get<{ success: boolean; message: string; data: AppointmentDetail[] }>(
-      `${this.apiUrl}?pageNumber=${pageNumber}&pageSize=${pageSize}`,
-      { headers: this.getHeaders() }
-    );
+  getAppointments(pageNumber: number = 1, pageSize: number = 10): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}?pageNumber=${pageNumber}&pageSize=${pageSize}`, { headers: this.getHeaders() });
   }
 }

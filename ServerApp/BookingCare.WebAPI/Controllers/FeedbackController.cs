@@ -57,7 +57,20 @@ namespace BookingCare.API.Controllers
         {
             try
             {
+                // Kiểm tra xem appointmentId đã có feedback chưa
+                var existingFeedback = await _feedbackService.GetFeedbackByAppointmentAsync(feedbackVm.AppointmentId);
+                if (existingFeedback != null)
+                {
+                    return BadRequest(new { message = "This appointment already has a feedback." });
+                }
+
+                // Nếu chưa có feedback, tiến hành thêm mới
                 bool result = await _feedbackService.AddFeedbackAsync(feedbackVm);
+                if (!result)
+                {
+                    return BadRequest(new { message = "Failed to add feedback." });
+                }
+
                 return Ok(new { message = "Feedback added successfully." });
             }
             catch (InvalidOperationException ex)
@@ -106,8 +119,8 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpGet("appointment/{appointmentId}")]
-        [Authorize(Roles = "Doctor,Patient,Admin")] // Bác sĩ, bệnh nhân, hoặc admin có thể xem phản hồi
+        [HttpGet("get-feedback-by-appointment/{appointmentId}")]
+        //[Authorize(Roles = "Doctor,Patient,Admin")] // Bác sĩ, bệnh nhân, hoặc admin có thể xem phản hồi
         public async Task<IActionResult> GetFeedbackByAppointment(int appointmentId)
         {
             try
@@ -123,6 +136,26 @@ namespace BookingCare.API.Controllers
             {
                 _logger.LogError(ex, $"Error retrieving feedback for Appointment ID {appointmentId}.");
                 return StatusCode(500, "An error occurred while retrieving the feedback.");
+            }
+        }
+
+        [HttpGet("get-feedbacks-by-doctorId/{doctorId}")]
+        public async Task<IActionResult> GetFeedbacksByDoctor(int doctorId)
+        {
+            try
+            {
+                var feedbacks = await _feedbackService.GetFeedbacksByDoctor(doctorId);
+
+                if (feedbacks == null || !feedbacks.Any())
+                {
+                    return NotFound(new { message = "Không có phản hồi nào cho bác sĩ này." });
+                }
+
+                return Ok(feedbacks);
+            }
+            catch (Exception ex)
+            {
+                return Problem($"Lỗi khi lấy phản hồi: {ex.Message}");
             }
         }
     }

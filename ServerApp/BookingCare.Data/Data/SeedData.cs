@@ -102,6 +102,27 @@ namespace BookingCare.Data.Data
                     Name = "Neurology",
                     Description = "Brain specialist",
                     Image = "neuro.jpg"
+                },
+                new Specialization
+                {
+                    Id = 3,
+                    Name = "Pediatrics",
+                    Description = "Child health specialist",
+                    Image = "pediatrics.jpg"
+                },
+                new Specialization
+                {
+                    Id = 4,
+                    Name = "Orthopedics",
+                    Description = "Bone and joint specialist",
+                    Image = "ortho.jpg"
+                },
+                new Specialization
+                {
+                    Id = 5,
+                    Name = "Dermatology",
+                    Description = "Skin specialist",
+                    Image = "derm.jpg"
                 }
             );
 
@@ -114,16 +135,117 @@ namespace BookingCare.Data.Data
                     Phone = 1234567890,
                     Address = "789 Clinic St",
                     Introduction = "Top clinic in the city",
-                    CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc),
+                    CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc)
                 },
                 new Clinic
                 {
                     Id = 2,
                     Name = "Health Center",
-                    Phone = 987654321,
+                    Phone = 1234567894,
                     Address = "456 Health St",
                     Introduction = "Comprehensive care",
-                    CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc),
+                    CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc)
+                },
+                new Clinic
+                {
+                    Id = 3,
+                    Name = "Sunshine Clinic",
+                    Phone = 1551112233,
+                    Address = "123 Sunshine Ave",
+                    Introduction = "Family healthcare provider",
+                    CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc)
+                },
+                new Clinic
+                {
+                    Id = 4,
+                    Name = "Green Valley Hospital",
+                    Phone =  1442223344,
+                    Address = "789 Green Valley Rd",
+                    Introduction = "Specialized medical services",
+                    CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc)
+                },
+                new Clinic
+                {
+                    Id = 5,
+                    Name = "Blue Sky Clinic",
+                    Phone = 1334445566,
+                    Address = "456 Blue Sky Ln",
+                    Introduction = "Modern healthcare solutions",
+                    CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc)
+                }
+            );
+
+            // Seed quan hệ nhiều-nhiều giữa Clinic và Specialization
+            modelBuilder.Entity("ClinicSpecialization").HasData(
+                // City Clinic (Id = 1)
+                new
+                {
+                    ClinicsId = 1, // City Clinic
+                    SpecializationsId = 1 // Cardiology
+                },
+                new
+                {
+                    ClinicsId = 1, // City Clinic
+                    SpecializationsId = 2 // Neurology
+                },
+                new
+                {
+                    ClinicsId = 1, // City Clinic
+                    SpecializationsId = 3 // Pediatrics
+                },
+                // Health Center (Id = 2)
+                new
+                {
+                    ClinicsId = 2, // Health Center
+                    SpecializationsId = 2 // Neurology
+                },
+                new
+                {
+                    ClinicsId = 2, // Health Center
+                    SpecializationsId = 4 // Orthopedics
+                },
+                // Sunshine Clinic (Id = 3)
+                new
+                {
+                    ClinicsId = 3, // Sunshine Clinic
+                    SpecializationsId = 3 // Pediatrics
+                },
+                new
+                {
+                    ClinicsId = 3, // Sunshine Clinic
+                    SpecializationsId = 5 // Dermatology
+                },
+                // Green Valley Hospital (Id = 4)
+                new
+                {
+                    ClinicsId = 4, // Green Valley Hospital
+                    SpecializationsId = 1 // Cardiology
+                },
+                new
+                {
+                    ClinicsId = 4, // Green Valley Hospital
+                    SpecializationsId = 4 // Orthopedics
+                },
+                new
+                {
+                    ClinicsId = 4, // Green Valley Hospital
+                    SpecializationsId = 5 // Dermatology
+                },
+                // Blue Sky Clinic (Id = 5)
+                new
+                {
+                    ClinicsId = 5, // Blue Sky Clinic
+                    SpecializationsId = 2 // Neurology
+                },
+                new
+                {
+                    ClinicsId = 5, // Blue Sky Clinic
+                    SpecializationsId = 3 // Pediatrics
+                },
+                new
+                {
+                    ClinicsId = 5, // Blue Sky Clinic
+                    SpecializationsId = 5 // Dermatology
                 }
             );
 
@@ -175,6 +297,25 @@ namespace BookingCare.Data.Data
                     WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc),
                     Status = ScheduleStatus.Available,
                     Time = new DateTime(2025, 3, 20, 14, 0, 0, DateTimeKind.Utc)
+                },
+                new Schedule
+                {
+                    Id = 3,
+                    DoctorId = 3,
+                    TimeSlot = "15:00-16:00",
+                    WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc),
+                    Status = ScheduleStatus.Available,
+                    Time = new DateTime(2025, 3, 20, 14, 0, 0, DateTimeKind.Utc)
+                },
+                new Schedule
+                {
+                    Id = 4,
+                    DoctorId = 2,
+                    TimeSlot = "15:00-16:00",
+                    WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, DateTimeKind.Utc),
+                    Status = ScheduleStatus.Available,
+                    Time = new DateTime(2025, 3, 20, 14, 0, 0, DateTimeKind.Utc)
+
                 }
             );
 

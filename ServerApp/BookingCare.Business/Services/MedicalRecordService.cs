@@ -26,39 +26,20 @@ namespace BookingCare.Business.Services
             if (appointment.DoctorId != doctorId)
                 throw new Exception("Only assigned doctor can add medical record");
 
-            // Check Record đã tồn tại
+
+            // Check for existing record
             var existingRecord = await _unitOfWork.MedicalRecordRepository
                 .GetSingleAsync(m => m.AppointmentId == record.AppointmentId);
             if (existingRecord != null)
                 throw new Exception("A medical record already exists for this appointment");
+
 
             record.CreatedBy = doctorId;
             record.CreatedAt = DateTime.UtcNow;
 
             await AddAsync(record);
             return record.Id;
-        }
 
-        public async Task<MedicalRecord?> GetMedicalRecordByAppointmentIdAsync(int appointmentId, int userId)
-        {
-            var record = await _unitOfWork.MedicalRecordRepository
-                .GetSingleAsync(m => m.AppointmentId == appointmentId);
-            if (record == null) return null;
-
-            var appointment = await _unitOfWork.AppointmentRepository.GetByIdAsync(record.AppointmentId);
-            if (appointment == null)
-                throw new Exception("Appointment not found");
-
-            var isPatient = appointment.PatientId == userId;
-            var doctor = await _unitOfWork.DoctorRepository.GetQuery(d => d.UserId == userId).FirstOrDefaultAsync();
-            var isDoctor = doctor != null && appointment.DoctorId == doctor.UserId;
-            var user = await _unitOfWork.UserRepository.GetByIdAsync(userId);
-            var isAdmin = user?.Doctor == null && user?.Patient == null;
-
-            if (!isAdmin && !isDoctor && !isPatient)
-                throw new Exception("Unauthorized access to medical record");
-
-            return record;
         }
 
         public async Task<bool> UpdateMedicalRecordAsync(MedicalRecord record, int doctorId)
@@ -80,6 +61,7 @@ namespace BookingCare.Business.Services
             existing.UpdatedAt = DateTime.UtcNow;
 
             return await UpdateAsync(existing);
+
         }
 
         public async Task<MedicalRecord?> ViewMedicalRecordAsync(int recordId, int userId)
@@ -88,13 +70,16 @@ namespace BookingCare.Business.Services
             if (record == null) return null;
 
             var appointment = await _unitOfWork.AppointmentRepository.GetByIdAsync(record.AppointmentId);
+
             if (appointment == null)
                 throw new Exception("Appointment not found");
+
             var isPatient = appointment.PatientId == userId;
             var doctor = await _unitOfWork.DoctorRepository.GetQuery(d => d.UserId == userId).FirstOrDefaultAsync();
             var isDoctor = doctor != null && appointment.DoctorId == doctor.UserId;
             var user = await _unitOfWork.UserRepository.GetByIdAsync(userId);
             var isAdmin = user?.Doctor == null && user?.Patient == null;
+
 
             if (!isAdmin && !isDoctor && !isPatient)
                 throw new Exception("Unauthorized access to medical record");

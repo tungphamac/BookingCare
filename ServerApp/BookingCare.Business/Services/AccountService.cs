@@ -1,13 +1,10 @@
 ﻿using BookingCare.Business.Services.Interfaces;
 using BookingCare.Data.Models;
 using Microsoft.AspNetCore.Identity;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BookingCare.Business.Services
 {
@@ -23,6 +20,7 @@ namespace BookingCare.Business.Services
             _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
             _emailService = emailService ?? throw new ArgumentNullException(nameof(emailService));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+
             _frontendUrl = configuration["FrontendUrl"];
         }
         public async Task<(bool Success, string Message, string[] Errors)> ChangePasswordAsync(int userId, string oldPassword, string newPassword, string confirmNewPassword)

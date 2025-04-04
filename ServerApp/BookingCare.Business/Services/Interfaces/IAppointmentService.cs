@@ -14,5 +14,6 @@ namespace BookingCare.Business.Services.Interfaces
         Task<bool> UpdateAppointmentAsync(Appointment appointment, int patientId);
         Task<Appointment?> GetAppointmentDetailAsync(int appointmentId, int userId);
         Task<List<Appointment>> GetAppointmentsAsync(int userId, string role, int pageNumber = 1, int pageSize = 10);
+
     }
 }

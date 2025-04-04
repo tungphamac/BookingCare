@@ -1,3 +1,4 @@
+
 /* Reset mặc định và thiết lập font */
 * {
     margin: 0;
@@ -135,4 +136,5 @@
 /* Thông báo lỗi (nếu có) */
 .message.error {
     color: #dc3545;
+
 }

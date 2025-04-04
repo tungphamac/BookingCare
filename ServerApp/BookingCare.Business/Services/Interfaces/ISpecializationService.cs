@@ -2,6 +2,7 @@
 using BookingCare.Business.Services.Base;
 using BookingCare.Data.Models;
 
+
 namespace BookingCare.Business.Services.Interfaces
 {
     public interface ISpecializationService : IBaseService<Specialization>
@@ -12,5 +13,6 @@ namespace BookingCare.Business.Services.Interfaces
         Task<bool> UpdateSpecializationAsync(int id, SpecializationDetailDto specializationDto);
         Task<bool> DeleteSpecializationAsync(int id);
         Task<ICollection<SpecializationDetailDto>> GetTopSpecializationsAsync(int top);
+        Task<List<SpecializationDetailDto>> GetSpecializationsByClinicIdAsync(int clinicId); // Thêm phương thức mới
     }
 }

@@ -210,5 +210,25 @@ namespace BookingCare.Business.Services
             if (feedbackVm.Rating < 1 || feedbackVm.Rating > 5) throw new ArgumentException("Rating must be between 1 and 5.");
             if (string.IsNullOrWhiteSpace(feedbackVm.Comment)) throw new ArgumentException("Comment cannot be empty.");
         }
+
+        public async Task<ICollection<FeedbackVm>> GetFeedbacksByDoctor(int doctorId)
+        {
+            var feedbacks =  await _unitOfWork.Context.Feedbacks
+                        .Include(f => f.Appointment)
+                        .ThenInclude(a => a.Patient)
+                        .ThenInclude(p => p.User)
+                        .Where(f => f.Appointment.DoctorId == doctorId)
+                        .Select(f => new FeedbackVm()
+                        {
+                            Id = f.Id,
+                            PatientName = f.Appointment.Patient.User.UserName,
+                            AppointmentId = f.AppointmentId,
+                            Rating = f.Rating,
+                            Comment = f.Comment,
+                            CreateAt = f.CreatedAt
+                        })
+                        .ToListAsync();
+            return feedbacks;
+        }
     }
 }

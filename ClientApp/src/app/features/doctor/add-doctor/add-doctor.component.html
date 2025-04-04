@@ -1,0 +1,74 @@
+<div class="container">
+    <h2>Add New Doctor</h2>
+    <form (ngSubmit)="addDoctor()">
+      <!-- User Name -->
+      <div class="form-group">
+        <label for="userName">User Name</label>
+        <input type="text" class="form-control" id="userName" [(ngModel)]="newDoctor.userName" name="userName" required>
+      </div>
+  
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="newDoctor.email" name="email" required>
+      </div>
+  
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" [(ngModel)]="newDoctor.password" name="password" required>
+      </div>
+  
+      <!-- Gender -->
+      <div class="form-group">
+        <label for="gender">Gender</label>
+        <select class="form-control" id="gender" [(ngModel)]="newDoctor.gender" name="gender" required>
+          <option value="true">Male</option>
+          <option value="false">Female</option>
+        </select>
+      </div>
+  
+      <!-- Address -->
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" id="address" [(ngModel)]="newDoctor.address" name="address" required>
+      </div>
+  
+      <!-- Avatar -->
+      <div class="form-group">
+        <label for="avatar">Avatar (Image URL)</label>
+        <input type="text" class="form-control" id="avatar" [(ngModel)]="newDoctor.avatar" name="avatar">
+      </div>
+  
+      <!-- Achievement -->
+      <div class="form-group">
+        <label for="achievement">Achievement</label>
+        <input type="text" class="form-control" id="achievement" [(ngModel)]="newDoctor.achievement" name="achievement">
+      </div>
+  
+      <!-- Description -->
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" [(ngModel)]="newDoctor.description" name="description" rows="3"></textarea>
+      </div>
+  
+      <!-- Specialization -->
+      <div class="form-group">
+        <label for="specializationId">Specialization</label>
+        <input type="number" class="form-control" id="specializationId" [(ngModel)]="newDoctor.specializationId" name="specializationId" required>
+      </div>
+  
+      <!-- Clinic -->
+      <div class="form-group">
+        <label for="clinicId">Clinic</label>
+        <input type="number" class="form-control" id="clinicId" [(ngModel)]="newDoctor.clinicId" name="clinicId" required>
+      </div>
+  
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary">Add Doctor</button>
+      <p></p>
+      <button type="button" class="btn btn-secondary" (click)="goBack()">Back</button>
+
+    </form>
+  </div>
+  

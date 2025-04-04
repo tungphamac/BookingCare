@@ -161,6 +161,7 @@ namespace BookingCare.Business.Services
             }
         }
 
+
         public async Task<ICollection<SpecializationDetailDto>> GetTopSpecializationsAsync(int top)
         {
             var result = await _unitOfWork.Context.Appointments
@@ -175,7 +176,7 @@ namespace BookingCare.Business.Services
                         .Join(_unitOfWork.Context.Doctors,
                         app => app.DoctorId,
                         doc => doc.UserId,
-                        (app, doc) =>new { doc.SpecializationId, app.AppointmentCount})
+                        (app, doc) => new { doc.SpecializationId, app.AppointmentCount })
                         .GroupBy(d => d.SpecializationId)
                         .Select(g => new
                         {
@@ -196,6 +197,35 @@ namespace BookingCare.Business.Services
                         .ToListAsync();
 
             return result;
+        }
+        public async Task<List<SpecializationDetailDto>> GetSpecializationsByClinicIdAsync(int clinicId)
+        {
+            try
+            {
+                var specializations = await _unitOfWork.ClinicRepository
+                    .GetQuery(c => c.Id == clinicId)
+                    .SelectMany(c => c.Specializations)
+                    .Select(s => new SpecializationDetailDto
+                    {
+                        Id = s.Id,
+                        Name = s.Name,
+                        Description = s.Description,
+                        Image = s.Image
+                    })
+                    .ToListAsync();
+
+                if (!specializations.Any())
+                {
+                    _logger.LogWarning($"No specializations found for Clinic with ID {clinicId}.");
+                }
+
+                return specializations;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving specializations for Clinic with ID {clinicId}.");
+                throw;
+            }
         }
     }
 }

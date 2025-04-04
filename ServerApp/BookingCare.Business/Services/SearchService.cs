@@ -16,6 +16,48 @@ namespace BookingCare.Business.Services
             _unitOfWork = unitOfWork;
             _logger = logger;
         }
+        public async Task<SearchResultDto> SearchPatientsForDoctorAsync(int doctorId, string keyword)
+        {
+            try
+            {
+                var result = new SearchResultDto();
+                keyword = keyword?.Trim().ToLower() ?? string.Empty;
+
+                // Tìm kiếm bệnh nhân đã đặt lịch hẹn với bác sĩ
+                var patients = await _unitOfWork.AppointmentRepository
+                    .GetQuery()
+                    .Where(a => a.DoctorId == doctorId) // Lọc theo bác sĩ
+                    .Include(a => a.Patient)
+                        .ThenInclude(p => p.User)
+                    .Where(a => string.IsNullOrEmpty(keyword) ||
+                                a.Patient.User.UserName.ToLower().Contains(keyword) ||
+                                a.Patient.User.Email.ToLower().Contains(keyword) ||
+                                a.Patient.User.Address.ToLower().Contains(keyword))
+                    .Select(a => new PatientDetailDto
+                    {
+                        
+                        UserName = a.Patient.User.UserName,
+                        Email = a.Patient.User.Email,
+                        Gender = a.Patient.User.Gender,
+                        Address = a.Patient.User.Address,
+                        Avatar = a.Patient.User.Avatar,
+                        MedicalRecordId = a.Patient.MedicalRecordId
+                    })
+                    .Distinct() // Tránh trùng lặp bệnh nhân
+                    .ToListAsync();
+
+                result.Patients = patients; // Thêm danh sách bệnh nhân vào SearchResultDto
+                result.Message = patients.Any() ? "Patients found successfully." : "No patients found.";
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error occurred during search patients for Doctor ID {doctorId}.");
+                throw;
+            }
+        }
+
 
         public async Task<SearchResultDto> GeneralSearchAsync(string filter, string keyword)
         {
@@ -137,5 +179,10 @@ namespace BookingCare.Business.Services
                 throw;
             }
         }
+
+
+        
+
+       
     }
 }

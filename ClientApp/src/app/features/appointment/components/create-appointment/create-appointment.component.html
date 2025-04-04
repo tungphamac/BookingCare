@@ -19,21 +19,21 @@
       <div class="form-group">
         <label for="doctorId">Bác sĩ</label>
         <select id="doctorId" [(ngModel)]="appointment.doctorId" name="doctorId" required>
-          <!-- <option *ngFor="let doctor of doctors" [value]="doctor.id">{{ doctor.doctorName }}</option> -->
+          <option *ngFor="let doctor of doctors" [value]="doctor.id">{{ doctor.name }}</option>
         </select>
       </div>
   
       <div class="form-group">
         <label for="scheduleId">Lịch trống</label>
         <select id="scheduleId" [(ngModel)]="appointment.scheduleId" name="scheduleId" required>
-          <!-- <option *ngFor="let schedule of schedules" [value]="schedule.id">{{ schedule.time }}</option> -->
+          <option *ngFor="let schedule of schedules" [value]="schedule.id">{{ schedule.time }}</option>
         </select>
       </div>
   
       <div class="form-group">
         <label for="clinicId">Phòng khám</label>
         <select id="clinicId" [(ngModel)]="appointment.clinicId" name="clinicId" required>
-          <!-- <option *ngFor="let clinic of clinics" [value]="clinic.id">{{ clinic.name }}</option> -->
+          <option *ngFor="let clinic of clinics" [value]="clinic.id">{{ clinic.name }}</option>
         </select>
       </div>
   

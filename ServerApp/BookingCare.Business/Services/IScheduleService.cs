@@ -76,7 +76,7 @@ namespace BookingCare.Business.Services
             }
         }
 
-        public async Task<int> CreateScheduleAsync(ScheduleDetailDto scheduleDto, int doctorId)
+        public async Task<int> CreateScheduleAsync(CreateScheduleDto scheduleDto, int doctorId)
         {
             try
             {
@@ -112,7 +112,7 @@ namespace BookingCare.Business.Services
             }
         }
 
-        public async Task<bool> UpdateScheduleAsync(int id, ScheduleDetailDto scheduleDto, int doctorId)
+        public async Task<bool> UpdateScheduleAsync(int id, UpdateScheduleDto scheduleDto)
         {
             try
             {
@@ -126,13 +126,7 @@ namespace BookingCare.Business.Services
                     return false;
                 }
 
-                // Kiểm tra xem lịch có thuộc về bác sĩ này không
-                if (schedule.DoctorId != doctorId)
-                {
-                    _logger.LogWarning($"Doctor with ID {doctorId} is not authorized to update Schedule ID {id}.");
-                    throw new UnauthorizedAccessException($"Doctor with ID {doctorId} is not authorized to update this schedule.");
-                }
-
+                // Bỏ kiểm tra quyền
                 schedule.TimeSlot = scheduleDto.TimeSlot;
                 schedule.WorkDate = scheduleDto.WorkDate;
                 schedule.Status = Enum.Parse<ScheduleStatus>(scheduleDto.Status);
@@ -140,17 +134,17 @@ namespace BookingCare.Business.Services
                 _unitOfWork.ScheduleRepository.Update(schedule);
                 await _unitOfWork.SaveChangesAsync();
 
-                _logger.LogInformation($"Schedule ID {id} updated successfully by Doctor ID {doctorId}.");
+                _logger.LogInformation($"Schedule ID {id} updated successfully.");
                 return true;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Error updating schedule ID {id} by Doctor ID {doctorId}.");
+                _logger.LogError(ex, $"Error updating schedule ID {id}.");
                 throw;
             }
         }
 
-        public async Task<bool> DeleteScheduleAsync(int id, int doctorId)
+        public async Task<bool> DeleteScheduleAsync(int id)
         {
             try
             {
@@ -164,33 +158,46 @@ namespace BookingCare.Business.Services
                     return false;
                 }
 
-                // Kiểm tra xem lịch có thuộc về bác sĩ này không
-                if (schedule.DoctorId != doctorId)
-                {
-                    _logger.LogWarning($"Doctor with ID {doctorId} is not authorized to delete Schedule ID {id}.");
-                    throw new UnauthorizedAccessException($"Doctor with ID {doctorId} is not authorized to delete this schedule.");
-                }
-
-                // Kiểm tra xem lịch có lịch hẹn nào không
-                var hasAppointments = await _unitOfWork.AppointmentRepository
-                    .GetQuery(a => a.ScheduleId == id)
-                    .AnyAsync();
-
-                if (hasAppointments)
-                {
-                    _logger.LogWarning($"Cannot delete Schedule ID {id} because it has associated appointments.");
-                    throw new InvalidOperationException($"Cannot delete schedule because it has associated appointments.");
-                }
-
+                // Bỏ kiểm tra quyền và lịch hẹn
                 _unitOfWork.ScheduleRepository.Delete(schedule);
                 await _unitOfWork.SaveChangesAsync();
 
-                _logger.LogInformation($"Schedule ID {id} deleted successfully by Doctor ID {doctorId}.");
+                _logger.LogInformation($"Schedule ID {id} deleted successfully.");
                 return true;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Error deleting schedule ID {id} by Doctor ID {doctorId}.");
+                _logger.LogError(ex, $"Error deleting schedule ID {id}.");
+                throw;
+            }
+        }
+
+        public async Task<List<ScheduleDetailDto>> GetSchedulesByDoctorIdAsync(int doctorId)
+        {
+            try
+            {
+                var schedules = await _unitOfWork.ScheduleRepository
+                    .GetQuery(s => s.DoctorId == doctorId)
+                    .Select(s => new ScheduleDetailDto
+                    {
+                        Id = s.Id,
+                        DoctorId = s.DoctorId,
+                        TimeSlot = s.TimeSlot,
+                        WorkDate = s.WorkDate,
+                        Status = s.Status.ToString()
+                    })
+                    .ToListAsync();
+
+                if (schedules.Count == 0)
+                {
+                    _logger.LogWarning($"No schedules found for Doctor ID {doctorId}.");
+                }
+
+                return schedules;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving schedules for Doctor ID {doctorId}.");
                 throw;
             }
         }
