@@ -8,13 +8,13 @@ import { ImportComponent } from "../features/import/import.component";
 
 
 @Component({
-  selector: 'app-specialization-list',
+  selector: 'app-specialization',
   standalone: true,
   imports: [CommonModule, RouterModule, FormsModule, ImportComponent],
   templateUrl: './specialization.component.html',
   styleUrls: ['./specialization.component.css']
 })
-export class SpecializationListComponent implements OnInit {
+export class SpecializationComponent implements OnInit {
   specializations: Specialization[] = [];
   filteredSpecializations: Specialization[] = [];
   searchText = '';

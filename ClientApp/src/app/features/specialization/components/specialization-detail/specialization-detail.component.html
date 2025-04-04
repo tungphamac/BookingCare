@@ -27,7 +27,7 @@
           <p><strong>Chuyên khoa:</strong> {{ doctor.specializationName }}</p>
           <p><strong>Phòng khám:</strong> {{ doctor.clinicName }}</p>
           <p *ngIf="doctor.achievement"><strong>Thành tựu:</strong> {{ doctor.achievement }}</p>
-          <a [routerLink]="['/doctor-profile', doctor.id]" class="btn-view-doctor">Xem chi tiết</a>
+          <a [routerLink]="['/doctors/', doctor.id]" class="btn-view-doctor">Xem chi tiết</a>
         </div>
       </div>
     </div>
@@ -41,7 +41,7 @@
           <p><strong>Địa chỉ:</strong> {{ clinic.address }}</p>
           <p><strong>Số điện thoại:</strong> {{ clinic.phone }}</p>
           <p *ngIf="clinic.introduction"><strong>Giới thiệu:</strong> {{ clinic.introduction }}</p>
-          <a [routerLink]="['/clinic-profile', clinic.id]" class="btn-view-clinic">Xem chi tiết</a>
+          <a [routerLink]="['/clinics/', clinic.id]" class="btn-view-clinic">Xem chi tiết</a>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SpecializationService } from '../../services/specialization.service';
 import { ClinicService } from '../../../clinic/services/clinic.service';
-import { SpecializationDetailDto } from '../../models/specialization-detail.model';
+import { Specialization } from '../../models/specialization.model';
 import { RouterModule } from '@angular/router';
 import { ClinicDetailDto } from '../../../clinic/models/clinic-detail.model';
 import { DoctorDetailDto } from '../../../doctor/models/doctor-detail.model';
@@ -17,7 +17,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true
 })
 export class SpecializationDetailComponent implements OnInit {
-  specialization: SpecializationDetailDto | null = null;
+  specialization: Specialization | null = null;
   doctors: DoctorDetailDto[] = [];
   clinics: ClinicDetailDto[] = [];
   errorMessage: string | null = null;

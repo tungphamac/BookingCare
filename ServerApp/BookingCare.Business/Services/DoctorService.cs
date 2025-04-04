@@ -428,5 +428,44 @@ namespace BookingCare.Business.Services
                 throw;
             }
         }
+        public async Task<DoctorVm> GetDoctorByIdAsync(int doctorId)
+        {
+            try
+            {
+                var doctor = await _unitOfWork.DoctorRepository
+                    .GetQuery(d => d.UserId == doctorId)
+                    .Include(d => d.User)
+                    .Include(d => d.Specialization)
+                    .Include(d => d.Clinic)
+                    .Select(d => new DoctorVm()
+                    {
+                        Id = d.UserId,
+                        Name = d.User.UserName,
+                        Gender = d.User.Gender,
+                        Email = d.User.Email,
+                        Phone = d.User.PhoneNumber,
+                        Address = d.User.Address,
+                        Avatar = d.User.Avatar,
+                        Achievement = d.Achievement,
+                        Description = d.Description,
+                        SpecializationId = d.SpecializationId,
+                        ClinicId = d.ClinicId
+                    })
+                    .FirstOrDefaultAsync();
+
+                if (doctor == null)
+                {
+                    _logger.LogWarning($"Doctor with ID {doctorId} not found.");
+                    return null;
+                }
+
+                return doctor;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving doctor details for ID {doctorId}.");
+                throw;
+            }
+        }
     }
 }

@@ -721,7 +721,6 @@ D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare
 D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.WebAPI.genruntimeconfig.cache
 D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\ref\BookingCare.WebAPI.dll
 D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.WebAPI.MvcApplicationPartsAssemblyInfo.cs
-D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\obj\Debug\net8.0\BookingCare.WebAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\appsettings.json
 C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\BookingCare.WebAPI.staticwebassets.endpoints.json
@@ -923,3 +922,12 @@ D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0
 D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
 D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\System.Security.Cryptography.Xml.dll
 D:\CampusLink\PNET\src\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\BookingCare.WebAPI.staticwebassets.runtime.json
+D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\EPPlus.dll
+D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\EPPlus.Interfaces.dll
+D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
+D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\System.Security.Cryptography.Xml.dll
+D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll

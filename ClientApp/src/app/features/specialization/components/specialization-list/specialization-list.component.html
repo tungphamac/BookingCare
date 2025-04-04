@@ -17,7 +17,7 @@
   <!-- Danh sách chuyên khoa -->
   <div *ngIf="specializations.length > 0 && !isLoading" class="row g-4">
     <div class="col-md-4" *ngFor="let specialization of specializations">
-      <div class="card shadow-sm">
+      <div [routerLink]="['/specializations/', specialization.id]" class="card shadow-sm">
         <img [src]="specialization.image" [alt]="specialization.name" class="card-img-top specialization-img">
         <div class="card-body">
           <h5 class="card-title">{{ specialization.name }}</h5>
