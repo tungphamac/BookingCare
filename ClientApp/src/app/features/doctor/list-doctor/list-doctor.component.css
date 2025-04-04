@@ -1,0 +1,80 @@
+/* Styles for the sidebar */
+#sidebar-wrapper {
+  width: 250px;
+  min-height: 100vh;
+  background: #f8f9fa;
+  border-right: 1px solid #dee2e6;
+}
+
+.sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+  background-color: #007bff;
+  color: white;
+}
+
+.list-group-item {
+  border: none;
+  padding: 0.75rem 1.25rem;
+  color: #007bff;
+}
+
+.list-group-item:hover, .list-group-item:focus {
+  background-color: #e9ecef;
+  color: #0056b3;
+}
+
+/* Styles for the main content area */
+.flex-grow-1 {
+  padding: 20px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+/* Styles for the modal */
+.modal-content {
+  border-radius: 0.3rem;
+}
+
+.modal-header {
+  background: #007bff;
+  color: white;
+}
+
+/* Styles for the tables */
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+}
+
+.table th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table td {
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.img-thumbnail {
+  width: 50px;
+  height: 50px;
+  border-radius: 0.25rem;
+}
+
+/* Alert styles */
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}

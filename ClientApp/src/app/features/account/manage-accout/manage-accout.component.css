@@ -1,0 +1,112 @@
+/* manage-account.component.css */
+.profile-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-top: 300px;
+
+}
+
+.page-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.profile-info h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.gender-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 12px;
+    color: white;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.gender-male {
+    background-color: #007bff;
+}
+
+.gender-female {
+    background-color: #ff69b4;
+}
+
+.info-group {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.info-value {
+    color: #666;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .profile-container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .avatar {
+        margin: 0 0 15px 0;
+    }
+
+    .info-group {
+        flex-direction: column;
+    }
+
+    .info-label,
+    .info-value {
+        margin-bottom: 5px;
+    }
+}

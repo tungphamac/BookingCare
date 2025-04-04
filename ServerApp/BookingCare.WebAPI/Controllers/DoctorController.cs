@@ -1,5 +1,6 @@
 ﻿using BookingCare.API.Dtos;
 using BookingCare.Business.Services.Interfaces;
+using BookingCare.Business.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,13 +19,14 @@ namespace BookingCare.API.Controllers
             _logger = logger;
         }
 
-        [HttpGet("{id}")]
-        [Authorize(Roles = "Admin,Patient,Doctor")] // Admin, Patient, Doctor có thể xem chi tiết bác sĩ
+        [HttpGet("get-doctor-by-id/{id}")]
+        //[Authorize(Roles = "Admin,Patient,Doctor")] // Admin, Patient, Doctor có thể xem chi tiết bác sĩ
+
         public async Task<IActionResult> GetDoctorById(int id)
         {
             try
             {
-                var doctor = await _doctorService.GetDoctorDetailAsync(id);
+                var doctor = await _doctorService.GetDoctorByIdAsync(id);
                 if (doctor == null)
                 {
                     return NotFound(new { Message = $"Doctor with ID {id} not found." });
@@ -38,8 +40,9 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpGet]
-        [Authorize(Roles = "Admin,Patient")] // Chỉ Admin, patient được lấy danh sách bác sĩ
+        [HttpGet("getall")]
+        //[Authorize(Roles = "Admin,Patient")] // Chỉ Admin, patient được lấy danh sách bác sĩ
+        [Authorize(Roles = "Admin,Patient")]
         public async Task<IActionResult> GetAllDoctors()
         {
             try
@@ -54,8 +57,9 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpPost]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được tạo bác sĩ
+        [HttpPost("add_doctor")]
+        //[Authorize(Roles = "Admin")] // Chỉ Admin được tạo bác sĩ
+
         public async Task<IActionResult> CreateDoctor([FromBody] CreateDoctorDto createDoctorDto)
         {
             try
@@ -74,8 +78,9 @@ namespace BookingCare.API.Controllers
             }
         }
 
+
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được sửa bác sĩ
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateDoctor(int id, [FromBody] DoctorUpdateDto doctorUpdateDto)
         {
             try
@@ -94,8 +99,9 @@ namespace BookingCare.API.Controllers
             }
         }
 
+
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được xóa bác sĩ
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteDoctor(int id)
         {
             try
@@ -115,7 +121,7 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpPost("lock/{id}")]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được khóa/mở khóa tài khoản bác sĩ
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> LockDoctorAccount(int id, [FromQuery] DateTime lockUntil)
         {
             try
@@ -148,7 +154,6 @@ namespace BookingCare.API.Controllers
             }
         }
 
-
         [HttpGet("get-top-rating-doctors")]
         public async Task<IActionResult> GetTopRatingDoctors()
         {
@@ -157,9 +162,64 @@ namespace BookingCare.API.Controllers
                 var topRatingDoctors = await _doctorService.GetTopRatingDoctors(3);
                 return Ok(topRatingDoctors);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return Problem($"Error fetching top doctors: {ex.Message}");
+            }
+        }
+        [HttpPut("update-doctor-profile/{doctorId}")]
+        public async Task<IActionResult> UpdateDoctorProfile(int doctorId, [FromForm] UpdateDoctorVm updateDoctorVm)
+        {
+            try
+            {
+                // Kiểm tra xem avatar có được gửi lên không
+                if (updateDoctorVm.Avatar == null || updateDoctorVm.Avatar.Length == 0)
+                {
+                    return BadRequest(new { Message = "Avatar file is required." });
+                }
+
+                // Kiểm tra dữ liệu đầu vào
+                if (updateDoctorVm == null)
+                {
+                    return BadRequest(new { Message = "Doctor data is required." });
+                }
+
+                // Gọi service để cập nhật thông tin bác sĩ
+                var result = await _doctorService.UpdateDoctorProfileAsync(doctorId, updateDoctorVm);
+
+                // Kiểm tra kết quả trả về từ service
+                if (!result)
+                {
+                    return NotFound(new { Message = $"Doctor with ID {doctorId} not found." });
+                }
+
+                // Thành công
+                return Ok(new { Message = "Doctor profile updated successfully." });
+            }
+            catch (ArgumentException ex)
+            {
+                _logger.LogError(ex, $"Invalid argument when updating doctor profile with ID {doctorId}.");
+                return BadRequest(new { Message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error updating doctor profile with ID {doctorId}.");
+                return StatusCode(500, "An error occurred while updating the doctor profile.");
+            }
+        }
+
+        [HttpGet("get-doctors-by-specialization/{specializationId}")]
+        public async Task<IActionResult> GetDoctorsBySpecializationId(int specializationId)
+        {
+            try
+            {
+                var doctors = await _doctorService.GetDoctorsBySpecializationIdAsync(specializationId);
+                return Ok(doctors);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving doctors for Specialization ID {specializationId}.");
+                return StatusCode(500, "An error occurred while retrieving doctors.");
             }
         }
     }

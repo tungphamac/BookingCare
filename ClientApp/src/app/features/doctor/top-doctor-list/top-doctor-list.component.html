@@ -3,11 +3,12 @@
     <div class="container">
         <div class="row g-4">
             <div class="col-md-4" *ngFor="let doctor of topDoctors">
-                <div class="doctor-card">
+                <div [routerLink]="['/doctors/', doctor.id]" class="doctor-card">
                     <div class="doctor-header">
-                        <img src="assets/doctor_avatar.png" alt="Doctor Avatar" class="doctor-img">
+                        <img [src]="'http://localhost:5032/uploads/' + doctor.avatar ? 'http://localhost:5032/uploads/' + doctor.avatar : 'assets/doctor_avatar.png'"
+                            alt="Doctor avatar" class="avatar">
                     </div>
-                    <h5 class="doctor-name">{{ doctor.doctorName }}</h5>
+                    <h5 class="doctor-name">{{ doctor.doctorName }}</h5><br />
                 </div>
             </div>
         </div>

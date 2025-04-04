@@ -1,11 +1,11 @@
 interface DoctorProfile {
+    id: number;
     name: string;
     gender: boolean;
-    password: string;
     email: string;
-    phone: string;
+    phone: number;
     address: string;
-    avatar: string;
+    avatar: File;
     achievement: string;
     description: string;
     specializationId: number;

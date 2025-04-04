@@ -1,25 +1,31 @@
-<<<<<<< HEAD
-import { Injectable } from '@angular/core';
-=======
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TopSpecialization } from '../models/top-specialization.model';
 import { API_URL } from '../../../app.config';
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
+import { Specialization } from '../models/specialization.model';
+import { DoctorDetailDto } from '../../doctor/models/doctor-detail.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SpecializationService {
 
-<<<<<<< HEAD
-  constructor() { }
-=======
   constructor(private http: HttpClient) { }
+
+  getAllSpecializations(): Observable<Specialization[]> {
+    return this.http.get<Specialization[]>(`${API_URL}/Specialization/get-all-specializations`);
+  }
 
   getTopSpecializations(): Observable<TopSpecialization[]> {
     return this.http.get<TopSpecialization[]>(`${API_URL}/Specialization/get-top-specializations`);
   }
->>>>>>> 5cc3c2d29b2c8e643c59e13f12e0d21a5db57a06
+
+  getSpecializationById(id: number): Observable<Specialization> {
+    return this.http.get<Specialization>(`${API_URL}/Specialization/get-specialization-by-id/${id}`);
+  }
+
+  getDoctorsBySpecializationId(specializationId: number): Observable<DoctorDetailDto[]> {
+    return this.http.get<DoctorDetailDto[]>(`${API_URL}/Doctor/get-doctors-by-specialization/${specializationId}`); // Sửa endpoint
+  }
 }

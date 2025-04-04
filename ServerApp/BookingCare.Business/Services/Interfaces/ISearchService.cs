@@ -7,5 +7,6 @@ namespace BookingCare.Business.Services.Interfaces
     {
         Task<SearchResultDto> GeneralSearchAsync(string filter, string keyword);
         Task<SearchResultDto> SearchBySpecializationAsync(string keyword);
+        Task<SearchResultDto> SearchPatientsForDoctorAsync(int doctorId, string keyword);
     }
 }

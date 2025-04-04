@@ -191,6 +191,7 @@ namespace BookingCare.Business.Services
              clinic => clinic.Id,
              (clinicInfo, clinic) => new ClinicVm()
              {
+                 Id = clinic.Id,
                  Name = clinic.Name,
                  Address = clinic.Address,
                  Phone = clinic.Phone,
@@ -200,6 +201,85 @@ namespace BookingCare.Business.Services
          .ToListAsync();
 
             return result;
+        }
+    
+    public async Task<List<DoctorDetailDto>> GetDoctorsByClinicIdAsync(int clinicId)
+        {
+            try
+            {
+                // Kiểm tra xem clinic có tồn tại không
+                var clinicExists = await _unitOfWork.ClinicRepository
+                    .GetQuery(c => c.Id == clinicId)
+                    .AnyAsync();
+
+                if (!clinicExists)
+                {
+                    _logger.LogWarning($"Clinic with ID {clinicId} not found.");
+                    throw new ArgumentException($"Clinic with ID {clinicId} not found.");
+                }
+
+                // Lấy danh sách bác sĩ theo clinicId
+                var doctors = await _unitOfWork.DoctorRepository
+                    .GetQuery(d => d.ClinicId == clinicId)
+                    .Include(d => d.User)
+                    .Include(d => d.Specialization)
+                    .Include(d => d.Clinic)
+                    .Select(d => new DoctorDetailDto
+                    {
+                        Id = d.UserId,
+                        UserName = d.User.UserName,
+                        Email = d.User.Email,
+                        Gender = d.User.Gender,
+                        Address = d.User.Address,
+                        Avatar = d.User.Avatar,
+                        Achievement = d.Achievement,
+                        Description = d.Description,
+                        SpecializationName = d.Specialization.Name,
+                        ClinicName = d.Clinic.Name
+                    })
+                    .ToListAsync();
+
+                _logger.LogInformation($"Retrieved {doctors.Count} doctors for clinic ID {clinicId}.");
+                return doctors;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving doctors for clinic ID {clinicId}.");
+                throw;
+            }
+        }
+        public async Task<List<ClinicDetailDto>> GetClinicsBySpecializationIdAsync(int specializationId)
+        {
+            try
+            {
+                var clinics = await _unitOfWork.DoctorRepository
+                    .GetQuery(d => d.SpecializationId == specializationId)
+                    .Include(d => d.Clinic)
+                    .Select(d => d.Clinic)
+                    .Distinct()
+                    .Select(c => new ClinicDetailDto
+                    {
+                        Id = c.Id,
+                        Name = c.Name,
+                        Address = c.Address,
+                        Phone = c.Phone,
+                        Introduction = c.Introduction,
+                        CreateAt = c.CreateAt
+                    })
+                    .ToListAsync();
+
+                if (clinics.Count == 0)
+                {
+                    _logger.LogWarning($"No clinics found for Specialization ID {specializationId}.");
+                }
+
+                return clinics;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving clinics for Specialization ID {specializationId}.");
+                throw;
+            }
         }
     }
 }

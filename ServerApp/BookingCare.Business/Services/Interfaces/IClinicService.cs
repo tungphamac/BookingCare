@@ -13,5 +13,7 @@ namespace BookingCare.Business.Services.Interfaces
         Task UpdateClinicAsync(int id, ClinicDetailDto clinicDto);
         Task DeleteClinicAsync(int id);
         Task<ICollection<ClinicVm>> GetTopClinics(int top);
+        Task<List<DoctorDetailDto>> GetDoctorsByClinicIdAsync(int clinicId);
+        Task<List<ClinicDetailDto>> GetClinicsBySpecializationIdAsync(int specializationId); // Thêm phương thức mới
     }
 }

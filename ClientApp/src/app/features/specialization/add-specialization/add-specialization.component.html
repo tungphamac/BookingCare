@@ -1,0 +1,30 @@
+<div class="form-wrapper">
+    <h3>Thêm chuyên khoa mới</h3>
+    <form (ngSubmit)="addSpecialization()">
+      
+      <div class="mb-3">
+        <label>Tên chuyên khoa</label>
+        <input type="text" [(ngModel)]="specialization.name" name="name" class="form-control" required />
+      </div>
+     
+      
+      <div class="mb-3">
+        <label>Mô tả</label>
+        <textarea [(ngModel)]="specialization.description" name="description" rows="3" class="form-control" required></textarea>
+      </div>
+  
+      <div class="mb-3">
+        <label>Chọn ảnh</label>
+        <input type="file" (change)="onFileSelected($event)" class="form-control" accept="image/*" />
+      </div>
+  
+      <div *ngIf="previewImageUrl" class="mb-3">
+        <label>Preview ảnh</label><br />
+        <img [src]="previewImageUrl" width="160" height="160" style="object-fit: cover; border-radius: 8px;" />
+      </div>
+  
+      <button type="submit" class="btn btn-success me-2">Thêm</button>
+      <button type="button" class="btn btn-secondary" (click)="cancel()">Huỷ</button>
+    </form>
+  </div>
+  

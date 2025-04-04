@@ -1,0 +1,128 @@
+<div class="search-container">
+  <h2 class="section-title">Tìm kiếm</h2>
+
+  <!-- Form tìm kiếm cải tiến -->
+  <div class="search-form">
+    <!-- Filter buttons hiển thị ngoài -->
+    <div class="filter-buttons">
+      <button 
+        class="filter-btn" 
+        [class.active]="filter === 'Doctor'"
+        (click)="filter = 'Doctor'">
+        <i class="bi bi-person-plus"></i> Bác sĩ
+      </button>
+      <button 
+        class="filter-btn" 
+        [class.active]="filter === 'Clinic'"
+        (click)="filter = 'Clinic'">
+        <i class="bi bi-hospital"></i> Phòng khám
+      </button>
+      <button 
+        class="filter-btn" 
+        [class.active]="filter === 'Specialization'"
+        (click)="filter = 'Specialization'">
+        <i class="bi bi-clipboard-plus"></i> Chuyên khoa
+      </button>
+    </div>
+
+    <!-- Thanh tìm kiếm đơn giản và rõ ràng hơn -->
+    <div class="search-bar">
+      <div class="input-group">
+        <span class="input-group-text">
+          <i class="bi bi-search"></i>
+        </span>
+        <input 
+          type="text" 
+          class="form-control" 
+          [(ngModel)]="keyword" 
+          placeholder="Nhập từ khóa tìm kiếm..." 
+          (keyup.enter)="onSearch()" />
+      </div>
+      
+      <div class="search-buttons">
+        <button class="btn btn-primary" (click)="onSearch()" [disabled]="isLoading">
+          Tìm kiếm
+        </button>
+        <button class="btn btn-outline-secondary" (click)="onSearchBySpecialization()" [disabled]="isLoading">
+          <i class="bi bi-filter"></i> Tìm theo chuyên khoa
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="loading">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Đang tải...</span>
+    </div>
+    <p>Đang tìm kiếm...</p>
+  </div>
+
+  <!-- Error message -->
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Kết quả tìm kiếm -->
+  <div *ngIf="searchResult" class="search-results">
+    <h3 class="result-message">{{ searchResult.message }}</h3>
+
+    <!-- Kết quả bác sĩ -->
+    <div *ngIf="searchResult.doctors.length > 0" class="result-section">
+      <h4><i class="bi bi-person-plus"></i> Bác sĩ</h4>
+      <div class="result-grid">
+        <div *ngFor="let doctor of searchResult.doctors" class="result-card doctor-card">
+          <div class="card-avatar">
+            <i class="bi bi-person-circle"></i>
+          </div>
+          <div class="card-content">
+            <h5>{{ doctor.userName }}</h5>
+            <p><i class="bi bi-envelope"></i> {{ doctor.email }}</p>
+            <p><i class="bi bi-clipboard-plus"></i> {{ doctor.specializationName }}</p>
+            <p><i class="bi bi-hospital"></i> {{ doctor.clinicName }}</p>
+          </div>
+          <a [routerLink]="['/doctors', doctor.userId]" class="card-link">Xem chi tiết</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kết quả phòng khám -->
+    <div *ngIf="searchResult.clinics.length > 0" class="result-section">
+      <h4><i class="bi bi-hospital"></i> Phòng khám</h4>
+      <div class="result-grid">
+        <div *ngFor="let clinic of searchResult.clinics" class="result-card clinic-card">
+          <div class="card-avatar">
+            <i class="bi bi-building"></i>
+          </div>
+          <div class="card-content">
+            <h5>{{ clinic.name }}</h5>
+            <p><i class="bi bi-geo-alt"></i> {{ clinic.address }}</p>
+          </div>
+          <a [routerLink]="['/clinics', clinic.id]" class="card-link">Xem chi tiết</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kết quả chuyên khoa -->
+    <div *ngIf="searchResult.specializations.length > 0" class="result-section">
+      <h4><i class="bi bi-clipboard-plus"></i> Chuyên khoa</h4>
+      <div class="result-grid">
+        <div *ngFor="let specialization of searchResult.specializations" class="result-card specialization-card">
+          <div class="card-avatar">
+            <i class="bi bi-journal-medical"></i>
+          </div>
+          <div class="card-content">
+            <h5>{{ specialization.name }}</h5>
+            <p>{{ specialization.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Không có kết quả -->
+    <div *ngIf="!searchResult.doctors?.length && !searchResult.clinics?.length && !searchResult.specializations?.length" class="no-results">
+      <i class="bi bi-search"></i>
+      <p>Không tìm thấy kết quả phù hợp với từ khóa "{{ keyword }}"</p>
+    </div>
+  </div>
+</div>

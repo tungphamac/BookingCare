@@ -10,7 +10,6 @@
                 <!-- Menu -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-
                         <a class="nav-link" routerLink="doctors/profile">Bác sĩ</a>
                     </li>
                     <li class="nav-item">
@@ -28,7 +27,8 @@
                 <!-- Search Box -->
                 <div class="search-box">
                     <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Tìm bác sĩ, chuyên khoa">
+
+                    <input [routerLink]="['/search']" type="text" placeholder="Tìm bác sĩ, chuyên khoa">
                 </div>
 
 
@@ -40,7 +40,7 @@
 
                     <ng-template #showUserProfile>
                         <div class="user-profile">
-                            <a [routerLink]="['/manage-account']" class="user-email">
+                            <a (click)="onNavigateToProfile()" class="user-email">
                                 Xin chào, {{user?.email}}
                             </a>
                             <button class="btn btn-primary ms-2" (click)="onLogout()">Đăng xuất</button>

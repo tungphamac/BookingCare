@@ -198,5 +198,34 @@ namespace BookingCare.Business.Services
 
             return result;
         }
+        public async Task<List<SpecializationDetailDto>> GetSpecializationsByClinicIdAsync(int clinicId)
+        {
+            try
+            {
+                var specializations = await _unitOfWork.ClinicRepository
+                    .GetQuery(c => c.Id == clinicId)
+                    .SelectMany(c => c.Specializations)
+                    .Select(s => new SpecializationDetailDto
+                    {
+                        Id = s.Id,
+                        Name = s.Name,
+                        Description = s.Description,
+                        Image = s.Image
+                    })
+                    .ToListAsync();
+
+                if (!specializations.Any())
+                {
+                    _logger.LogWarning($"No specializations found for Clinic with ID {clinicId}.");
+                }
+
+                return specializations;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving specializations for Clinic with ID {clinicId}.");
+                throw;
+            }
+        }
     }
 }
