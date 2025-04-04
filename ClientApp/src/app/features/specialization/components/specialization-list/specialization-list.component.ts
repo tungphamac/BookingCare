@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { SpecializationService } from '../../services/specialization.service';
-import { SpecializationDetailDto } from '../../models/specialization-detail.model';
+import { Specialization } from '../../models/specialization.model';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-specialization-list',
   templateUrl: './specialization-list.component.html',
   styleUrls: ['./specialization-list.component.css'],
-  imports: [CommonModule, FormsModule]
+  imports: [CommonModule, FormsModule, RouterLink]
 })
 export class SpecializationListComponent implements OnInit {
-  specializations: SpecializationDetailDto[] = [];
+  specializations: Specialization[] = [];
   errorMessage: string | null = null;
   isLoading: boolean = false;
 

@@ -1,6 +1,6 @@
 ﻿<Project>
   <ItemGroup>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\05ccb0e4-5166-49e7-8183-db271331f25a.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\05ccb0e4-5166-49e7-8183-db271331f25a.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -12,11 +12,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>ty8h9gcd86</Fingerprint>
+      <Integrity>W890d/FmqMTuuq2WPa0Kc/4i84YRMRfUdKxT2HgLLKw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\05ccb0e4-5166-49e7-8183-db271331f25a.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\05ccb0e4-5166-49e7-8183-db271331f25a.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\0d831a8a-d991-438c-b5cc-000f11d2ae2a.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\0d831a8a-d991-438c-b5cc-000f11d2ae2a.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -28,11 +30,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>k5ntc5tb5p</Fingerprint>
+      <Integrity>iJUXi/G0SV7XGZ0YR/2iu7phOlA/0U+g9x9nwt0nqhg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\0d831a8a-d991-438c-b5cc-000f11d2ae2a.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\0d831a8a-d991-438c-b5cc-000f11d2ae2a.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\0f89c7d0-9d22-40fc-b9e6-f236d3f9c878_clinic_logo.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\0f89c7d0-9d22-40fc-b9e6-f236d3f9c878_clinic_logo.png'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -44,11 +48,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>rgs4dhbvps</Fingerprint>
+      <Integrity>G+pdAxvhJhhhRsqcJv9MhkyYavXSjWJLyXhPQIiUolE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\0f89c7d0-9d22-40fc-b9e6-f236d3f9c878_clinic_logo.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\0f89c7d0-9d22-40fc-b9e6-f236d3f9c878_clinic_logo.png'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\12f75283-026b-40b7-b057-927c7e04daa7_bacsi-01-copy-725x1024.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\12f75283-026b-40b7-b057-927c7e04daa7_bacsi-01-copy-725x1024.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -60,11 +66,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>ayj1882nxv</Fingerprint>
+      <Integrity>QiN2leWppZUE+wGjycguNZ0Y5v0YHv9KwfQ+VwzC4qw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\12f75283-026b-40b7-b057-927c7e04daa7_bacsi-01-copy-725x1024.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\12f75283-026b-40b7-b057-927c7e04daa7_bacsi-01-copy-725x1024.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\1b5d66f1-4895-4f57-8d47-2b7576dab4fb_bacsithuy.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\1b5d66f1-4895-4f57-8d47-2b7576dab4fb_bacsithuy.jpeg'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -76,11 +84,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>mrebh6pyb5</Fingerprint>
+      <Integrity>griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\1b5d66f1-4895-4f57-8d47-2b7576dab4fb_bacsithuy.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\1b5d66f1-4895-4f57-8d47-2b7576dab4fb_bacsithuy.jpeg'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\22efced3-8330-4da5-92b0-094e2bdd9ab6_bacsithuy.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\22efced3-8330-4da5-92b0-094e2bdd9ab6_bacsithuy.jpeg'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -92,11 +102,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>mrebh6pyb5</Fingerprint>
+      <Integrity>griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\22efced3-8330-4da5-92b0-094e2bdd9ab6_bacsithuy.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\22efced3-8330-4da5-92b0-094e2bdd9ab6_bacsithuy.jpeg'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\38be5457-eacf-46dc-867c-5f72934dfd7f_neurology_logo.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\38be5457-eacf-46dc-867c-5f72934dfd7f_neurology_logo.png'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -108,11 +120,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>snb89mtojr</Fingerprint>
+      <Integrity>+IHPEvYJAODOJ/hnrHRQPyTP4sanrSuF3oVkvCDxy98=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\38be5457-eacf-46dc-867c-5f72934dfd7f_neurology_logo.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\38be5457-eacf-46dc-867c-5f72934dfd7f_neurology_logo.png'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\49d69520-a594-496a-959f-77a3fff0e16e_Page-Bacsi-1.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\49d69520-a594-496a-959f-77a3fff0e16e_Page-Bacsi-1.png'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -124,11 +138,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>g0l8gumxu6</Fingerprint>
+      <Integrity>YAQHNod1uDYHPFHyuNsg5vldePUXdL0Ri4KyhPqHtVY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\49d69520-a594-496a-959f-77a3fff0e16e_Page-Bacsi-1.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\49d69520-a594-496a-959f-77a3fff0e16e_Page-Bacsi-1.png'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\4bb8ecbb-11a9-4bda-ac97-d4c1f8235c18_cardiology_logo.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\4bb8ecbb-11a9-4bda-ac97-d4c1f8235c18_cardiology_logo.png'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -140,11 +156,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>e0kfm5vz5d</Fingerprint>
+      <Integrity>Ds3SMmMWnd1ZBGSQmJbk9VVNsFSUwRSdGHGsjX9RV0o=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\4bb8ecbb-11a9-4bda-ac97-d4c1f8235c18_cardiology_logo.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\4bb8ecbb-11a9-4bda-ac97-d4c1f8235c18_cardiology_logo.png'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\4cba29fd-0be5-4bed-97f3-5deea99e22fc_neurology_logo.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\4cba29fd-0be5-4bed-97f3-5deea99e22fc_neurology_logo.png'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -156,11 +174,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>snb89mtojr</Fingerprint>
+      <Integrity>+IHPEvYJAODOJ/hnrHRQPyTP4sanrSuF3oVkvCDxy98=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\4cba29fd-0be5-4bed-97f3-5deea99e22fc_neurology_logo.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\4cba29fd-0be5-4bed-97f3-5deea99e22fc_neurology_logo.png'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\513cb6d9-9123-44a4-809c-6c6a51f4d26c_neurology_logo.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\513cb6d9-9123-44a4-809c-6c6a51f4d26c_neurology_logo.png'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -172,11 +192,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>snb89mtojr</Fingerprint>
+      <Integrity>+IHPEvYJAODOJ/hnrHRQPyTP4sanrSuF3oVkvCDxy98=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\513cb6d9-9123-44a4-809c-6c6a51f4d26c_neurology_logo.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\513cb6d9-9123-44a4-809c-6c6a51f4d26c_neurology_logo.png'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\6c59de2e-d390-48b3-88e2-d0ead028e6d6.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\6c59de2e-d390-48b3-88e2-d0ead028e6d6.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -188,11 +210,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>ty8h9gcd86</Fingerprint>
+      <Integrity>W890d/FmqMTuuq2WPa0Kc/4i84YRMRfUdKxT2HgLLKw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\6c59de2e-d390-48b3-88e2-d0ead028e6d6.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\6c59de2e-d390-48b3-88e2-d0ead028e6d6.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\797ff6d0-6b17-4c2f-af23-4b8469338bbb_bacsithuy.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\797ff6d0-6b17-4c2f-af23-4b8469338bbb_bacsithuy.jpeg'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -204,11 +228,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>mrebh6pyb5</Fingerprint>
+      <Integrity>griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\797ff6d0-6b17-4c2f-af23-4b8469338bbb_bacsithuy.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\797ff6d0-6b17-4c2f-af23-4b8469338bbb_bacsithuy.jpeg'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\83d82dd0-1ba3-42e0-a254-8eed40ae3fc0_bacsithuy.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\83d82dd0-1ba3-42e0-a254-8eed40ae3fc0_bacsithuy.jpeg'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -220,11 +246,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>mrebh6pyb5</Fingerprint>
+      <Integrity>griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\83d82dd0-1ba3-42e0-a254-8eed40ae3fc0_bacsithuy.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\83d82dd0-1ba3-42e0-a254-8eed40ae3fc0_bacsithuy.jpeg'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\a2c314dc-d64b-4a1d-a2ae-b46dcfd95953_bacsithuy.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\a2c314dc-d64b-4a1d-a2ae-b46dcfd95953_bacsithuy.jpeg'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -236,11 +264,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>mrebh6pyb5</Fingerprint>
+      <Integrity>griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\a2c314dc-d64b-4a1d-a2ae-b46dcfd95953_bacsithuy.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\a2c314dc-d64b-4a1d-a2ae-b46dcfd95953_bacsithuy.jpeg'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\a513e512-633b-4b32-98c5-e1bb27d25f89_alzheimer.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\a513e512-633b-4b32-98c5-e1bb27d25f89_alzheimer.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -252,11 +282,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>s8a1a1h0bx</Fingerprint>
+      <Integrity>5Bfl2DaFex2KaL/RLG4y9laS5y+yIHH3/DnTBPnDCxA=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\a513e512-633b-4b32-98c5-e1bb27d25f89_alzheimer.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\a513e512-633b-4b32-98c5-e1bb27d25f89_alzheimer.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\aed8bfb3-84b7-452e-a8ee-349fcb17bbc3_bacsithuy.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\aed8bfb3-84b7-452e-a8ee-349fcb17bbc3_bacsithuy.jpeg'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -268,11 +300,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>mrebh6pyb5</Fingerprint>
+      <Integrity>griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\aed8bfb3-84b7-452e-a8ee-349fcb17bbc3_bacsithuy.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\aed8bfb3-84b7-452e-a8ee-349fcb17bbc3_bacsithuy.jpeg'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\b78aa693-bcfc-421f-ade0-0eac9588dbb5_bacsithuy.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\b78aa693-bcfc-421f-ade0-0eac9588dbb5_bacsithuy.jpeg'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -284,11 +318,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>mrebh6pyb5</Fingerprint>
+      <Integrity>griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\b78aa693-bcfc-421f-ade0-0eac9588dbb5_bacsithuy.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\b78aa693-bcfc-421f-ade0-0eac9588dbb5_bacsithuy.jpeg'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\c2e28c9d-0929-4e1f-ac2b-722b0e630cc4_cardiology_logo.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\c2e28c9d-0929-4e1f-ac2b-722b0e630cc4_cardiology_logo.png'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -300,11 +336,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>e0kfm5vz5d</Fingerprint>
+      <Integrity>Ds3SMmMWnd1ZBGSQmJbk9VVNsFSUwRSdGHGsjX9RV0o=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\c2e28c9d-0929-4e1f-ac2b-722b0e630cc4_cardiology_logo.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\c2e28c9d-0929-4e1f-ac2b-722b0e630cc4_cardiology_logo.png'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\d0f7a2eb-197b-40e1-9909-d867f451638c_bacsithuy.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\d0f7a2eb-197b-40e1-9909-d867f451638c_bacsithuy.jpeg'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -316,11 +354,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>mrebh6pyb5</Fingerprint>
+      <Integrity>griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\d0f7a2eb-197b-40e1-9909-d867f451638c_bacsithuy.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\d0f7a2eb-197b-40e1-9909-d867f451638c_bacsithuy.jpeg'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\df532163-7574-46da-8584-460efd246030.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\df532163-7574-46da-8584-460efd246030.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -332,11 +372,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>tbfjmykoxw</Fingerprint>
+      <Integrity>p00AR4GxqJv5sk8XVE7bXvZ9HsGwAAvfAh4+rwkXcnY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\df532163-7574-46da-8584-460efd246030.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\df532163-7574-46da-8584-460efd246030.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\e0e61776-cc8b-4736-b78a-e7d3daafd572.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\e0e61776-cc8b-4736-b78a-e7d3daafd572.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -348,11 +390,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>tbfjmykoxw</Fingerprint>
+      <Integrity>p00AR4GxqJv5sk8XVE7bXvZ9HsGwAAvfAh4+rwkXcnY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\e0e61776-cc8b-4736-b78a-e7d3daafd572.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\e0e61776-cc8b-4736-b78a-e7d3daafd572.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\ea13d084-5936-45a1-bac5-25cce34425a6_4.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\ea13d084-5936-45a1-bac5-25cce34425a6_4.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -364,11 +408,13 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>mj57tfz5hq</Fingerprint>
+      <Integrity>Lp8E1sEYB5nilk8a74oMaQOMXLQKM1li7PqZF1JDL5A=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\ea13d084-5936-45a1-bac5-25cce34425a6_4.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\ea13d084-5936-45a1-bac5-25cce34425a6_4.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\home_picture_5fd7a311-7f2f-4d02-b80c-ef57754b0a33.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\home_picture_5fd7a311-7f2f-4d02-b80c-ef57754b0a33.png'))">
       <SourceType>Package</SourceType>
       <SourceId>BookingCare.WebAPI</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
@@ -380,9 +426,11 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>2jkh5thd5y</Fingerprint>
+      <Integrity>0nToGmZdOsDO7vKnb6hPhg8ewk49Oyr0GzGOydIo4eo=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\home_picture_5fd7a311-7f2f-4d02-b80c-ef57754b0a33.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\home_picture_5fd7a311-7f2f-4d02-b80c-ef57754b0a33.png'))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

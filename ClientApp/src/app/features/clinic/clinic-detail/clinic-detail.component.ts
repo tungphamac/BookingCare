@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ClinicService } from '../services/clinic.service';
-import { Clinic } from '../models/clinic.model';
+import { Clinic } from '../models/clinic';
 import { Location } from '@angular/common'; // Import Location
 
 @Component({

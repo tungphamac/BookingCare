@@ -25,16 +25,16 @@ import { ScheduleManagementComponent } from './features/schedule/components/mana
 import { SpecializationDetailComponent } from './features/specialization/components/specialization-detail/specialization-detail.component';
 import { ListDoctorComponent } from './features/doctor/list-doctor/list-doctor.component';
 import { AddDoctorComponent } from './features/doctor/add-doctor/add-doctor.component';
-
+import { SpecializationListComponent } from './features/specialization/components/specialization-list/specialization-list.component';
 import { PatientsComponent } from './features/patient/patient.component';
 import { AddPatientComponent } from './features/patient/add-patient/add-patient.component';
 import { PatientEditComponent } from './features/patient/edit-patient/edit-patient.component';
 import { ClinicListComponent } from './features/clinic/clinic.component';
 import { AddClinicComponent } from './features/clinic/add-clinic/add-clinic.component';
 import { ClinicEditComponent } from './features/clinic/edit-clinic/edit-clinic.component';
-import { SpecializationListComponent } from './features/specialization/specialization.component';
 import { AddSpecializationComponent } from './features/specialization/add-specialization/add-specialization.component';
 import { EditSpecializationComponent } from './features/specialization/edit-specialization/edit-specialization.component';
+import { SpecializationComponent } from './features/specialization/specialization.component';
 
 export const routes: Routes = [
 
@@ -68,7 +68,7 @@ export const routes: Routes = [
     { path: 'Clinic/getall', component: ClinicListComponent },
     { path: 'Clinic/add', component: AddClinicComponent },
     { path: 'Clinic/update/:id', component: ClinicEditComponent },
-    { path: 'Specialization/getall', component: SpecializationListComponent },
+    { path: 'Specialization/getall', component: SpecializationComponent },
     { path: 'Specialization/add', component: AddSpecializationComponent },
     { path: 'Specialization/update/:id', component: EditSpecializationComponent },
 
