@@ -2,7 +2,6 @@
 using BookingCare.Business.Services.Base;
 using BookingCare.Business.ViewModels;
 using BookingCare.Data.Models;
-using Microsoft.AspNetCore.Http;
 
 namespace BookingCare.Business.Services.Interfaces
 {

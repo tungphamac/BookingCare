@@ -13,8 +13,9 @@ import { ClinicService } from '../services/services.service';
   templateUrl: './add-clinic.component.html',
   styleUrls: ['./add-clinic.component.css']
 })
-export class ClinicCreateComponent {
+export class AddClinicComponent {
   clinic: Clinic = {
+    id: 0,
     name: '',
     address: '',
     phone: 0,
@@ -26,10 +27,10 @@ export class ClinicCreateComponent {
   toggleDarkMode() {
     this.isDarkMode = !this.isDarkMode;
   }
-  
+
   errorMessage = '';
 
-  constructor(private clinicService: ClinicService, private router: Router) {}
+  constructor(private clinicService: ClinicService, private router: Router) { }
 
   // addClinic(): void {
   //   this.clinicService.addClinic(this.clinic).subscribe({
@@ -47,7 +48,7 @@ export class ClinicCreateComponent {
     if (form.invalid) {
       return; // ⛔ Không gửi nếu form chưa hợp lệ
     }
-  
+
     this.clinicService.addClinic(this.clinic).subscribe({
       next: () => {
         alert('Thêm phòng khám thành công!');
@@ -62,5 +63,5 @@ export class ClinicCreateComponent {
   goBack() {
     this.router.navigate(['/Clinic/getall']);
   }
-  
+
 }

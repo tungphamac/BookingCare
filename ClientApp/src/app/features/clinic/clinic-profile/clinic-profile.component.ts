@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ClinicService } from '../services/clinic.service';
-import { Clinic } from '../models/clinic';
+import { Clinic } from '../models/clinic.model';
 import { Location } from '@angular/common';
 
 @Component({
@@ -20,7 +20,7 @@ export class ClinicProfileComponent implements OnInit {
     private route: ActivatedRoute,
     private clinicService: ClinicService,
     private location: Location
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     const idParam = this.route.snapshot.paramMap.get('id');
