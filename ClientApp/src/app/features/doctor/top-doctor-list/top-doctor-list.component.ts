@@ -5,7 +5,7 @@ import { RouterEvent, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-top-doctor-list',
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule, RouterLink],
   templateUrl: './top-doctor-list.component.html',
   styleUrl: './top-doctor-list.component.css'
 })

@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { DoctorService } from '../services/doctor.service';
 import { Doctor } from '../models/doctor.model';
 import { Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { DoctorService } from '../services/doctor.service'; // Ensure this service is implemented to fetch data
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-doctor-profile',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './doctor-profile.component.html',
-  styleUrl: './doctor-profile.component.css'
+  styleUrls: ['./doctor-profile.component.css']
 })
 export class DoctorProfileComponent implements OnInit {
   doctor: Doctor | null = null;
@@ -21,7 +21,7 @@ export class DoctorProfileComponent implements OnInit {
     private route: ActivatedRoute,
     private doctorService: DoctorService,
     private location: Location
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     const idParam = this.route.snapshot.paramMap.get('id');
@@ -49,3 +49,4 @@ export class DoctorProfileComponent implements OnInit {
     this.location.back();
   }
 }
+

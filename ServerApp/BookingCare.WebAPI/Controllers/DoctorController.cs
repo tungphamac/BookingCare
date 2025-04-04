@@ -1,5 +1,6 @@
 ﻿using BookingCare.API.Dtos;
 using BookingCare.Business.Services.Interfaces;
+using BookingCare.Business.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,7 +26,7 @@ namespace BookingCare.API.Controllers
         {
             try
             {
-                var doctor = await _doctorService.GetDoctorDetailAsync(id);
+                var doctor = await _doctorService.GetDoctorByIdAsync(id);
                 if (doctor == null)
                 {
                     return NotFound(new { Message = $"Doctor with ID {id} not found." });
@@ -76,9 +77,10 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpPut("update/{id}")]
+
+        [HttpPut("update-doctor-by-id/{id}")]
         [Authorize(Roles = "Admin")] // Chỉ Admin được sửa bác sĩ
-        public async Task<IActionResult> UpdateDoctor(int id, [FromBody] DoctorUpdateDto doctorUpdateDto)
+        public async Task<IActionResult> UpdateDoctor(int id, [FromBody] DoctorUpdateDto doctorUpdateDto, IFormFile avatar)
         {
             try
             {
@@ -164,5 +166,47 @@ namespace BookingCare.API.Controllers
                 return Problem($"Error fetching top doctors: {ex.Message}");
             }
         }
+
+        [HttpPut("update-doctor-profile/{doctorId}")]
+        public async Task<IActionResult> UpdateDoctorProfile(int doctorId, [FromForm] UpdateDoctorVm updateDoctorVm)
+        {
+            try
+            {
+                // Kiểm tra xem avatar có được gửi lên không
+                if (updateDoctorVm.Avatar == null || updateDoctorVm.Avatar.Length == 0)
+                {
+                    return BadRequest(new { Message = "Avatar file is required." });
+                }
+
+                // Kiểm tra dữ liệu đầu vào
+                if (updateDoctorVm == null)
+                {
+                    return BadRequest(new { Message = "Doctor data is required." });
+                }
+
+                // Gọi service để cập nhật thông tin bác sĩ
+                var result = await _doctorService.UpdateDoctorProfileAsync(doctorId, updateDoctorVm);
+
+                // Kiểm tra kết quả trả về từ service
+                if (!result)
+                {
+                    return NotFound(new { Message = $"Doctor with ID {doctorId} not found." });
+                }
+
+                // Thành công
+                return Ok(new { Message = "Doctor profile updated successfully." });
+            }
+            catch (ArgumentException ex)
+            {
+                _logger.LogError(ex, $"Invalid argument when updating doctor profile with ID {doctorId}.");
+                return BadRequest(new { Message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error updating doctor profile with ID {doctorId}.");
+                return StatusCode(500, "An error occurred while updating the doctor profile.");
+            }
+        }
+
     }
 }

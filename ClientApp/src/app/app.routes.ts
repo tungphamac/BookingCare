@@ -9,6 +9,7 @@ import { LoginComponent } from './features/auth/login/login.component';
 import { RegisterComponent } from './features/register/register/register.component';
 import { ForgotPasswordComponent } from './features/ForgotPassword/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './features/ResetPassword/reset-password/reset-password.component';
+import { FeedbackViewComponent } from './features/feedback/feedback-view/feedback-view.component';
 
 import { ManageMedicalRecordComponent } from './features/medicalRecord/component/manage-medical-record/manage-medical-record.component';
 import { ViewAppointmentDetailComponent } from './features/appointment/components/view-appointment-detail/view-appointment-detail.component';
@@ -41,8 +42,8 @@ import { AddSpecializationComponent } from './features/specialization/add-specia
 import { EditSpecializationComponent } from './features/specialization/edit-specialization/edit-specialization.component';
 
 export const routes: Routes = [
-  { path: '', component: HomepageComponent },
-  
+    { path: '', component: HomepageComponent },
+
 
 
     {
@@ -89,24 +90,20 @@ export const routes: Routes = [
 
 
 
-  { path: 'patients/:id', component: PatientDetailComponent },
+    { path: 'patients/:id', component: PatientDetailComponent },
 
-  { path: 'clinics/top-clinic', component: TopClinicListComponent },
-  { path: 'clinics/:id', component: ClinicDetailComponent },
-  { path: 'doctors/:id', component: DoctorDetailComponent },
-  { path: 'feedbacks/list', component: FeedbackListComponent },
-  { path: 'feedbacks/add', component: FeedbackAddComponent },
-  { path: 'search', component: SearchComponent },
-  { path: 'patient-search', component: PatientSearchComponent },
-  { path: 'doctor-profile/:id', component: DoctorProfileComponent },
-  { path: 'clinic-profile/:id', component: ClinicProfileComponent },
-  { path: 'patients/:id', component: PatientDetailComponent },
-  { path: 'notifications', component: NotificationListComponent }, // Thêm route để test
+    { path: 'clinics/:id', component: ClinicDetailComponent },
+    { path: 'doctors/:id', component: DoctorDetailComponent },
+    { path: 'search', component: SearchComponent },
+    { path: 'patient-search', component: PatientSearchComponent },
+    { path: 'clinic-profile/:id', component: ClinicProfileComponent },
+    { path: 'patients/:id', component: PatientDetailComponent },
+    { path: 'notifications', component: NotificationListComponent }, // Thêm route để test
 
     { path: 'admin/get-all-doctors', component: ListDoctorComponent },
-    { path: 'admin/add-doctor', component: AddDoctorComponent },   
-    {path:'admin/get-all-patients', component: PatientsComponent},
-    {path:'admin/add-patient', component:AddPatientComponent},
+    { path: 'admin/add-doctor', component: AddDoctorComponent },
+    { path: 'admin/get-all-patients', component: PatientsComponent },
+    { path: 'admin/add-patient', component: AddPatientComponent },
     //{ path: 'Patient/update/:id', component: PatientEditComponent },
     { path: 'Clinic/getall', component: ClinicListComponent },
     { path: 'Clinic/add', component: ClinicCreateComponent },
@@ -115,5 +112,10 @@ export const routes: Routes = [
     { path: 'Specialization/add', component: AddSpecializationComponent },
     { path: 'Specialization/update/:id', component: EditSpecializationComponent },
 
+    { path: 'clinics/top-clinic', component: TopClinicListComponent },
+    { path: 'feedbacks/list', component: FeedbackListComponent },
+    { path: 'feedbacks/add/:appointmentId', component: FeedbackAddComponent },
+    { path: 'doctors/profile/:doctorId', component: DoctorProfileComponent },
+    { path: 'feedbacks/view/:doctorId', component: FeedbackViewComponent }
 
 ];
