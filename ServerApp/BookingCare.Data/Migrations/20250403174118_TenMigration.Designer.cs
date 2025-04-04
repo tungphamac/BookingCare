@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookingCare.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250403075251_InitialDb")]
-    partial class InitialDb
+    [Migration("20250403174118_TenMigration")]
+    partial class TenMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -137,7 +137,34 @@ namespace BookingCare.Data.Migrations
                             CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
                             Introduction = "Comprehensive care",
                             Name = "Health Center",
-                            Phone = 987654321
+                            Phone = 1234567894
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "123 Sunshine Ave",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Family healthcare provider",
+                            Name = "Sunshine Clinic",
+                            Phone = 1551112233
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "789 Green Valley Rd",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Specialized medical services",
+                            Name = "Green Valley Hospital",
+                            Phone = 1442223344
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "456 Blue Sky Ln",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Modern healthcare solutions",
+                            Name = "Blue Sky Clinic",
+                            Phone = 1334445566
                         });
                 });
 
@@ -488,6 +515,27 @@ namespace BookingCare.Data.Migrations
                             Description = "Brain specialist",
                             Image = "neuro.jpg",
                             Name = "Neurology"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Child health specialist",
+                            Image = "pediatrics.jpg",
+                            Name = "Pediatrics"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "Bone and joint specialist",
+                            Image = "ortho.jpg",
+                            Name = "Orthopedics"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Description = "Skin specialist",
+                            Image = "derm.jpg",
+                            Name = "Dermatology"
                         });
                 });
 
@@ -645,6 +693,88 @@ namespace BookingCare.Data.Migrations
                             SecurityStamp = "stamp4",
                             TwoFactorEnabled = false,
                             UserName = "patient1@example.com"
+                        });
+                });
+
+            modelBuilder.Entity("ClinicSpecialization", b =>
+                {
+                    b.Property<int>("ClinicsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SpecializationsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ClinicsId", "SpecializationsId");
+
+                    b.HasIndex("SpecializationsId");
+
+                    b.ToTable("ClinicSpecialization");
+
+                    b.HasData(
+                        new
+                        {
+                            ClinicsId = 1,
+                            SpecializationsId = 1
+                        },
+                        new
+                        {
+                            ClinicsId = 1,
+                            SpecializationsId = 2
+                        },
+                        new
+                        {
+                            ClinicsId = 1,
+                            SpecializationsId = 3
+                        },
+                        new
+                        {
+                            ClinicsId = 2,
+                            SpecializationsId = 2
+                        },
+                        new
+                        {
+                            ClinicsId = 2,
+                            SpecializationsId = 4
+                        },
+                        new
+                        {
+                            ClinicsId = 3,
+                            SpecializationsId = 3
+                        },
+                        new
+                        {
+                            ClinicsId = 3,
+                            SpecializationsId = 5
+                        },
+                        new
+                        {
+                            ClinicsId = 4,
+                            SpecializationsId = 1
+                        },
+                        new
+                        {
+                            ClinicsId = 4,
+                            SpecializationsId = 4
+                        },
+                        new
+                        {
+                            ClinicsId = 4,
+                            SpecializationsId = 5
+                        },
+                        new
+                        {
+                            ClinicsId = 5,
+                            SpecializationsId = 2
+                        },
+                        new
+                        {
+                            ClinicsId = 5,
+                            SpecializationsId = 3
+                        },
+                        new
+                        {
+                            ClinicsId = 5,
+                            SpecializationsId = 5
                         });
                 });
 
@@ -963,6 +1093,21 @@ namespace BookingCare.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Doctor");
+                });
+
+            modelBuilder.Entity("ClinicSpecialization", b =>
+                {
+                    b.HasOne("BookingCare.Data.Models.Clinic", null)
+                        .WithMany()
+                        .HasForeignKey("ClinicsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BookingCare.Data.Models.Specialization", null)
+                        .WithMany()
+                        .HasForeignKey("SpecializationsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

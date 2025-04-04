@@ -8,7 +8,7 @@ namespace BookingCare.Business.Services.Interfaces
     public interface IDoctorService : IBaseService<Doctor>
     {
         Task<DoctorDetailDto?> GetDoctorDetailAsync(int id);
-        Task<List<DoctorDetailDto>> GetAllDoctorsAsync(); // Thêm phương thức lấy danh sách bác sĩ
+        Task<List<DoctorDetailDto>> GetAllDoctorsAsync();
         Task<int> CreateDoctorAsync(CreateDoctorDto createDoctorDto);
         Task<bool> UpdateDoctorAsync(int doctorId, DoctorUpdateDto doctorUpdateDto);
         Task<bool> DeleteDoctorAsync(int doctorId);
@@ -17,5 +17,6 @@ namespace BookingCare.Business.Services.Interfaces
         Task<ICollection<TopRatingDoctorVm>> GetTopRatingDoctors(int top);// lấy top doctor có rating trung bình cao nhất
         Task<bool> UpdateDoctorProfileAsync(int doctorId, UpdateDoctorVm updateDoctorVm);// update doctor profile, change avatar
         Task<DoctorVm> GetDoctorByIdAsync(int doctorId);
+        Task<List<DoctorDetailDto>> GetDoctorsBySpecializationIdAsync(int specializationId); // Thêm phương thức mới
     }
 }
