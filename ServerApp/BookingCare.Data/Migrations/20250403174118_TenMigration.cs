@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BookingCare.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialDb : Migration
+    public partial class TenMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -238,6 +238,30 @@ namespace BookingCare.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ClinicSpecialization",
+                columns: table => new
+                {
+                    ClinicsId = table.Column<int>(type: "int", nullable: false),
+                    SpecializationsId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ClinicSpecialization", x => new { x.ClinicsId, x.SpecializationsId });
+                    table.ForeignKey(
+                        name: "FK_ClinicSpecialization_Clinics_ClinicsId",
+                        column: x => x.ClinicsId,
+                        principalTable: "Clinics",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ClinicSpecialization_Specializations_SpecializationsId",
+                        column: x => x.SpecializationsId,
+                        principalTable: "Specializations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Doctors",
                 columns: table => new
                 {
@@ -447,7 +471,10 @@ namespace BookingCare.Data.Migrations
                 values: new object[,]
                 {
                     { 1, "789 Clinic St", new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc), "Top clinic in the city", "City Clinic", 1234567890 },
-                    { 2, "456 Health St", new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc), "Comprehensive care", "Health Center", 987654321 }
+                    { 2, "456 Health St", new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc), "Comprehensive care", "Health Center", 1234567894 },
+                    { 3, "123 Sunshine Ave", new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc), "Family healthcare provider", "Sunshine Clinic", 1551112233 },
+                    { 4, "789 Green Valley Rd", new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc), "Specialized medical services", "Green Valley Hospital", 1442223344 },
+                    { 5, "456 Blue Sky Ln", new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc), "Modern healthcare solutions", "Blue Sky Clinic", 1334445566 }
                 });
 
             migrationBuilder.InsertData(
@@ -456,7 +483,10 @@ namespace BookingCare.Data.Migrations
                 values: new object[,]
                 {
                     { 1, "Heart specialist", "cardio.jpg", "Cardiology" },
-                    { 2, "Brain specialist", "neuro.jpg", "Neurology" }
+                    { 2, "Brain specialist", "neuro.jpg", "Neurology" },
+                    { 3, "Child health specialist", "pediatrics.jpg", "Pediatrics" },
+                    { 4, "Bone and joint specialist", "ortho.jpg", "Orthopedics" },
+                    { 5, "Skin specialist", "derm.jpg", "Dermatology" }
                 });
 
             migrationBuilder.InsertData(
@@ -468,6 +498,26 @@ namespace BookingCare.Data.Migrations
                     { 2, 2 },
                     { 2, 3 },
                     { 3, 4 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ClinicSpecialization",
+                columns: new[] { "ClinicsId", "SpecializationsId" },
+                values: new object[,]
+                {
+                    { 1, 1 },
+                    { 1, 2 },
+                    { 1, 3 },
+                    { 2, 2 },
+                    { 2, 4 },
+                    { 3, 3 },
+                    { 3, 5 },
+                    { 4, 1 },
+                    { 4, 4 },
+                    { 4, 5 },
+                    { 5, 2 },
+                    { 5, 3 },
+                    { 5, 5 }
                 });
 
             migrationBuilder.InsertData(
@@ -569,6 +619,11 @@ namespace BookingCare.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ClinicSpecialization_SpecializationsId",
+                table: "ClinicSpecialization",
+                column: "SpecializationsId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Doctors_ClinicId",
                 table: "Doctors",
                 column: "ClinicId");
@@ -633,6 +688,9 @@ namespace BookingCare.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "ClinicSpecialization");
 
             migrationBuilder.DropTable(
                 name: "Feedbacks");

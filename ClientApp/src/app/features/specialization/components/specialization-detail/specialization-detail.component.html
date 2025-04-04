@@ -1,0 +1,57 @@
+<div class="specialization-detail-container">
+    <!-- Loading indicator -->
+    <div *ngIf="isLoading" class="loading">
+      <p>Đang tải thông tin...</p>
+    </div>
+  
+    <!-- Error message -->
+    <div *ngIf="errorMessage" class="error-message">
+      <p>{{ errorMessage }}</p>
+    </div>
+  
+    <!-- Specialization details -->
+    <div *ngIf="specialization && !isLoading" class="specialization-info">
+      <h1>{{ specialization.name }}</h1>
+      <div class="specialization-description">
+        <h2>Mô tả chuyên khoa</h2>
+        <p>{{ specialization.description }}</p>
+      </div>
+    </div>
+  
+    <!-- Doctors list -->
+    <div *ngIf="doctors.length > 0 && !isLoading" class="doctors-list">
+      <h2>Bác sĩ thuộc chuyên khoa này</h2>
+      <div class="doctors-grid">
+        <div *ngFor="let doctor of doctors" class="doctor-card">
+          <h3>{{ doctor.userName }}</h3>
+          <p><strong>Chuyên khoa:</strong> {{ doctor.specializationName }}</p>
+          <p><strong>Phòng khám:</strong> {{ doctor.clinicName }}</p>
+          <p *ngIf="doctor.achievement"><strong>Thành tựu:</strong> {{ doctor.achievement }}</p>
+          <a [routerLink]="['/doctor-profile', doctor.id]" class="btn-view-doctor">Xem chi tiết</a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Clinics list -->
+    <div *ngIf="clinics.length > 0 && !isLoading" class="clinics-list">
+      <h2>Phòng khám thuộc chuyên khoa này</h2>
+      <div class="clinics-grid">
+        <div *ngFor="let clinic of clinics" class="clinic-card">
+          <h3>{{ clinic.name }}</h3>
+          <p><strong>Địa chỉ:</strong> {{ clinic.address }}</p>
+          <p><strong>Số điện thoại:</strong> {{ clinic.phone }}</p>
+          <p *ngIf="clinic.introduction"><strong>Giới thiệu:</strong> {{ clinic.introduction }}</p>
+          <a [routerLink]="['/clinic-profile', clinic.id]" class="btn-view-clinic">Xem chi tiết</a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- No data messages -->
+    <div *ngIf="!isLoading && doctors.length === 0" class="no-data">
+      <p>Không có bác sĩ nào thuộc chuyên khoa này.</p>
+    </div>
+  
+    <div *ngIf="!isLoading && clinics.length === 0" class="no-data">
+      <p>Không có phòng khám nào thuộc chuyên khoa này.</p>
+    </div>
+  </div>

@@ -20,8 +20,8 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpGet("get-doctor-by-id/{id}")]
-
         //[Authorize(Roles = "Admin,Patient,Doctor")] // Admin, Patient, Doctor có thể xem chi tiết bác sĩ
+
         public async Task<IActionResult> GetDoctorById(int id)
         {
             try
@@ -42,6 +42,7 @@ namespace BookingCare.API.Controllers
 
         [HttpGet("getall")]
         //[Authorize(Roles = "Admin,Patient")] // Chỉ Admin, patient được lấy danh sách bác sĩ
+        [Authorize(Roles = "Admin,Patient")]
         public async Task<IActionResult> GetAllDoctors()
         {
             try
@@ -57,8 +58,8 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpPost("add_doctor")]
-
         //[Authorize(Roles = "Admin")] // Chỉ Admin được tạo bác sĩ
+
         public async Task<IActionResult> CreateDoctor([FromBody] CreateDoctorDto createDoctorDto)
         {
             try
@@ -78,9 +79,9 @@ namespace BookingCare.API.Controllers
         }
 
 
-        [HttpPut("update-doctor-by-id/{id}")]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được sửa bác sĩ
-        public async Task<IActionResult> UpdateDoctor(int id, [FromBody] DoctorUpdateDto doctorUpdateDto, IFormFile avatar)
+        [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> UpdateDoctor(int id, [FromBody] DoctorUpdateDto doctorUpdateDto)
         {
             try
             {
@@ -98,8 +99,9 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpDelete("delete/{id}")]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được xóa bác sĩ
+
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteDoctor(int id)
         {
             try
@@ -119,7 +121,7 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpPost("lock/{id}")]
-        [Authorize(Roles = "Admin")] // Chỉ Admin được khóa/mở khóa tài khoản bác sĩ
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> LockDoctorAccount(int id, [FromQuery] DateTime lockUntil)
         {
             try
@@ -152,7 +154,6 @@ namespace BookingCare.API.Controllers
             }
         }
 
-
         [HttpGet("get-top-rating-doctors")]
         public async Task<IActionResult> GetTopRatingDoctors()
         {
@@ -161,12 +162,11 @@ namespace BookingCare.API.Controllers
                 var topRatingDoctors = await _doctorService.GetTopRatingDoctors(3);
                 return Ok(topRatingDoctors);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return Problem($"Error fetching top doctors: {ex.Message}");
             }
         }
-
         [HttpPut("update-doctor-profile/{doctorId}")]
         public async Task<IActionResult> UpdateDoctorProfile(int doctorId, [FromForm] UpdateDoctorVm updateDoctorVm)
         {
@@ -208,5 +208,19 @@ namespace BookingCare.API.Controllers
             }
         }
 
+        [HttpGet("get-doctors-by-specialization/{specializationId}")]
+        public async Task<IActionResult> GetDoctorsBySpecializationId(int specializationId)
+        {
+            try
+            {
+                var doctors = await _doctorService.GetDoctorsBySpecializationIdAsync(specializationId);
+                return Ok(doctors);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving doctors for Specialization ID {specializationId}.");
+                return StatusCode(500, "An error occurred while retrieving doctors.");
+            }
+        }
     }
 }

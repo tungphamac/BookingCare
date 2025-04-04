@@ -1,8 +1,6 @@
 ﻿using BookingCare.API.Dtos;
 using BookingCare.Business.Services.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 
 namespace BookingCare.API.Controllers
 {
@@ -19,8 +17,7 @@ namespace BookingCare.API.Controllers
             _logger = logger;
         }
 
-        [HttpGet("{id}")]
-        [Authorize(Roles = "Doctor,Patient")] // Doctor, Patient có thể xem chi tiết lịch
+        [HttpGet("get-schedule-by-id/{id}")]
         public async Task<IActionResult> GetScheduleById(int id)
         {
             try
@@ -40,7 +37,6 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Doctor,Patient")] // Doctor, Patient có thể xem danh sách lịch
         public async Task<IActionResult> GetAllSchedules()
         {
             try
@@ -55,15 +51,11 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpPost]
-        [Authorize(Roles = "Doctor")] // Chỉ Doctor được tạo lịch
-        public async Task<IActionResult> CreateSchedule([FromBody] ScheduleDetailDto scheduleDto)
+        [HttpPost("Create-schedule-by-doctor/{doctorId}")]
+        public async Task<IActionResult> CreateSchedule(int doctorId, [FromBody] CreateScheduleDto scheduleDto)
         {
             try
             {
-                // Lấy DoctorId từ token
-                var doctorId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
-
                 var scheduleId = await _scheduleService.CreateScheduleAsync(scheduleDto, doctorId);
                 return Ok(new { Message = "Schedule created successfully.", ScheduleId = scheduleId });
             }
@@ -78,52 +70,51 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        [Authorize(Roles = "Doctor")] // Chỉ Doctor được sửa lịch
-        public async Task<IActionResult> UpdateSchedule(int id, [FromBody] ScheduleDetailDto scheduleDto)
+        [HttpPut("edit-schedule-by-id/{id}")]
+        public async Task<IActionResult> UpdateSchedule(int id, [FromBody] UpdateScheduleDto scheduleDto)
         {
             try
             {
-                // Lấy DoctorId từ token
-                var doctorId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
-
-                var result = await _scheduleService.UpdateScheduleAsync(id, scheduleDto, doctorId);
+                var result = await _scheduleService.UpdateScheduleAsync(id, scheduleDto); // Bỏ doctorId
                 if (!result)
                 {
                     return NotFound(new { Message = $"Schedule with ID {id} not found." });
                 }
                 return Ok(new { Message = "Schedule updated successfully." });
             }
-            catch (UnauthorizedAccessException ex)
-            {
-                return Unauthorized(new { Message = ex.Message });
-            }
             catch (Exception ex)
             {
                 _logger.LogError(ex, $"Error updating schedule with ID {id}.");
-                return StatusCode(500, "An error occurred while updating the schedule.");
+                return StatusCode(500, new { Message = "An error occurred while updating the schedule.", Details = ex.Message });
             }
         }
 
-        [HttpDelete("{id}")]
-        [Authorize(Roles = "Doctor")] // Chỉ Doctor được xóa lịch
+        [HttpGet("get-schedules-by-id/{doctorId}")]
+        public async Task<IActionResult> GetSchedulesByDoctorId(int doctorId)
+        {
+            try
+            {
+                var schedules = await _scheduleService.GetSchedulesByDoctorIdAsync(doctorId);
+                return Ok(schedules);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving schedules for Doctor ID {doctorId}.");
+                return StatusCode(500, "An error occurred while retrieving schedules.");
+            }
+        }
+
+        [HttpDelete("delete-schedule-by-id/{id}")] // Đổi sang HttpDelete cho phù hợp
         public async Task<IActionResult> DeleteSchedule(int id)
         {
             try
             {
-                // Lấy DoctorId từ token
-                var doctorId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
-
-                var result = await _scheduleService.DeleteScheduleAsync(id, doctorId);
+                var result = await _scheduleService.DeleteScheduleAsync(id); // Bỏ doctorId
                 if (!result)
                 {
                     return NotFound(new { Message = $"Schedule with ID {id} not found." });
                 }
                 return Ok(new { Message = "Schedule deleted successfully." });
-            }
-            catch (UnauthorizedAccessException ex)
-            {
-                return Unauthorized(new { Message = ex.Message });
             }
             catch (InvalidOperationException ex)
             {

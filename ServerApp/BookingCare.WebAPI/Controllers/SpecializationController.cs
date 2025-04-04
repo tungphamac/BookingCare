@@ -20,8 +20,8 @@ namespace BookingCare.API.Controllers
             _logger = logger;
         }
 
-        [HttpGet("getby/{id}")]
         //[Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem chi tiết specialization
+        [HttpGet("get-specialization-by-id/{id}")]
         public async Task<IActionResult> GetSpecializationById(int id)
         {
             try
@@ -56,7 +56,7 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpPost("add")]
+        [HttpPost]
         //[Authorize(Roles = "Admin")] // Chỉ Admin được tạo specialization
         public async Task<IActionResult> CreateSpecialization([FromBody] SpecializationDetailDto specializationDto)
         {
@@ -72,7 +72,8 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpPut("update/{id}")]
+
+        [HttpPut("{id}")]
         //[Authorize(Roles = "Admin")] // Chỉ Admin được sửa specialization
         public async Task<IActionResult> UpdateSpecialization(int id, [FromBody] SpecializationDetailDto specializationDto)
         {
@@ -92,7 +93,7 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpDelete("delete/{id}")]
+        [HttpDelete("{id}")]
         //[Authorize(Roles = "Admin")] // Chỉ Admin được xóa specialization
         public async Task<IActionResult> DeleteSpecialization(int id)
         {
@@ -160,5 +161,20 @@ namespace BookingCare.API.Controllers
             return Ok(new { fileName = fileName });  // Trả lại tên file đã lưu
         }
 
+        [HttpGet("clinic/{clinicId}")]
+        //[Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem danh sách specialization theo clinic
+        public async Task<IActionResult> GetSpecializationsByClinicId(int clinicId)
+        {
+            try
+            {
+                var specializations = await _specializationService.GetSpecializationsByClinicIdAsync(clinicId);
+                return Ok(specializations);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving specializations for Clinic with ID {clinicId}.");
+                return StatusCode(500, "An error occurred while retrieving specializations for the clinic.");
+            }
+        }
     }
 }

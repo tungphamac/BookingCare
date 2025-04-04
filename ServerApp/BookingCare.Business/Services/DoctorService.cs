@@ -390,42 +390,41 @@ namespace BookingCare.Business.Services
             return topRatingDoctors;
         }
 
-        public async Task<DoctorVm> GetDoctorByIdAsync(int doctorId)
+
+        public async Task<List<DoctorDetailDto>> GetDoctorsBySpecializationIdAsync(int specializationId)
         {
             try
             {
-                var doctor = await _unitOfWork.DoctorRepository
-                    .GetQuery(d => d.UserId == doctorId)
+                var doctors = await _unitOfWork.DoctorRepository
+                    .GetQuery(d => d.SpecializationId == specializationId)
                     .Include(d => d.User)
                     .Include(d => d.Specialization)
                     .Include(d => d.Clinic)
-                    .Select(d => new DoctorVm()
+                    .Select(d => new DoctorDetailDto
                     {
                         Id = d.UserId,
-                        Name = d.User.UserName,
-                        Gender = d.User.Gender,
+                        UserName = d.User.UserName,
                         Email = d.User.Email,
-                        Phone = d.User.PhoneNumber,
+                        Gender = d.User.Gender,
                         Address = d.User.Address,
                         Avatar = d.User.Avatar,
                         Achievement = d.Achievement,
                         Description = d.Description,
-                        SpecializationId = d.SpecializationId,
-                        ClinicId = d.ClinicId
+                        SpecializationName = d.Specialization.Name,
+                        ClinicName = d.Clinic.Name
                     })
-                    .FirstOrDefaultAsync();
+                    .ToListAsync();
 
-                if (doctor == null)
+                if (doctors.Count == 0)
                 {
-                    _logger.LogWarning($"Doctor with ID {doctorId} not found.");
-                    return null;
+                    _logger.LogWarning($"No doctors found for Specialization ID {specializationId}.");
                 }
 
-                return doctor;
+                return doctors;
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, $"Error retrieving doctor details for ID {doctorId}.");
+                _logger.LogError(ex, $"Error retrieving doctors for Specialization ID {specializationId}.");
                 throw;
             }
         }
