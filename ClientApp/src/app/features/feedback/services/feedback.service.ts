@@ -30,6 +30,10 @@ export class FeedbackService {
   }
 
   getFeedbacksByDoctor(doctorId: number): Observable<Feedback[]> {
+    if (!doctorId) {
+      console.error('Doctor ID is invalid for API call!');
+      throw new Error('Doctor ID is required');
+    }
     return this.http.get<Feedback[]>(`${API_URL}/Feedback/get-feedbacks-by-doctorId/${doctorId}`);
   }
 

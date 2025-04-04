@@ -152,3 +152,28 @@
 .btn-secondary:hover {
   background-color: #5a6268;
 }
+
+.the-feedbacks {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.feedback-card {
+  margin-bottom: 15px;
+}
+
+.feedback-card p {
+  margin: 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.feedback-card hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 1px solid #ddd;
+}

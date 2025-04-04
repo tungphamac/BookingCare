@@ -21,7 +21,6 @@ namespace BookingCare.API.Controllers
 
         [HttpGet("get-doctor-by-id/{id}")]
         //[Authorize(Roles = "Admin,Patient,Doctor")] // Admin, Patient, Doctor có thể xem chi tiết bác sĩ
-
         public async Task<IActionResult> GetDoctorById(int id)
         {
             try
@@ -41,7 +40,6 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpGet("getall")]
-        //[Authorize(Roles = "Admin,Patient")] // Chỉ Admin, patient được lấy danh sách bác sĩ
         [Authorize(Roles = "Admin,Patient")]
         public async Task<IActionResult> GetAllDoctors()
         {
@@ -59,7 +57,6 @@ namespace BookingCare.API.Controllers
 
         [HttpPost("add_doctor")]
         //[Authorize(Roles = "Admin")] // Chỉ Admin được tạo bác sĩ
-
         public async Task<IActionResult> CreateDoctor([FromBody] CreateDoctorDto createDoctorDto)
         {
             try
@@ -77,7 +74,6 @@ namespace BookingCare.API.Controllers
                 return StatusCode(500, "An error occurred while creating the doctor.");
             }
         }
-
 
         [HttpPut("{id}")]
         [Authorize(Roles = "Admin")]
@@ -98,7 +94,6 @@ namespace BookingCare.API.Controllers
                 return StatusCode(500, "An error occurred while updating the doctor.");
             }
         }
-
 
         [HttpDelete("{id}")]
         [Authorize(Roles = "Admin")]
@@ -167,6 +162,7 @@ namespace BookingCare.API.Controllers
                 return Problem($"Error fetching top doctors: {ex.Message}");
             }
         }
+
         [HttpPut("update-doctor-profile/{doctorId}")]
         public async Task<IActionResult> UpdateDoctorProfile(int doctorId, [FromForm] UpdateDoctorVm updateDoctorVm)
         {
@@ -219,6 +215,26 @@ namespace BookingCare.API.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, $"Error retrieving doctors for Specialization ID {specializationId}.");
+                return StatusCode(500, "An error occurred while retrieving doctors.");
+            }
+        }
+
+        // Thêm endpoint mới
+        [HttpGet("get-doctors-by-specialization-and-clinic")]
+        public async Task<IActionResult> GetDoctorsBySpecializationAndClinic([FromQuery] int specializationId, [FromQuery] int clinicId)
+        {
+            try
+            {
+                var doctors = await _doctorService.GetDoctorsBySpecializationAndClinicAsync(specializationId, clinicId);
+                return Ok(doctors);
+            }
+            catch (ArgumentException ex)
+            {
+                return NotFound(new { Message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving doctors for Specialization ID {specializationId} and Clinic ID {clinicId}.");
                 return StatusCode(500, "An error occurred while retrieving doctors.");
             }
         }

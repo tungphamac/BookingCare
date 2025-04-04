@@ -28,4 +28,8 @@ export class SpecializationService {
   getDoctorsBySpecializationId(specializationId: number): Observable<DoctorDetailDto[]> {
     return this.http.get<DoctorDetailDto[]>(`${API_URL}/Doctor/get-doctors-by-specialization/${specializationId}`); // Sửa endpoint
   }
+
+  getSpecializationsByClinicId(clinicId: number): Observable<Specialization[]> {
+    return this.http.get<Specialization[]>(`${API_URL}/Specialization/clinic/${clinicId}`);
+  }
 }

@@ -402,6 +402,27 @@
   },
   {
     "ContainingType": "BookingCare.API.Controllers.DoctorController",
+    "Method": "GetDoctorsBySpecializationAndClinic",
+    "RelativePath": "api/Doctor/get-doctors-by-specialization-and-clinic",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "specializationId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "clinicId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.DoctorController",
     "Method": "GetDoctorsBySpecializationId",
     "RelativePath": "api/Doctor/get-doctors-by-specialization/{specializationId}",
     "HttpMethod": "GET",
