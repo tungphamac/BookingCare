@@ -19,6 +19,8 @@
         public string Reason { get; set; }
         public int ClinicId { get; set; }
         public string Status { get; set; }
-        public DateTime CreatedAt { get; set; }       
+        public DateTime CreatedAt { get; set; }
+        public int DoctorId { get; set; }
+        public int ScheduleId { get; set; }
     }
 }

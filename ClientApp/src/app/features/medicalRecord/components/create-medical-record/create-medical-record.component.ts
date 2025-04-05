@@ -35,16 +35,17 @@ export class CreateMedicalRecordComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.authService.user().subscribe(user => {
-    //   const role = localStorage.getItem('role');
-    //   this.isDoctor = role === 'Doctor';
-    //   if (!this.isDoctor) {
-    //     this.errorMessage = 'Chỉ bác sĩ mới có quyền tạo hồ sơ y tế.';
-    //     this.router.navigate(['/appointments']);
-    //   } else {
-        this.loadAppointments();
-    //   }
-    // });
+    const role = localStorage.getItem('user-role'); // Dùng 'user-role' như bạn đã xác nhận trước
+    console.log('Role from localStorage:', role);
+    const isDoctor = role === 'Doctor';
+  
+    if (!isDoctor) {
+      this.errorMessage = 'Chỉ bác sĩ mới có quyền tạo hồ sơ y tế.';
+      this.router.navigate(['/appointments']);
+      return;
+    }
+  
+    this.loadAppointments();
   }
 
   loadAppointments(): void {

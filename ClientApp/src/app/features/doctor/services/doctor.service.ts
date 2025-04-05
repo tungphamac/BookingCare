@@ -5,7 +5,7 @@ import { TopDoctor } from '../models/top-doctor.model';
 import { API_URL } from '../../../app.config';
 import { TopRatingDoctor } from '../models/top-rating-doctor.model';
 import { Doctor } from '../models/doctor.model';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { CreateDoctorDto } from '../list-doctor/models/doctor.model';
 
 @Injectable({
@@ -13,7 +13,15 @@ import { CreateDoctorDto } from '../list-doctor/models/doctor.model';
 })
 export class DoctorService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
+
+  private getHeaders(): HttpHeaders {
+    const token = localStorage.getItem('token');
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+  }
 
 
   getTopDoctors(): Observable<TopDoctor[]> {
@@ -21,7 +29,7 @@ export class DoctorService {
   }
 
   getDoctorById(id: number): Observable<Doctor> {
-    return this.http.get<Doctor>(`${API_URL}/Doctor/get-doctor-by-id/${id}`);
+    return this.http.get<Doctor>(`${API_URL}/Doctor/get-doctor-by-id/${id}`, { headers: this.getHeaders() });
   }
 
   getTopRatingDoctors(): Observable<TopRatingDoctor[]> {
@@ -51,6 +59,13 @@ export class DoctorService {
   lockDoctorAccount(id: number, lockUntil: Date | null): Observable<any> {
     const params = new HttpParams().set('lockUntil', lockUntil?.toISOString() || '');
     return this.http.post<any>(`${API_URL}/Doctor/lock/${id}`, null, { params });
+  }
+
+  getClinicById(clinicId: number): Observable<{ id: number; name: string }> {
+    return this.http.get<{ id: number; name: string }>(
+      `${API_URL}/Clinic/get-clinic-by-id/${clinicId}`,
+      { headers: this.getHeaders() }
+    );
   }
 
 }

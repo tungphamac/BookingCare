@@ -1,16 +1,16 @@
 <div class="medical-record-container">
-    <h2>Xem Hồ sơ Y tế</h2>
-    <div class="loading" *ngIf="isLoading">Đang tải dữ liệu...</div>
-    <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
-  
-    <div *ngIf="medicalRecord" class="medical-record-info">
-      <p><strong>ID:</strong> {{ medicalRecord.id }}</p>
-      <p><strong>Lịch hẹn ID:</strong> {{ medicalRecord.appointmentId }}</p>
-      <p><strong>Chẩn đoán:</strong> {{ medicalRecord.diagnosis }}</p>
-      <p><strong>Điều trị:</strong> {{ medicalRecord.prescription }}</p>
-      <p><strong>Ghi chú:</strong> {{ medicalRecord.notes || 'Không có' }}</p>
-      <p><strong>Ngày tạo:</strong> {{ medicalRecord.createdAt | date:'dd/MM/yyyy HH:mm' }}</p>
-    </div>
-  
-    <button (click)="goBack()">Quay lại</button>
+  <h2>Xem Hồ sơ Y tế</h2>
+  <div class="loading" *ngIf="isLoading">Đang tải dữ liệu...</div>
+  <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+  <div *ngIf="medicalRecord" class="medical-record-info">
+    <p><strong>ID:</strong> {{ medicalRecord.id }}</p>
+    <p><strong>Lịch hẹn ID:</strong> {{ medicalRecord.appointmentId }}</p>
+    <p><strong>Chẩn đoán:</strong> {{ medicalRecord.diagnosis }}</p>
+    <p><strong>Điều trị:</strong> {{ medicalRecord.prescription }}</p>
+    <p><strong>Ghi chú:</strong> {{ medicalRecord.notes || 'Không có' }}</p>
+    <p><strong>Ngày tạo:</strong> {{ medicalRecord.createdAt | date:'dd/MM/yyyy HH:mm' }}</p>
   </div>
+
+  <button (click)="goBack()">Quay lại</button>
+</div>

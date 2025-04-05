@@ -1,4 +1,5 @@
-﻿using BookingCare.Business.Services.Base;
+﻿using BookingCare.Business.Dtos;
+using BookingCare.Business.Services.Base;
 using BookingCare.Business.Services.Interfaces;
 using BookingCare.Data.Infrastructure;
 using BookingCare.Data.Models;
@@ -77,45 +78,6 @@ namespace BookingCare.Business.Services
 
             return appointment;
         }
-        public async Task<List<Appointment>> GetAppointmentsAsync(int userId, string role, int pageNumber = 1, int pageSize = 10)
-        {
-            if (string.IsNullOrEmpty(role) || (role != "Doctor" && role != "Patient"))
-            {
-                throw new ArgumentException("Role phải là 'Doctor' hoặc 'Patient'.", nameof(role));
-            }
-
-            IQueryable<Appointment> query;
-            if (role == "Doctor")
-            {
-                var doctor = await _unitOfWork.DoctorRepository
-                    .GetQuery(d => d.UserId == userId)
-                    .FirstOrDefaultAsync();
-                if (doctor == null)
-                {
-                    throw new Exception("Không tìm thấy thông tin bác sĩ.");
-                }
-
-                query = _unitOfWork.AppointmentRepository
-                    .GetQuery(a => a.DoctorId == doctor.UserId)
-                    .Include(a => a.Doctor).ThenInclude(d => d.User)
-                    .Include(a => a.Patient).ThenInclude(p => p.User);
-            }
-            else // role == "Patient"
-            {
-                query = _unitOfWork.AppointmentRepository
-                    .GetQuery(a => a.PatientId == userId)
-                    .Include(a => a.Doctor).ThenInclude(d => d.User)
-                    .Include(a => a.Patient).ThenInclude(p => p.User);
-            }
-
-            // Áp dụng phân trang
-            return await query
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .ToListAsync();
-        }
-
-
         public async Task<List<Appointment>> GetAppointmentsAsync(int userId, string role, int pageNumber = 1, int pageSize = 10)
         {
             if (string.IsNullOrEmpty(role) || (role != "Doctor" && role != "Patient"))

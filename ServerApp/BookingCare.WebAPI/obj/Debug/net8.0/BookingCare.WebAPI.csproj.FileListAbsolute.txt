@@ -931,3 +931,12 @@ D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\Microsoft.IO.Re
 D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
 D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\System.Security.Cryptography.Xml.dll
 D:\GIt\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\BookingCare.WebAPI.staticwebassets.runtime.json
+D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\EPPlus.dll
+D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\EPPlus.Interfaces.dll
+D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
+D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\System.Security.Cryptography.Xml.dll
+D:\Project\BookingCare\ServerApp\BookingCare.WebAPI\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll

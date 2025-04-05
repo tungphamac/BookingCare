@@ -2,15 +2,14 @@
   <h2>Cập nhật Hồ sơ Y tế</h2>
   <div class="loading" *ngIf="isLoading">Đang tải dữ liệu...</div>
   <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
-  <form *ngIf="!isLoading" (ngSubmit)="onSubmit()" #medicalRecordForm="ngForm">
+  <form *ngIf="!isLoading && appointment" (ngSubmit)="onSubmit()" #medicalRecordForm="ngForm">
     <div class="form-group">
-      <label for="appointmentId">Lịch hẹn</label>
-      <select id="appointmentId" [(ngModel)]="record.appointmentId" name="appointmentId" required>
-        <option value="0" disabled>Chọn lịch hẹn</option>
-        <option *ngFor="let appointment of appointments" [value]="appointment.id">
-          {{ appointment.id }} - {{ appointment.doctorName }} ({{ appointment.scheduleTime | date:'dd/MM/yyyy HH:mm' }})
-        </option>
-      </select>
+      <label>Lịch hẹn</label>
+      <input
+        type="text"
+        [value]="appointment.id + ' - ' + appointment.doctorName + ' (' + (appointment.scheduleTime | date:'dd/MM/yyyy HH:mm') + ')'"
+        readonly
+      />
     </div>
     <div class="form-group">
       <label for="diagnosis">Chẩn đoán</label>

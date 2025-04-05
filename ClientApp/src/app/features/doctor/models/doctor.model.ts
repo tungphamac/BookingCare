@@ -1,6 +1,6 @@
 export interface Doctor {
-  userId: number;
-  userName: string;
+  id: number;   //userId
+  name: string;   //userName
   email: string;
   gender: boolean;
   address: string;
@@ -9,6 +9,10 @@ export interface Doctor {
   description: string;
   specializationName: string;
   clinicName: string;
+
+  specializationId: number;
+  clinicId: number;
+  phone: string;
 }
 
 export interface GetDoctor {

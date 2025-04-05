@@ -1,4 +1,6 @@
 export interface AppointmentDetailDto {
+    clinicId: number;
+    reason: string;
     id: number;
     doctorName: string;
     patientName: string;
