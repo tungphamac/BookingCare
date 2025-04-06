@@ -1,0 +1,52 @@
+<!-- src/app/features/chat/chat.component.html -->
+<div class="messenger-container">
+    <!-- Hiển thị thông báo lỗi -->
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  
+    <!-- Sidebar: Danh sách người đã trò chuyện -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h3>Đoạn chat</h3>
+        <input type="text" placeholder="Tìm kiếm trên Messenger" />
+      </div>
+      <div class="chat-list">
+        <div *ngFor="let userId of chatParticipants" 
+             class="chat-item" 
+             [class.active]="userId === selectedUserId"
+             (click)="selectUser(userId)">
+          <div class="avatar">
+            <img src="https://via.placeholder.com/50" alt="Avatar" />
+          </div>
+          <div class="chat-info">
+            <h4>{{ chatParticipantsInfo[userId].username || 'User ' + userId }}</h4>
+            <p>Tin nhắn gần nhất...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Khu vực chat -->
+    <div class="chat-area">
+      <div class="chat-header">
+        <h3 *ngIf="selectedUserId">Chat với {{ chatParticipantsInfo[selectedUserId].username }}</h3>
+        <h3 *ngIf="!selectedUserId">Chọn một người để bắt đầu trò chuyện</h3>
+      </div>
+      <div class="messages">
+        <div *ngFor="let message of messages" 
+             [ngClass]="{'message-right': message.senderId === currentUserId, 'message-left': message.senderId !== currentUserId}">
+          <p>{{ message.content }}</p>
+          <small>{{ message.sentAt | date:'short' }}</small>
+          <!-- Thêm trạng thái "Đã đọc" hoặc "Đã gửi" -->
+          <small class="status" *ngIf="message.senderId === currentUserId">
+            {{ message.isRead ? 'Đã đọc' : 'Đã gửi' }}
+          </small>
+        </div>
+      </div>
+      <div class="send-message" *ngIf="selectedUserId">
+        <input [(ngModel)]="content" placeholder="Nhập tin nhắn..." (keyup.enter)="sendMessage()" />
+        <button (click)="sendMessage()">Gửi</button>
+      </div>
+    </div>
+  </div>

@@ -1,6 +1,5 @@
-import { GetDoctor } from './../models/doctor.model';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router'; // Thêm Router
 import { CommonModule } from '@angular/common';
 import { DoctorService } from '../services/doctor.service';
 import { Doctor } from '../models/doctor.model';
@@ -26,13 +25,14 @@ export class DoctorDetailComponent implements OnInit {
   errorMessage: string | null = null;
   isLoadingSchedules: boolean = false;
   isLoadingFeedbacks: boolean = false;
-  
+
   constructor(
     private route: ActivatedRoute,
     private doctorService: DoctorService,
     private scheduleService: ScheduleService,
     private feedbackService: FeedbackService,
-    private location: Location
+    private location: Location,
+    private router: Router // Thêm Router
   ) {}
 
   ngOnInit(): void {
@@ -51,8 +51,8 @@ export class DoctorDetailComponent implements OnInit {
     this.doctorService.getDoctorById(id).subscribe({
       next: (data: Doctor) => {
         this.doctor = data;
-        console.log('Doctor details loaded:', this.doctor); // Debug log
-        console.log('Doctor ID:', this.doctor?.id); // Check doctor.userId
+        console.log('Doctor details loaded:', this.doctor);
+        console.log('Doctor ID:', this.doctor?.id);
       },
       error: (err) => {
         if (err.status === 404) {
@@ -98,5 +98,13 @@ export class DoctorDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-  
+
+  chatWithDoctor(): void {
+    if (this.doctor && this.doctor.id) {
+      // Chuyển hướng đến giao diện chat với otherUserId là ID của bác sĩ
+      this.router.navigate(['/chat'], { queryParams: { otherUserId: this.doctor.id } });
+    } else {
+      this.errorMessage = 'Không thể mở trò chuyện. Thông tin bác sĩ không hợp lệ.';
+    }
+  }
 }

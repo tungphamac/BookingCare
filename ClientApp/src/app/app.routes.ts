@@ -35,7 +35,7 @@ import { ClinicEditComponent } from './features/clinic/edit-clinic/edit-clinic.c
 import { AddSpecializationComponent } from './features/specialization/add-specialization/add-specialization.component';
 import { EditSpecializationComponent } from './features/specialization/edit-specialization/edit-specialization.component';
 import { SpecializationComponent } from './features/specialization/specialization.component';
-
+import { ChatComponent } from './features/chat/chat/chat.component';
 export const routes: Routes = [
 
   { path: '', component: HomepageComponent },
@@ -88,4 +88,5 @@ export const routes: Routes = [
 
   { path: 'specializations', component: SpecializationListComponent },
   { path: 'specializations/:id', component: SpecializationDetailComponent },
+  { path: 'chat', component: ChatComponent },
 ];

@@ -73,7 +73,7 @@
 
                       <tbody *ngFor="let doctor of doctors">
                           <tr>
-                            <td>{{ doctor.userId }}</td>
+                            <td>{{ doctor.id }}</td>
                               <td><img [src]="doctor.avatar || 'default-avatar.png'" alt="Avatar" class="img-thumbnail" style="width: 50px; height: 50px;"></td>
                              
                               <td>{{ doctor.email }}</td>
@@ -86,7 +86,7 @@
                               <td>
                                 <button (click)="editDoctor(doctor)">Edit</button>
 
-                                <button (click)="deleteDoctor(doctor.userId)" class="btn btn-danger">Delete</button>
+                                <button (click)="deleteDoctor(doctor.id)" class="btn btn-danger">Delete</button>
                                 
                               </td>
                           </tr>

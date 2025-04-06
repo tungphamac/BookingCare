@@ -1,3 +1,4 @@
+/* src/app/features/doctor/doctorc-detail.component.css */
 .trang-chi-tiet-bac-si {
   padding: 20px 0;
 }
@@ -120,6 +121,18 @@
 
 .btn-primary:hover {
   background-color: #1565c0;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border: none;
+  transition: background-color 0.3s;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.btn-success:hover {
+  background-color: #218838;
 }
 
 .dia-chi {
