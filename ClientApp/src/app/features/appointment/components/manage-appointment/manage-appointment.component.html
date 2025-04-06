@@ -31,7 +31,10 @@
             <button (click)="manage(appointment.id, 2)">Hủy</button>
           </ng-container>
           <button [routerLink]="['/appointments', appointment.id]">Xem chi tiết</button>
-          <button [routerLink]="['/appointments/update', appointment.id]">Cập nhật</button>
+          <ng-container *ngIf="isPatient && !hasMedicalRecordMap[appointment.id]">
+            <button [routerLink]="['/appointments/update', appointment.id]">Cập nhật</button>
+          </ng-container>
+          
           <!-- Nút cho Confirmed -->
           <ng-container *ngIf="appointment.status === 'Confirmed'">
             <button *ngIf="isDoctor && !hasMedicalRecordMap[appointment.id]" [routerLink]="['/medical-records/create']">

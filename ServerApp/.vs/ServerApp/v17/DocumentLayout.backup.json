@@ -413,8 +413,7 @@
               "RelativeToolTip": "BookingCare.Business\\Dtos\\AppointmentDTO.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAmwB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T06:03:53.945Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T06:03:53.945Z"
             },
             {
               "$type": "Document",
@@ -426,8 +425,7 @@
               "RelativeToolTip": "BookingCare.Data\\Repositories\\IGeneralRepository.cs",
               "ViewState": "AgIAAEwAAAAAAAAAAAAowFsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T06:04:24.036Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T06:04:24.036Z"
             },
             {
               "$type": "Document",
@@ -439,8 +437,7 @@
               "RelativeToolTip": "BookingCare.Business\\Dtos\\MedicalRecordDTO.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAA2wCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T06:04:35.588Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T06:04:35.588Z"
             },
             {
               "$type": "Document",
@@ -452,8 +449,7 @@
               "RelativeToolTip": "BookingCare.Business\\Dtos\\NotificationDto.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAA6wBYAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T17:21:34.188Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T17:21:34.188Z"
             },
             {
               "$type": "Document",
@@ -478,8 +474,7 @@
               "RelativeToolTip": "BookingCare.Business\\Services\\AppointmentService.cs",
               "ViewState": "AgIAAKQAAAAAAAAAAADwv8EAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T06:06:36.977Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T06:06:36.977Z"
             },
             {
               "$type": "Document",
@@ -491,8 +486,7 @@
               "RelativeToolTip": "BookingCare.Business\\Services\\Interfaces\\IDoctorService.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T08:34:36.562Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-23T08:34:36.562Z"
             },
             {
               "$type": "Document",
@@ -504,8 +498,7 @@
               "RelativeToolTip": "BookingCare.Data\\Models\\Appointment.cs",
               "ViewState": "AgIAABkAAAAAAAAAAAAqwC0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T02:02:50.803Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T02:02:50.803Z"
             },
             {
               "$type": "Document",
@@ -517,8 +510,7 @@
               "RelativeToolTip": "BookingCare.Business\\Services\\Interfaces\\IAppointmentService.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAQwBMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T06:05:21.073Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T06:05:21.073Z"
             },
             {
               "$type": "Document",
@@ -530,8 +522,7 @@
               "RelativeToolTip": "BookingCare.WebAPI\\Controllers\\DoctorController.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAmwN0AAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T08:10:02.459Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-23T08:10:02.459Z"
             },
             {
               "$type": "Document",
@@ -543,8 +534,7 @@
               "RelativeToolTip": "BookingCare.Data\\Repositories\\GeneralRepository.cs",
               "ViewState": "AgIAAFkAAAAAAAAAAAAYwHQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T07:06:11.417Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T07:06:11.417Z"
             },
             {
               "$type": "Document",
@@ -556,8 +546,7 @@
               "RelativeToolTip": "BookingCare.Business\\Services\\IScheduleService.cs",
               "ViewState": "AgIAALYAAAAAAAAAAAAwwMQAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T06:18:08.51Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-27T06:18:08.51Z"
             },
             {
               "$type": "Document",
@@ -569,8 +558,7 @@
               "RelativeToolTip": "BookingCare.WebAPI\\Controllers\\ScheduleController.cs",
               "ViewState": "AgIAAGsAAAAAAAAAAAA/wIEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-27T06:18:35.299Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-27T06:18:35.299Z"
             },
             {
               "$type": "Document",
@@ -582,8 +570,7 @@
               "RelativeToolTip": "BookingCare.Business\\Services\\DoctorService.cs",
               "ViewState": "AgIAALEBAAAAAAAAAAAwwNABAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T08:34:54.756Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-23T08:34:54.756Z"
             },
             {
               "$type": "Document",
@@ -595,8 +582,7 @@
               "RelativeToolTip": "BookingCare.Business\\Dtos\\DoctorDetailDto.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAywCoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T08:41:28.079Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-23T08:41:28.079Z"
             },
             {
               "$type": "Document",
@@ -608,8 +594,7 @@
               "RelativeToolTip": "BookingCare.WebAPI\\Controllers\\FeedbackController.cs",
               "ViewState": "AgIAAIIAAAAAAAAAAAAswKEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-25T02:36:45.774Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T02:36:45.774Z"
             },
             {
               "$type": "Document",
@@ -621,8 +606,7 @@
               "RelativeToolTip": "BookingCare.Business\\Services\\ClinicService.cs",
               "ViewState": "AgIAAAYBAAAAAAAAAAAwwBwBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T09:03:51.023Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-23T09:03:51.023Z"
             },
             {
               "$type": "Document",
@@ -634,8 +618,7 @@
               "RelativeToolTip": "BookingCare.WebAPI\\Controllers\\ClinicController.cs",
               "ViewState": "AgIAAJUAAAAAAAAAAAAswKoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T09:04:51.688Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-23T09:04:51.688Z"
             },
             {
               "$type": "Document",
@@ -647,8 +630,7 @@
               "RelativeToolTip": "BookingCare.WebAPI\\Program.cs",
               "ViewState": "AgIAAJkAAAAAAAAAAAAwwK8AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T09:09:29.829Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-24T09:09:29.829Z"
             },
             {
               "$type": "Document",
