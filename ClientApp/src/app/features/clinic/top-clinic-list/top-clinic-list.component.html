@@ -1,14 +1,23 @@
-<!-- Clinics Section -->
 <section class="clinics">
-    <div class="container">
-        <div class="row g-4">
+    <div class="container position-relative">
+
+        <!-- Nút scroll trái -->
+        <button class="scroll-btn left" (click)="scrollLeft()">
+            &#8249;
+        </button>
+
+        <!-- Nút scroll phải -->
+        <button class="scroll-btn right" (click)="scrollRight()">
+            &#8250;
+        </button>
+
+        <div class="row g-4" #scrollContainer>
             <div class="col-md-4" *ngFor="let clinic of clinics">
-
                 <div [routerLink]="['/clinics/', clinic.id]" class="clinic-card">
-                                                            <div class="clinic-header text-center">
-                        <img src="assets/clinic_logo.png" alt="Clinic Logo" class="clinic-img">
+                    <div class="clinic-header text-center">
+                        <img [src]="clinic.image ? 'http://localhost:5032/uploads/' + clinic.image : 'assets/clinic_logo.png'"
+                            alt="Clinic Logo" class="clinic-img">
                         <h5 class="clinic-name mt-2">{{ clinic.name }}</h5>
-
                     </div>
                 </div>
             </div>

@@ -1,14 +1,17 @@
 <!-- Top Doctors Section -->
 <section class="top-doctors">
-    <div class="container">
-        <div class="row g-4">
-            <div class="col-md-4" *ngFor="let doctor of topDoctors">
-                <div [routerLink]="['/doctors/', doctor.id]" class="doctor-card">
+    <div class="container position-relative">
+        <button class="scroll-btn left" (click)="scrollLeft()">&#10094;</button>
+        <button class="scroll-btn right" (click)="scrollRight()">&#10095;</button>
+
+        <div class="scroll-wrapper" #scrollContainer>
+            <div class="doctor-card" *ngFor="let doctor of topDoctors">
+                <div [routerLink]="['/doctors/', doctor.id]" class="doctor-card-inner">
                     <div class="doctor-header">
-                        <img [src]="'http://localhost:5032/uploads/' + doctor.avatar ? 'http://localhost:5032/uploads/' + doctor.avatar : 'assets/doctor_avatar.png'"
-                            alt="Doctor avatar" class="avatar">
+                        <img [src]="doctor.avatar ? 'http://localhost:5032/uploads/' + doctor.avatar : 'assets/doctor_avatar.png'"
+                            alt="Doctor avatar" class="avatar" />
                     </div>
-                    <h5 class="doctor-name">{{ doctor.doctorName }}</h5><br />
+                    <h5 class="doctor-name">{{ doctor.doctorName }}</h5>
                 </div>
             </div>
         </div>

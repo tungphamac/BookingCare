@@ -26,7 +26,7 @@ namespace BookingCare.API.Controllers
             try
             {
                 var feedbacks = await _feedbackService.GetAllFeedbacksAsync();
-                return Ok(new { message = "Fetched all feedbacks successfully.", data = feedbacks });
+                return Ok(feedbacks);
             }
             catch (Exception ex)
             {
@@ -40,42 +40,49 @@ namespace BookingCare.API.Controllers
             try
             {
                 var feedback = await _feedbackService.GetFeedbackByIdAsync(id);
-                return Ok(new { message = "Feedback retrieved successfully.", data = feedback });
+                return Ok (feedback);
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(new { message = ex.Message });
+                return BadRequest(ex.Message);
             }
             catch (Exception ex)
             {
                 return Problem($"Error retrieving feedback: {ex.Message}");
             }
         }
-
         [HttpPost("add-feedback")]
         public async Task<IActionResult> AddFeedback([FromBody] FeedbackVm feedbackVm)
         {
             try
             {
-                // Kiểm tra xem appointmentId đã có feedback chưa
-                var existingFeedback = await _feedbackService.GetFeedbackByAppointmentAsync(feedbackVm.AppointmentId);
-                if (existingFeedback != null)
+                // Lấy userId từ Claims (giả sử đã xác thực JWT hoặc cookie auth)
+                var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
                 {
-                    return BadRequest(new { message = "This appointment already has a feedback." });
+                    return Unauthorized("Invalid or missing user ID.");
                 }
 
-                // Nếu chưa có feedback, tiến hành thêm mới
-                bool result = await _feedbackService.AddFeedbackAsync(feedbackVm);
+                // Gọi service để thêm feedback
+                bool result = await _feedbackService.AddFeedbackAsync(feedbackVm, userId);
                 if (!result)
                 {
-                    return BadRequest(new { message = "Failed to add feedback." });
+                    return BadRequest("Failed to add feedback.");
                 }
 
-                return Ok(new { message = "Feedback added successfully." });
+                return Ok("Feedback added successfully.");
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden, "Only the patient of this appointment can submit feedback.");
+            }
+            catch (ArgumentException ex)
+            {
+                return NotFound(ex.Message);
             }
             catch (InvalidOperationException ex)
             {
-                return BadRequest(new { message = ex.Message });
+                return BadRequest(ex.Message);
             }
             catch (Exception ex)
             {
@@ -89,11 +96,11 @@ namespace BookingCare.API.Controllers
             try
             {
                 bool result = await _feedbackService.UpdateFeedback(id, feedbackVm);
-                return Ok(new { message = "Feedback updated successfully." });
+                return Ok("Feedback updated successfully.");
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(new { message = ex.Message });
+                return BadRequest(ex.Message);
             }
             catch (Exception ex)
             {
@@ -107,11 +114,11 @@ namespace BookingCare.API.Controllers
             try
             {
                 bool result = await _feedbackService.DeleteFeedbackAsync(id);
-                return Ok(new { message = "Feedback deleted successfully." });
+                return Ok("Feedback deleted successfully.");
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(new { message = ex.Message });
+                return BadRequest(ex.Message);
             }
             catch (Exception ex)
             {

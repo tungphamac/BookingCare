@@ -9,7 +9,7 @@ namespace BookingCare.Business.Services.Interfaces
     {
         Task<IEnumerable<FeedbackVm>> GetAllFeedbacksAsync();
         Task<FeedbackVm> GetFeedbackByIdAsync(int id);
-        Task<bool> AddFeedbackAsync(FeedbackVm feedbackVm);
+        Task<bool> AddFeedbackAsync(FeedbackVm feedbackVm, int userId);
 
         Task<bool> UpdateFeedback(int id, UpdateFeedbackVm updateFeedbackVm);
         Task<bool> DeleteFeedbackAsync(int id);

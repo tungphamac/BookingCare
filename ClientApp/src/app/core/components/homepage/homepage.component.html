@@ -1,11 +1,32 @@
+<br />
 <!-- Hero Section -->
 <section class="hero">
-    <div class="hero-overlay"></div>
+    <!-- <div class="hero-overlay"></div>
     <div class="hero-content">
         <h1 class="display-4 text-white text-center">Nền tảng y tế chăm sóc sức khỏe toàn diện</h1>
         <div class="search-bar">
             <i class="fas fa-search text-muted me-3"></i>
             <input type="text" class="form-control border-0" placeholder="Tìm bệnh viện, phòng khám">
+        </div>
+    </div> -->
+    <div id="about_intro" class="about_block">
+        <div class="vung-bao chu-giua">
+            <img id="about_logo" src="/assets/bookingcare_logo.png" alt="BookingCare Logo" />
+            <div class="hang">
+                <div class="cot-6 chu-giua">
+                    <h1>BookingCare</h1>
+                    <h2>
+                        Nền tảng kết nối mạng lưới bác sĩ chuyên khoa giỏi, bệnh viện, phòng khám uy tín
+                    </h2>
+                    <p>
+                        Giúp bệnh nhân dễ dàng lựa chọn bác sĩ phù hợp, thăm khám đúng bác sĩ,
+                        đúng bệnh và đặt lịch khám nhanh chóng, được khám ưu tiên.
+                    </p>
+                </div>
+                <div class="cot-6 chu-trai">
+                    <img class="about_demo" src="/assets/bookingcare_responsive.png">
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -41,5 +62,46 @@
     <div class="container">
         <h2 class="text-center mb-5">Chuyên khoa phổ biến</h2>
         <app-top-specialization-list></app-top-specialization-list>
+    </div>
+</section>
+
+<!-- News Section-->
+<section>
+    <div class="news-container">
+        <h1 class="title">Truyền thông nói về BookingCare</h1>
+
+        <div class="content-wrapper">
+            <div class="video-container">
+                <iframe width="100%" height="315" [src]="videoUrl" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="news-links">
+                <a href="https://vnexpress.net/bookingcare-ra-mat-tro-ly-ai-4798819.html" class="news-link"
+                    target="_blank">
+                    <img src="https://bookingcare.vn/assets/truyenthong/vnexpress.png" alt="VnExpress">
+                </a>
+                <a href="https://suckhoedoisong.vn/dat-lich-kham-benh-tiet-kiem-thong-minh-va-hieu-qua-169153232.htm"
+                    class="news-link" target="_blank">
+                    <img src="https://bookingcare.vn/assets/truyenthong/suckhoedoisong.png" alt="Sức khỏe & Đời sống">
+                </a>
+                <a href="https://vietnamnet.vn/nen-tang-dat-lich-kham-online-bookingcare-muon-tang-truong-nguoi-dung-gap-5-lan-nam-2017-i370270.html"
+                    class="news-link" target="_blank">
+                    <img src="https://static.vnncdn.net/v1/logo/logoVietnamNet.svg" alt="VietNamNet">
+                </a>
+                <a href="https://video.vnexpress.net/kham-benh-khong-phai-xep-hang-o-ha-noi-3797126.html"
+                    class="news-link" target="_blank">
+                    <img src="https://bookingcare.vn/assets/truyenthong/vnexpress.png" alt="VTV1">
+                </a>
+
+                <a href="https://dantri.com.vn/nhan-tai-dat-viet/san-pham-nen-tang-dat-kham-booking-care-201908201625624751.htm"
+                    class="news-link" target="_blank">
+                    <img src="https://cdnweb.dantri.com.vn/dist/static-logo-v2.1-0-1.9bf6dbdd64e0736085bc.png"
+                        alt="Dân trí">
+                </a>
+            </div>
+        </div>
     </div>
 </section>

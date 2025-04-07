@@ -88,9 +88,9 @@ namespace BookingCare.API.Controllers
                 var result = await _doctorService.UpdateDoctorAsync(id, doctorUpdateDto);
                 if (!result)
                 {
-                    return NotFound(new { Message = $"Doctor with ID {id} not found." });
+                    return NotFound($"Doctor with ID {id} not found." );
                 }
-                return Ok(new { Message = "Doctor updated successfully." });
+                return Ok("Doctor updated successfully.");
             }
             catch (Exception ex)
             {

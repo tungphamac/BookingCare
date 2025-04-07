@@ -1,39 +1,38 @@
 .top-doctors {
     padding: 20px 0;
+    position: relative;
+    overflow: hidden;
 }
 
-.row {
+.scroll-wrapper {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
+    overflow-x: auto;
+    scroll-behavior: smooth;
     gap: 15px;
-}
-
-.col-md-4 {
-    display: flex;
-    justify-content: center;
-    flex: 1 1 calc(30% - 20px);
-    max-width: calc(30% - 20px);
+    /* Giảm khoảng cách giữa các card */
+    padding: 10px;
 }
 
 .doctor-card {
+    flex: 0 0 auto;
+    width: 300px;
+    /* Thu nhỏ card */
+    height: 300px;
+    /* Giảm chiều cao card */
     background: #fff;
     border-radius: 10px;
-    border: 2px solid #ccc;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    /* Giảm độ dày của border */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    /* Nhẹ hơn */
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
     text-align: center;
-    padding: 15px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* Căn giữa nội dung */
     align-items: center;
-    height: 350px;
-    width: 85%;
-    position: relative;
 }
 
 .doctor-card:hover {
@@ -50,23 +49,58 @@
 }
 
 .doctor-header img {
-    width: 250px;
-    /* Điều chỉnh kích thước ảnh */
-    height: 250px;
+    width: 180px;
+    /* Giảm kích thước ảnh */
+    height: 180px;
     object-fit: cover;
     border-radius: 50%;
-    border: 3px solid #ddd;
-    margin-bottom: 15px;
+    border: 2px solid #ddd;
+    margin-bottom: 10px;
 }
 
 .doctor-name {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 14px;
+    /* Giảm kích thước font */
+    font-weight: 600;
+    /* Thay đổi trọng lượng font */
     text-align: center;
-    margin: 10px 0 0;
-    /* Khoảng cách với ảnh */
-    padding: 5px 10px;
+    margin: 5px 0 0;
+    padding: 4px 8px;
     word-wrap: break-word;
     max-width: 100%;
     white-space: normal;
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.scroll-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.scroll-btn.left {
+    left: -5px;
+}
+
+.scroll-btn.right {
+    right: -5px;
+}
+
+@media (max-width: 768px) {
+    .scroll-btn {
+        display: none;
+    }
 }
