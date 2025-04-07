@@ -130,20 +130,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "string",
-                "format": "date-time"
+                "type": "string"
               }
             },
             "text/json": {
               "schema": {
-                "type": "string",
-                "format": "date-time"
+                "type": "string"
               }
             },
             "application/*+json": {
               "schema": {
-                "type": "string",
-                "format": "date-time"
+                "type": "string"
               }
             }
           }
@@ -170,6 +167,41 @@
               "format": "int32"
             }
           }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Account/getby/{userId}": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Account/getall": {
+      "get": {
+        "tags": [
+          "Account"
         ],
         "responses": {
           "200": {
@@ -807,7 +839,7 @@
         }
       }
     },
-    "/api/Doctor/{id}": {
+    "/api/Doctor/update/{id}": {
       "put": {
         "tags": [
           "Doctor"
@@ -847,7 +879,9 @@
             "description": "Success"
           }
         }
-      },
+      }
+    },
+    "/api/Doctor/delete/{id}": {
       "delete": {
         "tags": [
           "Doctor"
@@ -1070,6 +1104,49 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Doctor/upload-avatar/{doctorId}": {
+      "post": {
+        "tags": [
+          "Doctor"
+        ],
+        "parameters": [
+          {
+            "name": "doctorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "avatarFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "avatarFile": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "Success"
@@ -1602,19 +1679,50 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/RegisterVm"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterVm"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterVm"
+                "type": "object",
+                "properties": {
+                  "UserName": {
+                    "type": "string"
+                  },
+                  "Gender": {
+                    "type": "boolean"
+                  },
+                  "Address": {
+                    "type": "string"
+                  },
+                  "Phone": {
+                    "type": "string"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "Avatar": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "UserName": {
+                  "style": "form"
+                },
+                "Gender": {
+                  "style": "form"
+                },
+                "Address": {
+                  "style": "form"
+                },
+                "Phone": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Avatar": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -1998,7 +2106,7 @@
         }
       }
     },
-    "/api/Specialization": {
+    "/api/Specialization/add": {
       "post": {
         "tags": [
           "Specialization"
@@ -2029,7 +2137,7 @@
         }
       }
     },
-    "/api/Specialization/{id}": {
+    "/api/Specialization/update/{id}": {
       "put": {
         "tags": [
           "Specialization"
@@ -2069,7 +2177,9 @@
             "description": "Success"
           }
         }
-      },
+      }
+    },
+    "/api/Specialization/delete/{id}": {
       "delete": {
         "tags": [
           "Specialization"
@@ -2639,14 +2749,6 @@
           "address": {
             "type": "string",
             "nullable": true
-          },
-          "avatar": {
-            "type": "string",
-            "nullable": true
-          },
-          "medicalHistory": {
-            "type": "integer",
-            "format": "int32"
           }
         },
         "additionalProperties": false

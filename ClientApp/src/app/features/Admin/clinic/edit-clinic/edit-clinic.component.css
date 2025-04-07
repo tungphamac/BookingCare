@@ -1,0 +1,65 @@
+/* Định nghĩa phong cách cho form-wrapper để tạo khoảng cách xung quanh và trung tâm nội dung */
+.form-wrapper {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 30px auto;
+}
+
+/* Định nghĩa phong cách cho các label trong form để có chữ in đậm và rõ ràng hơn */
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Định nghĩa phong cách cho các input và textarea để tạo khoảng cách và đồng bộ hóa độ cao */
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+/* Phong cách cho các nút để tạo khoảng cách và hiệu ứng khi nhấn */
+button {
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Màu sắc riêng biệt cho nút chính và nút phụ */
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-outline-secondary {
+    background-color: transparent;
+    color: #6c757d;
+    border: 1px solid #6c757d;
+}
+
+.btn-primary:hover, .btn-outline-secondary:hover {
+    opacity: 0.8;
+}
+
+/* Phong cách cho thông báo lỗi và trạng thái tải dữ liệu */
+.text-muted, .text-danger {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.text-danger {
+    color: #dc3545;
+}

@@ -42,7 +42,7 @@ namespace BookingCare.API.Controllers
 
         [HttpGet("get-all-clinics")]
         //[Authorize(Roles = "Admin")] // Chỉ Admin được lấy danh sách clinic
-        [Authorize(Roles = "Admin")]
+       
         public async Task<IActionResult> GetAllClinics()
         {
             try
@@ -59,7 +59,7 @@ namespace BookingCare.API.Controllers
 
         [HttpPost("add")]
         //[Authorize(Roles = "Admin")] // Chỉ Admin được tạo clinic
-        [Authorize(Roles = "Admin")]
+        
         public async Task<IActionResult> CreateClinic([FromBody] ClinicDetailDto clinicDto)
         {
             try
@@ -76,7 +76,7 @@ namespace BookingCare.API.Controllers
 
         [HttpPut("update/{id}")]
         //[Authorize(Roles = "Admin")] // Chỉ Admin được sửa clinic
-        [Authorize(Roles = "Admin")]
+      
         public async Task<IActionResult> UpdateClinic(int id, [FromBody] ClinicDetailDto clinicDto)
         {
             try
@@ -97,7 +97,7 @@ namespace BookingCare.API.Controllers
 
         [HttpDelete("delete/{id}")]
         //[Authorize(Roles = "Admin")] // Chỉ Admin được xóa clinic
-        [Authorize(Roles = "Admin")]
+        
         public async Task<IActionResult> DeleteClinic(int id)
         {
             try

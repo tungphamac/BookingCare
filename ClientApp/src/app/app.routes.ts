@@ -27,9 +27,9 @@ import { SpecializationListComponent } from './features/specialization/component
 import { PatientsComponent } from './features/patient/patient.component';
 import { AddPatientComponent } from './features/patient/add-patient/add-patient.component';
 import { PatientEditComponent } from './features/patient/edit-patient/edit-patient.component';
-import { ClinicListComponent } from './features/clinic/clinic.component';
+
 import { AddClinicComponent } from './features/clinic/add-clinic/add-clinic.component';
-import { ClinicEditComponent } from './features/clinic/edit-clinic/edit-clinic.component';
+
 import { AddSpecializationComponent } from './features/specialization/add-specialization/add-specialization.component';
 import { EditSpecializationComponent } from './features/specialization/edit-specialization/edit-specialization.component';
 import { SpecializationComponent } from './features/specialization/specialization.component';
@@ -39,6 +39,13 @@ import { ChatComponent } from './features/chat/chat/chat.component';
 import { CreateMedicalRecordComponent } from './features/medicalRecord/components/create-medical-record/create-medical-record.component';
 import { ViewMedicalRecordComponent } from './features/medicalRecord/components/view-medical-record/view-medical-record.component';
 import { UpdateMedicalRecordComponent } from './features/medicalRecord/components/update-medical-record/update-medical-record.component';
+import { UserManagementComponent } from './features/Admin/user/user.component';
+import { DoctorListComponent } from './features/Admin/doctor/list-doctor/list-doctor.component';
+import { AddDoctorComponent } from './features/Admin/doctor/add-doctor/add-doctor.component';
+import { ClinicListComponent } from './features/Admin/clinic/clinic.component';
+import { ClinicEditComponent } from './features/Admin/clinic/edit-clinic/edit-clinic.component';
+import { SpecializationListComponents } from './features/Admin/specialization/specialization.component';
+
 
 
 export const routes: Routes = [
@@ -69,7 +76,7 @@ export const routes: Routes = [
   { path: 'admin/get-all-patients', component: PatientsComponent },
   { path: 'admin/add-patient', component: AddPatientComponent },
   //{ path: 'Patient/update/:id', component: PatientEditComponent },
-  { path: 'Clinic/getall', component: ClinicListComponent },
+  
   { path: 'Clinic/add', component: AddClinicComponent },
   { path: 'Clinic/update/:id', component: ClinicEditComponent },
   // { path: 'spec', component: SpecializationComponent },
@@ -92,7 +99,10 @@ export const routes: Routes = [
   { path: 'specializations', component: SpecializationListComponent },
   { path: 'specializations/:id', component: SpecializationDetailComponent },
   { path: 'chat', component: ChatComponent },
-
-
+  {path: 'Account/getall', component: UserManagementComponent },
+  { path: 'Doctor/getall', component: DoctorListComponent },
+  { path: 'Doctor/add-doctor', component: AddDoctorComponent }, // Thêm route cho AddDoctor
+  { path: 'Clinic/get-all-clinics', component: ClinicListComponent },
+    { path: 'Specialization/get-all-specializations', component: SpecializationListComponents },
 
 ];

@@ -1,5 +1,6 @@
 ﻿using BookingCare.API.Dtos;
 using BookingCare.Business.ViewModels;
+using Microsoft.AspNetCore.Http;
 
 namespace BookingCare.Business.Services.Interfaces
 {
@@ -19,5 +20,6 @@ namespace BookingCare.Business.Services.Interfaces
 
         // Thêm phương thức mới
         Task<List<DoctorDetailDto>> GetDoctorsBySpecializationAndClinicAsync(int specializationId, int clinicId);
+        Task<bool> UploadAvatarAsync(int doctorId, IFormFile avatarFile);
     }
 }

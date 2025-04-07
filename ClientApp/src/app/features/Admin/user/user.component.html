@@ -1,0 +1,87 @@
+<div class="layout-wrapper d-flex">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">BookingCare Admin</div>
+    <nav class="nav flex-column">
+        <a href="/Clinic/get-all-clinics" class="nav-link">Phòng khám</a>
+        <a href="/Doctor/getall" class="nav-link active">Bác sĩ</a>
+        <a href="/Specialization/get-all-specializations" class="nav-link">Chuyên khoa</a>
+        <a href="/Account/getall" class="nav-link">Quản lý người dùng</a>
+        <a href="/admin/get-all-patients" class="nav-link">Quản lý bệnh nhân</a>
+    </nav>
+</aside>
+
+  <!-- Main content -->
+  <div class="container">
+    <h2 class="header">Quản lý người dùng</h2>
+    
+    <!-- Hiển thị chi tiết người dùng khi có người dùng được chọn -->
+    <div *ngIf="selectedUser" class="user-details">
+      <h3 class="section-header">Chi tiết người dùng</h3>
+      <p><strong>ID:</strong> {{ selectedUser.userId }}</p>
+      <p><strong>Username:</strong> {{ selectedUser.username }}</p>
+      <p><strong>Email:</strong> {{ selectedUser.email }}</p>
+      <p><strong>Lockout Enabled:</strong> {{ selectedUser.lockoutEnabled }}</p>
+      <p><strong>Lockout End:</strong> {{ selectedUser.lockoutEnd }}</p>
+    </div>
+  
+    <!-- Chọn Duration để khóa tài khoản -->
+    <div>
+      <label for="lockDuration">Chọn thời gian khóa:</label>
+      <select id="lockDuration" [(ngModel)]="lockDuration">
+        <option value="24h">24 giờ</option>
+        <option value="7d">7 ngày</option>
+      </select>
+    </div>
+  
+    <!-- Bảng hiển thị người dùng -->
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Trạng thái</th>
+          <th>Hành động</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of pagedUsers" (click)="selectUser(user)">
+          <td>{{ user.userId }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <span [ngClass]="user.lockoutEnabled ? 'text-danger' : 'text-success'">
+              {{ user.lockoutEnabled ? 'Lock' : 'Unlock' }}
+            </span>
+          </td>
+          <td>
+            <button (click)="lockAccount(user.userId)" class="btn btn-danger">Khóa</button>
+            <button (click)="unlockAccount(user.userId)" class="btn btn-success">Mở khóa</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Phân trang -->
+    <nav *ngIf="totalPages > 1" class="mt-3">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" [class.disabled]="currentPage === 1">
+          <button class="page-link" (click)="changePage(currentPage - 1)">«</button>
+        </li>
+        
+        <li
+          class="page-item"
+          *ngFor="let page of [].constructor(totalPages); let i = index"
+          [class.active]="currentPage === i + 1"
+        >
+          <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+        </li>
+
+        <li class="page-item" [class.disabled]="currentPage === totalPages">
+          <button class="page-link" (click)="changePage(currentPage + 1)">»</button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

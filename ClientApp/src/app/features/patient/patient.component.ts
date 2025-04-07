@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-patients',
   templateUrl: './patient.component.html',
- 
   styleUrls: ['./patient.component.css'],
   imports: [
     CommonModule,

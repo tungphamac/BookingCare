@@ -56,7 +56,7 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("add")]
         //[Authorize(Roles = "Admin")] // Chỉ Admin được tạo specialization
         public async Task<IActionResult> CreateSpecialization([FromBody] SpecializationDetailDto specializationDto)
         {
@@ -73,7 +73,7 @@ namespace BookingCare.API.Controllers
         }
 
 
-        [HttpPut("{id}")]
+        [HttpPut("update/{id}")]
         //[Authorize(Roles = "Admin")] // Chỉ Admin được sửa specialization
         public async Task<IActionResult> UpdateSpecialization(int id, [FromBody] SpecializationDetailDto specializationDto)
         {
@@ -93,7 +93,7 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("delete/{id}")]
         //[Authorize(Roles = "Admin")] // Chỉ Admin được xóa specialization
         public async Task<IActionResult> DeleteSpecialization(int id)
         {

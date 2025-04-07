@@ -15,7 +15,9 @@ wwwroot\uploads\83d82dd0-1ba3-42e0-a254-8eed40ae3fc0_bacsithuy.jpeg
 wwwroot\uploads\a2c314dc-d64b-4a1d-a2ae-b46dcfd95953_bacsithuy.jpeg
 wwwroot\uploads\a513e512-633b-4b32-98c5-e1bb27d25f89_alzheimer.jpg
 wwwroot\uploads\aed8bfb3-84b7-452e-a8ee-349fcb17bbc3_bacsithuy.jpeg
+wwwroot\uploads\b6dc07c1-3e41-4254-aae5-008d8b091284.png
 wwwroot\uploads\b78aa693-bcfc-421f-ade0-0eac9588dbb5_bacsithuy.jpeg
+wwwroot\uploads\b9c38110-7862-4903-ac16-e973aceac50e.jpg
 wwwroot\uploads\c2e28c9d-0929-4e1f-ac2b-722b0e630cc4_cardiology_logo.png
 wwwroot\uploads\d0f7a2eb-197b-40e1-9909-d867f451638c_bacsithuy.jpeg
 wwwroot\uploads\df532163-7574-46da-8584-460efd246030.jpg

@@ -16,6 +16,8 @@ namespace BookingCare.Business.Services
         private readonly UserManager<User> _userManager;
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<DoctorService> _logger;
+		private readonly string _imageFolderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "avatars"); // Đường dẫn đến thư mục lưu ảnh
+																																										  
 
         public DoctorService(ILogger<DoctorService> logger, IUnitOfWork unitOfWork, UserManager<User> userManager)
             : base(logger, unitOfWork)
@@ -527,6 +529,80 @@ namespace BookingCare.Business.Services
             {
                 _logger.LogError(ex, $"Error retrieving doctors for Specialization ID {specializationId} and Clinic ID {clinicId}.");
                 throw;
+            }
+        }
+		 public async Task<bool> UploadAvatarAsync(int doctorId, IFormFile avatarFile)
+											 
+																															 
+        {
+            try
+            {
+                if (avatarFile == null || avatarFile.Length == 0)
+                {
+                    _logger.LogWarning("No avatar file selected.");
+                    return false;
+                }
+
+                // Kiểm tra thư mục lưu ảnh, nếu không có thì tạo mới
+                if (!Directory.Exists(_imageFolderPath))
+                {
+                    Directory.CreateDirectory(_imageFolderPath);
+																										 
+                }
+
+                // Tạo tên tệp ảnh mới
+                var fileName = $"{doctorId}_{Guid.NewGuid()}_{Path.GetFileName(avatarFile.FileName)}";
+                var filePath = Path.Combine(_imageFolderPath, fileName);
+
+                // Lưu ảnh vào thư mục
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await avatarFile.CopyToAsync(stream);
+																						 
+                }
+
+                // Lưu đường dẫn ảnh vào cơ sở dữ liệu
+                var avatarUrl = Path.Combine("uploads", "avatars", fileName); // Đường dẫn ảnh trên server
+																									
+										 
+												   
+										   
+													
+					 
+									  
+												   
+											 
+											   
+												 
+											   
+													
+													
+																   
+												  
+					  
+								   
+
+                var doctor = await _unitOfWork.DoctorRepository.GetQuery(d => d.UserId == doctorId).FirstOrDefaultAsync();
+                if (doctor == null)
+                {
+                    _logger.LogWarning($"Doctor with ID {doctorId} not found.");
+                    return false;
+                }
+
+                // Cập nhật avatar cho bác sĩ
+                doctor.User.Avatar = avatarUrl;
+                _unitOfWork.DoctorRepository.Update(doctor);
+                _unitOfWork.UserRepository.Update(doctor.User);
+
+                await _unitOfWork.SaveChangesAsync();
+
+                _logger.LogInformation($"Avatar uploaded successfully for Doctor ID {doctorId}.");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error uploading avatar for Doctor ID {doctorId}.");
+                return false;
             }
         }
     }

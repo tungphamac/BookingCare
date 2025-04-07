@@ -73,17 +73,34 @@ namespace BookingCare.WebAPI.Controllers
         }
 
         [HttpPost("lock/{userId}")]
-        public async Task<IActionResult> LockUserAccount(int userId, [FromBody] DateTime lockUntil)
+        public async Task<IActionResult> LockUserAccount(int userId, [FromBody] string duration)
         {
-            var result = await _accountService.LockUserAccountAsync(userId, lockUntil);
+            DateTime lockUntil = DateTime.UtcNow;
 
-            if (!result)
+            if (duration == "24h")
             {
-                return NotFound(new { Message = $"User with Id {userId} not found." });
+                lockUntil = DateTime.UtcNow.AddHours(24);
+            }
+            else if (duration == "7d")
+            {
+                lockUntil = DateTime.UtcNow.AddDays(7);
+            }
+            else
+            {
+                return BadRequest(new { Message = "Invalid duration." });
             }
 
-            return Ok(new { Message = $"User with Id {userId} has been locked until {lockUntil}." });
+            var (success, message, lockUntilTime) = await _accountService.LockUserAccountAsync(userId, lockUntil);
+
+            if (!success)
+            {
+                return NotFound(new { Message = message });
+            }
+
+
+            return Ok(new { Message = message, LockUntil = lockUntil.ToString("yyyy-MM-dd HH:mm:ss") });
         }
+
 
         // Phương thức API mở khóa tài khoản
         [HttpPost("unlock/{userId}")]
@@ -97,6 +114,30 @@ namespace BookingCare.WebAPI.Controllers
             }
 
             return Ok(new { Message = $"User with Id {userId} has been unlocked." });
+        }
+        [HttpGet("getby/{userId}")]
+        public async Task<IActionResult> GetUserById(int userId)
+        {
+            var user = await _accountService.GetUserByIdAsync(userId);
+
+            if (user == null)
+            {
+                return NotFound(new { Message = $"User with Id {userId} not found." });
+            }
+
+            return Ok(user);
+        }
+        [HttpGet("getall")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var users = await _accountService.GetAllUsersAsync();
+
+            if (users == null || users.Count == 0)
+            {
+                return NotFound(new { Message = "No users found." });
+            }
+
+            return Ok(users);
         }
     }
 

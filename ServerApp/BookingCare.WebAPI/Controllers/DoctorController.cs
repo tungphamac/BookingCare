@@ -40,7 +40,7 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpGet("getall")]
-        [Authorize(Roles = "Admin,Patient")]
+        //[Authorize(Roles = "Admin,Patient")]
         public async Task<IActionResult> GetAllDoctors()
         {
             try
@@ -75,8 +75,8 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]
+        [HttpPut("update/{id}")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateDoctor(int id, [FromBody] DoctorUpdateDto doctorUpdateDto)
         {
             try
@@ -84,9 +84,9 @@ namespace BookingCare.API.Controllers
                 var result = await _doctorService.UpdateDoctorAsync(id, doctorUpdateDto);
                 if (!result)
                 {
-                    return NotFound($"Doctor with ID {id} not found." );
+                    return NotFound(new { Message = $"Doctor with ID {id} not found." });
                 }
-                return Ok("Doctor updated successfully.");
+                return Ok(new { Message = "Doctor updated successfully." });
             }
             catch (Exception ex)
             {
@@ -95,8 +95,9 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
+
+        [HttpDelete("delete/{id}")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteDoctor(int id)
         {
             try
@@ -238,5 +239,37 @@ namespace BookingCare.API.Controllers
                 return StatusCode(500, "An error occurred while retrieving doctors.");
             }
         }
+		 [HttpPost("upload-avatar/{doctorId}")]
+							   
+															 
+        public async Task<IActionResult> UploadDoctorAvatar(int doctorId, IFormFile avatarFile)
+        {
+            try
+            {
+																														
+								   
+			 
+										
+			 
+                if (avatarFile == null || avatarFile.Length == 0)
+                {
+                    return BadRequest(new { Message = "No avatar file selected." });
+                }
+
+                var result = await _doctorService.UploadAvatarAsync(doctorId, avatarFile);
+                if (!result)
+                {
+                    return NotFound(new { Message = $"Doctor with ID {doctorId} not found." });
+                }
+
+                return Ok(new { Message = "Avatar uploaded successfully." });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error uploading avatar for Doctor ID {doctorId}.");
+                return StatusCode(500, "An error occurred while uploading the avatar.");
+            }
+        }
+    
     }
 }
