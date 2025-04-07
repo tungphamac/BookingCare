@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DoctorService } from '../services/doctor.service';
-import { Doctor } from '../models/doctor.model';
+import { Doctor, GetDoctor } from '../models/doctor.model';
 import { Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';

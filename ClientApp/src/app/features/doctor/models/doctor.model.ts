@@ -1,5 +1,4 @@
 export interface Doctor {
-
   id: number;   //userId
   name: string;   //userName
   email: string;
@@ -14,6 +13,21 @@ export interface Doctor {
   specializationId: number;
   clinicId: number;
   phone: string;
+}
+
+export interface DoctorNam {
+
+  id: number;   //userId
+  name: string;   //userName
+  email: string;
+  phone: string;
+  gender: boolean;
+  address: string;
+  avatar: string;
+  achievement: string;
+  description: string;
+  specializationName: string;
+  clinicName: string;
 }
 
 export interface GetDoctor {

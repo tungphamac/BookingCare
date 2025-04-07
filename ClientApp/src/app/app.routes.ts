@@ -23,7 +23,6 @@ import { PatientDetailComponent } from './features/patient/patientc-detail/patie
 import { ScheduleManagementComponent } from './features/schedule/components/manage-schedule/manage-schedule.component';
 import { SpecializationDetailComponent } from './features/specialization/components/specialization-detail/specialization-detail.component';
 import { ListDoctorComponent } from './features/doctor/list-doctor/list-doctor.component';
-import { AddDoctorComponent } from './features/doctor/add-doctor/add-doctor.component';
 import { SpecializationListComponent } from './features/specialization/components/specialization-list/specialization-list.component';
 import { PatientsComponent } from './features/patient/patient.component';
 import { AddPatientComponent } from './features/patient/add-patient/add-patient.component';
@@ -64,27 +63,26 @@ export const routes: Routes = [
   { path: 'patient-search', component: PatientSearchComponent },
   { path: 'clinic-profile/:id', component: ClinicProfileComponent },
   { path: 'patients/:id', component: PatientDetailComponent },
-  { path: 'notifications', component: NotificationListComponent }, // Thêm route để test
+  // { path: 'notifications', component: NotificationListComponent }, // Thêm route để test
 
   { path: 'admin/get-all-doctors', component: ListDoctorComponent },
-  { path: 'admin/add-doctor', component: AddDoctorComponent },
   { path: 'admin/get-all-patients', component: PatientsComponent },
   { path: 'admin/add-patient', component: AddPatientComponent },
   //{ path: 'Patient/update/:id', component: PatientEditComponent },
   { path: 'Clinic/getall', component: ClinicListComponent },
   { path: 'Clinic/add', component: AddClinicComponent },
   { path: 'Clinic/update/:id', component: ClinicEditComponent },
-  { path: ' ', component: SpecializationComponent },
+  // { path: 'spec', component: SpecializationComponent },
   { path: 'Specialization/add', component: AddSpecializationComponent },
   { path: 'Specialization/update/:id', component: EditSpecializationComponent },
 
   { path: 'clinics/top-clinic', component: TopClinicListComponent },
   { path: 'feedbacks/list', component: FeedbackListComponent },
   { path: 'feedbacks/add/:appointmentId', component: FeedbackAddComponent },
-  { path: 'doctors/profile/:doctorId', component: DoctorProfileComponent },
+  { path: 'doctors/detail/:doctorId', component: DoctorProfileComponent },
   { path: 'feedbacks/view/:doctorId', component: FeedbackViewComponent },
   { path: 'feedbacks/add', component: FeedbackAddComponent },
-  { path: 'doctor-profile/:id', component: DoctorProfileComponent },
+  // { path: 'doctor-profile/:id', component: DoctorProfileComponent },
   // Routes cho Schedule
   { path: 'schedules', component: ScheduleManagementComponent }, // Danh sách schedules theo doctorId qua query param
   { path: 'schedules/:id', component: ScheduleManagementComponent }, // Xem chi tiết schedule theo ID

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Doctor } from './models/doctor.model';
+import { Doctor } from '../models/doctor.model';
 import { DoctorService } from '../services/doctor.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
@@ -15,7 +15,7 @@ export class ListDoctorComponent implements OnInit {
   selectedDoctor: Doctor | null = null;
   @ViewChild('userId')
   userId!: ElementRef;
-  
+
   constructor(private doctorService: DoctorService) { }
   ngOnInit(): void {
     this.loadDoctors();
@@ -36,7 +36,7 @@ export class ListDoctorComponent implements OnInit {
       console.error('Invalid userId');
       return;
     }
-  
+
     // Tiến hành gọi API để xóa bác sĩ
     this.doctorService.deleteDoctor(userId).subscribe({
       next: () => {
@@ -47,13 +47,13 @@ export class ListDoctorComponent implements OnInit {
         console.error('Error deleting doctor:', error);
       }
     });
-  }  
+  }
   // addDoctor(): void {
   //   const newDoctor: Doctor = {
   //     userId: this.userId.nativeElement.value,
   //     // Set other properties similarly
   //   };
-    
+
   //   this.doctorService.addDoctor(newDoctor).subscribe({
   //     next: (doctor) => {
   //       this.doctors.push(doctor);
@@ -65,7 +65,7 @@ export class ListDoctorComponent implements OnInit {
   editDoctor(doctor: Doctor): void {
     this.selectedDoctor = { ...doctor };
   }
- 
-  
-  
+
+
+
 }

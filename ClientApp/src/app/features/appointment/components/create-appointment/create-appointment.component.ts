@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ScheduleService } from '../../../schedule/services/schedule.service';
 import { DoctorService } from '../../../doctor/services/doctor.service';
 import { Schedule } from '../../../schedule/models/schedule.model';
-import { Doctor } from '../../../doctor/models/doctor.model';
+import { Doctor, GetDoctor } from '../../../doctor/models/doctor.model';
 
 @Component({
   selector: 'app-create-appointment',
@@ -27,23 +27,23 @@ export class CreateAppointmentComponent implements OnInit {
   };
   doctor: Doctor | null = null;
   schedules: Schedule[] = [];
-  clinic: { id: number; name: string }| null = null;
+  clinic: { id: number; name: string } | null = null;
   errorMessage: string = '';
   isDoctorDisabled: boolean = true; // Để vô hiệu hóa trường doctor
   isClinicDisabled: boolean = true; // Để vô hiệu hóa trường clinic
 
   constructor(
-    private appointmentService: AppointmentService, 
+    private appointmentService: AppointmentService,
     private router: Router,
     private route: ActivatedRoute,
     private scheduleService: ScheduleService, // Thêm ScheduleService
-    private doctorService: DoctorService) {}
+    private doctorService: DoctorService) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       const doctorId = +params['doctorId'];
       const clinicId = +params['clinicId'];
-      console.log('Query params: ', {doctorId, clinicId});
+      console.log('Query params: ', { doctorId, clinicId });
 
       if (doctorId && clinicId) {
         this.appointment.doctorId = doctorId;
@@ -116,7 +116,7 @@ export class CreateAppointmentComponent implements OnInit {
       this.errorMessage = 'Vui lòng chọn một lịch trống.';
       return;
     }
-  
+
     const token = localStorage.getItem('token');
     console.log('Submitting with token:', token); // Log token
     console.log('Appointment data:', this.appointment); // Log dữ liệu gửi đi
@@ -125,7 +125,7 @@ export class CreateAppointmentComponent implements OnInit {
       this.router.navigate(['/login']);
       return;
     }
-  
+
     this.appointmentService.createAppointment(this.appointment).subscribe({
       next: () => {
         alert('Tạo lịch hẹn thành công!');
