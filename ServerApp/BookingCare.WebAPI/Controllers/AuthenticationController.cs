@@ -85,6 +85,7 @@ namespace BookingCare.WebAPI.Controllers
             return Ok(new { message = $"User {registerVm.Email} created successfully with role 'Patient'" });
         }
         [HttpPost("login")]
+
         public async Task<IActionResult> Login([FromBody] LoginVm loginVm)
         {
             if (!ModelState.IsValid)
