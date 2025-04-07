@@ -3,7 +3,8 @@ import { DoctorService } from '../services/doctor.service';
 import { ClinicService } from '../../clinic/services/clinic.service';
 import { SpecializationService } from '../../specialization/services/specialization.service';
 import { ActivatedRoute } from '@angular/router';
-import { Clinic } from '../../clinic/models/clinic';  //xoa .model
+
+import { Clinic } from '../../clinic/models/clinic';
 import { Specialization } from '../../specialization/models/specialization.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';

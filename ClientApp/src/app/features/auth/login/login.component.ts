@@ -55,7 +55,16 @@ export class LoginComponent {
         // Đăng nhập thành công
         this.cookieService.set('Authentication', `${response.token}`, undefined, '/', undefined, true, 'Strict');
         this.authService.setUser({ email: response.email, id: response.id, role: response.role }); // Truyền cả email và id
-        this.router.navigateByUrl('/');
+        // Kiểm tra role và điều hướng
+        if (response.role === 'Patient') {
+          this.router.navigateByUrl('/'); // Trang homepage cho patient
+        } else if (response.role === 'Doctor') {
+          this.router.navigateByUrl('/'); // Trang quản lý cho admin
+        } else if (response.role === 'Admin') {
+          this.router.navigateByUrl('/admin/get-all-doctors'); // Trang quản lý cho admin
+        } else {
+          this.router.navigateByUrl('/'); // Mặc định điều hướng về trang chính
+        }
         this.isLoading = false; // Tắt trạng thái loading
       },
       error: err => {

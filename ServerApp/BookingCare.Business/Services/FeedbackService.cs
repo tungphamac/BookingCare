@@ -139,29 +139,71 @@ namespace BookingCare.Business.Services
             };
         }
 
-        public async Task<bool> AddFeedbackAsync(FeedbackVm feedbackVm)
+        public async Task<bool> AddFeedbackAsync(FeedbackVm feedbackVm, int userId)
         {
             ValidateFeedback(feedbackVm);
 
-            // Kiểm tra xem AppointmentId đã tồn tại trong bảng Feedback chưa
-            bool exists = await _unitOfWork.Context.Feedbacks
-                .AnyAsync(f => f.AppointmentId == feedbackVm.AppointmentId);
-
-            if (exists)
+            try
             {
-                throw new InvalidOperationException("Feedback for this appointment already exists.");
+                // Kiểm tra xem cuộc hẹn có tồn tại không
+                var appointment = await _unitOfWork.AppointmentRepository
+                    .GetQuery(a => a.Id == feedbackVm.AppointmentId)
+                    .Include(a => a.Doctor).ThenInclude(d => d.User)
+                    .Include(a => a.Patient).ThenInclude(p => p.User)
+                    .FirstOrDefaultAsync();
+
+                if (appointment == null)
+                {
+                    throw new ArgumentException($"Appointment with ID {feedbackVm.AppointmentId} not found.");
+                }
+
+                // Kiểm tra xem userId có phải là bệnh nhân của cuộc hẹn không
+                if (appointment.PatientId != userId)
+                {
+                    throw new UnauthorizedAccessException("Only the patient of this appointment can submit feedback.");
+                }
+
+                // Kiểm tra trạng thái của cuộc hẹn
+                if (appointment.Status != AppointmentStatus.Confirmed)
+                {
+                    throw new InvalidOperationException("Feedback can only be submitted for confirmed appointments.");
+                }
+
+                // Kiểm tra xem cuộc hẹn đã có phản hồi chưa
+                var existingFeedback = await _unitOfWork.FeedbackRepository
+                    .GetQuery(f => f.AppointmentId == feedbackVm.AppointmentId)
+                    .FirstOrDefaultAsync();
+
+                if (existingFeedback != null)
+                {
+                    throw new InvalidOperationException($"A feedback for Appointment ID {feedbackVm.AppointmentId} already exists.");
+                }
+
+                // Tạo phản hồi mới
+                var feedback = new Feedback
+                {
+                    AppointmentId = feedbackVm.AppointmentId,
+                    Rating = feedbackVm.Rating,
+                    Comment = feedbackVm.Comment,
+                    CreatedAt = DateTime.UtcNow
+                };
+
+                await _unitOfWork.FeedbackRepository.AddAsync(feedback);
+                await _unitOfWork.SaveChangesAsync();
+
+                // Tạo thông báo cho bác sĩ
+                var message = $"Bệnh nhân {appointment.Patient.User.UserName} đã phản hồi về dịch vụ của bạn.";
+                await _notificationService.CreateNotificationAsync(appointment.Doctor.UserId, message, appointment.Id);
+
+                _logger.LogInformation($"Feedback created for Appointment ID {feedbackVm.AppointmentId}. Notification sent to Doctor ID {appointment.Doctor.UserId}.");
+
+                return true; // ✅ Thành công
             }
-
-            var feedback = new Feedback()
+            catch (Exception ex)
             {
-                AppointmentId = feedbackVm.AppointmentId,
-                Rating = feedbackVm.Rating,
-                Comment = feedbackVm.Comment
-            };
-
-            await _unitOfWork.Context.Feedbacks.AddAsync(feedback);
-            await _unitOfWork.SaveChangesAsync();
-            return true;
+                _logger.LogError(ex, $"Error creating feedback for Appointment ID {feedbackVm.AppointmentId}.");
+                throw; // Ném lỗi để controller xử lý
+            }
         }
 
         public async Task<bool> UpdateFeedback(int id, UpdateFeedbackVm updateFeedbackVm)

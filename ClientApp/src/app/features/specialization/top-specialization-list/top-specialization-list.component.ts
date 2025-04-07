@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TopSpecialization } from '../models/top-specialization.model';
 import { SpecializationService } from '../services/specialization.service';
@@ -10,6 +10,7 @@ import { SpecializationService } from '../services/specialization.service';
   styleUrl: './top-specialization-list.component.css'
 })
 export class TopSpecializationListComponent implements OnInit {
+  @ViewChild('scrollContainer', { static: false }) scrollContainer!: ElementRef;
   specializations: TopSpecialization[] = [];
 
   constructor(private specializationService: SpecializationService) { }
@@ -22,4 +23,13 @@ export class TopSpecializationListComponent implements OnInit {
       }
     });
   }
+
+  scrollLeft(): void {
+    this.scrollContainer.nativeElement.scrollBy({ left: -300, behavior: 'smooth' });
+  }
+
+  scrollRight(): void {
+    this.scrollContainer.nativeElement.scrollBy({ left: 300, behavior: 'smooth' });
+  }
+
 }

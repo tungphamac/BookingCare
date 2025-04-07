@@ -1,7 +1,17 @@
-<!-- Specialization Section
 <section class="specializations">
-    <div class="container">
-        <div class="row g-4">
+    <div class="container position-relative">
+
+        <!-- Nút scroll trái -->
+        <button class="scroll-btn left" (click)="scrollLeft()">
+            &#8249;
+        </button>
+
+        <!-- Nút scroll phải -->
+        <button class="scroll-btn right" (click)="scrollRight()">
+            &#8250;
+        </button>
+
+        <div class="row g-4" #scrollContainer>
             <div class="col-md-4" *ngFor="let specialization of specializations">
                 <div class="specialization-card">
                     <div class="specialization-header">
@@ -13,4 +23,4 @@
             </div>
         </div>
     </div>
-</section> -->
+</section>

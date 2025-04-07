@@ -102,8 +102,9 @@ namespace BookingCare.WebAPI.Controllers
                 // Kiểm tra vai trò dựa trên quan hệ với bảng Patient hoặc Doctor
                 var isPatient = _context.Patients.Any(p => p.UserId == user.Id);
                 var isDoctor = _context.Doctors.Any(d => d.UserId == user.Id);
+                var isAdmin = _context.Users.Any(a => a.Id == user.Id);
 
-                string role = isPatient ? "Patient" : isDoctor ? "Doctor" : "Unknown";
+                string role = isPatient ? "Patient" : isDoctor ? "Doctor" : isAdmin ? "Admin" : "Unknown";
 
                 // Trả về token, email, id và vai trò
                 return Ok(new

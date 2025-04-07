@@ -72,3 +72,19 @@
     background-color: #e9ecef;
     margin-top: 20px;
 }
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.icon-img {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease;
+}
+
+.icon-img:hover {
+    transform: scale(1.1);
+}

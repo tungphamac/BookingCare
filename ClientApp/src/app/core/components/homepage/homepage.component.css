@@ -5,7 +5,7 @@ body {
 .hero {
     position: relative;
     height: 650px;
-    /* Điều chỉnh chiều cao theo ý muốn */
+
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
         url('https://bookingcare.vn/assets/anh/bookingcare-cover-4.jpg') center/cover no-repeat;
     display: flex;
@@ -21,18 +21,123 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5), url('https://bookingcare.vn/assets/anh/bookingcare-cover-4.jpg') cover/cover;
-    /* Làm tối ảnh nền */
 }
 
+/* 
 .hero-content {
     position: relative;
     z-index: 2;
-    /* Đảm bảo hiển thị trên overlay */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+} */
+#about_intro {
+
+    padding: 60px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.about_block .vung-bao {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#about_logo {
+    display: block;
+    margin: 0 auto 30px;
+    max-width: 200px;
+}
+
+.hang {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cot-6 {
+    flex: 1 1 50%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.chu-giua {
+    text-align: center;
+}
+
+.chu-trai {
+    text-align: left;
+}
+
+.about_block h1 {
+    font-size: 36px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.about_block h2 {
+    font-size: 22px;
+    color: white;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.about_block p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: white;
+}
+
+.about_demo {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hang {
+        flex-direction: column;
+    }
+
+    .cot-6 {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+
+    .chu-trai {
+        text-align: center;
+    }
+
+    .about_block h1 {
+        font-size: 28px;
+    }
+
+    .about_block h2 {
+        font-size: 18px;
+    }
+
+    .about_block p {
+        font-size: 15px;
+    }
+
+    #about_logo {
+        max-width: 150px;
+    }
+
+    .about_demo {
+        max-width: 90%;
+        margin-top: 20px;
+    }
+
+    .about_demo:hover {
+        transform: scale(1.02);
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    }
+}
+
 
 .search-bar {
     width: 100%;
@@ -97,4 +202,60 @@ body {
     width: 100%;
     height: 200px;
     object-fit: cover;
+}
+
+/* Add application styles & imports to this file! */
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.news-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.title {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.video-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+}
+
+.news-links {
+    flex: 1;
+    min-width: 300px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    align-content: start;
+}
+
+.news-link {
+    display: block;
+    padding: 10px;
+    transition: transform 0.2s;
+}
+
+.news-link:hover {
+    transform: scale(1.05);
+}
+
+.news-link img {
+    max-width: 100%;
+    height: auto;
 }
