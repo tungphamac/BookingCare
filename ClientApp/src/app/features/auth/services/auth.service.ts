@@ -92,5 +92,9 @@ export class AuthService {
 
 
   }
+  isAdmin(): boolean {
+    const user = this.getUser(); // Lấy thông tin người dùng từ localStorage
+    return user ? user.role === 'admin' : false; // Kiểm tra role có phải là 'admin' không
+  }
 }
 

@@ -130,20 +130,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "string",
-                "format": "date-time"
+                "type": "string"
               }
             },
             "text/json": {
               "schema": {
-                "type": "string",
-                "format": "date-time"
+                "type": "string"
               }
             },
             "application/*+json": {
               "schema": {
-                "type": "string",
-                "format": "date-time"
+                "type": "string"
               }
             }
           }
@@ -170,6 +167,41 @@
               "format": "int32"
             }
           }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Account/getby/{userId}": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Account/getall": {
+      "get": {
+        "tags": [
+          "Account"
         ],
         "responses": {
           "200": {
@@ -405,7 +437,7 @@
         }
       }
     },
-    "/api/Clinic/getall": {
+    "/api/Clinic/get-all-clinics": {
       "get": {
         "tags": [
           "Clinic"
@@ -517,6 +549,52 @@
       "get": {
         "tags": [
           "Clinic"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Clinic/get-doctors-by-clinic-id/{clinicId}": {
+      "get": {
+        "tags": [
+          "Clinic"
+        ],
+        "parameters": [
+          {
+            "name": "clinicId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Clinic/get-clinics-by-specialization/{specializationId}": {
+      "get": {
+        "tags": [
+          "Clinic"
+        ],
+        "parameters": [
+          {
+            "name": "specializationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -711,6 +789,171 @@
         }
       }
     },
+    "/api/Doctor/update-doctor-profile/{doctorId}": {
+      "put": {
+        "tags": [
+          "Doctor"
+        ],
+        "parameters": [
+          {
+            "name": "doctorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Gender": {
+                    "type": "boolean"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "Phone": {
+                    "type": "string"
+                  },
+                  "Address": {
+                    "type": "string"
+                  },
+                  "Achievement": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "SpecializationId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "ClinicId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Avatar": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Name": {
+                  "style": "form"
+                },
+                "Gender": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Phone": {
+                  "style": "form"
+                },
+                "Address": {
+                  "style": "form"
+                },
+                "Achievement": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "SpecializationId": {
+                  "style": "form"
+                },
+                "ClinicId": {
+                  "style": "form"
+                },
+                "Avatar": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Doctor/get-doctors-by-specialization/{specializationId}": {
+      "get": {
+        "tags": [
+          "Doctor"
+        ],
+        "parameters": [
+          {
+            "name": "specializationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Doctor/upload-avatar/{doctorId}": {
+      "post": {
+        "tags": [
+          "Doctor"
+        ],
+        "parameters": [
+          {
+            "name": "doctorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "avatarFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "avatarFile": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Feedback/get-all-feedbacks": {
       "get": {
         "tags": [
@@ -842,7 +1085,7 @@
         }
       }
     },
-    "/api/Feedback/appointment/{appointmentId}": {
+    "/api/Feedback/get-feedback-by-appointment/{appointmentId}": {
       "get": {
         "tags": [
           "Feedback"
@@ -850,6 +1093,29 @@
         "parameters": [
           {
             "name": "appointmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Feedback/get-feedbacks-by-doctorId/{doctorId}": {
+      "get": {
+        "tags": [
+          "Feedback"
+        ],
+        "parameters": [
+          {
+            "name": "doctorId",
             "in": "path",
             "required": true,
             "schema": {
@@ -1268,69 +1534,8 @@
         }
       }
     },
-    "/api/Schedule/{id}": {
+    "/api/Schedule/get-schedule-by-id/{id}": {
       "get": {
-        "tags": [
-          "Schedule"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Schedule"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ScheduleDetailDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ScheduleDetailDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ScheduleDetailDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "delete": {
         "tags": [
           "Schedule"
         ],
@@ -1362,30 +1567,131 @@
             "description": "Success"
           }
         }
-      },
+      }
+    },
+    "/api/Schedule/Create-schedule-by-doctor/{doctorId}": {
       "post": {
         "tags": [
           "Schedule"
+        ],
+        "parameters": [
+          {
+            "name": "doctorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ScheduleDetailDto"
+                "$ref": "#/components/schemas/CreateScheduleDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ScheduleDetailDto"
+                "$ref": "#/components/schemas/CreateScheduleDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ScheduleDetailDto"
+                "$ref": "#/components/schemas/CreateScheduleDto"
               }
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Schedule/edit-schedule-by-id/{id}": {
+      "put": {
+        "tags": [
+          "Schedule"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateScheduleDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateScheduleDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateScheduleDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Schedule/get-schedules-by-id/{doctorId}": {
+      "get": {
+        "tags": [
+          "Schedule"
+        ],
+        "parameters": [
+          {
+            "name": "doctorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Schedule/delete-schedule-by-id/{id}": {
+      "delete": {
+        "tags": [
+          "Schedule"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -1522,7 +1828,7 @@
         }
       }
     },
-    "/api/Specialization/getby/{id}": {
+    "/api/Specialization/get-specialization-by-id/{id}": {
       "get": {
         "tags": [
           "Specialization"
@@ -1690,6 +1996,29 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Specialization/clinic/{clinicId}": {
+      "get": {
+        "tags": [
+          "Specialization"
+        ],
+        "parameters": [
+          {
+            "name": "clinicId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -1888,6 +2217,24 @@
         },
         "additionalProperties": false
       },
+      "CreateScheduleDto": {
+        "type": "object",
+        "properties": {
+          "timeSlot": {
+            "type": "string",
+            "nullable": true
+          },
+          "workDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "DateOnly": {
         "type": "object",
         "properties": {
@@ -2006,6 +2353,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "patientName": {
+            "type": "string",
+            "nullable": true
+          },
           "appointmentId": {
             "type": "integer",
             "format": "int32"
@@ -2017,6 +2368,10 @@
           "comment": {
             "type": "string",
             "nullable": true
+          },
+          "createAt": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "additionalProperties": false
@@ -2179,32 +2534,6 @@
             "nullable": true
           },
           "confirmNewPassword": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ScheduleDetailDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "doctorId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "timeSlot": {
-            "type": "string",
-            "nullable": true
-          },
-          "workDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "status": {
             "type": "string",
             "nullable": true
           }
@@ -2377,6 +2706,24 @@
             "format": "int32"
           },
           "comment": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateScheduleDto": {
+        "type": "object",
+        "properties": {
+          "timeSlot": {
+            "type": "string",
+            "nullable": true
+          },
+          "workDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
             "type": "string",
             "nullable": true
           }

@@ -20,8 +20,8 @@ namespace BookingCare.API.Controllers
             _logger = logger;
         }
 
-        [HttpGet("getby/{id}")]
         //[Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem chi tiết specialization
+        [HttpGet("get-specialization-by-id/{id}")]
         public async Task<IActionResult> GetSpecializationById(int id)
         {
             try
@@ -41,8 +41,7 @@ namespace BookingCare.API.Controllers
         }
 
         [HttpGet("get-all-specializations")]
-        [Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem danh sách specialization
-
+        //[Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem danh sách specialization
         public async Task<IActionResult> GetAllSpecializations()
         {
             try
@@ -72,6 +71,7 @@ namespace BookingCare.API.Controllers
                 return StatusCode(500, "An error occurred while creating the specialization.");
             }
         }
+
 
         [HttpPut("update/{id}")]
         //[Authorize(Roles = "Admin")] // Chỉ Admin được sửa specialization
@@ -161,5 +161,20 @@ namespace BookingCare.API.Controllers
             return Ok(new { fileName = fileName });  // Trả lại tên file đã lưu
         }
 
+        [HttpGet("clinic/{clinicId}")]
+        //[Authorize(Roles = "Admin,Patient")] // Admin, Patient có thể xem danh sách specialization theo clinic
+        public async Task<IActionResult> GetSpecializationsByClinicId(int clinicId)
+        {
+            try
+            {
+                var specializations = await _specializationService.GetSpecializationsByClinicIdAsync(clinicId);
+                return Ok(specializations);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving specializations for Clinic with ID {clinicId}.");
+                return StatusCode(500, "An error occurred while retrieving specializations for the clinic.");
+            }
+        }
     }
 }

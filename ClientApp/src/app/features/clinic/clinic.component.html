@@ -1,16 +1,15 @@
 <div class="layout-wrapper d-flex">
     <!-- Sidebar -->
     <aside class="sidebar">
-      <div class="sidebar-header">
-        Doctor Management
-      </div>
+      <div class="sidebar-header">BookingCare Admin</div>
       <nav class="nav flex-column">
-        <a routerLink="/Patient/getall" class="nav-link">Quản lý bệnh nhân</a>
-        <a routerLink="/Doctor/getall" class="nav-link">Quản lý bác sĩ</a>
-        <a routerLink="/Clinic/getall" class="nav-link">Quản lý phòng khám</a>
-        <a href="#" class="nav-link">Settings</a>
+          <a href="/Clinic/get-all-clinics" class="nav-link">Phòng khám</a>
+          <a href="/Doctor/getall" class="nav-link active">Bác sĩ</a>
+          <a href="/Specialization/get-all-specializations" class="nav-link">Chuyên khoa</a>
+          <a href="/Account/getall" class="nav-link">Quản lý người dùng</a>
+          <a href="/Patient/getall" class="nav-link">Quản lý bệnh nhân</a>
       </nav>
-    </aside>
+  </aside>
   
     <!-- Main content -->
     <main class="main-content">

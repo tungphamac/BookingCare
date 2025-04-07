@@ -4,6 +4,7 @@ using BookingCare.Business.Services.Interfaces;
 using BookingCare.Business.ViewModels;
 using BookingCare.Data.Infrastructure;
 using BookingCare.Data.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -15,6 +16,7 @@ namespace BookingCare.Business.Services
         private readonly UserManager<User> _userManager;
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<DoctorService> _logger;
+        private readonly string _imageFolderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "avatars"); // Đường dẫn đến thư mục lưu ảnh
 
         public DoctorService(ILogger<DoctorService> logger, IUnitOfWork unitOfWork, UserManager<User> userManager)
             : base(logger, unitOfWork)
@@ -248,6 +250,78 @@ namespace BookingCare.Business.Services
             }
         }
 
+        public async Task<bool> UpdateDoctorProfileAsync(int doctorId, UpdateDoctorVm updateDoctorVm)
+        {
+            try
+            {
+                var doctor = await _unitOfWork.DoctorRepository
+                    .GetQuery(d => d.UserId == doctorId)
+                    .Include(d => d.User)
+                    .FirstOrDefaultAsync();
+
+                if (doctor == null)
+                {
+                    _logger.LogWarning($"Doctor with UserId {doctorId} not found.");
+                    return false;
+                }
+
+                // Kiểm tra bắt buộc nhập tất cả các trường (trừ avatar)
+                if (string.IsNullOrWhiteSpace(updateDoctorVm.Name) ||
+                    string.IsNullOrWhiteSpace(updateDoctorVm.Email) ||
+                    updateDoctorVm.Gender == null || // Giới tính không được null
+                    string.IsNullOrWhiteSpace(updateDoctorVm.Address) ||
+                    string.IsNullOrWhiteSpace(updateDoctorVm.Achievement) ||
+                    string.IsNullOrWhiteSpace(updateDoctorVm.Description))
+                {
+                    _logger.LogWarning("All fields (except Avatar) are required.");
+                    throw new ArgumentException("All fields (except Avatar) are required.");
+                }
+
+                // Cập nhật thông tin User
+                doctor.User.UserName = updateDoctorVm.Name;
+                doctor.User.Email = updateDoctorVm.Email;
+                doctor.User.Gender = updateDoctorVm.Gender;
+                doctor.User.Address = updateDoctorVm.Address;
+
+                // Xử lý Avatar (nếu có)
+                if (updateDoctorVm.Avatar != null && updateDoctorVm.Avatar.Length > 0)
+                {
+                    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+                    Directory.CreateDirectory(uploadsFolder); // Đảm bảo thư mục tồn tại
+
+                    var fileName = $"{Guid.NewGuid()}_{Path.GetFileName(updateDoctorVm.Avatar.FileName)}";
+                    var filePath = Path.Combine(uploadsFolder, fileName);
+
+                    await using var stream = new FileStream(filePath, FileMode.Create);
+                    await updateDoctorVm.Avatar.CopyToAsync(stream);
+
+                    // Lưu đường dẫn tương đối vào database
+                    doctor.User.Avatar = $"{fileName}";
+                }
+
+                // Cập nhật thông tin bác sĩ
+                doctor.Achievement = updateDoctorVm.Achievement;
+                doctor.Description = updateDoctorVm.Description;
+
+                _unitOfWork.DoctorRepository.Update(doctor);
+                _unitOfWork.UserRepository.Update(doctor.User);
+
+                await _unitOfWork.SaveChangesAsync();
+
+                return true;
+            }
+            catch (ArgumentException ex)
+            {
+                _logger.LogWarning(ex, "Validation failed while updating doctor profile.");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error updating doctor profile for UserId {doctorId}.");
+                throw;
+            }
+        }
+
         public async Task<ICollection<FeaturedDoctorVm>> GetFeaturedDoctors(int top)
         {
             var result = await _unitOfWork.Context.Appointments
@@ -273,6 +347,7 @@ namespace BookingCare.Business.Services
                             Description = docInfo.doc.Description,
                             Achievement = docInfo.doc.Achievement,
                             Address = user.Address,
+                            SpecializationId = docInfo.doc.SpecializationId,
                             Avatar = user.Avatar
                         })
                         .ToListAsync();
@@ -315,5 +390,136 @@ namespace BookingCare.Business.Services
 
             return topRatingDoctors;
         }
+
+
+        public async Task<List<DoctorDetailDto>> GetDoctorsBySpecializationIdAsync(int specializationId)
+        {
+            try
+            {
+                var doctors = await _unitOfWork.DoctorRepository
+                    .GetQuery(d => d.SpecializationId == specializationId)
+                    .Include(d => d.User)
+                    .Include(d => d.Specialization)
+                    .Include(d => d.Clinic)
+                    .Select(d => new DoctorDetailDto
+                    {
+                        Id = d.UserId,
+                        UserName = d.User.UserName,
+                        Email = d.User.Email,
+                        Gender = d.User.Gender,
+                        Address = d.User.Address,
+                        Avatar = d.User.Avatar,
+                        Achievement = d.Achievement,
+                        Description = d.Description,
+                        SpecializationName = d.Specialization.Name,
+                        ClinicName = d.Clinic.Name
+                    })
+                    .ToListAsync();
+
+                if (doctors.Count == 0)
+                {
+                    _logger.LogWarning($"No doctors found for Specialization ID {specializationId}.");
+                }
+
+                return doctors;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving doctors for Specialization ID {specializationId}.");
+                throw;
+            }
+        }
+        public async Task<DoctorVm> GetDoctorByIdAsync(int doctorId)
+        {
+            try
+            {
+                var doctor = await _unitOfWork.DoctorRepository
+                    .GetQuery(d => d.UserId == doctorId)
+                    .Include(d => d.User)
+                    .Include(d => d.Specialization)
+                    .Include(d => d.Clinic)
+                    .Select(d => new DoctorVm()
+                    {
+                        Id = d.UserId,
+                        Name = d.User.UserName,
+                        Gender = d.User.Gender,
+                        Email = d.User.Email,
+                        Phone = d.User.PhoneNumber,
+                        Address = d.User.Address,
+                        Avatar = d.User.Avatar,
+                        Achievement = d.Achievement,
+                        Description = d.Description,
+                        SpecializationId = d.SpecializationId,
+                        ClinicId = d.ClinicId
+                    })
+                    .FirstOrDefaultAsync();
+
+                if (doctor == null)
+                {
+                    _logger.LogWarning($"Doctor with ID {doctorId} not found.");
+                    return null;
+                }
+
+                return doctor;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving doctor details for ID {doctorId}.");
+                throw;
+            }
+        }
+        public async Task<bool> UploadAvatarAsync(int doctorId, IFormFile avatarFile)
+        {
+            try
+            {
+                if (avatarFile == null || avatarFile.Length == 0)
+                {
+                    _logger.LogWarning("No avatar file selected.");
+                    return false;
+                }
+
+                // Kiểm tra thư mục lưu ảnh, nếu không có thì tạo mới
+                if (!Directory.Exists(_imageFolderPath))
+                {
+                    Directory.CreateDirectory(_imageFolderPath);
+                }
+
+                // Tạo tên tệp ảnh mới
+                var fileName = $"{doctorId}_{Guid.NewGuid()}_{Path.GetFileName(avatarFile.FileName)}";
+                var filePath = Path.Combine(_imageFolderPath, fileName);
+
+                // Lưu ảnh vào thư mục
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await avatarFile.CopyToAsync(stream);
+                }
+
+                // Lưu đường dẫn ảnh vào cơ sở dữ liệu
+                var avatarUrl = Path.Combine("uploads", "avatars", fileName); // Đường dẫn ảnh trên server
+
+                var doctor = await _unitOfWork.DoctorRepository.GetQuery(d => d.UserId == doctorId).FirstOrDefaultAsync();
+                if (doctor == null)
+                {
+                    _logger.LogWarning($"Doctor with ID {doctorId} not found.");
+                    return false;
+                }
+
+                // Cập nhật avatar cho bác sĩ
+                doctor.User.Avatar = avatarUrl;
+                _unitOfWork.DoctorRepository.Update(doctor);
+                _unitOfWork.UserRepository.Update(doctor.User);
+
+                await _unitOfWork.SaveChangesAsync();
+
+                _logger.LogInformation($"Avatar uploaded successfully for Doctor ID {doctorId}.");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error uploading avatar for Doctor ID {doctorId}.");
+                return false;
+            }
+        }
+
     }
 }

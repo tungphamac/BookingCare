@@ -1,15 +1,15 @@
 <div class="d-flex">
     <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading">Doctor Management</div>
-        <div class="list-group list-group-flush">
-            <a href="/Patient/getall" class="list-group-item list-group-item-action bg-light">Quản lý bệnh nhân</a>
-            <a href="/Doctor/getall" class="list-group-item list-group-item-action bg-light">Quản lý bác sĩ</a>
-            <a href="/Clinic/getall" class="list-group-item list-group-item-action bg-light">Quản lý phòng khám</a>
-
-            <a href="#" class="list-group-item list-group-item-action bg-light">Settings</a>
-        </div>
-    </div>
+    <aside class="sidebar">
+        <div class="sidebar-header">BookingCare Admin</div>
+        <nav class="nav flex-column">
+            <a href="/Clinic/get-all-clinics" class="nav-link">Phòng khám</a>
+            <a href="/Doctor/getall" class="nav-link active">Bác sĩ</a>
+            <a href="/Specialization/get-all-specializations" class="nav-link">Chuyên khoa</a>
+            <a href="/Account/getall" class="nav-link">Quản lý người dùng</a>
+            <a href="/Patient/getall" class="nav-link">Quản lý bệnh nhân</a>
+        </nav>
+    </aside>
 
     <!-- Main Content -->
     <div class="container-fluid">

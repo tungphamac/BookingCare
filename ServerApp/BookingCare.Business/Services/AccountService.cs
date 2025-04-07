@@ -1,7 +1,8 @@
 ﻿using BookingCare.Business.Services.Interfaces;
+using BookingCare.Business.ViewModels;
 using BookingCare.Data.Models;
 using Microsoft.AspNetCore.Identity;
-
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
@@ -97,37 +98,50 @@ namespace BookingCare.Business.Services
             return (true, "Mật khẩu đã được đặt lại thành công.", null);
         }
 
-        public async Task<bool> LockUserAccountAsync(int userId, DateTime lockUntil)
+        public async Task<(bool Success, string Message, DateTime? LockUntil)> LockUserAccountAsync(int userId, DateTime lockUntil)
         {
-            try
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+            if (user == null)
             {
-                var user = await _userManager.FindByIdAsync(userId.ToString());
-                if (user == null)
-                {
-                    _logger.LogWarning($"User with Id {userId} not found.");
-                    return false;
-                }
-
-
-                //user.LockoutEnabled = true;
-                //user.LockoutEnd = DateTime.UtcNow.AddMinutes(5);;
-
-                var result = await _userManager.UpdateAsync(user);
-                if (result.Succeeded)
-                {
-                    _logger.LogInformation($"User with Id {userId} locked until {lockUntil}.");
-                    return true;
-                }
-
-                _logger.LogError($"Failed to lock account for user {userId}.");
-                return false;
+                return (false, "User not found.", null);
             }
-            catch (Exception ex)
+
+            user.LockoutEnabled = true;
+            user.LockoutEnd = lockUntil;
+
+            var result = await _userManager.UpdateAsync(user);
+            if (result.Succeeded)
             {
-                _logger.LogError(ex, $"Error locking account for user {userId}.");
-                throw;
+                return (true, $"User with Id {userId} has been locked until {lockUntil}.", lockUntil);
             }
+
+            return (false, "Failed to lock user account.", null);
         }
+
+
+
+        public async Task<UserDetailsVm> GetUserByIdAsync(int userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+
+            if (user == null)
+            {
+                return null;
+            }
+
+            // Chuyển thông tin người dùng thành UserDetailsVm
+            var userDetailsVm = new UserDetailsVm
+            {
+                UserId = user.Id,
+                Username = user.UserName,
+                Email = user.Email,
+                LockoutEnd = user.LockoutEnd?.DateTime ?? DateTime.MinValue, // Chuyển từ DateTimeOffset? sang DateTime?
+                LockoutEnabled = user.LockoutEnabled
+            };
+
+            return userDetailsVm;
+        }
+
 
         public async Task<bool> UnlockUserAccountAsync(int userId)
         {
@@ -140,6 +154,7 @@ namespace BookingCare.Business.Services
                     return false;
                 }
 
+                // Đặt LockoutEnabled thành false và LockoutEnd là null để mở khóa tài khoản
                 user.LockoutEnabled = false;
                 user.LockoutEnd = null;
 
@@ -158,6 +173,23 @@ namespace BookingCare.Business.Services
                 _logger.LogError(ex, $"Error unlocking account for user {userId}.");
                 throw;
             }
+        }
+
+        public async Task<List<UserDetailsVm>> GetAllUsersAsync()
+        {
+            // Lấy tất cả người dùng từ cơ sở dữ liệu
+            var users = await _userManager.Users.ToListAsync();
+
+            var userDetailsList = users.Select(user => new UserDetailsVm
+            {
+                UserId = user.Id,
+                Username = user.UserName,
+                Email = user.Email,
+                LockoutEnd = user.LockoutEnd?.DateTime ?? DateTime.MinValue, // Chuyển từ DateTimeOffset? sang DateTime?
+                LockoutEnabled = user.LockoutEnabled
+            }).ToList();
+
+            return userDetailsList;
         }
 
         // Các phương thức khác: ChangePasswordAsync, ForgotPasswordAsync, ResetPasswordAsync

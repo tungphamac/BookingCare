@@ -1,74 +1,79 @@
-<div class="container">
-    <h2>Add New Doctor</h2>
-    <form (ngSubmit)="addDoctor()">
-      <!-- User Name -->
-      <div class="form-group">
-        <label for="userName">User Name</label>
-        <input type="text" class="form-control" id="userName" [(ngModel)]="newDoctor.userName" name="userName" required>
-      </div>
-  
-      <!-- Email -->
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" [(ngModel)]="newDoctor.email" name="email" required>
-      </div>
-  
-      <!-- Password -->
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" [(ngModel)]="newDoctor.password" name="password" required>
-      </div>
-  
-      <!-- Gender -->
-      <div class="form-group">
-        <label for="gender">Gender</label>
-        <select class="form-control" id="gender" [(ngModel)]="newDoctor.gender" name="gender" required>
-          <option value="true">Male</option>
-          <option value="false">Female</option>
-        </select>
-      </div>
-  
-      <!-- Address -->
-      <div class="form-group">
-        <label for="address">Address</label>
-        <input type="text" class="form-control" id="address" [(ngModel)]="newDoctor.address" name="address" required>
-      </div>
-  
-      <!-- Avatar -->
-      <div class="form-group">
-        <label for="avatar">Avatar (Image URL)</label>
-        <input type="text" class="form-control" id="avatar" [(ngModel)]="newDoctor.avatar" name="avatar">
-      </div>
-  
-      <!-- Achievement -->
-      <div class="form-group">
-        <label for="achievement">Achievement</label>
-        <input type="text" class="form-control" id="achievement" [(ngModel)]="newDoctor.achievement" name="achievement">
-      </div>
-  
-      <!-- Description -->
-      <div class="form-group">
-        <label for="description">Description</label>
-        <textarea class="form-control" id="description" [(ngModel)]="newDoctor.description" name="description" rows="3"></textarea>
-      </div>
-  
-      <!-- Specialization -->
-      <div class="form-group">
-        <label for="specializationId">Specialization</label>
-        <input type="number" class="form-control" id="specializationId" [(ngModel)]="newDoctor.specializationId" name="specializationId" required>
-      </div>
-  
-      <!-- Clinic -->
-      <div class="form-group">
-        <label for="clinicId">Clinic</label>
-        <input type="number" class="form-control" id="clinicId" [(ngModel)]="newDoctor.clinicId" name="clinicId" required>
-      </div>
-  
-      <!-- Submit Button -->
-      <button type="submit" class="btn btn-primary">Add Doctor</button>
-      <p></p>
-      <button type="button" class="btn btn-secondary" (click)="goBack()">Back</button>
+<!-- Add Doctor Modal -->
+<div *ngIf="isAddDoctorVisible" class="modal" tabindex="-1" style="display: block;" id="addDoctorModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add New Doctor</h5>
+                <button type="button" class="close" (click)="closeAddDoctorModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Doctor Information Form -->
+                <form (ngSubmit)="addDoctor()">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" [(ngModel)]="newDoctor.userName" name="username" class="form-control" required />
+                    </div>
 
-    </form>
-  </div>
+                    <div class="form-group">
+                        <label for="email">Gmail:</label>
+                        <input type="email" id="email" [(ngModel)]="newDoctor.email" name="email" class="form-control" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" [(ngModel)]="newDoctor.password" name="password" class="form-control" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" [(ngModel)]="newDoctor.gender" name="gender" class="form-control" required>
+                            <option value="true">Male</option>
+                            <option value="false">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <input type="text" id="address" [(ngModel)]="newDoctor.address" name="address" class="form-control" required />
+                    </div>
+
+                    <!-- Avatar Upload -->
+                    <div class="form-group">
+                        <label for="avatar">Avatar:</label>
+                        <input type="file" id="avatar" (change)="onFileSelected($event)" name="avatar" class="form-control" required />
+                    </div>
+
+                    <!-- Show Preview of Selected Image -->
+                    <div *ngIf="selectedAvatar">
+                        <h6>Image Preview:</h6>
+                        <img [src]="selectedAvatar" alt="Selected Avatar" class="img-fluid" style="max-height: 200px; max-width: 200px; object-fit: cover;"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="achievement">Achievement:</label>
+                        <input type="text" id="achievement" [(ngModel)]="newDoctor.achievement" name="achievement" class="form-control" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea id="description" [(ngModel)]="newDoctor.description" name="description" class="form-control" required></textarea>
+                    </div>
+
+                    <label for="specialization">Specialization:</label>                   <!-- Trong add-doctor.component.html -->
+<select id="specializationId" [(ngModel)]="newDoctor.specializationId" name="specializationId" class="form-control" required>
+    <option *ngFor="let spec of specializations" [value]="spec.id">{{ spec.name }}</option>
+  </select>
+  <label for="clinic">Clinic:</label>
+  <select id="clinicId" [(ngModel)]="newDoctor.clinicId" name="clinicId" class="form-control" required>
+    <option *ngFor="let clinic of clinics" [value]="clinic.id">{{ clinic.name }}</option>
+  </select>
   
+
+                    <button type="submit" class="btn btn-primary">Add Doctor</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

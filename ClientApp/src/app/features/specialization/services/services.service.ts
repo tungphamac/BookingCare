@@ -13,7 +13,7 @@ export class SpecializationService {
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<Specialization[]> {
-    return this.http.get<Specialization[]>(`${this.apiUrl}/getall`);
+    return this.http.get<Specialization[]>(`${this.apiUrl}/get-all-specializations`);
   }
 
   getById(id: number): Observable<Specialization> {

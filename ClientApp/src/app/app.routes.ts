@@ -17,18 +17,16 @@ import { CreateAppointmentComponent } from './features/appointment/components/cr
 import { ManageAppointmentComponent } from './features/appointment/components/manage-appointment/manage-appointment.component';
 
 import { ClinicDetailComponent } from './features/clinic/clinic-detail/clinic-detail.component';
-import { DoctorDetailComponent } from './features/doctor/doctorc-detail/doctorc-detail.component';
+
 
 import { SearchComponent } from './features/search/search/search.component';
 import { PatientSearchComponent } from './features/search/patient-search/patient-search.component';
-import { DoctorProfileComponent } from './features/doctor/doctor-profile/doctor-profile.component';
+
 import { ClinicProfileComponent } from './features/clinic/clinic-profile/clinic-profile.component';
 import { NotificationListComponent } from './features/notification/notification-list/notification-list.component'; // Thêm import
 import { PatientDetailComponent } from './features/patient/patientc-detail/patientc-detail.component';
 
 
-import { ListDoctorComponent } from './features/doctor/list-doctor/list-doctor.component';
-import { AddDoctorComponent } from './features/doctor/add-doctor/add-doctor.component';
 
 import { PatientsComponent } from './features/patient/patient.component';
 import { AddPatientComponent } from './features/patient/add-patient/add-patient.component';
@@ -39,10 +37,15 @@ import { ClinicEditComponent } from './features/clinic/edit-clinic/edit-clinic.c
 import { SpecializationListComponent } from './features/specialization/specialization.component';
 import { AddSpecializationComponent } from './features/specialization/add-specialization/add-specialization.component';
 import { EditSpecializationComponent } from './features/specialization/edit-specialization/edit-specialization.component';
+import { UserManagementComponent } from './features/user/user.component';
+import { DoctorListComponent} from './features/doctor/list-doctor/list-doctor.component';
+import { AddDoctorComponent } from './features/doctor/add-doctor/add-doctor.component';
+
+
 
 export const routes: Routes = [
-  { path: '', component: HomepageComponent },
-  
+    { path: '', component: HomepageComponent },
+
 
 
     {
@@ -89,31 +92,31 @@ export const routes: Routes = [
 
 
 
-  { path: 'patients/:id', component: PatientDetailComponent },
+    { path: 'patients/:id', component: PatientDetailComponent },
 
-  { path: 'clinics/top-clinic', component: TopClinicListComponent },
-  { path: 'clinics/:id', component: ClinicDetailComponent },
-  { path: 'doctors/:id', component: DoctorDetailComponent },
-  { path: 'feedbacks/list', component: FeedbackListComponent },
-  { path: 'feedbacks/add', component: FeedbackAddComponent },
-  { path: 'search', component: SearchComponent },
-  { path: 'patient-search', component: PatientSearchComponent },
-  { path: 'doctor-profile/:id', component: DoctorProfileComponent },
-  { path: 'clinic-profile/:id', component: ClinicProfileComponent },
-  { path: 'patients/:id', component: PatientDetailComponent },
-  { path: 'notifications', component: NotificationListComponent }, // Thêm route để test
+    { path: 'clinics/top-clinic', component: TopClinicListComponent },
+    { path: 'clinics/:id', component: ClinicDetailComponent },
 
-    { path: 'admin/get-all-doctors', component: ListDoctorComponent },
-    { path: 'admin/add-doctor', component: AddDoctorComponent },   
-    {path:'admin/get-all-patients', component: PatientsComponent},
-    {path:'admin/add-patient', component:AddPatientComponent},
+    { path: 'feedbacks/list', component: FeedbackListComponent },
+    { path: 'feedbacks/add', component: FeedbackAddComponent },
+    { path: 'search', component: SearchComponent },
+    { path: 'patient-search', component: PatientSearchComponent },
+
+    { path: 'clinic-profile/:id', component: ClinicProfileComponent },
+    { path: 'patients/:id', component: PatientDetailComponent },
+    { path: 'notifications', component: NotificationListComponent }, // Thêm route để test
+
+
+    { path: 'Patient/getall', component: PatientsComponent },
+    { path: 'admin/add-patient', component: AddPatientComponent },
     //{ path: 'Patient/update/:id', component: PatientEditComponent },
-    { path: 'Clinic/getall', component: ClinicListComponent },
+    { path: 'Clinic/get-all-clinics', component: ClinicListComponent },
     { path: 'Clinic/add', component: ClinicCreateComponent },
     { path: 'Clinic/update/:id', component: ClinicEditComponent },
-    { path: 'Specialization/getall', component: SpecializationListComponent },
+    { path: 'Specialization/get-all-specializations', component: SpecializationListComponent },
     { path: 'Specialization/add', component: AddSpecializationComponent },
     { path: 'Specialization/update/:id', component: EditSpecializationComponent },
-
-
+    { path: 'Account/getall', component: UserManagementComponent },
+    { path: 'Doctor/getall', component: DoctorListComponent },
+    { path: 'Doctor/add-doctor', component: AddDoctorComponent } // Thêm route cho AddDoctor
 ];

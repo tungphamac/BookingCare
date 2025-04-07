@@ -11,7 +11,7 @@ export class ClinicService {
   constructor(private http: HttpClient) {}
 
   getAllClinics(): Observable<Clinic[]> {
-    return this.http.get<Clinic[]>(`${API_URL}/Clinic/getall`);
+    return this.http.get<Clinic[]>(`${API_URL}/Clinic/get-all-clinics`);
   }
 
   getClinicById(id: number): Observable<Clinic> {

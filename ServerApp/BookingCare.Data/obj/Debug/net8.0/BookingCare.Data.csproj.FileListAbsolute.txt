@@ -73,3 +73,17 @@ C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.Data\
 C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.pdb
 C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.genruntimeconfig.cache
 C:\Users\thanh\OneDrive\Documents\GitHub\BookingCare\ServerApp\BookingCare.Data\obj\Debug\net8.0\ref\BookingCare.Data.dll
+C:\Users\thanh\Downloads\BookingCare-main (1)\BookingCare-main\ServerApp\BookingCare.Data\bin\Debug\net8.0\BookingCare.Data.deps.json
+C:\Users\thanh\Downloads\BookingCare-main (1)\BookingCare-main\ServerApp\BookingCare.Data\bin\Debug\net8.0\BookingCare.Data.runtimeconfig.json
+C:\Users\thanh\Downloads\BookingCare-main (1)\BookingCare-main\ServerApp\BookingCare.Data\bin\Debug\net8.0\BookingCare.Data.dll
+C:\Users\thanh\Downloads\BookingCare-main (1)\BookingCare-main\ServerApp\BookingCare.Data\bin\Debug\net8.0\BookingCare.Data.pdb
+C:\Users\thanh\Downloads\BookingCare-main (1)\BookingCare-main\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.csproj.AssemblyReference.cache
+C:\Users\thanh\Downloads\BookingCare-main (1)\BookingCare-main\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\thanh\Downloads\BookingCare-main (1)\BookingCare-main\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.AssemblyInfoInputs.cache
+C:\Users\thanh\Downloads\BookingCare-main (1)\BookingCare-main\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.AssemblyInfo.cs
+C:\Users\thanh\Downloads\BookingCare-main (1)\BookingCare-main\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.csproj.CoreCompileInputs.cache
+C:\Users\thanh\Downloads\BookingCare-main (1)\BookingCare-main\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.dll
+C:\Users\thanh\Downloads\BookingCare-main (1)\BookingCare-main\ServerApp\BookingCare.Data\obj\Debug\net8.0\refint\BookingCare.Data.dll
+C:\Users\thanh\Downloads\BookingCare-main (1)\BookingCare-main\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.pdb
+C:\Users\thanh\Downloads\BookingCare-main (1)\BookingCare-main\ServerApp\BookingCare.Data\obj\Debug\net8.0\BookingCare.Data.genruntimeconfig.cache
+C:\Users\thanh\Downloads\BookingCare-main (1)\BookingCare-main\ServerApp\BookingCare.Data\obj\Debug\net8.0\ref\BookingCare.Data.dll

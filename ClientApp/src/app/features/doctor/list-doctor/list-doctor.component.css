@@ -1,80 +1,298 @@
-/* Styles for the sidebar */
-#sidebar-wrapper {
-  width: 250px;
-  min-height: 100vh;
-  background: #f8f9fa;
-  border-right: 1px solid #dee2e6;
+/* Layout wrapper */
+.layout-wrapper {
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.sidebar-heading {
-  padding: 0.875rem 1.25rem;
-  font-size: 1.2rem;
-  background-color: #007bff;
-  color: white;
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #f1f4f9;
+    border-right: 1px solid #dee2e6;
 }
 
-.list-group-item {
-  border: none;
-  padding: 0.75rem 1.25rem;
-  color: #007bff;
+.sidebar-header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px 16px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
 }
 
-.list-group-item:hover, .list-group-item:focus {
-  background-color: #e9ecef;
-  color: #0056b3;
+.nav {
+    display: flex;
+    flex-direction: column;
 }
 
-/* Styles for the main content area */
+.nav-link {
+    padding: 14px 20px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: #e0ecff;
+    color: #0056b3;
+}
+
+/* Main content */
 .flex-grow-1 {
-  padding: 20px;
+    flex-grow: 1;
 }
 
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
+.p-4 {
+    padding: 20px;
 }
 
-.btn-danger {
-  background-color: #dc3545;
-  border-color: #dc3545;
+/* Responsive Table */
+.table-responsive {
+    overflow-x: auto;
 }
 
-/* Styles for the modal */
-.modal-content {
-  border-radius: 0.3rem;
+/* Modal Styling */
+.modal {
+    display: flex; /* Đảm bảo modal được hiển thị */
+    position: fixed; /* Đặt modal ở vị trí cố định */
+    z-index: 1050; /* Đảm bảo modal luôn nằm trên các phần tử khác */
+    left: 50%; /* Đưa modal ra giữa theo chiều ngang */
+    top: 50%; /* Đưa modal ra giữa theo chiều dọc */
+    transform: translate(-50%, -50%); /* Dịch chuyển modal lên một nửa chiều rộng và chiều cao của nó để căn giữa chính xác */
+    width: 80%; /* Thiết lập chiều rộng modal */
+    max-width: 600px; /* Đảm bảo modal không quá rộng */
+    background-color: rgb(255, 255, 255); /* Màu nền modal */
+    height: auto; /* Đảm bảo chiều cao tự động theo nội dung */
 }
 
+/* Modal header - căn chỉnh nút Close và tiêu đề */
 .modal-header {
-  background: #007bff;
-  color: white;
+    display: flex;
+    justify-content: space-between; /* Đẩy tiêu đề và nút về hai đầu */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
 }
 
-/* Styles for the tables */
+.modal-header .modal-title {
+    font-size: 1.25rem;
+    margin: 0; /* Loại bỏ margin mặc định */
+}
+
+.close {
+    color: #ff0000;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px; /* Bo góc modal */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm bóng cho modal */
+}
+
+/* Modal footer */
+.modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #ddd;
+    text-align: right;
+}
+
+
+
+/* Table Styling */
 .table {
-  width: 100%;
-  margin-bottom: 1rem;
-  color: #212529;
+    width: 100%;
+    margin-top: 30px;
+    /* Increased margin-top for better spacing */
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for table */
+}
+
+.table th,
+.table td {
+    padding: 15px 20px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1rem;
+    /* Increase font size for better readability */
 }
 
 .table th {
-  vertical-align: bottom;
-  border-bottom: 2px solid #dee2e6;
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .table td {
-  vertical-align: top;
-  border-top: 1px solid #dee2e6;
+    background-color: #ffffff;
+    color: #333;
+    font-size: 0.95rem;
 }
 
-.img-thumbnail {
-  width: 50px;
-  height: 50px;
-  border-radius: 0.25rem;
+.table tr {
+    transition: background-color 0.3s ease;
 }
 
-/* Alert styles */
-.alert-warning {
-  color: #856404;
-  background-color: #fff3cd;
-  border-color: #ffeeba;
+.table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.table tr:hover {
+    background-color: #e3f2fd;
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.table .btn {
+    margin: 0 5px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.table .btn-info {
+    background-color: #17a2b8;
+    border: none;
+}
+
+.table .btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+.table .btn:hover {
+    transform: scale(1.05);
+}
+
+.table .btn-info:hover {
+    background-color: #138496;
+}
+
+.table .btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Header for Doctor List */
+.doctor-list h2 {
+    font-size: 2rem;
+    /* Increased font size for the title */
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+    padding-left: 20px;
+}
+
+/* Responsive Table */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 15px 0;
+}
+
+.search-container input {
+    width: 250px;
+    /* Fixed width for search input */
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+/* Improved styling for the "Add Doctor" button */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+/* Modal: Centering adjustments */
+.modal-dialog {
+    max-width: 700px;
+}
+
+/* Adjustments for the doctor list buttons */
+.table .btn-info,
+.table .btn-danger {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+}
+
+/* Styling for the modal close button */
+.close {
+    font-size: 32px;
+    color: #007bff;
+}
+
+.close:hover {
+    color: #0056b3;
+}
+
+/* Additional space around modal content */
+.modal-body {
+    padding: 20px;
+}
+/* Styling the search box container */
+.search-box {
+    flex: 1;
+    max-width: 400px; /* Limiting the width of the search box */
+    margin-right: 20px; /* Adds some space on the right */
+  }
+  
+  /* Styling the input field */
+  .search-box input {
+    width: 100%; /* Full width of the container */
+    padding: 8px 15px; /* Top/bottom and left/right padding */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+    font-size: 16px; /* Slightly larger font size for readability */
+    color: #333; /* Darker text for better readability */
+  }
+  
+  /* Styling the placeholder */
+  .search-box input::placeholder {
+    color: #aaa; /* Light grey color */
+    font-style: italic; /* Italic style */
+  }
+
+
+/* CSS targeting the specific image preview in the form group */
+.avatar-preview {
+    max-width: 500px; /* Limit the width to 100px */
+    max-height: 5%; /* Limit the height to 100px */
+    object-fit: cover; /* Ensure the aspect ratio is maintained */
+    border-radius: 50%; /* Optional: makes the image circular */
+    border: 2px solid #ddd; /* Optional: adds a subtle border around the image */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: adds a light shadow for depth */
 }
