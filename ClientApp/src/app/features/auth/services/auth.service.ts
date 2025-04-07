@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
 import { User } from '../login/Models/user.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { LoginRequest } from '../login/Models/login-request.model';
 import { LoginResponse } from '../login/Models/login-response.model';
@@ -12,6 +12,7 @@ import { forgotPasswordVm } from '../../ForgotPassword/Models/forgot.model';
 import { resetPasswordVm } from '../../ResetPassword/Models/resetPass.model';
 
 import { tap } from 'rxjs/operators';
+import { ChangePasswordVm } from '../../patient/models/changepassword.model';
 
 
 @Injectable({
@@ -24,14 +25,16 @@ export class AuthService {
 
   login(request: LoginRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${API_URL}/Authentication/login`, request).pipe(
-        tap((response: LoginResponse) => {
-            this.$user.next({ email: response.email, id: response.id, role: response.role }); // Lưu role
-            localStorage.setItem('user-id', response.id.toString());
-            localStorage.setItem('user-email', response.email);
-            localStorage.setItem('user-role', response.role); // Lưu role vào localStorage
-        })
+      tap((response: LoginResponse) => {
+        this.$user.next({ email: response.email, id: response.id, role: response.role }); // Lưu role
+        localStorage.setItem('user-id', response.id.toString());
+        localStorage.setItem('user-email', response.email);
+        localStorage.setItem('user-role', response.role);
+        localStorage.setItem('token', response.token); // Lưu role vào localStorage
+      })
     );
-}
+  }
+  // Trong AuthService
 
   setUser(user: User): void {
     this.$user.next(user);
@@ -41,6 +44,9 @@ export class AuthService {
   user(): Observable<User | undefined> {
     return this.$user.asObservable();
   }
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
 
   getUser(): User | undefined {
     const email = localStorage.getItem("user-email");
@@ -48,15 +54,15 @@ export class AuthService {
     const role = localStorage.getItem("user-role");
 
     if (email && id && role) {
-        return {
-            email: email,
-            id: +id,
-            role: role
-        };
+      return {
+        email: email,
+        id: +id,
+        role: role
+      };
     }
 
     return undefined;
-}
+  }
   logout(): void {
     //localStorage.removeItem("user-email");
     localStorage.clear();
@@ -90,7 +96,7 @@ export class AuthService {
       })
     );
 
-
   }
+
 }
 

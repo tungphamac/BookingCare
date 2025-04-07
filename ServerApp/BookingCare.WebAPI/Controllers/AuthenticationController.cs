@@ -57,7 +57,6 @@ namespace BookingCare.WebAPI.Controllers
                 Gender = registerVm.Gender,
                 Address = registerVm.Address,
                 PhoneNumber = registerVm.Phone,
-                Avatar = registerVm.Avatar,
                 SecurityStamp = Guid.NewGuid().ToString()
             };
 
@@ -77,8 +76,6 @@ namespace BookingCare.WebAPI.Controllers
             var newPatient = new Patient
             {
                 UserId = newUser.Id, // Gán UserId bằng Id của AppUser vừa tạo
-                MedicalRecordId = registerVm.MedicalHistory // Thuộc tính bổ sung từ ViewModel
-                                                            // Appointments không cần gán vì mặc định là List rỗng
             };
 
             // Lưu vào bảng Patient

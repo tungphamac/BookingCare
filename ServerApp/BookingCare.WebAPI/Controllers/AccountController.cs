@@ -1,6 +1,7 @@
 ﻿using BookingCare.Business.Services.Interfaces;
 using BookingCare.Business.ViewModels;
 using BookingCare.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -24,7 +25,7 @@ namespace BookingCare.WebAPI.Controllers
         }
 
         [HttpPost("change-password")]
-
+        [Authorize]
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordVm request)
         {
             if (!ModelState.IsValid)

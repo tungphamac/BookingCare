@@ -27,8 +27,7 @@ export class RegisterComponent {
       Gender: true,  // Mặc định là Nam (true)
       Phone: "",
       Address: "",
-      Avatar: "",
-      MedicalHistory: ""
+
     };
   }
   onFormSubmit() {

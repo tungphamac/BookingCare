@@ -5,6 +5,7 @@ using BookingCare.Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Numerics;
 using System.Security.Claims;
 
 namespace BookingCare.API.Controllers
@@ -40,7 +41,7 @@ namespace BookingCare.API.Controllers
                 //var userRole = User.FindFirst(ClaimTypes.Role)?.Value;
 
                 // Nếu là Patient, chỉ được xem thông tin của chính mình
-               // if (userRole == "Patient" && userId != id)
+                // if (userRole == "Patient" && userId != id)
                 //{
                 //    _logger.LogWarning($"Patient with UserId {userId} attempted to access details of Patient with UserId {id}.");
                 //    return Unauthorized(new { Message = "Patients can only view their own details." });
@@ -149,7 +150,6 @@ namespace BookingCare.API.Controllers
                     Email = registerVm.Email,
                     Gender = registerVm.Gender,
                     Address = registerVm.Address,
-                    Avatar = registerVm.Avatar,
                     SecurityStamp = Guid.NewGuid().ToString()
                 };
 
@@ -167,7 +167,6 @@ namespace BookingCare.API.Controllers
                 var newPatient = new Patient
                 {
                     UserId = newUser.Id,
-                    MedicalRecordId = registerVm.MedicalHistory
                 };
 
                 // Thêm bệnh nhân vào cơ sở dữ liệu
@@ -186,7 +185,7 @@ namespace BookingCare.API.Controllers
         // PUT: api/patient/update/{id}
         [HttpPut("update/{id}")]
         //[Authorize(Roles = "Patient,Admin")] // Chỉ Admin/Patient được cập nhật bệnh nhân
-        public async Task<IActionResult> UpdatePatient(int id, [FromBody] RegisterVm updateVm)
+        public async Task<IActionResult> UpdatePatient(int id, [FromForm] UpdatePartientVm updateVm)
         {
             try
             {
@@ -209,7 +208,21 @@ namespace BookingCare.API.Controllers
                 existingUser.Email = updateVm.Email;
                 existingUser.Gender = updateVm.Gender;
                 existingUser.Address = updateVm.Address;
-                existingUser.Avatar = updateVm.Avatar;
+                // Xử lý Avatar (nếu có)
+                if (updateVm.Avatar != null && updateVm.Avatar.Length > 0)
+                {
+                    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+                    Directory.CreateDirectory(uploadsFolder); // Đảm bảo thư mục tồn tại
+
+                    var fileName = $"{Guid.NewGuid()}_{Path.GetFileName(updateVm.Avatar.FileName)}";
+                    var filePath = Path.Combine(uploadsFolder, fileName);
+
+                    await using var stream = new FileStream(filePath, FileMode.Create);
+                    await updateVm.Avatar.CopyToAsync(stream);
+
+                    // Lưu đường dẫn tương đối vào database
+                    existingUser.Avatar = $"{fileName}";
+                }
 
                 var result = await _userManager.UpdateAsync(existingUser);
                 if (!result.Succeeded)
@@ -226,7 +239,6 @@ namespace BookingCare.API.Controllers
                     return NotFound($"Patient with ID {id} not found.");
                 }
 
-                patient.MedicalRecordId = updateVm.MedicalHistory;
 
                 // Sửa lại để gọi đúng phương thức UpdatePatientAsync
                 var updateResult = await _patientService.UpdatePatientAsync(patient);

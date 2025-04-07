@@ -37,11 +37,11 @@ export class NavbarComponent implements OnInit {
   }
   onNavigateToProfile(): void {
     if (this.user?.role === 'Patient') {
-        this.router.navigate(['/patients', this.user.id]); // Điều hướng đến trang bệnh nhân
+      this.router.navigate(['/patients', this.user.id]); // Điều hướng đến trang bệnh nhân
     } else if (this.user?.role === 'Doctor') {
-        this.router.navigate(['/doctor-profile', this.user.id]); // Điều hướng đến trang bác sĩ
+      this.router.navigate(['/doctor-profile', this.user.id]); // Điều hướng đến trang bác sĩ
     } else {
-        alert('Vai trò không xác định!');
+      alert('Vai trò không xác định!');
     }
-}
+  }
 }
