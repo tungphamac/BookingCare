@@ -1,9 +1,12 @@
 ﻿using BookingCare.API.Dtos;
 using BookingCare.Business.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace BookingCare.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ScheduleController : ControllerBase
@@ -15,6 +18,16 @@ namespace BookingCare.API.Controllers
         {
             _scheduleService = scheduleService;
             _logger = logger;
+        }
+
+        private int GetLoggedInDoctorId()
+        {
+            var doctorIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(doctorIdClaim) || !int.TryParse(doctorIdClaim, out var doctorId))
+            {
+                throw new UnauthorizedAccessException("Unable to retrieve Doctor ID from token.");
+            }
+            return doctorId;
         }
 
         [HttpGet("get-schedule-by-id/{id}")]
@@ -51,13 +64,18 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpPost("Create-schedule-by-doctor/{doctorId}")]
-        public async Task<IActionResult> CreateSchedule(int doctorId, [FromBody] CreateScheduleDto scheduleDto)
+        [HttpPost("Create-schedule")]
+        public async Task<IActionResult> CreateSchedule([FromBody] CreateScheduleDto scheduleDto)
         {
             try
             {
+                var doctorId = GetLoggedInDoctorId();
                 var scheduleId = await _scheduleService.CreateScheduleAsync(scheduleDto, doctorId);
                 return Ok(new { Message = "Schedule created successfully.", ScheduleId = scheduleId });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new { Message = ex.Message });
             }
             catch (InvalidOperationException ex)
             {
@@ -75,12 +93,28 @@ namespace BookingCare.API.Controllers
         {
             try
             {
-                var result = await _scheduleService.UpdateScheduleAsync(id, scheduleDto); // Bỏ doctorId
+                var doctorId = GetLoggedInDoctorId();
+                var schedule = await _scheduleService.GetScheduleByIdAsync(id);
+                if (schedule == null)
+                {
+                    return NotFound(new { Message = $"Schedule with ID {id} not found." });
+                }
+
+                if (schedule.DoctorId != doctorId)
+                {
+                    return Forbid("You are not authorized to update this schedule.");
+                }
+
+                var result = await _scheduleService.UpdateScheduleAsync(id, scheduleDto);
                 if (!result)
                 {
                     return NotFound(new { Message = $"Schedule with ID {id} not found." });
                 }
                 return Ok(new { Message = "Schedule updated successfully." });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new { Message = ex.Message });
             }
             catch (Exception ex)
             {
@@ -104,17 +138,33 @@ namespace BookingCare.API.Controllers
             }
         }
 
-        [HttpDelete("delete-schedule-by-id/{id}")] // Đổi sang HttpDelete cho phù hợp
+        [HttpDelete("delete-schedule-by-id/{id}")]
         public async Task<IActionResult> DeleteSchedule(int id)
         {
             try
             {
-                var result = await _scheduleService.DeleteScheduleAsync(id); // Bỏ doctorId
+                var doctorId = GetLoggedInDoctorId();
+                var schedule = await _scheduleService.GetScheduleByIdAsync(id);
+                if (schedule == null)
+                {
+                    return NotFound(new { Message = $"Schedule with ID {id} not found." });
+                }
+
+                if (schedule.DoctorId != doctorId)
+                {
+                    return Forbid("You are not authorized to delete this schedule.");
+                }
+
+                var result = await _scheduleService.DeleteScheduleAsync(id);
                 if (!result)
                 {
                     return NotFound(new { Message = $"Schedule with ID {id} not found." });
                 }
                 return Ok(new { Message = "Schedule deleted successfully." });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new { Message = ex.Message });
             }
             catch (InvalidOperationException ex)
             {

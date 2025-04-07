@@ -1019,16 +1019,11 @@
   {
     "ContainingType": "BookingCare.API.Controllers.ScheduleController",
     "Method": "CreateSchedule",
-    "RelativePath": "api/Schedule/Create-schedule-by-doctor/{doctorId}",
+    "RelativePath": "api/Schedule/Create-schedule",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
-      {
-        "Name": "doctorId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
       {
         "Name": "scheduleDto",
         "Type": "BookingCare.API.Dtos.CreateScheduleDto",

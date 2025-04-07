@@ -58,7 +58,7 @@ export const routes: Routes = [
     { path: 'patient-search', component: PatientSearchComponent },
     { path: 'clinic-profile/:id', component: ClinicProfileComponent },
     { path: 'patients/:id', component: PatientDetailComponent },
-    { path: 'notifications', component: NotificationListComponent }, // Thêm route để test
+    
 
     { path: 'admin/get-all-doctors', component: ListDoctorComponent },
     { path: 'admin/add-doctor', component: AddDoctorComponent },

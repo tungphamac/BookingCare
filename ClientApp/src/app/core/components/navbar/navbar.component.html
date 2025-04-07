@@ -1,62 +1,71 @@
 <header>
     <div class="container">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <!-- Logo -->
-                <a class="navbar-brand" routerLink="">
-                    <img src="https://bookingcare.vn/assets/icon/bookingcare-2020.svg" alt="BookingCare">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <!-- Logo -->
+          <a class="navbar-brand" routerLink="">
+            <img src="https://bookingcare.vn/assets/icon/bookingcare-2020.svg" alt="BookingCare">
+          </a>
+  
+          <!-- Menu -->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="doctors/profile">Bác sĩ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="#">Phòng khám</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="#">Chuyên khoa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="feedbacks/list">Feedback</a>
+            </li>
+            <!-- Thêm nút Quản lý lịch cho bác sĩ -->
+            <li class="nav-item" *ngIf="user?.role === 'Doctor'">
+              <a class="nav-link" (click)="onNavigateToSchedule()">Quản lý lịch</a>
+            </li>
+          </ul>
+  
+          <!-- Search Box -->
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input [routerLink]="['/search']" type="text" placeholder="Tìm bác sĩ, chuyên khoa">
+          </div>
+  
+          <!-- Chat & Notification -->
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/chat">Chat</a>
+            </li>
+            <li class="nav-item notification-container">
+              <a class="nav-link" (click)="toggleNotifications()">
+                <i class="fas fa-bell"></i>
+                <span *ngIf="unreadCount > 0" class="badge">{{ unreadCount }}</span>
+                Thông báo
+              </a>
+              <div *ngIf="showNotifications" class="notification-popup">
+                <app-notification-list></app-notification-list>
+              </div>
+            </li>
+          </ul>
+  
+          <!-- Login & User Profile -->
+          <div class="auth-buttons">
+            <ng-container *ngIf="user === undefined; else showUserProfile">
+              <a [routerLink]="['/login']" class="btn btn-primary">Đăng Nhập</a>
+            </ng-container>
+  
+            <ng-template #showUserProfile>
+              <div class="user-profile">
+                <a (click)="onNavigateToProfile()" class="user-email">
+                  Xin chào, {{ user?.email }}
                 </a>
-
-                <!-- Menu -->
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-
-
-                        <a class="nav-link" routerLink="doctors/profile">Bác sĩ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="#">Phòng khám</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="#">Chuyên khoa</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="feedbacks/list">Feedback</a>
-                    </li>
-
-                </ul>
-
-                <!-- Search Box -->
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-
-                    <input [routerLink]="['/search']" type="text" placeholder="Tìm bác sĩ, chuyên khoa">
-                </div>
-                <ul class="navbar-nav">
-                    <!-- ...existing code... -->
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/chat">Chat</a>
-                    </li>
-                </ul>
-
-
-                <!-- Login & User Profile -->
-                <div class="auth-buttons">
-                    <ng-container *ngIf="user===undefined; else showUserProfile">
-                        <a [routerLink]="['/login']" class="btn btn-primary">Đăng Nhập</a>
-                    </ng-container>
-
-                    <ng-template #showUserProfile>
-                        <div class="user-profile">
-                            <a (click)="onNavigateToProfile()" class="user-email">
-                                Xin chào, {{user?.email}}
-                            </a>
-                            <button class="btn btn-primary ms-2" (click)="onLogout()">Đăng xuất</button>
-                        </div>
-                    </ng-template>
-                </div>
-            </div>
-        </nav>
+                <button class="btn btn-primary ms-2" (click)="onLogout()">Đăng xuất</button>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </nav>
     </div>
-</header>
+  </header>

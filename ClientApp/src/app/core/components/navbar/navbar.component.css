@@ -1,3 +1,4 @@
+/* src/app/core/components/navbar/navbar.component.css */
 /* Header */
 header {
     position: fixed;
@@ -8,137 +9,177 @@ header {
     background-color: white;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     padding: 8px 0;
-    /* Giảm padding */
-}
-
-/* Căn chỉnh container */
-.container-fluid {
+  }
+  
+  /* Căn chỉnh container */
+  .container-fluid {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 30px;
-    /* Dịch navbar sang trái */
-}
-
-/* Logo */
-.navbar-brand {
+  }
+  
+  /* Logo */
+  .navbar-brand {
     margin-right: 30px;
-    /* Dịch logo sang trái */
-}
-
-.navbar-brand img {
+  }
+  
+  .navbar-brand img {
     height: 40px;
-    /* Giảm kích thước logo */
-}
-
-/* Menu */
-.navbar-nav {
+  }
+  
+  /* Menu */
+  .navbar-nav {
     display: flex;
     gap: 20px;
-    /* Giảm khoảng cách */
     margin-right: auto;
-    /* Đẩy menu sát bên trái */
-}
-
-.nav-item {
+  }
+  
+  .nav-item {
     list-style: none;
-}
-
-.nav-link {
+  }
+  
+  .nav-link {
     font-weight: 500;
     font-size: 15px;
-    /* Giảm kích thước chữ */
     color: #333;
     text-decoration: none;
     padding: 5px 12px;
-    /* Giảm padding */
     transition: all 0.3s ease-in-out;
-}
-
-.nav-link:hover {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Khoảng cách giữa icon và text */
+  }
+  
+  .nav-link i {
+    font-size: 1.2rem;
+  }
+  
+  .nav-link:hover {
     color: #007bff;
-}
-
-/* Thanh tìm kiếm */
-.search-container {
+  }
+  
+  /* Thanh tìm kiếm */
+  .search-container {
     flex-grow: 1;
     display: flex;
     justify-content: flex-start;
-    /* Đưa về bên trái */
     margin-right: 10px;
-    /* Dịch sang trái */
-}
-
-.search-box {
+  }
+  
+  .search-box {
     display: flex;
     align-items: center;
     background-color: #f1f3f5;
     border-radius: 50px;
     padding: 10px 20px;
-    /* Giảm padding */
     width: 60%;
-    /* Thu gọn chiều dài */
     max-width: 500px;
-}
-
-.search-box i {
+  }
+  
+  .search-box i {
     color: gray;
     margin-right: 8px;
-}
-
-.search-box input {
+  }
+  
+  .search-box input {
     border: none;
     background: transparent;
     outline: none;
     width: 100%;
     font-size: 14px;
-    /* Giảm font chữ */
-}
-
-/* Nút đăng nhập & đăng ký */
-.auth-buttons {
+  }
+  
+  /* Nút đăng nhập & đăng ký */
+  .auth-buttons {
     display: flex;
     gap: 15px;
-    /* Giảm khoảng cách giữa hai nút */
     margin-left: 10px;
-    /* Dịch sang trái */
-}
-
-.btn-outline-primary,
-.btn-primary {
+  }
+  
+  .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .user-email {
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .user-email:hover {
+    color: #007bff;
+  }
+  
+  .btn-outline-primary,
+  .btn-primary {
     border-radius: 50px;
     padding: 8px 25px;
-    /* Giảm kích thước nút */
     font-size: 14px;
-    /* Giảm font chữ */
     font-weight: 500;
-}
-
-/* Responsive */
-@media (max-width: 992px) {
+  }
+  
+  /* Responsive */
+  @media (max-width: 992px) {
     .container-fluid {
-        flex-direction: column;
-        align-items: center;
-        padding: 0 20px;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
     }
-
+  
     .navbar-nav {
-        margin-top: 10px;
+      margin-top: 10px;
     }
-
+  
     .search-container {
-        width: 100%;
-        margin-top: 10px;
-        justify-content: center;
-        margin-left: 0;
+      width: 100%;
+      margin-top: 10px;
+      justify-content: center;
+      margin-left: 0;
     }
-
+  
     .search-box {
-        width: 80%;
+      width: 80%;
     }
-
+  
     .auth-buttons {
-        margin-top: 10px;
-        justify-content: center;
+      margin-top: 10px;
+      justify-content: center;
     }
-}
+  }
+  .notification-container {
+    position: relative;
+  }
+  
+  .notification-popup {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 350px;
+    max-height: 400px;
+    overflow-y: auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    padding: 10px;
+  }
+  
+  .badge {
+    position: absolute;
+    top: 0;
+    left: 10px; /* Điều chỉnh để badge nằm trên icon chuông */
+    background-color: #dc3545; /* Màu đỏ giống Facebook */
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+  }

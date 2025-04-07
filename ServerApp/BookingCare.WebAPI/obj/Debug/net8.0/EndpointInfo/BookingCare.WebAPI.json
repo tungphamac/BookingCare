@@ -1662,21 +1662,10 @@
         }
       }
     },
-    "/api/Schedule/Create-schedule-by-doctor/{doctorId}": {
+    "/api/Schedule/Create-schedule": {
       "post": {
         "tags": [
           "Schedule"
-        ],
-        "parameters": [
-          {
-            "name": "doctorId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
         ],
         "requestBody": {
           "content": {
