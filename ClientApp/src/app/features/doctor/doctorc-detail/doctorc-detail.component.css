@@ -1,5 +1,7 @@
 .trang-chi-tiet-bac-si {
-  padding: 20px 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  padding-bottom: 40px;
 }
 
 .container {
@@ -8,47 +10,49 @@
 }
 
 .noi-dung-chinh {
-  margin-top: 20px;
+  padding-top: 20px;
 }
 
 .the-noi-dung {
-  background-color: #fff;
+  background: white;
+  border-radius: 12px;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #007bff;
   margin-bottom: 20px;
 }
 
-.the-noi-dung h2 {
-  font-size: 2rem;
-  color: #1976d2;
+h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #333;
   margin-bottom: 15px;
 }
 
-.the-noi-dung h3 {
-  font-size: 1.5rem;
-  color: #333;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-
 .mo-ta-bac-si {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #555;
   line-height: 1.6;
 }
 
 .chuyen-khoa .the-chuyen-khoa {
-  background-color: #e3f2fd;
-  padding: 5px 10px;
-  border-radius: 15px;
-  font-size: 1rem;
-  color: #1976d2;
+  background-color: #e9ecef;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #333;
 }
 
 .thanh-tuu p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #555;
+  line-height: 1.6;
 }
 
 .khu-thong-tin .muc-thong-tin {
@@ -56,70 +60,102 @@
   align-items: center;
   margin-bottom: 10px;
   font-size: 1rem;
-  color: #666;
+  color: #555;
 }
 
 .khu-thong-tin .muc-thong-tin i {
   margin-right: 10px;
-  color: #1976d2;
+  color: #007bff;
 }
 
-.the-schedules, .the-dia-diem {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-}
-
-.the-schedules h3, .the-dia-diem h3 {
-  font-size: 1.5rem;
+.khu-thong-tin .muc-thong-tin span strong {
   color: #333;
-  margin-bottom: 15px;
 }
 
-.table-responsive {
-  margin-top: 15px;
+/* Lịch làm việc */
+.the-schedules {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.table th, .table td {
-  vertical-align: middle;
+.table {
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.badge.bg-success {
-  background-color: #28a745 !important;
+.table-header {
+  background-color: #007bff;
+  color: white;
 }
 
-.badge.bg-danger {
-  background-color: #dc3545 !important;
-}
-
-.alert-info {
-  font-size: 1rem;
-  color: #31708f;
-}
-
-.khu-dang-tai {
+.table th,
+.table td {
   text-align: center;
-  padding: 50px 0;
+  vertical-align: middle;
+  padding: 12px;
 }
 
-.khu-dang-tai p {
-  font-size: 1.1rem;
-  color: #666;
-  margin-top: 10px;
+.table tbody tr {
+  transition: background-color 0.3s;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+
+.bg-success {
+  background-color: #28a745 !important;
+  color: white;
+}
+
+.bg-warning {
+  background-color: #ffc107 !important;
+  color: #333;
+}
+
+.bg-danger {
+  background-color: #dc3545 !important;
+  color: white;
 }
 
 .btn-primary {
-  background-color: #1976d2;
-  border: none;
+  border-radius: 6px;
+  padding: 8px 20px;
+  font-weight: 500;
   transition: background-color 0.3s;
-  padding: 10px;
-  font-size: 1rem;
 }
 
 .btn-primary:hover {
-  background-color: #1565c0;
+  background-color: #0056b3;
+}
+
+.btn-success {
+  border-radius: 6px;
+  padding: 8px 20px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+/* Địa chỉ */
+.the-dia-diem {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .dia-chi {
@@ -129,26 +165,51 @@
 }
 
 .dia-chi i {
-  font-size: 1.5rem;
-  color: #1976d2;
   margin-right: 10px;
+  color: #007bff;
 }
 
 .dia-chi p {
+  margin: 0;
   font-size: 1rem;
-  color: #666;
+  color: #555;
 }
 
 .ban-do iframe {
   border-radius: 8px;
 }
 
+/* Feedbacks */
+.the-feedbacks {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Back button */
 .btn-secondary {
-  background-color: #6c757d;
-  border: none;
+  border-radius: 6px;
+  padding: 8px 20px;
+  font-weight: 500;
   transition: background-color 0.3s;
 }
 
 .btn-secondary:hover {
   background-color: #5a6268;
+}
+
+/* Đang tải */
+.khu-dang-tai {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+.khu-dang-tai p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #555;
 }

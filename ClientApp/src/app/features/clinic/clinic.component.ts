@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 
 import { RouterModule } from '@angular/router';
-import { ClinicService } from './services/services.service';
+import { ClinicService } from './services/clinic.service';
 import { Clinic } from './models/clinic.model';
 import { FormsModule } from '@angular/forms';
 

@@ -1,10 +1,12 @@
+// src/app/features/notification/notification-list/notification-list.component.ts
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from '../services/notification.service';
 import { NotificationDto } from '../models/notification.model';
 import { AppointmentDetailDto } from '../models/appointment-detail.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, ActivatedRoute } from '@angular/router'; // Thêm ActivatedRoute
+import { RouterModule } from '@angular/router';
+import { AppointmentDetail } from '../../appointment/models/appointment-detail.model';
 
 @Component({
   selector: 'app-notification-list',
@@ -16,40 +18,22 @@ import { RouterModule, ActivatedRoute } from '@angular/router'; // Thêm Activat
 export class NotificationListComponent implements OnInit {
   notifications: NotificationDto[] = [];
   selectedAppointment: AppointmentDetailDto | null = null;
-  userId: number | null = null; // Không hardcode userId nữa
   errorMessage: string | null = null;
   isLoading: boolean = false;
 
-  constructor(
-    private notificationService: NotificationService,
-    private route: ActivatedRoute // Inject ActivatedRoute để lấy query parameter
-  ) {}
+  constructor(private notificationService: NotificationService) {}
 
   ngOnInit(): void {
-    // Lấy userId từ query parameter
-    this.route.queryParams.subscribe(params => {
-      const userIdParam = params['userId'];
-      if (userIdParam) {
-        this.userId = +userIdParam; // Chuyển string thành number
-        this.loadNotifications();
-      } else {
-        this.errorMessage = 'Vui lòng cung cấp userId trong URL (ví dụ: /notifications?userId=10).';
-      }
-    });
+    this.loadNotifications();
   }
 
   loadNotifications(): void {
-    if (!this.userId) {
-      this.errorMessage = 'Không tìm thấy ID người dùng.';
-      return;
-    }
-
     this.isLoading = true;
     this.errorMessage = null;
     this.notifications = [];
 
-    this.notificationService.getNotifications(this.userId).subscribe({
-      next: (notifications) => {
+    this.notificationService.getNotifications().subscribe({
+      next: (notifications) => {  // Sửa ở đây: không dùng response.data
         this.notifications = notifications;
         this.isLoading = false;
       },
@@ -67,8 +51,8 @@ export class NotificationListComponent implements OnInit {
     this.selectedAppointment = null;
 
     this.notificationService.getAppointmentDetail(appointmentId).subscribe({
-      next: (appointment) => {
-        this.selectedAppointment = appointment;
+      next: (response) => {
+        this.selectedAppointment = response.data;  // Để nguyên vì chưa kiểm tra API này
         this.isLoading = false;
       },
       error: (err) => {

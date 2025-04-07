@@ -124,7 +124,7 @@ builder.Services.AddScoped<IAppointmentService, AppointmentService>();
 builder.Services.AddScoped<IMedicalRecordService, MedicalRecordService>();
 builder.Services.AddScoped<ISpecializationService, SpecializationService>();
 builder.Services.AddScoped<IScheduleService, ScheduleService>();
-
+builder.Services.AddScoped<IChatService, ChatService>();
 //Config CORS
 builder.Services.AddCors(options =>
 {
@@ -176,7 +176,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseStaticFiles();
 
 app.MapControllers();
 

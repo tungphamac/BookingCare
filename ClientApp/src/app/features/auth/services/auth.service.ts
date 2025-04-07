@@ -92,5 +92,9 @@ export class AuthService {
 
 
   }
+  // src/app/features/auth/services/auth.service.ts
+getToken(): string | null {
+  return this.cookieService.get('Authentication');
+}
 }
 

@@ -35,7 +35,7 @@ import { ClinicEditComponent } from './features/clinic/edit-clinic/edit-clinic.c
 import { AddSpecializationComponent } from './features/specialization/add-specialization/add-specialization.component';
 import { EditSpecializationComponent } from './features/specialization/edit-specialization/edit-specialization.component';
 import { SpecializationComponent } from './features/specialization/specialization.component';
-
+import { ChatComponent } from './features/chat/chat/chat.component';
 export const routes: Routes = [
 
   { path: '', component: HomepageComponent },
@@ -53,12 +53,12 @@ export const routes: Routes = [
     { path: 'patients/:id', component: PatientDetailComponent },
 
     { path: 'clinics/:id', component: ClinicDetailComponent },
-    { path: 'doctors/:id', component: DoctorDetailComponent },
+   { path: 'doctors/detail/:id', component: DoctorDetailComponent },
     { path: 'search', component: SearchComponent },
     { path: 'patient-search', component: PatientSearchComponent },
     { path: 'clinic-profile/:id', component: ClinicProfileComponent },
     { path: 'patients/:id', component: PatientDetailComponent },
-    { path: 'notifications', component: NotificationListComponent }, // Thêm route để test
+    
 
     { path: 'admin/get-all-doctors', component: ListDoctorComponent },
     { path: 'admin/add-doctor', component: AddDoctorComponent },
@@ -88,4 +88,5 @@ export const routes: Routes = [
 
   { path: 'specializations', component: SpecializationListComponent },
   { path: 'specializations/:id', component: SpecializationDetailComponent },
+  { path: 'chat', component: ChatComponent },
 ];

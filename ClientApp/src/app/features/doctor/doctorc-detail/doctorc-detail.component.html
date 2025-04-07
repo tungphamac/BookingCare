@@ -1,5 +1,3 @@
-<br/>
-
 <div class="trang-chi-tiet-bac-si">
   <!-- Thông báo lỗi -->
   <div *ngIf="errorMessage" class="container mt-3">
@@ -46,6 +44,26 @@
               </div>
             </div>
           </div>
+
+          <!-- Feedbacks Section -->
+          <div class="the-noi-dung the-feedbacks">
+            <h3>Đánh giá từ bệnh nhân</h3>
+
+            <!-- Loading indicator -->
+            <div *ngIf="isLoadingFeedbacks" class="text-center">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Đang tải...</span>
+              </div>
+            </div>
+
+            <!-- Feedbacks list -->
+            <app-feedback-view [doctorId]="doctor.id"></app-feedback-view>
+
+            <!-- No feedbacks message -->
+            <div *ngIf="!isLoadingFeedbacks && feedbacks.length === 0" class="alert alert-info">
+              Không có đánh giá nào từ bệnh nhân.
+            </div>
+          </div>
         </div>
 
         <!-- Cột phải - Lịch làm việc & Địa chỉ -->
@@ -62,9 +80,9 @@
             </div>
 
             <!-- Schedules table -->
-            <div *ngIf="!isLoadingSchedules && schedules.length > 0" class="table-responsive">
-              <table class="table table-striped">
-                <thead>
+            <div *ngIf="!isLoadingSchedules">
+              <table class="table table-bordered table-hover" *ngIf="schedules.length > 0">
+                <thead class="table-header">
                   <tr>
                     <th>Ngày</th>
                     <th>Thời gian</th>
@@ -73,27 +91,32 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let schedule of schedules">
-                    <td>{{ schedule.workDate | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ schedule.workDate | date:'mediumDate' }}</td>
                     <td>{{ schedule.timeSlot }}</td>
                     <td>
-                      <span [class]="schedule.status === 'Available' ? 'badge bg-success' : 'badge bg-danger'">
-                        {{ schedule.status }}
+                      <span [ngClass]="{
+                        'badge bg-success': schedule.status === 'Available',
+                        'badge bg-warning': schedule.status === 'Booked',
+                        'badge bg-danger': schedule.status === 'Cancelled'
+                      }">
+                        {{ schedule.status === 'Available' ? 'Sử dụng' : schedule.status === 'Booked' ? 'Đã đặt' : 'Đã hủy' }}
                       </span>
                     </td>
                   </tr>
                 </tbody>
               </table>
-            </div>
-
-            <!-- No schedules message -->
-            <div *ngIf="!isLoadingSchedules && schedules.length === 0" class="alert alert-info">
-              Không có lịch làm việc nào được tìm thấy.
+              <p *ngIf="schedules.length === 0" class="text-muted">Không có lịch làm việc nào.</p>
             </div>
 
             <!-- Nút Tạo lịch hẹn -->
             <a href="#" class="btn btn-primary btn-lg w-100 mt-3">
               <i class="fas fa-calendar-alt me-2"></i>Tạo lịch hẹn
             </a>
+
+            <!-- Nút Trò chuyện với bác sĩ -->
+            <button (click)="chatWithDoctor()" class="btn btn-success btn-lg w-100 mt-3">
+              <i class="fas fa-comments me-2"></i>Trò chuyện với bác sĩ
+            </button>
           </div>
 
           <!-- Địa chỉ -->

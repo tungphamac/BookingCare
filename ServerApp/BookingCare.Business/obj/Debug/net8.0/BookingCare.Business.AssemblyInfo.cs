@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BookingCare.Business")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3913ac492a7bdc960747ac83e5ba3abcac3cded")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d7f6a0e93fe0141628d37db77f707188ec2853c2")]
+>>>>>>> nam
 [assembly: System.Reflection.AssemblyProductAttribute("BookingCare.Business")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BookingCare.Business")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,5 +1,5 @@
 export interface Doctor {
-  userId: number;
+  id: number;
   userName: string;
   email: string;
   gender: boolean;
