@@ -25,6 +25,7 @@ export class DoctorDetailComponent implements OnInit {
   feedbacks: Feedback[] = [];
   errorMessage: string | null = null;
   isLoadingSchedules: boolean = false;
+  isLoadingFeedbacks: boolean = false;
 
 
   GetDoctor: GetDoctor | null = null;
@@ -34,7 +35,7 @@ export class DoctorDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private doctorService: DoctorService,
     private scheduleService: ScheduleService,
-
+    private feedbackService: FeedbackService,
     private location: Location,
     private Router: Router
 
@@ -106,6 +107,20 @@ export class DoctorDetailComponent implements OnInit {
     }
 
   }
+  loadDoctorFeedbacks(doctorId: number): void {
+    this.isLoadingFeedbacks = true;
+    this.feedbackService.getFeedbacksByDoctor(doctorId).subscribe({
+      next: (data) => {
+        this.feedbacks = data;
+        this.isLoadingFeedbacks = false;
+      },
+      error: (err) => {
+        this.errorMessage = 'Failed to load feedbacks.';
+        this.isLoadingFeedbacks = false;
+        console.error(err);
+      }
+    });
+  }
 
   goBack(): void {
     this.location.back();
@@ -113,7 +128,7 @@ export class DoctorDetailComponent implements OnInit {
 
   chatWithDoctor(): void {
     if (this.doctor && this.doctor.id) {
-      this.router.navigate(['/chat'], { queryParams: { otherUserId: this.doctor.id } });
+      this.Router.navigate(['/chat'], { queryParams: { otherUserId: this.doctor.id } });
     } else {
       this.errorMessage = 'Không thể mở trò chuyện. Thông tin bác sĩ không hợp lệ.';
     }
