@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router'; // Thêm Router
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DoctorService } from '../services/doctor.service';
 import { Doctor } from '../models/doctor.model';
@@ -32,7 +32,7 @@ export class DoctorDetailComponent implements OnInit {
     private scheduleService: ScheduleService,
     private feedbackService: FeedbackService,
     private location: Location,
-    private router: Router // Thêm Router
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -101,7 +101,6 @@ export class DoctorDetailComponent implements OnInit {
 
   chatWithDoctor(): void {
     if (this.doctor && this.doctor.id) {
-      // Chuyển hướng đến giao diện chat với otherUserId là ID của bác sĩ
       this.router.navigate(['/chat'], { queryParams: { otherUserId: this.doctor.id } });
     } else {
       this.errorMessage = 'Không thể mở trò chuyện. Thông tin bác sĩ không hợp lệ.';

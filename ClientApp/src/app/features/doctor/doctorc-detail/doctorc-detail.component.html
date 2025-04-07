@@ -1,4 +1,3 @@
-<!-- src/app/features/doctor/doctorc-detail.component.html -->
 <div class="trang-chi-tiet-bac-si">
   <!-- Thông báo lỗi -->
   <div *ngIf="errorMessage" class="container mt-3">
@@ -81,9 +80,9 @@
             </div>
 
             <!-- Schedules table -->
-            <div *ngIf="!isLoadingSchedules && schedules.length > 0" class="table-responsive">
-              <table class="table table-striped">
-                <thead>
+            <div *ngIf="!isLoadingSchedules">
+              <table class="table table-bordered table-hover" *ngIf="schedules.length > 0">
+                <thead class="table-header">
                   <tr>
                     <th>Ngày</th>
                     <th>Thời gian</th>
@@ -92,21 +91,21 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let schedule of schedules">
-                    <td>{{ schedule.workDate | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ schedule.workDate | date:'mediumDate' }}</td>
                     <td>{{ schedule.timeSlot }}</td>
                     <td>
-                      <span [class]="schedule.status === 'Available' ? 'badge bg-success' : 'badge bg-danger'">
-                        {{ schedule.status }}
+                      <span [ngClass]="{
+                        'badge bg-success': schedule.status === 'Available',
+                        'badge bg-warning': schedule.status === 'Booked',
+                        'badge bg-danger': schedule.status === 'Cancelled'
+                      }">
+                        {{ schedule.status === 'Available' ? 'Sử dụng' : schedule.status === 'Booked' ? 'Đã đặt' : 'Đã hủy' }}
                       </span>
                     </td>
                   </tr>
                 </tbody>
               </table>
-            </div>
-
-            <!-- No schedules message -->
-            <div *ngIf="!isLoadingSchedules && schedules.length === 0" class="alert alert-info">
-              Không có lịch làm việc nào được tìm thấy.
+              <p *ngIf="schedules.length === 0" class="text-muted">Không có lịch làm việc nào.</p>
             </div>
 
             <!-- Nút Tạo lịch hẹn -->
