@@ -1,44 +1,91 @@
 <div class="create-appointment-container">
-    <h2>Tạo Lịch Hẹn</h2>
-    <form (ngSubmit)="onSubmit()" #appointmentForm="ngForm">
-      <div class="form-group">
-        <label for="date">Ngày</label>
-        <input type="date" id="date" [(ngModel)]="appointment.date" name="date" required />
-      </div>
-  
-      <div class="form-group">
-        <label for="time">Giờ</label>
-        <input type="time" id="time" [(ngModel)]="appointment.time" name="time" required />
-      </div>
-  
-      <div class="form-group">
-        <label for="reason">Lý do</label>
-        <input type="text" id="reason" [(ngModel)]="appointment.reason" name="reason" required />
-      </div>
-  
-      <div class="form-group">
-        <label for="doctorId">Bác sĩ</label>
-        <select id="doctorId" [(ngModel)]="appointment.doctorId" name="doctorId" required>
-          <option *ngFor="let doctor of doctors" [value]="doctor.id">{{ doctor.name }}</option>
-        </select>
-      </div>
-  
-      <div class="form-group">
-        <label for="scheduleId">Lịch trống</label>
-        <select id="scheduleId" [(ngModel)]="appointment.scheduleId" name="scheduleId" required>
-          <option *ngFor="let schedule of schedules" [value]="schedule.id">{{ schedule.time }}</option>
-        </select>
-      </div>
-  
-      <div class="form-group">
-        <label for="clinicId">Phòng khám</label>
-        <select id="clinicId" [(ngModel)]="appointment.clinicId" name="clinicId" required>
-          <option *ngFor="let clinic of clinics" [value]="clinic.id">{{ clinic.name }}</option>
-        </select>
-      </div>
-  
-      <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
-  
-      <button type="submit" [disabled]="appointmentForm.invalid">Tạo Lịch Hẹn</button>
-    </form>
-  </div>
+  <h2>Tạo Lịch Hẹn</h2>
+  <form (ngSubmit)="onSubmit()" #appointmentForm="ngForm">
+    <!-- Thông tin bác sĩ (không chỉnh sửa) -->
+    <div class="form-group">
+      <label for="doctorId">Bác sĩ</label>
+      <input
+        type="text"
+        id="doctorId"
+        [value]="doctor?.name || 'Đang tải...'"
+        readonly
+        class="form-control readonly"
+      />
+    </div>
+
+    <!-- Thông tin phòng khám (không chỉnh sửa) -->
+    <div class="form-group">
+      <label for="clinicId">Phòng khám</label>
+      <input
+        type="text"
+        id="clinicId"
+        [value]="clinic?.name || 'Đang tải...'"
+        readonly
+        class="form-control readonly"
+      />
+    </div>
+
+    <!-- Chọn lịch trống -->
+    <div class="form-group">
+      <label for="scheduleId">Lịch trống</label>
+      <select
+        id="scheduleId"
+        [(ngModel)]="appointment.scheduleId"
+        name="scheduleId"
+        required
+        (change)="onScheduleChange($event)"
+      >
+        <option *ngFor="let schedule of schedules" [value]="schedule.id">
+          {{ schedule.timeSlot }} ({{ schedule.workDate | date:'dd/MM/yyyy' }})
+        </option>
+      </select>
+    </div>
+
+    <!-- Ngày -->
+    <div class="form-group">
+      <label for="date">Ngày</label>
+      <input
+        type="date"
+        id="date"
+        [(ngModel)]="appointment.date"
+        name="date"
+        required
+        class="form-control readonly"
+      />
+    </div>
+
+    <!-- Giờ -->
+    <div class="form-group">
+      <label for="time">Giờ</label>
+      <input
+        type="time"
+        id="time"
+        [(ngModel)]="appointment.time"
+        name="time"
+        required
+        class="form-control readonly"
+      />
+    </div>
+
+    <!-- Lý do -->
+    <div class="form-group">
+      <label for="reason">Lý do</label>
+      <input
+        type="text"
+        id="reason"
+        [(ngModel)]="appointment.reason"
+        name="reason"
+        required
+        class="form-control"
+      />
+    </div>
+
+    <!-- Thông báo lỗi -->
+    <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+    <!-- Nút submit -->
+    <button type="submit" [disabled]="appointmentForm.invalid || schedules.length === 0">
+      Tạo Lịch Hẹn
+    </button>
+  </form>
+</div>

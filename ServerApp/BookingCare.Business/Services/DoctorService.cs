@@ -390,7 +390,6 @@ namespace BookingCare.Business.Services
             return topRatingDoctors;
         }
 
-
         public async Task<List<DoctorDetailDto>> GetDoctorsBySpecializationIdAsync(int specializationId)
         {
             try
@@ -428,6 +427,7 @@ namespace BookingCare.Business.Services
                 throw;
             }
         }
+
         public async Task<DoctorVm> GetDoctorByIdAsync(int doctorId)
         {
             try
@@ -464,6 +464,68 @@ namespace BookingCare.Business.Services
             catch (Exception ex)
             {
                 _logger.LogError(ex, $"Error retrieving doctor details for ID {doctorId}.");
+                throw;
+            }
+        }
+
+        // Triển khai phương thức mới
+        public async Task<List<DoctorDetailDto>> GetDoctorsBySpecializationAndClinicAsync(int specializationId, int clinicId)
+        {
+            try
+            {
+                // Kiểm tra xem specialization và clinic có tồn tại không
+                var specializationExists = await _unitOfWork.SpecializationRepository
+                    .GetQuery(s => s.Id == specializationId)
+                    .AnyAsync();
+
+                if (!specializationExists)
+                {
+                    _logger.LogWarning($"Specialization with ID {specializationId} not found.");
+                    throw new ArgumentException($"Specialization with ID {specializationId} not found.");
+                }
+
+                var clinicExists = await _unitOfWork.ClinicRepository
+                    .GetQuery(c => c.Id == clinicId)
+                    .AnyAsync();
+
+                if (!clinicExists)
+                {
+                    _logger.LogWarning($"Clinic with ID {clinicId} not found.");
+                    throw new ArgumentException($"Clinic with ID {clinicId} not found.");
+                }
+
+                // Lấy danh sách bác sĩ theo specializationId và clinicId
+                var doctors = await _unitOfWork.DoctorRepository
+                    .GetQuery(d => d.SpecializationId == specializationId && d.ClinicId == clinicId)
+                    .Include(d => d.User)
+                    .Include(d => d.Specialization)
+                    .Include(d => d.Clinic)
+                    .Select(d => new DoctorDetailDto
+                    {
+                        Id = d.UserId,
+                        UserName = d.User.UserName,
+                        Email = d.User.Email,
+                        Gender = d.User.Gender,
+                        Address = d.User.Address,
+                        Avatar = d.User.Avatar,
+                        Achievement = d.Achievement,
+                        Description = d.Description,
+                        SpecializationName = d.Specialization.Name,
+                        ClinicName = d.Clinic.Name
+                    })
+                    .ToListAsync();
+
+                if (doctors.Count == 0)
+                {
+                    _logger.LogWarning($"No doctors found for Specialization ID {specializationId} and Clinic ID {clinicId}.");
+                }
+
+                _logger.LogInformation($"Retrieved {doctors.Count} doctors for Specialization ID {specializationId} and Clinic ID {clinicId}.");
+                return doctors;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving doctors for Specialization ID {specializationId} and Clinic ID {clinicId}.");
                 throw;
             }
         }

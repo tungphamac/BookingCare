@@ -41,7 +41,7 @@ export class ListDoctorComponent implements OnInit {
     this.doctorService.deleteDoctor(userId).subscribe({
       next: () => {
         // Sau khi xóa thành công từ backend, cập nhật lại danh sách bác sĩ
-        this.doctors = this.doctors.filter(doctor => doctor.userId !== userId);
+        this.doctors = this.doctors.filter(doctor => doctor.id !== userId);
       },
       error: (error) => {
         console.error('Error deleting doctor:', error);

@@ -1,4 +1,5 @@
-﻿using BookingCare.Business.Services.Base;
+﻿using BookingCare.Business.Dtos;
+using BookingCare.Business.Services.Base;
 using BookingCare.Business.Services.Interfaces;
 using BookingCare.Data.Infrastructure;
 using BookingCare.Data.Models;
@@ -114,7 +115,6 @@ namespace BookingCare.Business.Services
                 .Take(pageSize)
                 .ToListAsync();
         }
-
 
         public async Task<bool> ManageAppointmentAsync(int appointmentId, AppointmentStatus status, int userId)
         {

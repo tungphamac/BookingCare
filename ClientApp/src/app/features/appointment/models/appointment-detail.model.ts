@@ -5,4 +5,6 @@ export interface AppointmentDetail {
     scheduleTime: Date;
     status: string;
     createdAt: Date;
+    reason?: string;
+    clinicId?: number;
   }

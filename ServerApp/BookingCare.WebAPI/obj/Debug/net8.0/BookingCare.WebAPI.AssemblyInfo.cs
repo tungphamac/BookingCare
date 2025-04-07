@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BookingCare.WebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0dba367ad9fc1a1b6089f4ceca6e15e9dad58d7d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+13e78ae83bedf78e5cf02fa905b1e677b6c7b3a0")]
 [assembly: System.Reflection.AssemblyProductAttribute("BookingCare.WebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BookingCare.WebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

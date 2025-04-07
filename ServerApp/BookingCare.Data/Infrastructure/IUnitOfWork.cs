@@ -20,6 +20,8 @@ namespace BookingCare.Data.Infrastructure
         IGeneralRepository<Notification> NotificationRepository { get; }
         IGeneralRepository<TEntity> GenericRepository<TEntity>() where TEntity : class;
 
+        IGeneralRepository<Message> MessageRepository { get; }
+
         /// <summary>
         /// Saves all changes made in the unit of work to the underlying data store.
         /// </summary>

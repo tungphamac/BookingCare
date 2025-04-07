@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "D0m76sQXBbo+Hecz1t3h7Y1ZqylMywBnxBGIlyKXmwY=",
+  "Hash": "NhiK5Uuet2MckGkp/tPIC1MrAAEMP7DlHL0gkJIcg9o=",
   "Source": "BookingCare.WebAPI",
   "BasePath": "_content/BookingCare.WebAPI",
   "Mode": "Default",
@@ -10,467 +10,2485 @@
     {
       "Name": "BookingCare.WebAPI\\wwwroot",
       "Source": "BookingCare.WebAPI",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\05ccb0e4-5166-49e7-8183-db271331f25a.jpg",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\05ccb0e4-5166-49e7-8183-db271331f25a.jpg",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/05ccb0e4-5166-49e7-8183-db271331f25a.jpg",
+      "RelativePath": "uploads/05ccb0e4-5166-49e7-8183-db271331f25a#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "ty8h9gcd86",
+      "Integrity": "W890d/FmqMTuuq2WPa0Kc/4i84YRMRfUdKxT2HgLLKw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\05ccb0e4-5166-49e7-8183-db271331f25a.jpg"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\0d831a8a-d991-438c-b5cc-000f11d2ae2a.jpg",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\0d831a8a-d991-438c-b5cc-000f11d2ae2a.jpg",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/0d831a8a-d991-438c-b5cc-000f11d2ae2a.jpg",
+      "RelativePath": "uploads/0d831a8a-d991-438c-b5cc-000f11d2ae2a#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "k5ntc5tb5p",
+      "Integrity": "iJUXi/G0SV7XGZ0YR/2iu7phOlA/0U+g9x9nwt0nqhg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\0d831a8a-d991-438c-b5cc-000f11d2ae2a.jpg"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\0f89c7d0-9d22-40fc-b9e6-f236d3f9c878_clinic_logo.png",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\0f89c7d0-9d22-40fc-b9e6-f236d3f9c878_clinic_logo.png",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/0f89c7d0-9d22-40fc-b9e6-f236d3f9c878_clinic_logo.png",
+      "RelativePath": "uploads/0f89c7d0-9d22-40fc-b9e6-f236d3f9c878_clinic_logo#[.{fingerprint}]?.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "rgs4dhbvps",
+      "Integrity": "G+pdAxvhJhhhRsqcJv9MhkyYavXSjWJLyXhPQIiUolE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\0f89c7d0-9d22-40fc-b9e6-f236d3f9c878_clinic_logo.png"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\12f75283-026b-40b7-b057-927c7e04daa7_bacsi-01-copy-725x1024.jpg",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\12f75283-026b-40b7-b057-927c7e04daa7_bacsi-01-copy-725x1024.jpg",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/12f75283-026b-40b7-b057-927c7e04daa7_bacsi-01-copy-725x1024.jpg",
+      "RelativePath": "uploads/12f75283-026b-40b7-b057-927c7e04daa7_bacsi-01-copy-725x1024#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "ayj1882nxv",
+      "Integrity": "QiN2leWppZUE+wGjycguNZ0Y5v0YHv9KwfQ+VwzC4qw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\12f75283-026b-40b7-b057-927c7e04daa7_bacsi-01-copy-725x1024.jpg"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\1b5d66f1-4895-4f57-8d47-2b7576dab4fb_bacsithuy.jpeg",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\1b5d66f1-4895-4f57-8d47-2b7576dab4fb_bacsithuy.jpeg",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/1b5d66f1-4895-4f57-8d47-2b7576dab4fb_bacsithuy.jpeg",
+      "RelativePath": "uploads/1b5d66f1-4895-4f57-8d47-2b7576dab4fb_bacsithuy#[.{fingerprint}]?.jpeg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "mrebh6pyb5",
+      "Integrity": "griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\1b5d66f1-4895-4f57-8d47-2b7576dab4fb_bacsithuy.jpeg"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\22efced3-8330-4da5-92b0-094e2bdd9ab6_bacsithuy.jpeg",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\22efced3-8330-4da5-92b0-094e2bdd9ab6_bacsithuy.jpeg",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/22efced3-8330-4da5-92b0-094e2bdd9ab6_bacsithuy.jpeg",
+      "RelativePath": "uploads/22efced3-8330-4da5-92b0-094e2bdd9ab6_bacsithuy#[.{fingerprint}]?.jpeg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "mrebh6pyb5",
+      "Integrity": "griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\22efced3-8330-4da5-92b0-094e2bdd9ab6_bacsithuy.jpeg"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\38be5457-eacf-46dc-867c-5f72934dfd7f_neurology_logo.png",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\38be5457-eacf-46dc-867c-5f72934dfd7f_neurology_logo.png",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/38be5457-eacf-46dc-867c-5f72934dfd7f_neurology_logo.png",
+      "RelativePath": "uploads/38be5457-eacf-46dc-867c-5f72934dfd7f_neurology_logo#[.{fingerprint}]?.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "snb89mtojr",
+      "Integrity": "+IHPEvYJAODOJ/hnrHRQPyTP4sanrSuF3oVkvCDxy98=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\38be5457-eacf-46dc-867c-5f72934dfd7f_neurology_logo.png"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\49d69520-a594-496a-959f-77a3fff0e16e_Page-Bacsi-1.png",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\49d69520-a594-496a-959f-77a3fff0e16e_Page-Bacsi-1.png",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/49d69520-a594-496a-959f-77a3fff0e16e_Page-Bacsi-1.png",
+      "RelativePath": "uploads/49d69520-a594-496a-959f-77a3fff0e16e_Page-Bacsi-1#[.{fingerprint}]?.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "g0l8gumxu6",
+      "Integrity": "YAQHNod1uDYHPFHyuNsg5vldePUXdL0Ri4KyhPqHtVY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\49d69520-a594-496a-959f-77a3fff0e16e_Page-Bacsi-1.png"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\4bb8ecbb-11a9-4bda-ac97-d4c1f8235c18_cardiology_logo.png",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\4bb8ecbb-11a9-4bda-ac97-d4c1f8235c18_cardiology_logo.png",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/4bb8ecbb-11a9-4bda-ac97-d4c1f8235c18_cardiology_logo.png",
+      "RelativePath": "uploads/4bb8ecbb-11a9-4bda-ac97-d4c1f8235c18_cardiology_logo#[.{fingerprint}]?.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "e0kfm5vz5d",
+      "Integrity": "Ds3SMmMWnd1ZBGSQmJbk9VVNsFSUwRSdGHGsjX9RV0o=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\4bb8ecbb-11a9-4bda-ac97-d4c1f8235c18_cardiology_logo.png"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\4cba29fd-0be5-4bed-97f3-5deea99e22fc_neurology_logo.png",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\4cba29fd-0be5-4bed-97f3-5deea99e22fc_neurology_logo.png",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/4cba29fd-0be5-4bed-97f3-5deea99e22fc_neurology_logo.png",
+      "RelativePath": "uploads/4cba29fd-0be5-4bed-97f3-5deea99e22fc_neurology_logo#[.{fingerprint}]?.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "snb89mtojr",
+      "Integrity": "+IHPEvYJAODOJ/hnrHRQPyTP4sanrSuF3oVkvCDxy98=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\4cba29fd-0be5-4bed-97f3-5deea99e22fc_neurology_logo.png"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\513cb6d9-9123-44a4-809c-6c6a51f4d26c_neurology_logo.png",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\513cb6d9-9123-44a4-809c-6c6a51f4d26c_neurology_logo.png",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/513cb6d9-9123-44a4-809c-6c6a51f4d26c_neurology_logo.png",
+      "RelativePath": "uploads/513cb6d9-9123-44a4-809c-6c6a51f4d26c_neurology_logo#[.{fingerprint}]?.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "snb89mtojr",
+      "Integrity": "+IHPEvYJAODOJ/hnrHRQPyTP4sanrSuF3oVkvCDxy98=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\513cb6d9-9123-44a4-809c-6c6a51f4d26c_neurology_logo.png"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\6c59de2e-d390-48b3-88e2-d0ead028e6d6.jpg",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\6c59de2e-d390-48b3-88e2-d0ead028e6d6.jpg",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/6c59de2e-d390-48b3-88e2-d0ead028e6d6.jpg",
+      "RelativePath": "uploads/6c59de2e-d390-48b3-88e2-d0ead028e6d6#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "ty8h9gcd86",
+      "Integrity": "W890d/FmqMTuuq2WPa0Kc/4i84YRMRfUdKxT2HgLLKw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\6c59de2e-d390-48b3-88e2-d0ead028e6d6.jpg"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\797ff6d0-6b17-4c2f-af23-4b8469338bbb_bacsithuy.jpeg",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\797ff6d0-6b17-4c2f-af23-4b8469338bbb_bacsithuy.jpeg",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/797ff6d0-6b17-4c2f-af23-4b8469338bbb_bacsithuy.jpeg",
+      "RelativePath": "uploads/797ff6d0-6b17-4c2f-af23-4b8469338bbb_bacsithuy#[.{fingerprint}]?.jpeg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "mrebh6pyb5",
+      "Integrity": "griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\797ff6d0-6b17-4c2f-af23-4b8469338bbb_bacsithuy.jpeg"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\83d82dd0-1ba3-42e0-a254-8eed40ae3fc0_bacsithuy.jpeg",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\83d82dd0-1ba3-42e0-a254-8eed40ae3fc0_bacsithuy.jpeg",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/83d82dd0-1ba3-42e0-a254-8eed40ae3fc0_bacsithuy.jpeg",
+      "RelativePath": "uploads/83d82dd0-1ba3-42e0-a254-8eed40ae3fc0_bacsithuy#[.{fingerprint}]?.jpeg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "mrebh6pyb5",
+      "Integrity": "griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\83d82dd0-1ba3-42e0-a254-8eed40ae3fc0_bacsithuy.jpeg"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\a2c314dc-d64b-4a1d-a2ae-b46dcfd95953_bacsithuy.jpeg",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\a2c314dc-d64b-4a1d-a2ae-b46dcfd95953_bacsithuy.jpeg",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/a2c314dc-d64b-4a1d-a2ae-b46dcfd95953_bacsithuy.jpeg",
+      "RelativePath": "uploads/a2c314dc-d64b-4a1d-a2ae-b46dcfd95953_bacsithuy#[.{fingerprint}]?.jpeg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "mrebh6pyb5",
+      "Integrity": "griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\a2c314dc-d64b-4a1d-a2ae-b46dcfd95953_bacsithuy.jpeg"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\a513e512-633b-4b32-98c5-e1bb27d25f89_alzheimer.jpg",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\a513e512-633b-4b32-98c5-e1bb27d25f89_alzheimer.jpg",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/a513e512-633b-4b32-98c5-e1bb27d25f89_alzheimer.jpg",
+      "RelativePath": "uploads/a513e512-633b-4b32-98c5-e1bb27d25f89_alzheimer#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "s8a1a1h0bx",
+      "Integrity": "5Bfl2DaFex2KaL/RLG4y9laS5y+yIHH3/DnTBPnDCxA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\a513e512-633b-4b32-98c5-e1bb27d25f89_alzheimer.jpg"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\aed8bfb3-84b7-452e-a8ee-349fcb17bbc3_bacsithuy.jpeg",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\aed8bfb3-84b7-452e-a8ee-349fcb17bbc3_bacsithuy.jpeg",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/aed8bfb3-84b7-452e-a8ee-349fcb17bbc3_bacsithuy.jpeg",
+      "RelativePath": "uploads/aed8bfb3-84b7-452e-a8ee-349fcb17bbc3_bacsithuy#[.{fingerprint}]?.jpeg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "mrebh6pyb5",
+      "Integrity": "griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\aed8bfb3-84b7-452e-a8ee-349fcb17bbc3_bacsithuy.jpeg"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\b78aa693-bcfc-421f-ade0-0eac9588dbb5_bacsithuy.jpeg",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\b78aa693-bcfc-421f-ade0-0eac9588dbb5_bacsithuy.jpeg",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/b78aa693-bcfc-421f-ade0-0eac9588dbb5_bacsithuy.jpeg",
+      "RelativePath": "uploads/b78aa693-bcfc-421f-ade0-0eac9588dbb5_bacsithuy#[.{fingerprint}]?.jpeg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "mrebh6pyb5",
+      "Integrity": "griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\b78aa693-bcfc-421f-ade0-0eac9588dbb5_bacsithuy.jpeg"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\c2e28c9d-0929-4e1f-ac2b-722b0e630cc4_cardiology_logo.png",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\c2e28c9d-0929-4e1f-ac2b-722b0e630cc4_cardiology_logo.png",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/c2e28c9d-0929-4e1f-ac2b-722b0e630cc4_cardiology_logo.png",
+      "RelativePath": "uploads/c2e28c9d-0929-4e1f-ac2b-722b0e630cc4_cardiology_logo#[.{fingerprint}]?.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "e0kfm5vz5d",
+      "Integrity": "Ds3SMmMWnd1ZBGSQmJbk9VVNsFSUwRSdGHGsjX9RV0o=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\c2e28c9d-0929-4e1f-ac2b-722b0e630cc4_cardiology_logo.png"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\d0f7a2eb-197b-40e1-9909-d867f451638c_bacsithuy.jpeg",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\d0f7a2eb-197b-40e1-9909-d867f451638c_bacsithuy.jpeg",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/d0f7a2eb-197b-40e1-9909-d867f451638c_bacsithuy.jpeg",
+      "RelativePath": "uploads/d0f7a2eb-197b-40e1-9909-d867f451638c_bacsithuy#[.{fingerprint}]?.jpeg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "mrebh6pyb5",
+      "Integrity": "griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\d0f7a2eb-197b-40e1-9909-d867f451638c_bacsithuy.jpeg"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\df532163-7574-46da-8584-460efd246030.jpg",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\df532163-7574-46da-8584-460efd246030.jpg",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/df532163-7574-46da-8584-460efd246030.jpg",
+      "RelativePath": "uploads/df532163-7574-46da-8584-460efd246030#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "tbfjmykoxw",
+      "Integrity": "p00AR4GxqJv5sk8XVE7bXvZ9HsGwAAvfAh4+rwkXcnY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\df532163-7574-46da-8584-460efd246030.jpg"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\e0e61776-cc8b-4736-b78a-e7d3daafd572.jpg",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\e0e61776-cc8b-4736-b78a-e7d3daafd572.jpg",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/e0e61776-cc8b-4736-b78a-e7d3daafd572.jpg",
+      "RelativePath": "uploads/e0e61776-cc8b-4736-b78a-e7d3daafd572#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "tbfjmykoxw",
+      "Integrity": "p00AR4GxqJv5sk8XVE7bXvZ9HsGwAAvfAh4+rwkXcnY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\e0e61776-cc8b-4736-b78a-e7d3daafd572.jpg"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\ea13d084-5936-45a1-bac5-25cce34425a6_4.jpg",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\ea13d084-5936-45a1-bac5-25cce34425a6_4.jpg",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/ea13d084-5936-45a1-bac5-25cce34425a6_4.jpg",
+      "RelativePath": "uploads/ea13d084-5936-45a1-bac5-25cce34425a6_4#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "mj57tfz5hq",
+      "Integrity": "Lp8E1sEYB5nilk8a74oMaQOMXLQKM1li7PqZF1JDL5A=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\ea13d084-5936-45a1-bac5-25cce34425a6_4.jpg"
     },
     {
-      "Identity": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\home_picture_5fd7a311-7f2f-4d02-b80c-ef57754b0a33.png",
+      "Identity": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\home_picture_5fd7a311-7f2f-4d02-b80c-ef57754b0a33.png",
       "SourceId": "BookingCare.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\khanh\\Downloads\\Project\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\",
       "BasePath": "_content/BookingCare.WebAPI",
-      "RelativePath": "uploads/home_picture_5fd7a311-7f2f-4d02-b80c-ef57754b0a33.png",
+      "RelativePath": "uploads/home_picture_5fd7a311-7f2f-4d02-b80c-ef57754b0a33#[.{fingerprint}]?.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeBehavior": "",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
+      "Fingerprint": "2jkh5thd5y",
+      "Integrity": "0nToGmZdOsDO7vKnb6hPhg8ewk49Oyr0GzGOydIo4eo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\home_picture_5fd7a311-7f2f-4d02-b80c-ef57754b0a33.png"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "uploads/05ccb0e4-5166-49e7-8183-db271331f25a.jpg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\05ccb0e4-5166-49e7-8183-db271331f25a.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "24198"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"W890d/FmqMTuuq2WPa0Kc/4i84YRMRfUdKxT2HgLLKw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-W890d/FmqMTuuq2WPa0Kc/4i84YRMRfUdKxT2HgLLKw="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/05ccb0e4-5166-49e7-8183-db271331f25a.ty8h9gcd86.jpg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\05ccb0e4-5166-49e7-8183-db271331f25a.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "24198"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"W890d/FmqMTuuq2WPa0Kc/4i84YRMRfUdKxT2HgLLKw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ty8h9gcd86"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/05ccb0e4-5166-49e7-8183-db271331f25a.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-W890d/FmqMTuuq2WPa0Kc/4i84YRMRfUdKxT2HgLLKw="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/0d831a8a-d991-438c-b5cc-000f11d2ae2a.jpg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\0d831a8a-d991-438c-b5cc-000f11d2ae2a.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "15971"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iJUXi/G0SV7XGZ0YR/2iu7phOlA/0U+g9x9nwt0nqhg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-iJUXi/G0SV7XGZ0YR/2iu7phOlA/0U+g9x9nwt0nqhg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/0d831a8a-d991-438c-b5cc-000f11d2ae2a.k5ntc5tb5p.jpg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\0d831a8a-d991-438c-b5cc-000f11d2ae2a.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "15971"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"iJUXi/G0SV7XGZ0YR/2iu7phOlA/0U+g9x9nwt0nqhg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "k5ntc5tb5p"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/0d831a8a-d991-438c-b5cc-000f11d2ae2a.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-iJUXi/G0SV7XGZ0YR/2iu7phOlA/0U+g9x9nwt0nqhg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/0f89c7d0-9d22-40fc-b9e6-f236d3f9c878_clinic_logo.png",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\0f89c7d0-9d22-40fc-b9e6-f236d3f9c878_clinic_logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "87222"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"G+pdAxvhJhhhRsqcJv9MhkyYavXSjWJLyXhPQIiUolE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-G+pdAxvhJhhhRsqcJv9MhkyYavXSjWJLyXhPQIiUolE="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/0f89c7d0-9d22-40fc-b9e6-f236d3f9c878_clinic_logo.rgs4dhbvps.png",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\0f89c7d0-9d22-40fc-b9e6-f236d3f9c878_clinic_logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "87222"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"G+pdAxvhJhhhRsqcJv9MhkyYavXSjWJLyXhPQIiUolE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rgs4dhbvps"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/0f89c7d0-9d22-40fc-b9e6-f236d3f9c878_clinic_logo.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-G+pdAxvhJhhhRsqcJv9MhkyYavXSjWJLyXhPQIiUolE="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/12f75283-026b-40b7-b057-927c7e04daa7_bacsi-01-copy-725x1024.ayj1882nxv.jpg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\12f75283-026b-40b7-b057-927c7e04daa7_bacsi-01-copy-725x1024.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "34682"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QiN2leWppZUE+wGjycguNZ0Y5v0YHv9KwfQ+VwzC4qw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ayj1882nxv"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/12f75283-026b-40b7-b057-927c7e04daa7_bacsi-01-copy-725x1024.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QiN2leWppZUE+wGjycguNZ0Y5v0YHv9KwfQ+VwzC4qw="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/12f75283-026b-40b7-b057-927c7e04daa7_bacsi-01-copy-725x1024.jpg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\12f75283-026b-40b7-b057-927c7e04daa7_bacsi-01-copy-725x1024.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "34682"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QiN2leWppZUE+wGjycguNZ0Y5v0YHv9KwfQ+VwzC4qw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QiN2leWppZUE+wGjycguNZ0Y5v0YHv9KwfQ+VwzC4qw="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/1b5d66f1-4895-4f57-8d47-2b7576dab4fb_bacsithuy.jpeg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\1b5d66f1-4895-4f57-8d47-2b7576dab4fb_bacsithuy.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9475"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/1b5d66f1-4895-4f57-8d47-2b7576dab4fb_bacsithuy.mrebh6pyb5.jpeg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\1b5d66f1-4895-4f57-8d47-2b7576dab4fb_bacsithuy.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9475"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mrebh6pyb5"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/1b5d66f1-4895-4f57-8d47-2b7576dab4fb_bacsithuy.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/22efced3-8330-4da5-92b0-094e2bdd9ab6_bacsithuy.jpeg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\22efced3-8330-4da5-92b0-094e2bdd9ab6_bacsithuy.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9475"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/22efced3-8330-4da5-92b0-094e2bdd9ab6_bacsithuy.mrebh6pyb5.jpeg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\22efced3-8330-4da5-92b0-094e2bdd9ab6_bacsithuy.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9475"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mrebh6pyb5"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/22efced3-8330-4da5-92b0-094e2bdd9ab6_bacsithuy.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/38be5457-eacf-46dc-867c-5f72934dfd7f_neurology_logo.png",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\38be5457-eacf-46dc-867c-5f72934dfd7f_neurology_logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "257808"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+IHPEvYJAODOJ/hnrHRQPyTP4sanrSuF3oVkvCDxy98=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+IHPEvYJAODOJ/hnrHRQPyTP4sanrSuF3oVkvCDxy98="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/38be5457-eacf-46dc-867c-5f72934dfd7f_neurology_logo.snb89mtojr.png",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\38be5457-eacf-46dc-867c-5f72934dfd7f_neurology_logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "257808"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+IHPEvYJAODOJ/hnrHRQPyTP4sanrSuF3oVkvCDxy98=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "snb89mtojr"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/38be5457-eacf-46dc-867c-5f72934dfd7f_neurology_logo.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+IHPEvYJAODOJ/hnrHRQPyTP4sanrSuF3oVkvCDxy98="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/49d69520-a594-496a-959f-77a3fff0e16e_Page-Bacsi-1.g0l8gumxu6.png",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\49d69520-a594-496a-959f-77a3fff0e16e_Page-Bacsi-1.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "39053"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YAQHNod1uDYHPFHyuNsg5vldePUXdL0Ri4KyhPqHtVY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "g0l8gumxu6"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/49d69520-a594-496a-959f-77a3fff0e16e_Page-Bacsi-1.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-YAQHNod1uDYHPFHyuNsg5vldePUXdL0Ri4KyhPqHtVY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/49d69520-a594-496a-959f-77a3fff0e16e_Page-Bacsi-1.png",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\49d69520-a594-496a-959f-77a3fff0e16e_Page-Bacsi-1.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "39053"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YAQHNod1uDYHPFHyuNsg5vldePUXdL0Ri4KyhPqHtVY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-YAQHNod1uDYHPFHyuNsg5vldePUXdL0Ri4KyhPqHtVY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/4bb8ecbb-11a9-4bda-ac97-d4c1f8235c18_cardiology_logo.e0kfm5vz5d.png",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\4bb8ecbb-11a9-4bda-ac97-d4c1f8235c18_cardiology_logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "37390"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Ds3SMmMWnd1ZBGSQmJbk9VVNsFSUwRSdGHGsjX9RV0o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "e0kfm5vz5d"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/4bb8ecbb-11a9-4bda-ac97-d4c1f8235c18_cardiology_logo.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Ds3SMmMWnd1ZBGSQmJbk9VVNsFSUwRSdGHGsjX9RV0o="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/4bb8ecbb-11a9-4bda-ac97-d4c1f8235c18_cardiology_logo.png",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\4bb8ecbb-11a9-4bda-ac97-d4c1f8235c18_cardiology_logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "37390"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Ds3SMmMWnd1ZBGSQmJbk9VVNsFSUwRSdGHGsjX9RV0o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Ds3SMmMWnd1ZBGSQmJbk9VVNsFSUwRSdGHGsjX9RV0o="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/4cba29fd-0be5-4bed-97f3-5deea99e22fc_neurology_logo.png",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\4cba29fd-0be5-4bed-97f3-5deea99e22fc_neurology_logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "257808"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+IHPEvYJAODOJ/hnrHRQPyTP4sanrSuF3oVkvCDxy98=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+IHPEvYJAODOJ/hnrHRQPyTP4sanrSuF3oVkvCDxy98="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/4cba29fd-0be5-4bed-97f3-5deea99e22fc_neurology_logo.snb89mtojr.png",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\4cba29fd-0be5-4bed-97f3-5deea99e22fc_neurology_logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "257808"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+IHPEvYJAODOJ/hnrHRQPyTP4sanrSuF3oVkvCDxy98=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "snb89mtojr"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/4cba29fd-0be5-4bed-97f3-5deea99e22fc_neurology_logo.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+IHPEvYJAODOJ/hnrHRQPyTP4sanrSuF3oVkvCDxy98="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/513cb6d9-9123-44a4-809c-6c6a51f4d26c_neurology_logo.png",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\513cb6d9-9123-44a4-809c-6c6a51f4d26c_neurology_logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "257808"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+IHPEvYJAODOJ/hnrHRQPyTP4sanrSuF3oVkvCDxy98=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-+IHPEvYJAODOJ/hnrHRQPyTP4sanrSuF3oVkvCDxy98="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/513cb6d9-9123-44a4-809c-6c6a51f4d26c_neurology_logo.snb89mtojr.png",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\513cb6d9-9123-44a4-809c-6c6a51f4d26c_neurology_logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "257808"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+IHPEvYJAODOJ/hnrHRQPyTP4sanrSuF3oVkvCDxy98=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "snb89mtojr"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/513cb6d9-9123-44a4-809c-6c6a51f4d26c_neurology_logo.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+IHPEvYJAODOJ/hnrHRQPyTP4sanrSuF3oVkvCDxy98="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6c59de2e-d390-48b3-88e2-d0ead028e6d6.jpg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\6c59de2e-d390-48b3-88e2-d0ead028e6d6.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "24198"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"W890d/FmqMTuuq2WPa0Kc/4i84YRMRfUdKxT2HgLLKw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-W890d/FmqMTuuq2WPa0Kc/4i84YRMRfUdKxT2HgLLKw="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/6c59de2e-d390-48b3-88e2-d0ead028e6d6.ty8h9gcd86.jpg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\6c59de2e-d390-48b3-88e2-d0ead028e6d6.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "24198"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"W890d/FmqMTuuq2WPa0Kc/4i84YRMRfUdKxT2HgLLKw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ty8h9gcd86"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/6c59de2e-d390-48b3-88e2-d0ead028e6d6.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-W890d/FmqMTuuq2WPa0Kc/4i84YRMRfUdKxT2HgLLKw="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/797ff6d0-6b17-4c2f-af23-4b8469338bbb_bacsithuy.jpeg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\797ff6d0-6b17-4c2f-af23-4b8469338bbb_bacsithuy.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9475"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/797ff6d0-6b17-4c2f-af23-4b8469338bbb_bacsithuy.mrebh6pyb5.jpeg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\797ff6d0-6b17-4c2f-af23-4b8469338bbb_bacsithuy.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9475"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mrebh6pyb5"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/797ff6d0-6b17-4c2f-af23-4b8469338bbb_bacsithuy.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/83d82dd0-1ba3-42e0-a254-8eed40ae3fc0_bacsithuy.jpeg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\83d82dd0-1ba3-42e0-a254-8eed40ae3fc0_bacsithuy.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9475"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/83d82dd0-1ba3-42e0-a254-8eed40ae3fc0_bacsithuy.mrebh6pyb5.jpeg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\83d82dd0-1ba3-42e0-a254-8eed40ae3fc0_bacsithuy.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9475"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mrebh6pyb5"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/83d82dd0-1ba3-42e0-a254-8eed40ae3fc0_bacsithuy.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/a2c314dc-d64b-4a1d-a2ae-b46dcfd95953_bacsithuy.jpeg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\a2c314dc-d64b-4a1d-a2ae-b46dcfd95953_bacsithuy.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9475"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/a2c314dc-d64b-4a1d-a2ae-b46dcfd95953_bacsithuy.mrebh6pyb5.jpeg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\a2c314dc-d64b-4a1d-a2ae-b46dcfd95953_bacsithuy.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9475"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mrebh6pyb5"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/a2c314dc-d64b-4a1d-a2ae-b46dcfd95953_bacsithuy.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/a513e512-633b-4b32-98c5-e1bb27d25f89_alzheimer.jpg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\a513e512-633b-4b32-98c5-e1bb27d25f89_alzheimer.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "180090"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5Bfl2DaFex2KaL/RLG4y9laS5y+yIHH3/DnTBPnDCxA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5Bfl2DaFex2KaL/RLG4y9laS5y+yIHH3/DnTBPnDCxA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/a513e512-633b-4b32-98c5-e1bb27d25f89_alzheimer.s8a1a1h0bx.jpg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\a513e512-633b-4b32-98c5-e1bb27d25f89_alzheimer.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "180090"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5Bfl2DaFex2KaL/RLG4y9laS5y+yIHH3/DnTBPnDCxA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "s8a1a1h0bx"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/a513e512-633b-4b32-98c5-e1bb27d25f89_alzheimer.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5Bfl2DaFex2KaL/RLG4y9laS5y+yIHH3/DnTBPnDCxA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/aed8bfb3-84b7-452e-a8ee-349fcb17bbc3_bacsithuy.jpeg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\aed8bfb3-84b7-452e-a8ee-349fcb17bbc3_bacsithuy.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9475"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/aed8bfb3-84b7-452e-a8ee-349fcb17bbc3_bacsithuy.mrebh6pyb5.jpeg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\aed8bfb3-84b7-452e-a8ee-349fcb17bbc3_bacsithuy.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9475"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mrebh6pyb5"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/aed8bfb3-84b7-452e-a8ee-349fcb17bbc3_bacsithuy.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/b78aa693-bcfc-421f-ade0-0eac9588dbb5_bacsithuy.jpeg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\b78aa693-bcfc-421f-ade0-0eac9588dbb5_bacsithuy.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9475"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/b78aa693-bcfc-421f-ade0-0eac9588dbb5_bacsithuy.mrebh6pyb5.jpeg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\b78aa693-bcfc-421f-ade0-0eac9588dbb5_bacsithuy.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9475"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mrebh6pyb5"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/b78aa693-bcfc-421f-ade0-0eac9588dbb5_bacsithuy.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/c2e28c9d-0929-4e1f-ac2b-722b0e630cc4_cardiology_logo.e0kfm5vz5d.png",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\c2e28c9d-0929-4e1f-ac2b-722b0e630cc4_cardiology_logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "37390"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Ds3SMmMWnd1ZBGSQmJbk9VVNsFSUwRSdGHGsjX9RV0o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "e0kfm5vz5d"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/c2e28c9d-0929-4e1f-ac2b-722b0e630cc4_cardiology_logo.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Ds3SMmMWnd1ZBGSQmJbk9VVNsFSUwRSdGHGsjX9RV0o="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/c2e28c9d-0929-4e1f-ac2b-722b0e630cc4_cardiology_logo.png",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\c2e28c9d-0929-4e1f-ac2b-722b0e630cc4_cardiology_logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "37390"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Ds3SMmMWnd1ZBGSQmJbk9VVNsFSUwRSdGHGsjX9RV0o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Ds3SMmMWnd1ZBGSQmJbk9VVNsFSUwRSdGHGsjX9RV0o="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/d0f7a2eb-197b-40e1-9909-d867f451638c_bacsithuy.jpeg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\d0f7a2eb-197b-40e1-9909-d867f451638c_bacsithuy.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9475"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/d0f7a2eb-197b-40e1-9909-d867f451638c_bacsithuy.mrebh6pyb5.jpeg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\d0f7a2eb-197b-40e1-9909-d867f451638c_bacsithuy.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9475"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mrebh6pyb5"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/d0f7a2eb-197b-40e1-9909-d867f451638c_bacsithuy.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-griXArprEXYnyUMNWBUnCCaGV6CLjMM5rDsPzah0Gv0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/df532163-7574-46da-8584-460efd246030.jpg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\df532163-7574-46da-8584-460efd246030.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25000"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"p00AR4GxqJv5sk8XVE7bXvZ9HsGwAAvfAh4+rwkXcnY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-p00AR4GxqJv5sk8XVE7bXvZ9HsGwAAvfAh4+rwkXcnY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/df532163-7574-46da-8584-460efd246030.tbfjmykoxw.jpg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\df532163-7574-46da-8584-460efd246030.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25000"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"p00AR4GxqJv5sk8XVE7bXvZ9HsGwAAvfAh4+rwkXcnY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tbfjmykoxw"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/df532163-7574-46da-8584-460efd246030.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-p00AR4GxqJv5sk8XVE7bXvZ9HsGwAAvfAh4+rwkXcnY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/e0e61776-cc8b-4736-b78a-e7d3daafd572.jpg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\e0e61776-cc8b-4736-b78a-e7d3daafd572.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25000"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"p00AR4GxqJv5sk8XVE7bXvZ9HsGwAAvfAh4+rwkXcnY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-p00AR4GxqJv5sk8XVE7bXvZ9HsGwAAvfAh4+rwkXcnY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/e0e61776-cc8b-4736-b78a-e7d3daafd572.tbfjmykoxw.jpg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\e0e61776-cc8b-4736-b78a-e7d3daafd572.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "25000"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"p00AR4GxqJv5sk8XVE7bXvZ9HsGwAAvfAh4+rwkXcnY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tbfjmykoxw"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/e0e61776-cc8b-4736-b78a-e7d3daafd572.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-p00AR4GxqJv5sk8XVE7bXvZ9HsGwAAvfAh4+rwkXcnY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/ea13d084-5936-45a1-bac5-25cce34425a6_4.jpg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\ea13d084-5936-45a1-bac5-25cce34425a6_4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1941131"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Lp8E1sEYB5nilk8a74oMaQOMXLQKM1li7PqZF1JDL5A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Lp8E1sEYB5nilk8a74oMaQOMXLQKM1li7PqZF1JDL5A="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/ea13d084-5936-45a1-bac5-25cce34425a6_4.mj57tfz5hq.jpg",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\ea13d084-5936-45a1-bac5-25cce34425a6_4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1941131"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Lp8E1sEYB5nilk8a74oMaQOMXLQKM1li7PqZF1JDL5A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mj57tfz5hq"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/ea13d084-5936-45a1-bac5-25cce34425a6_4.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Lp8E1sEYB5nilk8a74oMaQOMXLQKM1li7PqZF1JDL5A="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/home_picture_5fd7a311-7f2f-4d02-b80c-ef57754b0a33.2jkh5thd5y.png",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\home_picture_5fd7a311-7f2f-4d02-b80c-ef57754b0a33.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3905744"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0nToGmZdOsDO7vKnb6hPhg8ewk49Oyr0GzGOydIo4eo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2jkh5thd5y"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/home_picture_5fd7a311-7f2f-4d02-b80c-ef57754b0a33.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0nToGmZdOsDO7vKnb6hPhg8ewk49Oyr0GzGOydIo4eo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/home_picture_5fd7a311-7f2f-4d02-b80c-ef57754b0a33.png",
+      "AssetFile": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\wwwroot\\uploads\\home_picture_5fd7a311-7f2f-4d02-b80c-ef57754b0a33.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3905744"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0nToGmZdOsDO7vKnb6hPhg8ewk49Oyr0GzGOydIo4eo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 04 Apr 2025 04:40:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0nToGmZdOsDO7vKnb6hPhg8ewk49Oyr0GzGOydIo4eo="
+        }
+      ]
     }
   ]
 }

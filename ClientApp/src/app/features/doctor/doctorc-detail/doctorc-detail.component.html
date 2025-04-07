@@ -1,5 +1,5 @@
-<br/>
 
+<!-- src/app/features/doctor/doctorc-detail.component.html -->
 <div class="trang-chi-tiet-bac-si">
   <!-- Thông báo lỗi -->
   <div *ngIf="errorMessage" class="container mt-3">
@@ -16,7 +16,7 @@
         <!-- Cột trái - Thông tin bác sĩ -->
         <div class="col-lg-8">
           <div class="the-noi-dung">
-            <h2>{{ doctor.userName }}</h2>
+            <h2>{{ doctor.name }}</h2>
             <h3>Giới thiệu</h3>
             <p class="mo-ta-bac-si">{{ doctor.description || 'Giới thiệu về bác sĩ' }}</p>
 
@@ -44,6 +44,26 @@
                 <i class="fas fa-hospital"></i>
                 <span><strong>Phòng khám:</strong> {{ doctor.clinicName || 'N/A' }}</span>
               </div>
+            </div>
+          </div>
+
+          <!-- Feedbacks Section -->
+          <div class="the-noi-dung the-feedbacks">
+            <h3>Đánh giá từ bệnh nhân</h3>
+
+            <!-- Loading indicator -->
+            <div *ngIf="isLoadingFeedbacks" class="text-center">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Đang tải...</span>
+              </div>
+            </div>
+
+            <!-- Feedbacks list -->
+            <app-feedback-view [doctorId]="doctor.id"></app-feedback-view>
+
+            <!-- No feedbacks message -->
+            <div *ngIf="!isLoadingFeedbacks && feedbacks.length === 0" class="alert alert-info">
+              Không có đánh giá nào từ bệnh nhân.
             </div>
           </div>
         </div>
@@ -91,9 +111,15 @@
             </div>
 
             <!-- Nút Tạo lịch hẹn -->
-            <a href="#" class="btn btn-primary btn-lg w-100 mt-3">
-              <i class="fas fa-calendar-alt me-2"></i>Tạo lịch hẹn
-            </a>
+<button (click)="navigateToCreateAppointment()" class="btn btn-primary btn-lg w-100 mt-3">
+  <i class="fas fa-calendar-alt me-2"></i>Tạo lịch hẹn
+</button>
+
+
+            <!-- Nút Trò chuyện với bác sĩ -->
+            <button (click)="chatWithDoctor()" class="btn btn-success btn-lg w-100 mt-3">
+              <i class="fas fa-comments me-2"></i>Trò chuyện với bác sĩ
+            </button>
           </div>
 
           <!-- Địa chỉ -->
