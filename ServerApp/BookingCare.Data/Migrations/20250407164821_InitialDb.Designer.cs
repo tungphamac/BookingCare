@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookingCare.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250331154718_UpdatedMedicalRecord")]
-    partial class UpdatedMedicalRecord
+    [Migration("20250407164821_InitialDb")]
+    partial class InitialDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -137,7 +137,34 @@ namespace BookingCare.Data.Migrations
                             CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
                             Introduction = "Comprehensive care",
                             Name = "Health Center",
-                            Phone = 987654321
+                            Phone = 1234567894
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "123 Sunshine Ave",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Family healthcare provider",
+                            Name = "Sunshine Clinic",
+                            Phone = 1551112233
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "789 Green Valley Rd",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Specialized medical services",
+                            Name = "Green Valley Hospital",
+                            Phone = 1442223344
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "456 Blue Sky Ln",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Modern healthcare solutions",
+                            Name = "Blue Sky Clinic",
+                            Phone = 1334445566
                         });
                 });
 
@@ -271,6 +298,40 @@ namespace BookingCare.Data.Migrations
                             Notes = "Nghỉ ngơi nhiều, uống đủ nước",
                             Prescription = "Paracetamol 500mg, uống 2 lần/ngày"
                         });
+                });
+
+            modelBuilder.Entity("BookingCare.Data.Models.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasMaxLength(2000)
+                        .HasColumnType("nvarchar(2000)");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ReceiverId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SenderId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("SentAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReceiverId");
+
+                    b.HasIndex("SenderId");
+
+                    b.ToTable("Messages");
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.Notification", b =>
@@ -429,6 +490,24 @@ namespace BookingCare.Data.Migrations
                             Time = new DateTime(2025, 3, 20, 14, 0, 0, 0, DateTimeKind.Utc),
                             TimeSlot = "14:00-15:00",
                             WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DoctorId = 3,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 20, 14, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "15:00-16:00",
+                            WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DoctorId = 2,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 20, 14, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "15:00-16:00",
+                            WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc)
                         });
                 });
 
@@ -470,6 +549,27 @@ namespace BookingCare.Data.Migrations
                             Description = "Brain specialist",
                             Image = "neuro.jpg",
                             Name = "Neurology"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Child health specialist",
+                            Image = "pediatrics.jpg",
+                            Name = "Pediatrics"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "Bone and joint specialist",
+                            Image = "ortho.jpg",
+                            Name = "Orthopedics"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Description = "Skin specialist",
+                            Image = "derm.jpg",
+                            Name = "Dermatology"
                         });
                 });
 
@@ -489,7 +589,6 @@ namespace BookingCare.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Avatar")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -627,6 +726,88 @@ namespace BookingCare.Data.Migrations
                             SecurityStamp = "stamp4",
                             TwoFactorEnabled = false,
                             UserName = "patient1@example.com"
+                        });
+                });
+
+            modelBuilder.Entity("ClinicSpecialization", b =>
+                {
+                    b.Property<int>("ClinicsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SpecializationsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ClinicsId", "SpecializationsId");
+
+                    b.HasIndex("SpecializationsId");
+
+                    b.ToTable("ClinicSpecialization");
+
+                    b.HasData(
+                        new
+                        {
+                            ClinicsId = 1,
+                            SpecializationsId = 1
+                        },
+                        new
+                        {
+                            ClinicsId = 1,
+                            SpecializationsId = 2
+                        },
+                        new
+                        {
+                            ClinicsId = 1,
+                            SpecializationsId = 3
+                        },
+                        new
+                        {
+                            ClinicsId = 2,
+                            SpecializationsId = 2
+                        },
+                        new
+                        {
+                            ClinicsId = 2,
+                            SpecializationsId = 4
+                        },
+                        new
+                        {
+                            ClinicsId = 3,
+                            SpecializationsId = 3
+                        },
+                        new
+                        {
+                            ClinicsId = 3,
+                            SpecializationsId = 5
+                        },
+                        new
+                        {
+                            ClinicsId = 4,
+                            SpecializationsId = 1
+                        },
+                        new
+                        {
+                            ClinicsId = 4,
+                            SpecializationsId = 4
+                        },
+                        new
+                        {
+                            ClinicsId = 4,
+                            SpecializationsId = 5
+                        },
+                        new
+                        {
+                            ClinicsId = 5,
+                            SpecializationsId = 2
+                        },
+                        new
+                        {
+                            ClinicsId = 5,
+                            SpecializationsId = 3
+                        },
+                        new
+                        {
+                            ClinicsId = 5,
+                            SpecializationsId = 5
                         });
                 });
 
@@ -895,6 +1076,25 @@ namespace BookingCare.Data.Migrations
                     b.Navigation("CreatedByDoctor");
                 });
 
+            modelBuilder.Entity("BookingCare.Data.Models.Message", b =>
+                {
+                    b.HasOne("BookingCare.Data.Models.User", "Receiver")
+                        .WithMany()
+                        .HasForeignKey("ReceiverId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("BookingCare.Data.Models.User", "Sender")
+                        .WithMany()
+                        .HasForeignKey("SenderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Receiver");
+
+                    b.Navigation("Sender");
+                });
+
             modelBuilder.Entity("BookingCare.Data.Models.Notification", b =>
                 {
                     b.HasOne("BookingCare.Data.Models.Appointment", "Appointment")
@@ -945,6 +1145,21 @@ namespace BookingCare.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Doctor");
+                });
+
+            modelBuilder.Entity("ClinicSpecialization", b =>
+                {
+                    b.HasOne("BookingCare.Data.Models.Clinic", null)
+                        .WithMany()
+                        .HasForeignKey("ClinicsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BookingCare.Data.Models.Specialization", null)
+                        .WithMany()
+                        .HasForeignKey("SpecializationsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
