@@ -25,42 +25,40 @@
       {{ errorMessage }}
       <button type="button" class="btn-close" (click)="errorMessage = null" aria-label="Đóng"></button>
     </div>
-  </div>
 
-  <!-- Nội dung chính -->
-  <div *ngIf="clinic; else dangTai" class="noi-dung-chinh">
-    <div class="container">
-      <div class="row">
-        <!-- Cột trái - Thông tin phòng khám -->
-        <div class="col-lg-8">
-          <div class="the-noi-dung">
-            <h2>Giới thiệu</h2>
-            <p class="mo-ta-phong-kham">{{ clinic.introduction || 'Giới thiệu về phòng khám' }}</p>
+  
+    <!-- Nội dung chính -->
+    <div *ngIf="clinic; else dangTai" class="noi-dung-chinh">
+      <div class="container">
+        <div class="row">
+          <!-- Cột trái - Thông tin phòng khám -->
+          <div class="col-lg-8">
+            <div class="the-noi-dung">
+              <h2>Giới thiệu</h2>
+              <p class="mo-ta-phong-kham">{{ clinic.introduction || 'Giới thiệu về phòng khám' }}</p>
+              
+              <h2>Chuyên khoa</h2>
+              <div class="chuyen-khoa">
+                <span class="the-chuyen-khoa">Tim mạch</span>
+                <span class="the-chuyen-khoa">Nội khoa</span>
+                <span class="the-chuyen-khoa">Nhi khoa</span>
+                <span class="the-chuyen-khoa">Da liễu</span>
+              </div>
+  
+              <h2>Danh sách bác sĩ</h2>
+              <div class="thiet-bi">
+                <div class="muc-thiet-bi">
+                  <i class="fas fa-microscope"></i>
+                  <span>Phòng xét nghiệm hiện đại</span>
+                </div>
+                <div class="muc-thiet-bi">
+                  <i class="fas fa-x-ray"></i>
+                  <span>Máy X-quang kỹ thuật số</span>
+                </div>
+                <div class="muc-thiet-bi">
+                  <i class="fas fa-heartbeat"></i>
+                  <span>Máy siêu âm 4D</span>
 
-            <!-- Danh sách chuyên khoa -->
-            <h2>Chuyên khoa</h2>
-            <div class="chuyen-khoa mb-3">
-              <select [(ngModel)]="selectedSpecializationId" (ngModelChange)="onSpecializationChange($event)" class="form-select">
-                <option [ngValue]="null">Tất cả</option>
-                <option *ngFor="let specialization of specializations" [ngValue]="specialization.id">
-                  {{ specialization.name }}
-                </option>
-              </select>
-            </div>
-
-            <!-- Danh sách bác sĩ -->
-            <h2>Danh sách bác sĩ</h2>
-            <div *ngIf="doctors && doctors.length > 0; else noDoctors" class="danh-sach-bac-si">
-              <div class="row">
-                <div class="col-md-6 mb-3" *ngFor="let doctor of doctors">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">{{ doctor.userName }}</h5>
-                      <p class="card-text"><strong>Chuyên khoa:</strong> {{ doctor.specializationName }}</p>
-                      <p class="card-text"><strong>Thành tựu:</strong> {{ doctor.achievement || 'N/A' }}</p>
-                      <a [routerLink]="['/doctors/detail/', doctor.id]" class="btn btn-primary">Xem chi tiết</a>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -106,6 +104,14 @@
                 <h5>Giờ làm việc</h5>
                 <p>Thứ 2 - Chủ nhật: 7:00 - 20:00</p>
               </div>
+
+              <!-- <a href="#" class="btn btn-primary btn-lg w-100 mb-3">
+                <i class="fas fa-calendar-alt me-2"></i>Đặt lịch ngay
+              </a> -->
+              <a href="tel:{{clinic.phone}}" class="btn btn-outline-primary btn-lg w-100">
+                <i class="fas fa-phone-alt me-2"></i>Gọi {{ clinic.phone || 'Số điện thoại' }}
+              </a>
+
             </div>
             <a href="#" class="btn btn-primary btn-lg w-100 mb-3">
               <i class="fas fa-calendar-alt me-2"></i>Đặt lịch ngay

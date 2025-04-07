@@ -61,11 +61,53 @@
                 <a (click)="onNavigateToProfile()" class="user-email">
                   Xin chào, {{ user?.email }}
                 </a>
-                <button class="btn btn-primary ms-2" (click)="onLogout()">Đăng xuất</button>
-              </div>
-            </ng-template>
-          </div>
-        </div>
-      </nav>
+
+
+                <!-- Menu -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="doctors/profile">Bác sĩ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/appointments">Lịch hẹn</a>
+                      </li>                
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="#">Phòng khám</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="#">Chuyên khoa</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="feedbacks/list">Feedback</a>
+                    </li>
+                </ul>
+
+                <!-- Search Box -->
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+
+                    <input [routerLink]="['/search']" type="text" placeholder="Tìm bác sĩ, chuyên khoa">
+                </div>
+
+
+                <!-- Login & User Profile -->
+                <div class="auth-buttons">
+                    <ng-container *ngIf="user===undefined; else showUserProfile">
+                        <a [routerLink]="['/login']" class="btn btn-primary">Đăng Nhập</a>
+                    </ng-container>
+
+                    <ng-template #showUserProfile>
+                        <div class="user-profile">
+                            <a (click)="onNavigateToProfile()" class="user-email">
+                                Xin chào, {{user?.email}}
+                            </a>
+                            <button class="btn btn-primary ms-2" (click)="onLogout()">Đăng xuất</button>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </nav>
+
     </div>
   </header>

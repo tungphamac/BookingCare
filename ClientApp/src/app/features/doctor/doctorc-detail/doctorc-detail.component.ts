@@ -1,3 +1,4 @@
+import { GetDoctor } from './../models/doctor.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -24,15 +25,19 @@ export class DoctorDetailComponent implements OnInit {
   feedbacks: Feedback[] = [];
   errorMessage: string | null = null;
   isLoadingSchedules: boolean = false;
-  isLoadingFeedbacks: boolean = false;
+
+
+  GetDoctor: GetDoctor | null = null;
+
 
   constructor(
     private route: ActivatedRoute,
     private doctorService: DoctorService,
     private scheduleService: ScheduleService,
-    private feedbackService: FeedbackService,
+
     private location: Location,
-    private router: Router
+    private Router: Router
+
   ) {}
 
   ngOnInit(): void {
@@ -47,8 +52,8 @@ export class DoctorDetailComponent implements OnInit {
     }
   }
 
-  loadDoctorDetails(id: number): void {
-    this.doctorService.getDoctorById(id).subscribe({
+  loadDoctorDetails(doctorId: number): void {
+    this.doctorService.getDoctorById(doctorId).subscribe({
       next: (data: Doctor) => {
         this.doctor = data;
         console.log('Doctor details loaded:', this.doctor);
@@ -80,19 +85,26 @@ export class DoctorDetailComponent implements OnInit {
     });
   }
 
-  loadDoctorFeedbacks(doctorId: number): void {
-    this.isLoadingFeedbacks = true;
-    this.feedbackService.getFeedbacksByDoctor(doctorId).subscribe({
-      next: (data) => {
-        this.feedbacks = data;
-        this.isLoadingFeedbacks = false;
-      },
-      error: (err) => {
-        this.errorMessage = 'Failed to load feedbacks.';
-        this.isLoadingFeedbacks = false;
-        console.error(err);
+
+  navigateToCreateAppointment(): void {
+    if (this.doctor) {
+      console.log('Doctor data:', this.doctor);
+      if (!this.doctor.clinicId) {
+        console.error('ClinicId is missing in doctor data');
+        this.errorMessage = 'Không thể tạo lịch hẹn do thiếu thông tin phòng khám.';
+        return;
       }
-    });
+      this.Router.navigate(['/appointments/create'], {
+        queryParams: {
+          doctorId: this.doctor.id,
+          clinicId: this.doctor.clinicId
+        }
+      });
+    } else {
+      console.error('Doctor is null');
+      this.errorMessage = 'Không có thông tin bác sĩ để tạo lịch hẹn.';
+    }
+
   }
 
   goBack(): void {

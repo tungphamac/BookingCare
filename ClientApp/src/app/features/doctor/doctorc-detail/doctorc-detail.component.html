@@ -1,46 +1,119 @@
-<div class="trang-chi-tiet-bac-si">
-  <!-- Thông báo lỗi -->
-  <div *ngIf="errorMessage" class="container mt-3">
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-      {{ errorMessage }}
-      <button type="button" class="btn-close" (click)="errorMessage = null" aria-label="Đóng"></button>
+
+  <br/>
+
+  <div class="trang-chi-tiet-bac-si">
+    <!-- Thông báo lỗi -->
+    <div *ngIf="errorMessage" class="container mt-3">
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ errorMessage }}
+        <button type="button" class="btn-close" (click)="errorMessage = null" aria-label="Đóng"></button>
+      </div>
+
     </div>
-  </div>
 
-  <!-- Nội dung chính -->
-  <div *ngIf="doctor; else dangTai" class="noi-dung-chinh">
-    <div class="container">
-      <div class="row">
-        <!-- Cột trái - Thông tin bác sĩ -->
-        <div class="col-lg-8">
-          <div class="the-noi-dung">
-            <h2>{{ doctor.userName }}</h2>
-            <h3>Giới thiệu</h3>
-            <p class="mo-ta-bac-si">{{ doctor.description || 'Giới thiệu về bác sĩ' }}</p>
+    <!-- Nội dung chính -->
+    <div *ngIf="doctor; else dangTai" class="noi-dung-chinh">
+      <div class="container">
+        <div class="row">
+          <!-- Cột trái - Thông tin bác sĩ -->
+          <div class="col-lg-8">
+            <div class="the-noi-dung">
+              <h2>{{ doctor.name }}</h2>
+              <h3>Giới thiệu</h3>
+              <p class="mo-ta-bac-si">{{ doctor.description || 'Giới thiệu về bác sĩ' }}</p>
 
-            <h3>Chuyên khoa</h3>
-            <div class="chuyen-khoa">
-              <span class="the-chuyen-khoa">{{ doctor.specializationName || 'Chuyên khoa' }}</span>
+              <h3>Chuyên khoa</h3>
+              <div class="chuyen-khoa">
+                <span class="the-chuyen-khoa">{{ doctor.specializationName || 'Chuyên khoa' }}</span>
+              </div>
+
+              <h3>Thành tựu</h3>
+              <div class="thanh-tuu">
+                <p>{{ doctor.achievement || 'Thành tựu của bác sĩ' }}</p>
+              </div>
+
+              <h3>Thông tin cơ bản</h3>
+              <div class="khu-thong-tin">
+                <div class="muc-thong-tin">
+                  <i class="fas fa-venus-mars"></i>
+                  <span><strong>Giới tính:</strong> {{ doctor.gender ? 'Nam' : 'Nữ' }}</span>
+                </div>
+                <div class="muc-thong-tin">
+                  <i class="fas fa-envelope"></i>
+                  <span><strong>Email:</strong> {{ doctor.email || 'N/A' }}</span>
+                </div>
+                <div class="muc-thong-tin">
+                  <i class="fas fa-hospital"></i>
+                  <span><strong>Phòng khám:</strong> {{ doctor.clinicName || 'N/A' }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cột phải - Lịch làm việc & Địa chỉ -->
+          <div class="col-lg-4">
+            <!-- Lịch làm việc của bác sĩ -->
+            <div class="the-noi-dung the-schedules">
+              <h3>Lịch làm việc</h3>
+
+              <!-- Loading indicator -->
+              <div *ngIf="isLoadingSchedules" class="text-center">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Đang tải...</span>
+                </div>
+              </div>
+
+              <!-- Schedules table -->
+              <div *ngIf="!isLoadingSchedules && schedules.length > 0" class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Ngày</th>
+                      <th>Thời gian</th>
+                      <th>Trạng thái</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let schedule of schedules">
+                      <td>{{ schedule.workDate | date:'dd/MM/yyyy' }}</td>
+                      <td>{{ schedule.timeSlot }}</td>
+                      <td>
+                        <span [class]="schedule.status === 'Available' ? 'badge bg-success' : 'badge bg-danger'">
+                          {{ schedule.status }}
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- No schedules message -->
+              <div *ngIf="!isLoadingSchedules && schedules.length === 0" class="alert alert-info">
+                Không có lịch làm việc nào được tìm thấy.
+              </div>
+
+              <!-- Nút Tạo lịch hẹn -->
+              <button (click)="navigateToCreateAppointment()" class="btn btn-primary btn-lg w-100 mt-3">
+                <i class="fas fa-calendar-alt me-2"></i>Tạo lịch hẹn
+              </button>
             </div>
 
-            <h3>Thành tựu</h3>
-            <div class="thanh-tuu">
-              <p>{{ doctor.achievement || 'Thành tựu của bác sĩ' }}</p>
-            </div>
-
-            <h3>Thông tin cơ bản</h3>
-            <div class="khu-thong-tin">
-              <div class="muc-thong-tin">
-                <i class="fas fa-venus-mars"></i>
-                <span><strong>Giới tính:</strong> {{ doctor.gender ? 'Nam' : 'Nữ' }}</span>
+            <!-- Địa chỉ -->
+            <div class="the-noi-dung the-dia-diem">
+              <h3>Địa chỉ</h3>
+              <div class="dia-chi">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>{{ doctor.address || 'Địa chỉ bác sĩ' }}</p>
               </div>
-              <div class="muc-thong-tin">
-                <i class="fas fa-envelope"></i>
-                <span><strong>Email:</strong> {{ doctor.email || 'N/A' }}</span>
-              </div>
-              <div class="muc-thong-tin">
-                <i class="fas fa-hospital"></i>
-                <span><strong>Phòng khám:</strong> {{ doctor.clinicName || 'N/A' }}</span>
+              <div class="ban-do">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4241674797763!2d106.69766661533417!3d10.778789792319396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f385570472f%3A0x1787491df0ed8d6a!2zMTIzIMSQxrDhu51uZyBBQkMsIFF14bqtbiAxLCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmg!5e0!3m2!1svi!2s!4v1712345678901!5m2!1svi!2s"
+                  width="100%"
+                  height="200"
+                  style="border:0;"
+                  allowfullscreen=""
+                  loading="lazy">
+                </iframe>
               </div>
             </div>
           </div>
@@ -65,95 +138,23 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Cột phải - Lịch làm việc & Địa chỉ -->
-        <div class="col-lg-4">
-          <!-- Lịch làm việc của bác sĩ -->
-          <div class="the-noi-dung the-schedules">
-            <h3>Lịch làm việc</h3>
+      <!-- Back button -->
+      <div class="container mt-3">
+        <button class="btn btn-secondary" (click)="goBack()">Quay lại</button>
+      </div>
+    </div>
 
-            <!-- Loading indicator -->
-            <div *ngIf="isLoadingSchedules" class="text-center">
-              <div class="spinner-border text-primary" role="status">
-                <span class="visually-hidden">Đang tải...</span>
-              </div>
-            </div>
 
-            <!-- Schedules table -->
-            <div *ngIf="!isLoadingSchedules">
-              <table class="table table-bordered table-hover" *ngIf="schedules.length > 0">
-                <thead class="table-header">
-                  <tr>
-                    <th>Ngày</th>
-                    <th>Thời gian</th>
-                    <th>Trạng thái</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let schedule of schedules">
-                    <td>{{ schedule.workDate | date:'mediumDate' }}</td>
-                    <td>{{ schedule.timeSlot }}</td>
-                    <td>
-                      <span [ngClass]="{
-                        'badge bg-success': schedule.status === 'Available',
-                        'badge bg-warning': schedule.status === 'Booked',
-                        'badge bg-danger': schedule.status === 'Cancelled'
-                      }">
-                        {{ schedule.status === 'Available' ? 'Sử dụng' : schedule.status === 'Booked' ? 'Đã đặt' : 'Đã hủy' }}
-                      </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <p *ngIf="schedules.length === 0" class="text-muted">Không có lịch làm việc nào.</p>
-            </div>
+    <!-- Đang tải -->
+    <ng-template #dangTai>
+      <div class="khu-dang-tai">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Đang tải...</span>
 
-            <!-- Nút Tạo lịch hẹn -->
-            <a href="#" class="btn btn-primary btn-lg w-100 mt-3">
-              <i class="fas fa-calendar-alt me-2"></i>Tạo lịch hẹn
-            </a>
-
-            <!-- Nút Trò chuyện với bác sĩ -->
-            <button (click)="chatWithDoctor()" class="btn btn-success btn-lg w-100 mt-3">
-              <i class="fas fa-comments me-2"></i>Trò chuyện với bác sĩ
-            </button>
-          </div>
-
-          <!-- Địa chỉ -->
-          <div class="the-noi-dung the-dia-diem">
-            <h3>Địa chỉ</h3>
-            <div class="dia-chi">
-              <i class="fas fa-map-marker-alt"></i>
-              <p>{{ doctor.address || 'Địa chỉ bác sĩ' }}</p>
-            </div>
-            <div class="ban-do">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4241674797763!2d106.69766661533417!3d10.778789792319396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f385570472f%3A0x1787491df0ed8d6a!2zMTIzIMSQxrDhu51uZyBBQkMsIFF14bqtbiAxLCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmg!5e0!3m2!1svi!2s!4v1712345678901!5m2!1svi!2s"
-                width="100%"
-                height="200"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy">
-              </iframe>
-            </div>
-          </div>
         </div>
+        <p>Đang tải thông tin bác sĩ...</p>
       </div>
-    </div>
-
-    <!-- Back button -->
-    <div class="container mt-3">
-      <button class="btn btn-secondary" (click)="goBack()">Quay lại</button>
-    </div>
+    </ng-template>
   </div>
-
-  <!-- Đang tải -->
-  <ng-template #dangTai>
-    <div class="khu-dang-tai">
-      <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Đang tải...</span>
-      </div>
-      <p>Đang tải thông tin bác sĩ...</p>
-    </div>
-  </ng-template>
-</div>

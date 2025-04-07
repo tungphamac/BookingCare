@@ -112,6 +112,27 @@
   },
   {
     "ContainingType": "BookingCare.API.Controllers.AppointmentController",
+    "Method": "GetAppointments",
+    "RelativePath": "api/Appointment",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.AppointmentController",
     "Method": "UpdateAppointment",
     "RelativePath": "api/Appointment/{id}",
     "HttpMethod": "PUT",
@@ -807,6 +828,22 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.WebAPI.Controllers.MedicalRecordController",
+    "Method": "GetMedicalRecordByAppointmentId",
+    "RelativePath": "api/MedicalRecord/by-appointment/{appointmentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "appointmentId",
         "Type": "System.Int32",
         "IsRequired": true
       }
