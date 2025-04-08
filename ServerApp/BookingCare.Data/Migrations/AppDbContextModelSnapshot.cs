@@ -84,6 +84,266 @@ namespace BookingCare.Data.Migrations
                             ScheduleId = 1,
                             Status = 1,
                             Time = new TimeSpan(0, 10, 0, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ClinicId = 1,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 21, 12, 0, 0, 0, DateTimeKind.Utc),
+                            DoctorId = 10,
+                            PatientId = 5,
+                            Reason = "Cancer screening",
+                            ScheduleId = 5,
+                            Status = 1,
+                            Time = new TimeSpan(0, 8, 0, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ClinicId = 1,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 21, 12, 0, 0, 0, DateTimeKind.Utc),
+                            DoctorId = 10,
+                            PatientId = 6,
+                            Reason = "Follow-up cancer",
+                            ScheduleId = 6,
+                            Status = 1,
+                            Time = new TimeSpan(0, 9, 0, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ClinicId = 2,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 21, 12, 0, 0, 0, DateTimeKind.Utc),
+                            DoctorId = 11,
+                            PatientId = 7,
+                            Reason = "Headache check",
+                            ScheduleId = 7,
+                            Status = 1,
+                            Time = new TimeSpan(0, 10, 0, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ClinicId = 2,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 21, 12, 0, 0, 0, DateTimeKind.Utc),
+                            DoctorId = 11,
+                            PatientId = 8,
+                            Reason = "Neurological exam",
+                            ScheduleId = 8,
+                            Status = 1,
+                            Time = new TimeSpan(0, 11, 0, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ClinicId = 3,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 21, 12, 0, 0, 0, DateTimeKind.Utc),
+                            DoctorId = 12,
+                            PatientId = 9,
+                            Reason = "Child checkup",
+                            ScheduleId = 9,
+                            Status = 1,
+                            Time = new TimeSpan(0, 13, 0, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ClinicId = 3,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 21, 12, 0, 0, 0, DateTimeKind.Utc),
+                            DoctorId = 12,
+                            PatientId = 4,
+                            Reason = "Pediatric follow-up",
+                            ScheduleId = 10,
+                            Status = 1,
+                            Time = new TimeSpan(0, 14, 0, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ClinicId = 4,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 21, 12, 0, 0, 0, DateTimeKind.Utc),
+                            DoctorId = 13,
+                            PatientId = 5,
+                            Reason = "Bone pain",
+                            ScheduleId = 11,
+                            Status = 1,
+                            Time = new TimeSpan(0, 15, 0, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 9,
+                            ClinicId = 4,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 21, 12, 0, 0, 0, DateTimeKind.Utc),
+                            DoctorId = 13,
+                            PatientId = 6,
+                            Reason = "Joint stiffness",
+                            ScheduleId = 12,
+                            Status = 1,
+                            Time = new TimeSpan(0, 16, 0, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 10,
+                            ClinicId = 5,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 22, 12, 0, 0, 0, DateTimeKind.Utc),
+                            DoctorId = 14,
+                            PatientId = 7,
+                            Reason = "Skin rash",
+                            ScheduleId = 13,
+                            Status = 1,
+                            Time = new TimeSpan(0, 8, 0, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 11,
+                            ClinicId = 5,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 22, 12, 0, 0, 0, DateTimeKind.Utc),
+                            DoctorId = 14,
+                            PatientId = 8,
+                            Reason = "Dermatology consult",
+                            ScheduleId = 14,
+                            Status = 1,
+                            Time = new TimeSpan(0, 9, 0, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 12,
+                            ClinicId = 1,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 22, 12, 0, 0, 0, DateTimeKind.Utc),
+                            DoctorId = 2,
+                            PatientId = 9,
+                            Reason = "Heart checkup",
+                            ScheduleId = 15,
+                            Status = 1,
+                            Time = new TimeSpan(0, 10, 0, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 13,
+                            ClinicId = 1,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 22, 12, 0, 0, 0, DateTimeKind.Utc),
+                            DoctorId = 2,
+                            PatientId = 4,
+                            Reason = "Chest pain",
+                            ScheduleId = 16,
+                            Status = 1,
+                            Time = new TimeSpan(0, 11, 0, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 14,
+                            ClinicId = 2,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 22, 12, 0, 0, 0, DateTimeKind.Utc),
+                            DoctorId = 3,
+                            PatientId = 5,
+                            Reason = "Brain scan follow-up",
+                            ScheduleId = 17,
+                            Status = 1,
+                            Time = new TimeSpan(0, 13, 0, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 15,
+                            ClinicId = 2,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 22, 12, 0, 0, 0, DateTimeKind.Utc),
+                            DoctorId = 3,
+                            PatientId = 6,
+                            Reason = "Neurology consult",
+                            ScheduleId = 18,
+                            Status = 1,
+                            Time = new TimeSpan(0, 14, 0, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 16,
+                            ClinicId = 1,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 22, 12, 0, 0, 0, DateTimeKind.Utc),
+                            DoctorId = 10,
+                            PatientId = 7,
+                            Reason = "Oncology follow-up",
+                            ScheduleId = 19,
+                            Status = 1,
+                            Time = new TimeSpan(0, 15, 0, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 17,
+                            ClinicId = 1,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 22, 12, 0, 0, 0, DateTimeKind.Utc),
+                            DoctorId = 10,
+                            PatientId = 8,
+                            Reason = "Cancer treatment plan",
+                            ScheduleId = 20,
+                            Status = 1,
+                            Time = new TimeSpan(0, 16, 0, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 18,
+                            ClinicId = 2,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 23, 12, 0, 0, 0, DateTimeKind.Utc),
+                            DoctorId = 11,
+                            PatientId = 9,
+                            Reason = "Neurology exam",
+                            ScheduleId = 21,
+                            Status = 1,
+                            Time = new TimeSpan(0, 8, 0, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 19,
+                            ClinicId = 2,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 23, 12, 0, 0, 0, DateTimeKind.Utc),
+                            DoctorId = 11,
+                            PatientId = 4,
+                            Reason = "Head injury check",
+                            ScheduleId = 22,
+                            Status = 1,
+                            Time = new TimeSpan(0, 9, 0, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 20,
+                            ClinicId = 3,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 23, 12, 0, 0, 0, DateTimeKind.Utc),
+                            DoctorId = 12,
+                            PatientId = 5,
+                            Reason = "Child vaccination",
+                            ScheduleId = 23,
+                            Status = 1,
+                            Time = new TimeSpan(0, 10, 0, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 21,
+                            ClinicId = 3,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Date = new DateTime(2025, 3, 23, 12, 0, 0, 0, DateTimeKind.Utc),
+                            DoctorId = 12,
+                            PatientId = 6,
+                            Reason = "Pediatric checkup",
+                            ScheduleId = 24,
+                            Status = 1,
+                            Time = new TimeSpan(0, 11, 0, 0, 0)
                         });
                 });
 
@@ -162,6 +422,186 @@ namespace BookingCare.Data.Migrations
                             Introduction = "Modern healthcare solutions",
                             Name = "Blue Sky Clinic",
                             Phone = 1334445566
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Address = "111 Hope St",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Quality care for all",
+                            Name = "Hope Clinic",
+                            Phone = 1234567801
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Address = "222 Life Rd",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Advanced medical services",
+                            Name = "Life Hospital",
+                            Phone = 1234567802
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Address = "333 Peace Ave",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Holistic healthcare",
+                            Name = "Peace Center",
+                            Phone = 1234567803
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Address = "444 Care Ln",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Patient-centered care",
+                            Name = "Care Clinic",
+                            Phone = 1234567804
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Address = "555 Wellness Dr",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Promoting wellness",
+                            Name = "Wellness Hub",
+                            Phone = 1234567805
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Address = "666 Harmony St",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Balanced healthcare",
+                            Name = "Harmony Clinic",
+                            Phone = 1234567806
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Address = "777 Vitality Rd",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Vital health solutions",
+                            Name = "Vitality Center",
+                            Phone = 1234567807
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Address = "888 Unity Ave",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Unified care approach",
+                            Name = "Unity Hospital",
+                            Phone = 1234567808
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Address = "999 Bright Ln",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Brightening lives",
+                            Name = "Bright Clinic",
+                            Phone = 1234567809
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Address = "101 Healing Dr",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Healing for all",
+                            Name = "Healing Point",
+                            Phone = 1234567810
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Address = "222 Evergreen St",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Everlasting care",
+                            Name = "Evergreen Clinic",
+                            Phone = 1234567811
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Address = "333 Star Rd",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Shining health services",
+                            Name = "Star Hospital",
+                            Phone = 1234567812
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Address = "444 Golden Ave",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Golden standard care",
+                            Name = "Golden Care",
+                            Phone = 1234567813
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Address = "555 Silver Ln",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Silver quality care",
+                            Name = "Silver Clinic",
+                            Phone = 1234567814
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Address = "666 Platinum Dr",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Platinum healthcare",
+                            Name = "Platinum Center",
+                            Phone = 1234567815
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Address = "777 Diamond St",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Diamond care services",
+                            Name = "Diamond Clinic",
+                            Phone = 1234567816
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Address = "888 Ruby Rd",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Ruby health solutions",
+                            Name = "Ruby Hospital",
+                            Phone = 1234567817
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Address = "999 Sapphire Ave",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Sapphire care provider",
+                            Name = "Sapphire Clinic",
+                            Phone = 1234567818
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Address = "1010 Emerald Ln",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Emerald healthcare",
+                            Name = "Emerald Center",
+                            Phone = 1234567819
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Address = "1111 Opal Dr",
+                            CreateAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Introduction = "Opal care solutions",
+                            Name = "Opal Clinic",
+                            Phone = 1234567820
                         });
                 });
 
@@ -208,6 +648,46 @@ namespace BookingCare.Data.Migrations
                             ClinicId = 2,
                             Description = "Expert in brain disorders",
                             SpecializationId = 2
+                        },
+                        new
+                        {
+                            UserId = 10,
+                            Achievement = "Oncology Expert 2024",
+                            ClinicId = 1,
+                            Description = "Cancer specialist",
+                            SpecializationId = 1
+                        },
+                        new
+                        {
+                            UserId = 11,
+                            Achievement = "Neuro Award 2024",
+                            ClinicId = 2,
+                            Description = "Brain expert",
+                            SpecializationId = 2
+                        },
+                        new
+                        {
+                            UserId = 12,
+                            Achievement = "Pediatric Star 2024",
+                            ClinicId = 3,
+                            Description = "Child health expert",
+                            SpecializationId = 3
+                        },
+                        new
+                        {
+                            UserId = 13,
+                            Achievement = "Ortho Innovator 2024",
+                            ClinicId = 4,
+                            Description = "Bone specialist",
+                            SpecializationId = 4
+                        },
+                        new
+                        {
+                            UserId = 14,
+                            Achievement = "Derm Leader 2024",
+                            ClinicId = 5,
+                            Description = "Skin care expert",
+                            SpecializationId = 5
                         });
                 });
 
@@ -238,6 +718,176 @@ namespace BookingCare.Data.Migrations
                         .IsUnique();
 
                     b.ToTable("Feedbacks");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AppointmentId = 1,
+                            Comment = "Great service!",
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Rating = 5
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AppointmentId = 2,
+                            Comment = "Good care",
+                            CreatedAt = new DateTime(2025, 3, 21, 9, 0, 0, 0, DateTimeKind.Utc),
+                            Rating = 4
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AppointmentId = 3,
+                            Comment = "Excellent service",
+                            CreatedAt = new DateTime(2025, 3, 21, 10, 0, 0, 0, DateTimeKind.Utc),
+                            Rating = 5
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AppointmentId = 4,
+                            Comment = "Average experience",
+                            CreatedAt = new DateTime(2025, 3, 21, 11, 0, 0, 0, DateTimeKind.Utc),
+                            Rating = 3
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AppointmentId = 5,
+                            Comment = "Very helpful",
+                            CreatedAt = new DateTime(2025, 3, 21, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Rating = 5
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AppointmentId = 6,
+                            Comment = "Friendly staff",
+                            CreatedAt = new DateTime(2025, 3, 21, 14, 0, 0, 0, DateTimeKind.Utc),
+                            Rating = 4
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AppointmentId = 7,
+                            Comment = "Great doctor",
+                            CreatedAt = new DateTime(2025, 3, 21, 15, 0, 0, 0, DateTimeKind.Utc),
+                            Rating = 5
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AppointmentId = 8,
+                            Comment = "Good visit",
+                            CreatedAt = new DateTime(2025, 3, 21, 16, 0, 0, 0, DateTimeKind.Utc),
+                            Rating = 4
+                        },
+                        new
+                        {
+                            Id = 9,
+                            AppointmentId = 9,
+                            Comment = "Could improve",
+                            CreatedAt = new DateTime(2025, 3, 21, 17, 0, 0, 0, DateTimeKind.Utc),
+                            Rating = 3
+                        },
+                        new
+                        {
+                            Id = 10,
+                            AppointmentId = 10,
+                            Comment = "Highly recommend",
+                            CreatedAt = new DateTime(2025, 3, 22, 9, 0, 0, 0, DateTimeKind.Utc),
+                            Rating = 5
+                        },
+                        new
+                        {
+                            Id = 11,
+                            AppointmentId = 11,
+                            Comment = "Professional care",
+                            CreatedAt = new DateTime(2025, 3, 22, 10, 0, 0, 0, DateTimeKind.Utc),
+                            Rating = 4
+                        },
+                        new
+                        {
+                            Id = 12,
+                            AppointmentId = 12,
+                            Comment = "Very satisfied",
+                            CreatedAt = new DateTime(2025, 3, 22, 11, 0, 0, 0, DateTimeKind.Utc),
+                            Rating = 5
+                        },
+                        new
+                        {
+                            Id = 13,
+                            AppointmentId = 13,
+                            Comment = "Good experience",
+                            CreatedAt = new DateTime(2025, 3, 22, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Rating = 4
+                        },
+                        new
+                        {
+                            Id = 14,
+                            AppointmentId = 14,
+                            Comment = "Okay service",
+                            CreatedAt = new DateTime(2025, 3, 22, 14, 0, 0, 0, DateTimeKind.Utc),
+                            Rating = 3
+                        },
+                        new
+                        {
+                            Id = 15,
+                            AppointmentId = 15,
+                            Comment = "Amazing doctor",
+                            CreatedAt = new DateTime(2025, 3, 22, 15, 0, 0, 0, DateTimeKind.Utc),
+                            Rating = 5
+                        },
+                        new
+                        {
+                            Id = 16,
+                            AppointmentId = 16,
+                            Comment = "Helpful session",
+                            CreatedAt = new DateTime(2025, 3, 22, 16, 0, 0, 0, DateTimeKind.Utc),
+                            Rating = 4
+                        },
+                        new
+                        {
+                            Id = 17,
+                            AppointmentId = 17,
+                            Comment = "Excellent care",
+                            CreatedAt = new DateTime(2025, 3, 22, 17, 0, 0, 0, DateTimeKind.Utc),
+                            Rating = 5
+                        },
+                        new
+                        {
+                            Id = 18,
+                            AppointmentId = 18,
+                            Comment = "Good consultation",
+                            CreatedAt = new DateTime(2025, 3, 23, 9, 0, 0, 0, DateTimeKind.Utc),
+                            Rating = 4
+                        },
+                        new
+                        {
+                            Id = 19,
+                            AppointmentId = 19,
+                            Comment = "Average visit",
+                            CreatedAt = new DateTime(2025, 3, 23, 10, 0, 0, 0, DateTimeKind.Utc),
+                            Rating = 3
+                        },
+                        new
+                        {
+                            Id = 20,
+                            AppointmentId = 20,
+                            Comment = "Very happy",
+                            CreatedAt = new DateTime(2025, 3, 23, 11, 0, 0, 0, DateTimeKind.Utc),
+                            Rating = 5
+                        },
+                        new
+                        {
+                            Id = 21,
+                            AppointmentId = 21,
+                            Comment = "Great pediatric care",
+                            CreatedAt = new DateTime(2025, 3, 23, 12, 0, 0, 0, DateTimeKind.Utc),
+                            Rating = 4
+                        });
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.MedicalRecord", b =>
@@ -294,6 +944,56 @@ namespace BookingCare.Data.Migrations
                             Diagnosis = "Cảm cúm thông thường",
                             Notes = "Nghỉ ngơi nhiều, uống đủ nước",
                             Prescription = "Paracetamol 500mg, uống 2 lần/ngày"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AppointmentId = 2,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedBy = 2,
+                            Diagnosis = "Hypertension",
+                            Notes = "Monitor blood pressure",
+                            Prescription = "Lisinopril 10mg"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AppointmentId = 3,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedBy = 2,
+                            Diagnosis = "Diabetes",
+                            Notes = "Check blood sugar",
+                            Prescription = "Metformin 500mg"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AppointmentId = 4,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedBy = 2,
+                            Diagnosis = "Allergy",
+                            Notes = "Avoid allergens",
+                            Prescription = "Antihistamine"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AppointmentId = 5,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedBy = 2,
+                            Diagnosis = "Flu",
+                            Notes = "Stay hydrated",
+                            Prescription = "Rest and fluids"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AppointmentId = 6,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            CreatedBy = 2,
+                            Diagnosis = "Migraine",
+                            Notes = "Rest in dark room",
+                            Prescription = "Ibuprofen 200mg"
                         });
                 });
 
@@ -329,6 +1029,188 @@ namespace BookingCare.Data.Migrations
                     b.HasIndex("SenderId");
 
                     b.ToTable("Messages");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Content = "Please prepare for your cancer screening.",
+                            IsRead = false,
+                            ReceiverId = 5,
+                            SenderId = 10,
+                            SentAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Content = "Thank you, I will be there.",
+                            IsRead = false,
+                            ReceiverId = 10,
+                            SenderId = 5,
+                            SentAt = new DateTime(2025, 3, 20, 13, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Content = "Follow-up appointment scheduled.",
+                            IsRead = false,
+                            ReceiverId = 6,
+                            SenderId = 10,
+                            SentAt = new DateTime(2025, 3, 20, 14, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Content = "Got it, thanks!",
+                            IsRead = false,
+                            ReceiverId = 10,
+                            SenderId = 6,
+                            SentAt = new DateTime(2025, 3, 20, 15, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Content = "Please describe your headache symptoms.",
+                            IsRead = false,
+                            ReceiverId = 7,
+                            SenderId = 11,
+                            SentAt = new DateTime(2025, 3, 20, 16, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Content = "I have migraines often.",
+                            IsRead = false,
+                            ReceiverId = 11,
+                            SenderId = 7,
+                            SentAt = new DateTime(2025, 3, 20, 17, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Content = "Neurological exam scheduled.",
+                            IsRead = false,
+                            ReceiverId = 8,
+                            SenderId = 11,
+                            SentAt = new DateTime(2025, 3, 20, 18, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Content = "Thank you, doctor!",
+                            IsRead = false,
+                            ReceiverId = 11,
+                            SenderId = 8,
+                            SentAt = new DateTime(2025, 3, 20, 19, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Content = "Please bring your child’s vaccination record.",
+                            IsRead = false,
+                            ReceiverId = 9,
+                            SenderId = 12,
+                            SentAt = new DateTime(2025, 3, 20, 20, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Content = "Will do, thanks!",
+                            IsRead = false,
+                            ReceiverId = 12,
+                            SenderId = 9,
+                            SentAt = new DateTime(2025, 3, 20, 21, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Content = "Follow-up for your child scheduled.",
+                            IsRead = false,
+                            ReceiverId = 4,
+                            SenderId = 12,
+                            SentAt = new DateTime(2025, 3, 20, 22, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Content = "Thank you!",
+                            IsRead = false,
+                            ReceiverId = 12,
+                            SenderId = 4,
+                            SentAt = new DateTime(2025, 3, 20, 23, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Content = "Please describe your bone pain.",
+                            IsRead = false,
+                            ReceiverId = 5,
+                            SenderId = 13,
+                            SentAt = new DateTime(2025, 3, 21, 8, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Content = "It’s in my knee.",
+                            IsRead = false,
+                            ReceiverId = 13,
+                            SenderId = 5,
+                            SentAt = new DateTime(2025, 3, 21, 9, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Content = "Joint stiffness appointment scheduled.",
+                            IsRead = false,
+                            ReceiverId = 6,
+                            SenderId = 13,
+                            SentAt = new DateTime(2025, 3, 21, 10, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Content = "Thank you, I’ll be there.",
+                            IsRead = false,
+                            ReceiverId = 13,
+                            SenderId = 6,
+                            SentAt = new DateTime(2025, 3, 21, 11, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Content = "Please describe your skin rash.",
+                            IsRead = false,
+                            ReceiverId = 7,
+                            SenderId = 14,
+                            SentAt = new DateTime(2025, 3, 21, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Content = "It’s red and itchy.",
+                            IsRead = false,
+                            ReceiverId = 14,
+                            SenderId = 7,
+                            SentAt = new DateTime(2025, 3, 21, 13, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Content = "Dermatology consult scheduled.",
+                            IsRead = false,
+                            ReceiverId = 8,
+                            SenderId = 14,
+                            SentAt = new DateTime(2025, 3, 21, 14, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Content = "Thank you, I’ll bring my records.",
+                            IsRead = false,
+                            ReceiverId = 14,
+                            SenderId = 8,
+                            SentAt = new DateTime(2025, 3, 21, 15, 0, 0, 0, DateTimeKind.Utc)
+                        });
                 });
 
             modelBuilder.Entity("BookingCare.Data.Models.Notification", b =>
@@ -381,6 +1263,186 @@ namespace BookingCare.Data.Migrations
                             IsRead = false,
                             Message = "Bệnh nhân patient1@example.com đã đặt lịch hẹn vào ngày 20/03/2025.",
                             UserId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AppointmentId = 2,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bạn có lịch hẹn mới vào ngày 21/03/2025.",
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AppointmentId = 2,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bệnh nhân patient2@example.com đã đặt lịch hẹn vào ngày 21/03/2025.",
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AppointmentId = 3,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bạn có lịch hẹn mới vào ngày 21/03/2025.",
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AppointmentId = 3,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bệnh nhân patient3@example.com đã đặt lịch hẹn vào ngày 21/03/2025.",
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AppointmentId = 4,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bạn có lịch hẹn mới vào ngày 21/03/2025.",
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AppointmentId = 4,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bệnh nhân patient4@example.com đã đặt lịch hẹn vào ngày 21/03/2025.",
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 9,
+                            AppointmentId = 5,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bạn có lịch hẹn mới vào ngày 21/03/2025.",
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 10,
+                            AppointmentId = 5,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bệnh nhân patient5@example.com đã đặt lịch hẹn vào ngày 21/03/2025.",
+                            UserId = 11
+                        },
+                        new
+                        {
+                            Id = 11,
+                            AppointmentId = 6,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bạn có lịch hẹn mới vào ngày 21/03/2025.",
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 12,
+                            AppointmentId = 6,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bệnh nhân patient6@example.com đã đặt lịch hẹn vào ngày 21/03/2025.",
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 13,
+                            AppointmentId = 7,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bạn có lịch hẹn mới vào ngày 21/03/2025.",
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 14,
+                            AppointmentId = 7,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bệnh nhân patient1@example.com đã đặt lịch hẹn vào ngày 21/03/2025.",
+                            UserId = 12
+                        },
+                        new
+                        {
+                            Id = 15,
+                            AppointmentId = 8,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bạn có lịch hẹn mới vào ngày 21/03/2025.",
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 16,
+                            AppointmentId = 8,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bệnh nhân patient2@example.com đã đặt lịch hẹn vào ngày 21/03/2025.",
+                            UserId = 13
+                        },
+                        new
+                        {
+                            Id = 17,
+                            AppointmentId = 9,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bạn có lịch hẹn mới vào ngày 21/03/2025.",
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 18,
+                            AppointmentId = 9,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bệnh nhân patient3@example.com đã đặt lịch hẹn vào ngày 21/03/2025.",
+                            UserId = 13
+                        },
+                        new
+                        {
+                            Id = 19,
+                            AppointmentId = 10,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bạn có lịch hẹn mới vào ngày 22/03/2025.",
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 20,
+                            AppointmentId = 10,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bệnh nhân patient4@example.com đã đặt lịch hẹn vào ngày 22/03/2025.",
+                            UserId = 14
+                        },
+                        new
+                        {
+                            Id = 21,
+                            AppointmentId = 11,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bạn có lịch hẹn mới vào ngày 22/03/2025.",
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 22,
+                            AppointmentId = 11,
+                            CreatedAt = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc),
+                            IsRead = false,
+                            Message = "Bệnh nhân patient5@example.com đã đặt lịch hẹn vào ngày 22/03/2025.",
+                            UserId = 14
                         });
                 });
 
@@ -401,6 +1463,31 @@ namespace BookingCare.Data.Migrations
                         {
                             UserId = 4,
                             MedicalRecordId = 1
+                        },
+                        new
+                        {
+                            UserId = 5,
+                            MedicalRecordId = 2
+                        },
+                        new
+                        {
+                            UserId = 6,
+                            MedicalRecordId = 3
+                        },
+                        new
+                        {
+                            UserId = 7,
+                            MedicalRecordId = 4
+                        },
+                        new
+                        {
+                            UserId = 8,
+                            MedicalRecordId = 5
+                        },
+                        new
+                        {
+                            UserId = 9,
+                            MedicalRecordId = 6
                         });
                 });
 
@@ -505,6 +1592,186 @@ namespace BookingCare.Data.Migrations
                             Time = new DateTime(2025, 3, 20, 14, 0, 0, 0, DateTimeKind.Utc),
                             TimeSlot = "15:00-16:00",
                             WorkDate = new DateTime(2025, 3, 20, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            DoctorId = 10,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 21, 8, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "08:00-09:00",
+                            WorkDate = new DateTime(2025, 3, 21, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            DoctorId = 10,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 21, 9, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "09:00-10:00",
+                            WorkDate = new DateTime(2025, 3, 21, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            DoctorId = 11,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 21, 10, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "10:00-11:00",
+                            WorkDate = new DateTime(2025, 3, 21, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 8,
+                            DoctorId = 11,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 21, 11, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "11:00-12:00",
+                            WorkDate = new DateTime(2025, 3, 21, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 9,
+                            DoctorId = 12,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 21, 13, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "13:00-14:00",
+                            WorkDate = new DateTime(2025, 3, 21, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 10,
+                            DoctorId = 12,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 21, 14, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "14:00-15:00",
+                            WorkDate = new DateTime(2025, 3, 21, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 11,
+                            DoctorId = 13,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 21, 15, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "15:00-16:00",
+                            WorkDate = new DateTime(2025, 3, 21, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 12,
+                            DoctorId = 13,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 21, 16, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "16:00-17:00",
+                            WorkDate = new DateTime(2025, 3, 21, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 13,
+                            DoctorId = 14,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 22, 8, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "08:00-09:00",
+                            WorkDate = new DateTime(2025, 3, 22, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 14,
+                            DoctorId = 14,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 22, 9, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "09:00-10:00",
+                            WorkDate = new DateTime(2025, 3, 22, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 15,
+                            DoctorId = 2,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 22, 10, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "10:00-11:00",
+                            WorkDate = new DateTime(2025, 3, 22, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 16,
+                            DoctorId = 2,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 22, 11, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "11:00-12:00",
+                            WorkDate = new DateTime(2025, 3, 22, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 17,
+                            DoctorId = 3,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 22, 13, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "13:00-14:00",
+                            WorkDate = new DateTime(2025, 3, 22, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 18,
+                            DoctorId = 3,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 22, 14, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "14:00-15:00",
+                            WorkDate = new DateTime(2025, 3, 22, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 19,
+                            DoctorId = 10,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 22, 15, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "15:00-16:00",
+                            WorkDate = new DateTime(2025, 3, 22, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 20,
+                            DoctorId = 10,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 22, 16, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "16:00-17:00",
+                            WorkDate = new DateTime(2025, 3, 22, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 21,
+                            DoctorId = 11,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 23, 8, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "08:00-09:00",
+                            WorkDate = new DateTime(2025, 3, 23, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 22,
+                            DoctorId = 11,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 23, 9, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "09:00-10:00",
+                            WorkDate = new DateTime(2025, 3, 23, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 23,
+                            DoctorId = 12,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 23, 10, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "10:00-11:00",
+                            WorkDate = new DateTime(2025, 3, 23, 12, 0, 0, 0, DateTimeKind.Utc)
+                        },
+                        new
+                        {
+                            Id = 24,
+                            DoctorId = 12,
+                            Status = 0,
+                            Time = new DateTime(2025, 3, 23, 11, 0, 0, 0, DateTimeKind.Utc),
+                            TimeSlot = "11:00-12:00",
+                            WorkDate = new DateTime(2025, 3, 23, 12, 0, 0, 0, DateTimeKind.Utc)
                         });
                 });
 
@@ -567,6 +1834,146 @@ namespace BookingCare.Data.Migrations
                             Description = "Skin specialist",
                             Image = "derm.jpg",
                             Name = "Dermatology"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Description = "Cancer specialist",
+                            Image = "onco.jpg",
+                            Name = "Oncology"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Description = "Digestive system specialist",
+                            Image = "gastro.jpg",
+                            Name = "Gastroenterology"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Description = "Hormone specialist",
+                            Image = "endo.jpg",
+                            Name = "Endocrinology"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Description = "Mental health specialist",
+                            Image = "psych.jpg",
+                            Name = "Psychiatry"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Description = "Eye specialist",
+                            Image = "ophthal.jpg",
+                            Name = "Ophthalmology"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Description = "Urinary system specialist",
+                            Image = "uro.jpg",
+                            Name = "Urology"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Description = "Women’s health specialist",
+                            Image = "gyn.jpg",
+                            Name = "Gynecology"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Description = "Joint and autoimmune specialist",
+                            Image = "rheum.jpg",
+                            Name = "Rheumatology"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Description = "Lung specialist",
+                            Image = "pulmo.jpg",
+                            Name = "Pulmonology"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Description = "Kidney specialist",
+                            Image = "nephro.jpg",
+                            Name = "Nephrology"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Description = "Blood specialist",
+                            Image = "hema.jpg",
+                            Name = "Hematology"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Description = "Allergy specialist",
+                            Image = "allergy.jpg",
+                            Name = "Allergy"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Description = "Infectious disease specialist",
+                            Image = "infect.jpg",
+                            Name = "Infectious Disease"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Description = "Cosmetic surgery specialist",
+                            Image = "plastic.jpg",
+                            Name = "Plastic Surgery"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Description = "Anesthesia specialist",
+                            Image = "anes.jpg",
+                            Name = "Anesthesiology"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Description = "Imaging specialist",
+                            Image = "radio.jpg",
+                            Name = "Radiology"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Description = "Disease diagnosis specialist",
+                            Image = "patho.jpg",
+                            Name = "Pathology"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Description = "Elderly care specialist",
+                            Image = "geri.jpg",
+                            Name = "Geriatrics"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Description = "Sports injury specialist",
+                            Image = "sports.jpg",
+                            Name = "Sports Medicine"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Description = "Emergency care specialist",
+                            Image = "emerg.jpg",
+                            Name = "Emergency Medicine"
                         });
                 });
 
@@ -658,10 +2065,11 @@ namespace BookingCare.Data.Migrations
                             Email = "admin1@example.com",
                             EmailConfirmed = true,
                             Gender = true,
-                            LockoutEnabled = false,
+                            LockoutEnabled = true,
                             NormalizedEmail = "ADMIN1@EXAMPLE.COM",
                             NormalizedUserName = "ADMIN1@EXAMPLE.COM",
                             PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
+                            PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "stamp1",
                             TwoFactorEnabled = false,
@@ -677,10 +2085,11 @@ namespace BookingCare.Data.Migrations
                             Email = "doctor1@example.com",
                             EmailConfirmed = true,
                             Gender = true,
-                            LockoutEnabled = false,
+                            LockoutEnabled = true,
                             NormalizedEmail = "DOCTOR1@EXAMPLE.COM",
                             NormalizedUserName = "DOCTOR1@EXAMPLE.COM",
                             PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
+                            PhoneNumber = "1234567891",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "stamp2",
                             TwoFactorEnabled = false,
@@ -696,10 +2105,11 @@ namespace BookingCare.Data.Migrations
                             Email = "doctor2@example.com",
                             EmailConfirmed = true,
                             Gender = false,
-                            LockoutEnabled = false,
+                            LockoutEnabled = true,
                             NormalizedEmail = "DOCTOR2@EXAMPLE.COM",
                             NormalizedUserName = "DOCTOR2@EXAMPLE.COM",
                             PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
+                            PhoneNumber = "1234567892",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "stamp3",
                             TwoFactorEnabled = false,
@@ -715,14 +2125,215 @@ namespace BookingCare.Data.Migrations
                             Email = "patient1@example.com",
                             EmailConfirmed = true,
                             Gender = false,
-                            LockoutEnabled = false,
+                            LockoutEnabled = true,
                             NormalizedEmail = "PATIENT1@EXAMPLE.COM",
                             NormalizedUserName = "PATIENT1@EXAMPLE.COM",
                             PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
+                            PhoneNumber = "1234567893",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "stamp4",
                             TwoFactorEnabled = false,
                             UserName = "patient1@example.com"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AccessFailedCount = 0,
+                            Address = "101 Patient St",
+                            Avatar = "patient2.jpg",
+                            ConcurrencyStamp = "concurrency5",
+                            Email = "patient2@example.com",
+                            EmailConfirmed = true,
+                            Gender = false,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "PATIENT2@EXAMPLE.COM",
+                            NormalizedUserName = "PATIENT2@EXAMPLE.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
+                            PhoneNumber = "1234567894",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp5",
+                            TwoFactorEnabled = false,
+                            UserName = "patient2@example.com"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AccessFailedCount = 0,
+                            Address = "202 Patient St",
+                            Avatar = "patient3.jpg",
+                            ConcurrencyStamp = "concurrency6",
+                            Email = "patient3@example.com",
+                            EmailConfirmed = true,
+                            Gender = true,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "PATIENT3@EXAMPLE.COM",
+                            NormalizedUserName = "PATIENT3@EXAMPLE.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
+                            PhoneNumber = "1234567895",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp6",
+                            TwoFactorEnabled = false,
+                            UserName = "patient3@example.com"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AccessFailedCount = 0,
+                            Address = "303 Patient St",
+                            Avatar = "patient4.jpg",
+                            ConcurrencyStamp = "concurrency7",
+                            Email = "patient4@example.com",
+                            EmailConfirmed = true,
+                            Gender = false,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "PATIENT4@EXAMPLE.COM",
+                            NormalizedUserName = "PATIENT4@EXAMPLE.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
+                            PhoneNumber = "1234567896",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp7",
+                            TwoFactorEnabled = false,
+                            UserName = "patient4@example.com"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AccessFailedCount = 0,
+                            Address = "404 Patient St",
+                            Avatar = "patient5.jpg",
+                            ConcurrencyStamp = "concurrency8",
+                            Email = "patient5@example.com",
+                            EmailConfirmed = true,
+                            Gender = true,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "PATIENT5@EXAMPLE.COM",
+                            NormalizedUserName = "PATIENT5@EXAMPLE.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
+                            PhoneNumber = "1234567897",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp8",
+                            TwoFactorEnabled = false,
+                            UserName = "patient5@example.com"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            AccessFailedCount = 0,
+                            Address = "505 Patient St",
+                            Avatar = "patient6.jpg",
+                            ConcurrencyStamp = "concurrency9",
+                            Email = "patient6@example.com",
+                            EmailConfirmed = true,
+                            Gender = false,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "PATIENT6@EXAMPLE.COM",
+                            NormalizedUserName = "PATIENT6@EXAMPLE.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
+                            PhoneNumber = "1234567898",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp9",
+                            TwoFactorEnabled = false,
+                            UserName = "patient6@example.com"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            AccessFailedCount = 0,
+                            Address = "606 Doctor St",
+                            Avatar = "doctor3.jpg",
+                            ConcurrencyStamp = "concurrency10",
+                            Email = "doctor3@example.com",
+                            EmailConfirmed = true,
+                            Gender = true,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "DOCTOR3@EXAMPLE.COM",
+                            NormalizedUserName = "DOCTOR3@EXAMPLE.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
+                            PhoneNumber = "1234567899",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp10",
+                            TwoFactorEnabled = false,
+                            UserName = "doctor3@example.com"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            AccessFailedCount = 0,
+                            Address = "707 Doctor St",
+                            Avatar = "doctor4.jpg",
+                            ConcurrencyStamp = "concurrency11",
+                            Email = "doctor4@example.com",
+                            EmailConfirmed = true,
+                            Gender = false,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "DOCTOR4@EXAMPLE.COM",
+                            NormalizedUserName = "DOCTOR4@EXAMPLE.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
+                            PhoneNumber = "1234567800",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp11",
+                            TwoFactorEnabled = false,
+                            UserName = "doctor4@example.com"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            AccessFailedCount = 0,
+                            Address = "808 Doctor St",
+                            Avatar = "doctor5.jpg",
+                            ConcurrencyStamp = "concurrency12",
+                            Email = "doctor5@example.com",
+                            EmailConfirmed = true,
+                            Gender = true,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "DOCTOR5@EXAMPLE.COM",
+                            NormalizedUserName = "DOCTOR5@EXAMPLE.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
+                            PhoneNumber = "1234567801",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp12",
+                            TwoFactorEnabled = false,
+                            UserName = "doctor5@example.com"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            AccessFailedCount = 0,
+                            Address = "909 Doctor St",
+                            Avatar = "doctor6.jpg",
+                            ConcurrencyStamp = "concurrency13",
+                            Email = "doctor6@example.com",
+                            EmailConfirmed = true,
+                            Gender = false,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "DOCTOR6@EXAMPLE.COM",
+                            NormalizedUserName = "DOCTOR6@EXAMPLE.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
+                            PhoneNumber = "1234567802",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp13",
+                            TwoFactorEnabled = false,
+                            UserName = "doctor6@example.com"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            AccessFailedCount = 0,
+                            Address = "1010 Doctor St",
+                            Avatar = "doctor7.jpg",
+                            ConcurrencyStamp = "concurrency14",
+                            Email = "doctor7@example.com",
+                            EmailConfirmed = true,
+                            Gender = true,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "DOCTOR7@EXAMPLE.COM",
+                            NormalizedUserName = "DOCTOR7@EXAMPLE.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAE...hashedpassword...",
+                            PhoneNumber = "1234567803",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "stamp14",
+                            TwoFactorEnabled = false,
+                            UserName = "doctor7@example.com"
                         });
                 });
 
@@ -805,6 +2416,106 @@ namespace BookingCare.Data.Migrations
                         {
                             ClinicsId = 5,
                             SpecializationsId = 5
+                        },
+                        new
+                        {
+                            ClinicsId = 6,
+                            SpecializationsId = 6
+                        },
+                        new
+                        {
+                            ClinicsId = 7,
+                            SpecializationsId = 7
+                        },
+                        new
+                        {
+                            ClinicsId = 8,
+                            SpecializationsId = 8
+                        },
+                        new
+                        {
+                            ClinicsId = 9,
+                            SpecializationsId = 9
+                        },
+                        new
+                        {
+                            ClinicsId = 10,
+                            SpecializationsId = 10
+                        },
+                        new
+                        {
+                            ClinicsId = 11,
+                            SpecializationsId = 11
+                        },
+                        new
+                        {
+                            ClinicsId = 12,
+                            SpecializationsId = 12
+                        },
+                        new
+                        {
+                            ClinicsId = 13,
+                            SpecializationsId = 13
+                        },
+                        new
+                        {
+                            ClinicsId = 14,
+                            SpecializationsId = 14
+                        },
+                        new
+                        {
+                            ClinicsId = 15,
+                            SpecializationsId = 15
+                        },
+                        new
+                        {
+                            ClinicsId = 16,
+                            SpecializationsId = 16
+                        },
+                        new
+                        {
+                            ClinicsId = 17,
+                            SpecializationsId = 17
+                        },
+                        new
+                        {
+                            ClinicsId = 18,
+                            SpecializationsId = 18
+                        },
+                        new
+                        {
+                            ClinicsId = 19,
+                            SpecializationsId = 19
+                        },
+                        new
+                        {
+                            ClinicsId = 20,
+                            SpecializationsId = 20
+                        },
+                        new
+                        {
+                            ClinicsId = 21,
+                            SpecializationsId = 21
+                        },
+                        new
+                        {
+                            ClinicsId = 22,
+                            SpecializationsId = 22
+                        },
+                        new
+                        {
+                            ClinicsId = 23,
+                            SpecializationsId = 23
+                        },
+                        new
+                        {
+                            ClinicsId = 24,
+                            SpecializationsId = 24
+                        },
+                        new
+                        {
+                            ClinicsId = 25,
+                            SpecializationsId = 25
                         });
                 });
 
@@ -959,6 +2670,56 @@ namespace BookingCare.Data.Migrations
                         {
                             UserId = 4,
                             RoleId = 3
+                        },
+                        new
+                        {
+                            UserId = 5,
+                            RoleId = 3
+                        },
+                        new
+                        {
+                            UserId = 6,
+                            RoleId = 3
+                        },
+                        new
+                        {
+                            UserId = 7,
+                            RoleId = 3
+                        },
+                        new
+                        {
+                            UserId = 8,
+                            RoleId = 3
+                        },
+                        new
+                        {
+                            UserId = 9,
+                            RoleId = 3
+                        },
+                        new
+                        {
+                            UserId = 10,
+                            RoleId = 2
+                        },
+                        new
+                        {
+                            UserId = 11,
+                            RoleId = 2
+                        },
+                        new
+                        {
+                            UserId = 12,
+                            RoleId = 2
+                        },
+                        new
+                        {
+                            UserId = 13,
+                            RoleId = 2
+                        },
+                        new
+                        {
+                            UserId = 14,
+                            RoleId = 2
                         });
                 });
 

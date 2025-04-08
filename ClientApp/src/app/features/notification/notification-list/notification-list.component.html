@@ -23,7 +23,7 @@
         <small>{{ notification.createdAt | date:'short' }}</small>
       </div>
       <div class="notification-actions">
-        <button class="btn btn-outline-primary btn-sm" (click)="viewAppointmentDetail(notification.appointmentId)">
+        <button routerLink="/appointments"  class="btn btn-outline-primary btn-sm">
           <i class="bi bi-eye"></i> Xem chi tiết
         </button>
       </div>

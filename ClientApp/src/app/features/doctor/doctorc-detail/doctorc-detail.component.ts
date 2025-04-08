@@ -8,27 +8,31 @@ import { Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ScheduleService } from '../../schedule/services/schedule.service';
 import { Schedule } from '../../schedule/models/schedule.model';
+import { FeedbackViewComponent } from '../../feedback/feedback-view/feedback-view.component';
+import { Feedback } from '../../feedback/models/feedback';
 
 @Component({
   selector: 'app-doctor-detail',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, FeedbackViewComponent],
   templateUrl: './doctorc-detail.component.html',
   styleUrl: './doctorc-detail.component.css'
 })
 export class DoctorDetailComponent implements OnInit {
   doctor: Doctor | null = null;
   schedules: Schedule[] = [];
+  feedbacks: Feedback[] = [];
   errorMessage: string | null = null;
   isLoadingSchedules: boolean = false;
   GetDoctor: GetDoctor | null = null;
+  isLoadingFeedbacks: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
     private doctorService: DoctorService,
     private scheduleService: ScheduleService,
     private location: Location,
-    private Router: Router
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -81,7 +85,7 @@ export class DoctorDetailComponent implements OnInit {
         this.errorMessage = 'Không thể tạo lịch hẹn do thiếu thông tin phòng khám.';
         return;
       }
-      this.Router.navigate(['/appointments/create'], {
+      this.router.navigate(['/appointments/create'], {
         queryParams: {
           doctorId: this.doctor.id,
           clinicId: this.doctor.clinicId
@@ -90,6 +94,15 @@ export class DoctorDetailComponent implements OnInit {
     } else {
       console.error('Doctor is null');
       this.errorMessage = 'Không có thông tin bác sĩ để tạo lịch hẹn.';
+    }
+  }
+
+  chatWithDoctor(): void {
+    if (this.doctor && this.doctor.id) {
+      // Chuyển hướng đến giao diện chat với otherUserId là ID của bác sĩ
+      this.router.navigate(['/chat'], { queryParams: { otherUserId: this.doctor.id } });
+    } else {
+      this.errorMessage = 'Không thể mở trò chuyện. Thông tin bác sĩ không hợp lệ.';
     }
   }
 

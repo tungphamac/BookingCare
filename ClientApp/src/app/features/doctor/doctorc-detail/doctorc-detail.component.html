@@ -1,5 +1,5 @@
 <br />
-
+<br/>
 <div class="trang-chi-tiet-bac-si">
   <!-- Thông báo lỗi -->
   <div *ngIf="errorMessage" class="container mt-3">
@@ -46,7 +46,23 @@
               </div>
             </div>
           </div>
+          <!-- Feedbacks Section -->
+        <div class="the-noi-dung the-feedbacks">
+
+          <!-- Loading indicator -->
+          <div *ngIf="isLoadingFeedbacks" class="text-center">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Đang tải...</span>
+            </div>
+          </div>
+
+          <!-- Feedbacks list -->
+          <app-feedback-view [doctorId]="doctor.id"></app-feedback-view>
+
         </div>
+        </div>
+
+        
 
         <!-- Cột phải - Lịch làm việc & Địa chỉ -->
         <div class="col-lg-4">
@@ -95,6 +111,12 @@
               <i class="fas fa-calendar-alt me-2"></i>Tạo lịch hẹn
             </button>
           </div>
+
+           <!-- Nút Trò chuyện với bác sĩ -->
+           <button (click)="chatWithDoctor()" class="btn btn-success btn-lg w-100 mt-3">
+            <i class="fas fa-comments me-2"></i>Trò chuyện với bác sĩ
+          </button>
+
 
           <!-- Địa chỉ -->
           <div class="the-noi-dung the-dia-diem">

@@ -1,3 +1,4 @@
+<br/>
 <div class="appointment-list-container">
   <h2>Quản lý Lịch Hẹn</h2>
   <div class="loading" *ngIf="isLoading">Đang tải dữ liệu...</div>
@@ -33,6 +34,9 @@
           <button [routerLink]="['/appointments', appointment.id]">Xem chi tiết</button>
           <ng-container *ngIf="isPatient && !hasMedicalRecordMap[appointment.id]">
             <button [routerLink]="['/appointments/update', appointment.id]">Cập nhật</button>
+          </ng-container>
+          <ng-container *ngIf="isPatient && appointment.status === 'Confirmed'">
+            <button [routerLink]="['/feedbacks/add/', appointment.id]">Đánh giá</button>
           </ng-container>
           
           <!-- Nút cho Confirmed -->

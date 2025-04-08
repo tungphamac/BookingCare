@@ -1,3 +1,4 @@
+<br/>
 <div class="admin-container">
     <div class="header">
         <h2>Feedback Management</h2>
@@ -24,17 +25,11 @@
         </div>
     </div>
 
-    <div>
-        <li class="nav-item">
-            <a class="nav-link" [routerLink]="'/feedbacks/add/2'">Add Feedback</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" [routerLink]="'/feedbacks/view/:doctorId'">View Feedback</a>
-        </li>
-    </div>
+    
     <div class="feedback-list">
         <div class="list-header">
             <div class="col">Id</div>
+            <div class="col">Patient Name</div>
             <div class="col">Appointment ID</div>
             <div class="col">Rating</div>
             <div class="col">Comment</div>
@@ -43,6 +38,7 @@
 
         <div *ngFor="let feedback of getPaginatedFeedback()" class="list-item">
             <div class="col"> {{ feedback.id }}</div>
+            <div class="col"> {{ feedback.patientName}}</div>
             <div class="col">{{ feedback.appointmentId }}</div>
             <div class="col">
                 <div class="rating">

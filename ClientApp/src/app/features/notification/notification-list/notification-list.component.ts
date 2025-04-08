@@ -5,13 +5,13 @@ import { NotificationDto } from '../models/notification.model';
 import { AppointmentDetailDto } from '../models/appointment-detail.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 import { AppointmentDetail } from '../../appointment/models/appointment-detail.model';
 
 @Component({
   selector: 'app-notification-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, RouterLink],
   templateUrl: './notification-list.component.html',
   styleUrls: ['./notification-list.component.css']
 })

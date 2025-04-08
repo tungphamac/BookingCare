@@ -51,6 +51,7 @@ namespace BookingCare.API.Controllers
                 return Problem($"Error retrieving feedback: {ex.Message}");
             }
         }
+        [Authorize(Roles = "Patient")]
         [HttpPost("add-feedback")]
         public async Task<IActionResult> AddFeedback([FromBody] FeedbackVm feedbackVm)
         {

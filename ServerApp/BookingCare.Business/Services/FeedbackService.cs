@@ -114,13 +114,19 @@ namespace BookingCare.Business.Services
 
         public async Task<IEnumerable<FeedbackVm>> GetAllFeedbacksAsync()
         {
-            var feedbacks = await _unitOfWork.FeedbackRepository.GetAllAsync();
+            var feedbacks = await _unitOfWork.Context.Feedbacks
+        .Include(f => f.Appointment)
+            .ThenInclude(a => a.Patient)
+                .ThenInclude(p => p.User)
+        .ToListAsync();
+
             return feedbacks.Select(f => new FeedbackVm
             {
-                Id= f.Id,
+                Id = f.Id,
                 AppointmentId = f.AppointmentId,
                 Rating = f.Rating,
-                Comment = f.Comment
+                Comment = f.Comment,
+                PatientName = f.Appointment?.Patient?.User?.UserName
             }).ToList();
         }
 

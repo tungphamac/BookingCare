@@ -3,12 +3,11 @@ import { CommonModule } from '@angular/common';
 import { Feedback } from '../models/feedback';
 import { FeedbackService } from '../services/feedback.service';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-feedback-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule],
   templateUrl: './feedback-list.component.html',
   styleUrls: ['./feedback-list.component.css']
 })
@@ -29,11 +28,11 @@ export class FeedbackListComponent implements OnInit {
     this.feedbackService.getFeedbacks().subscribe(
       response => {
 
-        if (!response || !response.data || !Array.isArray(response.data)) {
+        if (!response || !response || !Array.isArray(response)) {
           console.error('API returned invalid data format:', response);
           this.feedbackList = [];
         } else {
-          this.feedbackList = response.data; // Chỉ lấy mảng feedbacks từ API
+          this.feedbackList = response; // Chỉ lấy mảng feedbacks từ API
         }
 
         this.applyFilters();

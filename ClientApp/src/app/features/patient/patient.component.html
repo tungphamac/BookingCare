@@ -22,7 +22,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
+                        
                         <th scope="col">Avatar</th>
                         <th scope="col">Tên</th>
                         <th scope="col">Email</th>
@@ -33,7 +33,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let patient of patients; let i = index">
-                        <td>{{ patient.userId }}</td>
+                        
                         <td><img src="{{ patient.avatar }}" alt="Avatar" class="img-fluid rounded-circle"></td>
                         <td>{{ patient.userName }}</td>
                         <td>{{ patient.email }}</td>

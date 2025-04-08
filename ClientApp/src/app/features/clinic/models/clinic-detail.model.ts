@@ -5,5 +5,5 @@ export interface ClinicDetailDto {
     address: string;
     phone: number;
     introduction: string;
-    createAt: string; // DateTime từ backend
+    createAt: Date; // DateTime từ backend
   }

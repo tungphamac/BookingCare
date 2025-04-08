@@ -8,6 +8,7 @@
         <a href="/Specialization/get-all-specializations" class="nav-link">Chuyên khoa</a>
         <a href="/Account/getall" class="nav-link">Quản lý người dùng</a>
         <a href="/admin/get-all-patients" class="nav-link">Quản lý bệnh nhân</a>
+        <a href="/feedbacks/list" class="nav-link">Quản lý Feedbacks</a>
     </nav>
 </aside>
 
@@ -51,7 +52,7 @@
           <td>{{ s.description }}</td>
           <td>
             <img
-              [src]="'https://localhost:7182/uploads/' + s.image"
+              [src]="'assets/' + s.image"
               width="160"
               height="160"
               style="object-fit: cover; border-radius: 8px"

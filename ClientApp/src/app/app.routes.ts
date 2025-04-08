@@ -42,10 +42,11 @@ import { UpdateMedicalRecordComponent } from './features/medicalRecord/component
 import { UserManagementComponent } from './features/Admin/user/user.component';
 import { DoctorListComponent } from './features/Admin/doctor/list-doctor/list-doctor.component';
 import { AddDoctorComponent } from './features/Admin/doctor/add-doctor/add-doctor.component';
-import { ClinicListComponent } from './features/Admin/clinic/clinic.component';
+import { ClinicComponent } from './features/Admin/clinic/clinic.component';
 import { ClinicEditComponent } from './features/Admin/clinic/edit-clinic/edit-clinic.component';
 import { SpecializationListComponents } from './features/Admin/specialization/specialization.component';
-
+import { DoctorUpdateComponent } from './features/doctor/doctor-update/doctor-update.component';
+import { ClinicListComponent } from './features/clinic/clinic-list/clinic-list.component';
 
 
 export const routes: Routes = [
@@ -76,19 +77,20 @@ export const routes: Routes = [
   { path: 'admin/get-all-patients', component: PatientsComponent },
   { path: 'admin/add-patient', component: AddPatientComponent },
   //{ path: 'Patient/update/:id', component: PatientEditComponent },
-  
+  { path: 'doctors/update/:id', component: DoctorUpdateComponent},
   { path: 'Clinic/add', component: AddClinicComponent },
   { path: 'Clinic/update/:id', component: ClinicEditComponent },
   // { path: 'spec', component: SpecializationComponent },
   { path: 'Specialization/add', component: AddSpecializationComponent },
   { path: 'Specialization/update/:id', component: EditSpecializationComponent },
-
+  { path: 'clinics', component: ClinicListComponent }, 
   { path: 'clinics/top-clinic', component: TopClinicListComponent },
   { path: 'feedbacks/list', component: FeedbackListComponent },
   { path: 'feedbacks/add/:appointmentId', component: FeedbackAddComponent },
   { path: 'doctors/detail/:doctorId', component: DoctorProfileComponent },
   { path: 'feedbacks/view/:doctorId', component: FeedbackViewComponent },
   { path: 'feedbacks/add', component: FeedbackAddComponent },
+  
   // { path: 'doctor-profile/:id', component: DoctorProfileComponent },
   // Routes cho Schedule
   { path: 'schedules', component: ScheduleManagementComponent }, // Danh sách schedules theo doctorId qua query param
@@ -102,7 +104,7 @@ export const routes: Routes = [
   {path: 'Account/getall', component: UserManagementComponent },
   { path: 'Doctor/getall', component: DoctorListComponent },
   { path: 'Doctor/add-doctor', component: AddDoctorComponent }, // Thêm route cho AddDoctor
-  { path: 'Clinic/get-all-clinics', component: ClinicListComponent },
+  { path: 'Clinic/get-all-clinics', component: ClinicComponent },
     { path: 'Specialization/get-all-specializations', component: SpecializationListComponents },
 
 ];

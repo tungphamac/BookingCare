@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './clinic.component.html',
   styleUrls: ['./clinic.component.css']
 })
-export class ClinicListComponent implements OnInit {
+export class ClinicComponent implements OnInit {
   clinics: Clinic[] = [];
   isLoading = true;
   errorMessage = '';

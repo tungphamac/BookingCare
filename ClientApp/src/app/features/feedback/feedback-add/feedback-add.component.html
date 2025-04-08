@@ -1,8 +1,18 @@
-<br />
 <div class="feedback-container">
     <h2>Appointment Feedback</h2>
 
-    <div class="feedback-form">
+    <!-- Hiển thị thông báo thành công -->
+    <div *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+    </div>
+
+    <!-- Hiển thị thông báo lỗi nếu có -->
+    <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+    </div>
+
+    <div class="feedback-form" *ngIf="!hasFeedback">
+        <h3>Add Feedback</h3>
         <div class="rating-section">
             <label>Rating:</label>
             <div class="stars">

@@ -7,8 +7,8 @@
     <div class="container scroll-wrapper" #doctorScroll>
         <div class="doctor-card" *ngFor="let doctor of topRatingDoctors" [routerLink]="['/doctors/', doctor.doctorId]">
             <div class="doctor-header">
-                <img [src]="doctor.avatar ? 'http://localhost:5032/uploads/' + doctor.avatar : 'assets/doctor_avatar.png'"
-                    alt="Doctor avatar" class="avatar" />
+                <img [src]="doctor.avatar" alt="Doctor Avatar" class="img-fluid"
+                                        style="max-height: 180px; max-width: 180px; object-fit: cover;" />
             </div>
             <h5 class="doctor-name">{{ doctor.doctorName }}</h5>
         </div>

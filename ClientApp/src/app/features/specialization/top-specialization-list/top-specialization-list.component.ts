@@ -2,10 +2,11 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TopSpecialization } from '../models/top-specialization.model';
 import { SpecializationService } from '../services/specialization.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-top-specialization-list',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './top-specialization-list.component.html',
   styleUrl: './top-specialization-list.component.css'
 })

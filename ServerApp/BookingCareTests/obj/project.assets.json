@@ -4892,23 +4892,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\thanh\\.nuget\\packages\\": {},
+    "C:\\Users\\Nam Nam\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\thanh\\OneDrive\\Documents\\GitHub\\BookingCare\\ServerApp\\BookingCareTests\\BookingCareTests.csproj",
+      "projectUniqueName": "D:\\GIt\\BookingCare\\ServerApp\\BookingCareTests\\BookingCareTests.csproj",
       "projectName": "BookingCareTests",
-      "projectPath": "C:\\Users\\thanh\\OneDrive\\Documents\\GitHub\\BookingCare\\ServerApp\\BookingCareTests\\BookingCareTests.csproj",
-      "packagesPath": "C:\\Users\\thanh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\thanh\\OneDrive\\Documents\\GitHub\\BookingCare\\ServerApp\\BookingCareTests\\obj\\",
+      "projectPath": "D:\\GIt\\BookingCare\\ServerApp\\BookingCareTests\\BookingCareTests.csproj",
+      "packagesPath": "C:\\Users\\Nam Nam\\.nuget\\packages\\",
+      "outputPath": "D:\\GIt\\BookingCare\\ServerApp\\BookingCareTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\thanh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Nam Nam\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4917,14 +4917,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\thanh\\OneDrive\\Documents\\GitHub\\BookingCare\\ServerApp\\BookingCare.WebAPI\\BookingCare.WebAPI.csproj": {
-              "projectPath": "C:\\Users\\thanh\\OneDrive\\Documents\\GitHub\\BookingCare\\ServerApp\\BookingCare.WebAPI\\BookingCare.WebAPI.csproj"
+            "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\BookingCare.WebAPI.csproj": {
+              "projectPath": "D:\\GIt\\BookingCare\\ServerApp\\BookingCare.WebAPI\\BookingCare.WebAPI.csproj"
             }
           }
         }

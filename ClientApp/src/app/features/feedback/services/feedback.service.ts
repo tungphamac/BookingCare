@@ -13,16 +13,20 @@ export class FeedbackService {
 
   constructor(private http: HttpClient) { }
 
-  getFeedbacks(): Observable<{ message: string; data: Feedback[] }> {
-    return this.http.get<{ message: string; data: Feedback[] }>(`${API_URL}/Feedback/get-all-feedbacks`);
+  getFeedbacks(): Observable<Feedback[]> {
+    return this.http.get<Feedback[]>(`${API_URL}/Feedback/get-all-feedbacks`);
   }
 
   getFeedbackById(id: number): Observable<Feedback> {
     return this.http.get<Feedback>(`${API_URL}/Feedback/get-feedback-by-id/${id}`);
   }
 
-  addFeedback(feedback: Feedback): Observable<{ message: string }> {
-    return this.http.post<{ message: string }>(`${API_URL}/Feedback/add-feedback`, feedback);
+  addFeedback(feedback: Feedback): Observable<any> {
+    const token = localStorage.getItem('token'); // Hoặc sessionStorage nếu bạn lưu ở đó
+    const headers = {
+      'Authorization': `Bearer ${token}`
+    };
+    return this.http.post(`${API_URL}/Feedback/add-feedback`, feedback, { headers });
   }
 
   deleteFeedback(id: number): Observable<void> {

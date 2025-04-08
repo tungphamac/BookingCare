@@ -67,7 +67,7 @@ export class SpecializationListComponents implements OnInit {
   
   // Biến phân trang
 currentPage: number = 1;
-itemsPerPage: number = 2;
+itemsPerPage: number = 5;
 
 get pagedSpecializations(): Specialization[] {
   const start = (this.currentPage - 1) * this.itemsPerPage;

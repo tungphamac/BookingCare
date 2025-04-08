@@ -1,3 +1,4 @@
+<!-- HTML Template -->
 <header>
   <div class="container">
     <nav class="navbar navbar-expand-lg">
@@ -10,23 +11,25 @@
         <!-- Menu -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" routerLink="doctors/profile">Bác sĩ</a>
+            <a class="nav-link" routerLink="/appointments" title="Lịch hẹn">
+              <i class="fas fa-calendar-alt"></i>
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/appointments">Lịch hẹn</a>
+            <a class="nav-link" routerLink="/clinics" title="Phòng khám">
+              <i class="fas fa-hospital"></i>
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="#">Phòng khám</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/specializations">Chuyên khoa</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="feedbacks/list">Feedback</a>
+            <a class="nav-link" routerLink="/specializations" title="Chuyên khoa">
+              <i class="fas fa-stethoscope"></i>
+            </a>
           </li>
           <!-- Thêm nút Quản lý lịch cho bác sĩ -->
           <li class="nav-item" *ngIf="user?.role === 'Doctor'">
-            <a class="nav-link" (click)="onNavigateToSchedule()">Quản lý lịch</a>
+            <a class="nav-link" (click)="onNavigateToSchedule()" title="Quản lý lịch">
+              <i class="fas fa-calendar-check"></i>
+            </a>
           </li>
         </ul>
 
@@ -37,36 +40,40 @@
         </div>
 
         <!-- Chat & Notification -->
-        <ul class="navbar-nav">
+        <ul class="navbar-nav nav-icons">
           <li class="nav-item">
-            <a class="nav-link" routerLink="/chat">Chat</a>
+            <a class="nav-link" routerLink="/chat" title="Chat">
+              <i class="fas fa-comment-dots"></i>
+            </a>
           </li>
           <li class="nav-item notification-container">
-            <a class="nav-link" (click)="toggleNotifications()">
+            <a class="nav-link" (click)="toggleNotifications()" title="Thông báo">
               <i class="fas fa-bell"></i>
               <span *ngIf="unreadCount > 0" class="badge">{{ unreadCount }}</span>
-              Thông báo
             </a>
             <div *ngIf="showNotifications" class="notification-popup">
               <app-notification-list></app-notification-list>
             </div>
           </li>
+          <!-- Nút tài khoản chỉ hiển thị khi đã đăng nhập -->
+          <li class="nav-item" *ngIf="user">
+            <a class="nav-link" (click)="onNavigateToProfile()" title="Tài khoản">
+              <i class="fas fa-user-circle"></i>
+            </a>
+          </li>
         </ul>
 
-        <!-- Login & User Profile -->
+        <!-- Login/Logout Button -->
         <div class="auth-buttons">
-          <ng-container *ngIf="user === undefined; else showUserProfile">
-            <a [routerLink]="['/login']" class="btn btn-primary">Đăng Nhập</a>
-          </ng-container>
-
-          <ng-template #showUserProfile>
-            <div class="user-profile">
-              <a (click)="onNavigateToProfile()" class="user-email">
-                Xin chào, {{ user?.email }}
-              </a>
-              <button class="btn btn-primary ms-2" (click)="onLogout()">Đăng xuất</button>
-            </div>
-          </ng-template>
+          <!-- Khi chưa đăng nhập: Hiển thị nút đăng nhập -->
+          <a *ngIf="!user" [routerLink]="['/login']" class="btn btn-primary">
+            <i></i> Đăng Nhập
+          </a>
+          
+          <!-- Khi đã đăng nhập: Hiển thị nút đăng xuất -->
+          <button *ngIf="user" class="btn btn-outline-danger" (click)="onLogout()">
+            <i class="fas fa-sign-out-alt"></i> Đăng xuất
+          </button>
         </div>
       </div>
     </nav>

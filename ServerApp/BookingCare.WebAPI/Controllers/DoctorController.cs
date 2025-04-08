@@ -155,7 +155,7 @@ namespace BookingCare.API.Controllers
         {
             try
             {
-                var topRatingDoctors = await _doctorService.GetTopRatingDoctors(3);
+                var topRatingDoctors = await _doctorService.GetTopRatingDoctors(5);
                 return Ok(topRatingDoctors);
             }
             catch (Exception ex)

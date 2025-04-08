@@ -7,21 +7,22 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-feedback-add',
+  standalone: true, // Đảm bảo component là standalone
   imports: [CommonModule, FormsModule],
   templateUrl: './feedback-add.component.html',
-  styleUrl: './feedback-add.component.css'
+  styleUrls: ['./feedback-add.component.css']
 })
 export class FeedbackAddComponent implements OnInit {
   feedback: Feedback;
   appointmentId: number = 0;
-  hasFeedback: boolean = false; // Biến để kiểm tra xem đã có feedback chưa
-  errorMessage: string = ''; // Thông báo lỗi nếu có
-  successMessage: string = ''; // Thông báo thành công nếu có
+  hasFeedback: boolean = false;
+  errorMessage: string = '';
+  successMessage: string = '';
 
   constructor(
     private feedbackService: FeedbackService,
     private route: ActivatedRoute,
-    private router: Router // Thêm Router để điều hướng
+    private router: Router
   ) {
     this.feedback = { id: 0, patientName: '', appointmentId: 0, rating: 0, comment: '', createAt: new Date() };
   }
@@ -52,7 +53,6 @@ export class FeedbackAddComponent implements OnInit {
       },
       error: (error) => {
         if (error.status === 404) {
-          // Không tìm thấy feedback, nghĩa là chưa có feedback
           this.hasFeedback = false;
           this.resetForm();
         } else {
@@ -76,17 +76,17 @@ export class FeedbackAddComponent implements OnInit {
 
       this.feedbackService.addFeedback(this.feedback).subscribe({
         next: (response) => {
-          this.successMessage = response.message || 'Feedback submitted successfully!';
-          this.hasFeedback = true; // Đánh dấu đã có feedback
+          this.successMessage = 'Feedback đã được thêm thành công!'; // Cập nhật thông báo
+          this.hasFeedback = true;
           setTimeout(() => {
-            this.router.navigate(['/feedbacks/view', this.appointmentId]);
-          }, 2000); // Chuyển hướng sau 2 giây để người dùng thấy thông báo
+            this.router.navigate(['/appointments', this.appointmentId]);
+          }, 2000);
         },
         error: (error) => {
           console.error('Error submitting feedback:', error);
           if (error.status === 400 && error.error.message) {
             this.errorMessage = error.error.message;
-            this.hasFeedback = true; // Đánh dấu đã có feedback nếu backend báo lỗi
+            this.hasFeedback = true;
           } else {
             this.errorMessage = 'An error occurred while submitting feedback.';
           }

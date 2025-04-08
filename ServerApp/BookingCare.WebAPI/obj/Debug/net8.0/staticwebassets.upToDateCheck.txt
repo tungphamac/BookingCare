@@ -2,6 +2,7 @@ wwwroot\uploads\05ccb0e4-5166-49e7-8183-db271331f25a.jpg
 wwwroot\uploads\0d831a8a-d991-438c-b5cc-000f11d2ae2a.jpg
 wwwroot\uploads\0f89c7d0-9d22-40fc-b9e6-f236d3f9c878_clinic_logo.png
 wwwroot\uploads\12f75283-026b-40b7-b057-927c7e04daa7_bacsi-01-copy-725x1024.jpg
+wwwroot\uploads\16ba20bf-1fed-4cb9-adac-b8eb47ef732f.jpg
 wwwroot\uploads\1b5d66f1-4895-4f57-8d47-2b7576dab4fb_bacsithuy.jpeg
 wwwroot\uploads\22efced3-8330-4da5-92b0-094e2bdd9ab6_bacsithuy.jpeg
 wwwroot\uploads\38be5457-eacf-46dc-867c-5f72934dfd7f_neurology_logo.png

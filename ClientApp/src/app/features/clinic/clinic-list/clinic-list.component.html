@@ -1,0 +1,39 @@
+<!-- src/app/features/clinic/clinic-list/clinic-list.component.html -->
+<br/>
+
+<div class="clinic-list-container">
+    <div class="header">
+      <h1>All Clinics</h1>
+    </div>
+  
+    <div *ngIf="loading" class="loading">
+      <div class="spinner"></div>
+      <p>Loading clinics...</p>
+    </div>
+  
+    <div *ngIf="error" class="error-message">
+      <p>{{ error }}</p>
+      <button (click)="fetchClinics()">Try Again</button>
+    </div>
+  
+    <div *ngIf="!loading && !error && clinics.length === 0" class="no-clinics">
+      <p>No clinics available at the moment.</p>
+    </div>
+  
+    <div *ngIf="!loading && !error && clinics.length > 0" class="clinics-grid">
+      <div *ngFor="let clinic of clinics" class="clinic-card">
+        <div class="clinic-header">
+          <h2>{{ clinic.name }}</h2>
+        </div>
+        <div class="clinic-content">
+          <p><strong>Address:</strong> {{ clinic.address }}</p>
+          <p><strong>Phone:</strong> {{ clinic.phone }}</p>
+          <p class="clinic-intro">{{ clinic.introduction | slice:0:100 }}{{ clinic.introduction.length > 100 ? '...' : '' }}</p>
+          <p><strong>Created:</strong> {{ clinic.createAt | date:'mediumDate' }}</p>
+        </div>
+        <div class="clinic-actions">
+          <a [routerLink]="['/clinics', clinic.id]" class="view-button">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>

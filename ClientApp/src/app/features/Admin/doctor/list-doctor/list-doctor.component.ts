@@ -120,12 +120,14 @@ export class DoctorListComponent implements OnInit {
     const file = (event.target as HTMLInputElement).files?.[0];
     if (file) {
         const reader = new FileReader();
-        reader.onload = (e) => {
-            // Explicitly state that the result is a string
-            this.selectedAvatar = reader.result as string;
+        reader.onload = () => {
+            // Giả sử 'avatar' là thuộc tính lưu ảnh của bác sĩ
+            this.selectedDoctor.avatar = reader.result as string;
+            this.selectedAvatar = this.selectedDoctor.avatar; // Cập nhật cho selectedAvatar để hiển thị
         };
         reader.readAsDataURL(file);
     }
+
 }
 
   onDoctorSelect(doctor: any): void {

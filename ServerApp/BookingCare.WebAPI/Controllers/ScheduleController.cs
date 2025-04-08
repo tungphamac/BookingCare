@@ -6,7 +6,7 @@ using System.Security.Claims;
 
 namespace BookingCare.API.Controllers
 {
-    [Authorize]
+    
     [Route("api/[controller]")]
     [ApiController]
     public class ScheduleController : ControllerBase

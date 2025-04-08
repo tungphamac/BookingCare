@@ -61,7 +61,7 @@ export class LoginComponent {
         } else if (response.role === 'Doctor') {
           this.router.navigateByUrl('/'); // Trang quản lý cho admin
         } else if (response.role === 'Admin') {
-          this.router.navigateByUrl('/admin/get-all-doctors'); // Trang quản lý cho admin
+          this.router.navigateByUrl('/Doctor/getall'); // Trang quản lý cho admin
         } else {
           this.router.navigateByUrl('/'); // Mặc định điều hướng về trang chính
         }
