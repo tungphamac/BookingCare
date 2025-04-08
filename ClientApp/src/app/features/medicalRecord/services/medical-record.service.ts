@@ -16,7 +16,8 @@ export class MedicalRecordService {
 
   // Lấy header với token
   private getHeaders(): HttpHeaders {
-    const token = localStorage.getItem('Authentication');
+    const token = localStorage.getItem('token');
+    console.log('Token in MedicalRecordService:', token);
     return new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
@@ -36,6 +37,10 @@ export class MedicalRecordService {
   // Xem hồ sơ y tế (Doctor, Patient)
   viewMedicalRecord(id: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${id}`, { headers: this.getHeaders() });
+  }
+
+  viewMedicalRecordByAppointment(appointmentId: number): Observable<{ success: boolean; message: string; data: MedicalRecordDetail }> {
+    return this.http.get<{ success: boolean; message: string; data: MedicalRecordDetail }>(`${this.apiUrl}/by-appointment/${appointmentId}`,{ headers: this.getHeaders()});
   }
 }
 

@@ -17,7 +17,7 @@ namespace BookingCare.Data.Infrastructure
         private IGeneralRepository<Specialization> _specializationRepository;
         private IGeneralRepository<User> _userRepository;
         private IGeneralRepository<Notification> _notificationRepository;
-
+        private IGeneralRepository<Message> _messageRepository;
         public UnitOfWork(AppDbContext context)
         {
             _context = context;
@@ -49,6 +49,8 @@ namespace BookingCare.Data.Infrastructure
         {
             return new GeneralRepository<TEntity>(Context);
         }
+        public IGeneralRepository<Message> MessageRepository =>
+        _messageRepository ??= new GeneralRepository<Message>(_context);
 
         public async Task BeginTransactionAsync()
         {

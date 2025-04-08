@@ -5,6 +5,5 @@ export interface RegisterVm {
     Gender: boolean;
     Phone: string;
     Address: string;
-    Avatar: string;
-    MedicalHistory: string;
+
 }

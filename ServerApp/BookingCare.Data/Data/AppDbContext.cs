@@ -21,7 +21,7 @@ namespace BookingCare.Data.Data
         public DbSet<MedicalRecord> MedicalRecords { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
-
+        public DbSet<Message> Messages { get; set; }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
@@ -130,6 +130,18 @@ namespace BookingCare.Data.Data
 
             // Gọi SeedData.Seed để thêm dữ liệu mẫu
             SeedData.Seed(modelBuilder);
+
+            modelBuilder.Entity<Message>()
+    .HasOne(m => m.Sender)
+    .WithMany()
+    .HasForeignKey(m => m.SenderId)
+    .OnDelete(DeleteBehavior.Restrict); // hoặc NoAction
+
+            modelBuilder.Entity<Message>()
+                .HasOne(m => m.Receiver)
+                .WithMany()
+                .HasForeignKey(m => m.ReceiverId)
+                .OnDelete(DeleteBehavior.Restrict); // hoặc NoAction
         }
     }
 }

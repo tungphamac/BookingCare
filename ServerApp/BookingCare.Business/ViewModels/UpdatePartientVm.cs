@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,6 @@ namespace BookingCare.Business.ViewModels
         public string Address { get; set; }     
         public string Phone {  get; set; }  
         public string Email { get; set; }        // Email (lấy từ User nếu cần)
-        public string Avatar { get; set; }
+        public IFormFile? Avatar { get; set; } // Hỗ trợ ảnh đại diện
     }
 }

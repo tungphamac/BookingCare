@@ -16,15 +16,15 @@ export class AppointmentService {
 
   constructor(private http: HttpClient) { }
 
-  // Lấy header với token
+  //Lấy header với token
   private getHeaders(): HttpHeaders {
-    const token = localStorage.getItem('Authentication');
+    const token = localStorage.getItem('token');
     return new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
   }
-
+  
   // Tạo lịch hẹn (Patient)
   createAppointment(appointment: AppointmentCreate): Observable<any> {
     return this.http.post<any>(this.apiUrl, appointment, { headers: this.getHeaders() });
@@ -46,7 +46,10 @@ export class AppointmentService {
   }
 
   // Lấy danh sách lịch hẹn (Doctor hoặc Patient)
-  getAppointments(pageNumber: number = 1, pageSize: number = 10): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}?pageNumber=${pageNumber}&pageSize=${pageSize}`, { headers: this.getHeaders() });
+  getAppointments(pageNumber: number = 1, pageSize: number = 10): Observable<{ success: boolean; message: string; data: AppointmentDetail[] }> {
+    return this.http.get<{ success: boolean; message: string; data: AppointmentDetail[] }>(
+      `${this.apiUrl}?pageNumber=${pageNumber}&pageSize=${pageSize}`,
+      { headers: this.getHeaders() }
+    );
   }
 }

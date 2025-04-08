@@ -1,5 +1,6 @@
+import { GetDoctor } from './../models/doctor.model';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DoctorService } from '../services/doctor.service';
 import { Doctor } from '../models/doctor.model';
@@ -20,13 +21,15 @@ export class DoctorDetailComponent implements OnInit {
   schedules: Schedule[] = [];
   errorMessage: string | null = null;
   isLoadingSchedules: boolean = false;
+  GetDoctor: GetDoctor | null = null;
 
   constructor(
     private route: ActivatedRoute,
     private doctorService: DoctorService,
     private scheduleService: ScheduleService,
-    private location: Location
-  ) {}
+    private location: Location,
+    private Router: Router
+  ) { }
 
   ngOnInit(): void {
     const idParam = this.route.snapshot.paramMap.get('id');
@@ -39,8 +42,8 @@ export class DoctorDetailComponent implements OnInit {
     }
   }
 
-  loadDoctorDetails(id: number): void {
-    this.doctorService.getDoctorById(id).subscribe({
+  loadDoctorDetails(doctorId: number): void {
+    this.doctorService.getDoctorById(doctorId).subscribe({
       next: (data: Doctor) => {
         this.doctor = data;
       },
@@ -70,8 +73,28 @@ export class DoctorDetailComponent implements OnInit {
     });
   }
 
+  navigateToCreateAppointment(): void {
+    if (this.doctor) {
+      console.log('Doctor data:', this.doctor);
+      if (!this.doctor.clinicId) {
+        console.error('ClinicId is missing in doctor data');
+        this.errorMessage = 'Không thể tạo lịch hẹn do thiếu thông tin phòng khám.';
+        return;
+      }
+      this.Router.navigate(['/appointments/create'], {
+        queryParams: {
+          doctorId: this.doctor.id,
+          clinicId: this.doctor.clinicId
+        }
+      });
+    } else {
+      console.error('Doctor is null');
+      this.errorMessage = 'Không có thông tin bác sĩ để tạo lịch hẹn.';
+    }
+  }
+
   goBack(): void {
     this.location.back();
   }
-  
+
 }

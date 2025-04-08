@@ -174,5 +174,45 @@ namespace BookingCare.WebAPI.Controllers
             }
 
         }
+
+        [HttpGet("by-appointment/{appointmentId}")]
+        [Authorize(Roles = "Doctor,Patient")]
+        public async Task<IActionResult> GetMedicalRecordByAppointmentId(int appointmentId)
+        {
+            try
+            {
+                if (!int.TryParse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value, out var userId))
+                {
+                    _logger.LogWarning("Invalid user ID in token.");
+                    return Unauthorized(new { Success = false, Message = "Invalid user ID." });
+                }
+
+                var record = await _medicalRecordService.GetMedicalRecordByAppointmentIdAsync(appointmentId, userId);
+                if (record == null)
+                {
+                    _logger.LogWarning($"Medical record for appointment ID {appointmentId} not found.");
+                    return NotFound(new { Success = false, Message = $"Medical record for appointment ID {appointmentId} not found." });
+                }
+
+                var recordDto = new MedicalRecordDTO
+                {
+                    Id = record.Id,
+                    AppointmentId = record.AppointmentId,
+                    Diagnosis = record.Diagnosis,
+                    Prescription = record.Prescription,
+                    Notes = record.Notes,
+                    CreatedAt = record.CreatedAt,
+                    UpdatedAt = record.UpdatedAt,
+                    CreatedBy = record.CreatedBy
+                };
+
+                return Ok(new { Success = true, Message = "Lấy hồ sơ y tế thành công", Data = recordDto });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error retrieving medical record for appointment ID {appointmentId}.");
+                return StatusCode(500, new { Success = false, Message = ex.Message });
+            }
+        }
     }
 }

@@ -112,6 +112,27 @@
   },
   {
     "ContainingType": "BookingCare.API.Controllers.AppointmentController",
+    "Method": "GetAppointments",
+    "RelativePath": "api/Appointment",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.AppointmentController",
     "Method": "UpdateAppointment",
     "RelativePath": "api/Appointment/{id}",
     "HttpMethod": "PUT",
@@ -205,6 +226,101 @@
       {
         "Name": "registerVm",
         "Type": "BookingCare.Business.ViewModels.RegisterVm",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.ChatController",
+    "Method": "GetChatHistory",
+    "RelativePath": "api/Chat/history",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId1",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "userId2",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.ChatController",
+    "Method": "GetChatParticipants",
+    "RelativePath": "api/Chat/participants",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.ChatController",
+    "Method": "MarkMessageAsRead",
+    "RelativePath": "api/Chat/read",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "messageId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.ChatController",
+    "Method": "SendMessage",
+    "RelativePath": "api/Chat/send",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BookingCare.Business.ViewModels.SendMessageDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.ChatController",
+    "Method": "GetUnreadMessages",
+    "RelativePath": "api/Chat/unread",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.ChatController",
+    "Method": "GetUserInfo",
+    "RelativePath": "api/Chat/user/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -396,6 +512,27 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookingCare.API.Controllers.DoctorController",
+    "Method": "GetDoctorsBySpecializationAndClinic",
+    "RelativePath": "api/Doctor/get-doctors-by-specialization-and-clinic",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "specializationId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "clinicId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -698,6 +835,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BookingCare.WebAPI.Controllers.MedicalRecordController",
+    "Method": "GetMedicalRecordByAppointmentId",
+    "RelativePath": "api/MedicalRecord/by-appointment/{appointmentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "appointmentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BookingCare.API.Controllers.NotificationController",
     "Method": "GetAppointmentDetail",
     "RelativePath": "api/Notification/appointment/{appointmentId}",
@@ -883,9 +1036,34 @@
         "IsRequired": true
       },
       {
-        "Name": "updateVm",
-        "Type": "BookingCare.Business.ViewModels.RegisterVm",
-        "IsRequired": true
+        "Name": "UserName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Gender",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Address",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Phone",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Avatar",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -903,16 +1081,11 @@
   {
     "ContainingType": "BookingCare.API.Controllers.ScheduleController",
     "Method": "CreateSchedule",
-    "RelativePath": "api/Schedule/Create-schedule-by-doctor/{doctorId}",
+    "RelativePath": "api/Schedule/Create-schedule",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
-      {
-        "Name": "doctorId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
       {
         "Name": "scheduleDto",
         "Type": "BookingCare.API.Dtos.CreateScheduleDto",

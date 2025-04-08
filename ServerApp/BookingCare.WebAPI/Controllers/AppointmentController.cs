@@ -138,13 +138,8 @@ namespace BookingCare.API.Controllers
                     ClinicId = a.ClinicId
                 }).ToList();
 
-                _logger.LogInformation("Appointment {AppointmentId} status updated to {Status} by User ID {UserId}.", id, status, userId);
-                return Ok(new
-                {
-                    Success = true,
-                    Message = "Cập nhật trạng thái lịch hẹn thành công",
-                    Data = appointmentDtos
-                });
+                _logger.LogInformation($"Appointment {id} status updated to {status} by User ID {userId}.");
+                return Ok(new { Success = true, Message = "Cập nhật trạng thái lịch hẹn thành công", Data = appointmentDtos });
             }
             catch (Exception ex)
             {
@@ -247,6 +242,8 @@ namespace BookingCare.API.Controllers
                     CreatedAt = appointment.CreatedAt,
                     Reason = appointment.Reason,
                     ClinicId = appointment.ClinicId,
+                    DoctorId = appointment.DoctorId,    // Thêm DoctorId
+                    ScheduleId = appointment.ScheduleId // Thêm ScheduleId
                 };
 
                 _logger.LogInformation("Retrieved appointment details for ID {AppointmentId} by User ID {UserId}.", id, userId);
@@ -258,6 +255,53 @@ namespace BookingCare.API.Controllers
                 _logger.LogError(ex, "Error retrieving appointment with ID {AppointmentId} by User ID {UserId}.", id, User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
                 return StatusCode(500, new { Success = false, Message = "Đã xảy ra lỗi khi lấy chi tiết lịch hẹn: " + ex.Message });
 
+            }
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Doctor,Patient")]
+        public async Task<IActionResult> GetAppointments([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
+        {
+            try
+            {
+                // Lấy userId từ token
+                if (!int.TryParse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value, out var userId))
+                {
+                    _logger.LogWarning("Invalid user ID in token for retrieving appointments.");
+                    return Unauthorized(new { Success = false, Message = "Invalid user ID in token." });
+                }
+
+                // Lấy role từ token
+                var role = User.FindFirst(ClaimTypes.Role)?.Value;
+                if (string.IsNullOrEmpty(role) || (role != "Doctor" && role != "Patient"))
+                {
+                    _logger.LogWarning("Invalid role in token for retrieving appointments.");
+                    return Unauthorized(new { Success = false, Message = "Invalid role in token." });
+                }
+
+                // Lấy danh sách lịch hẹn
+                var appointments = await _appointmentService.GetAppointmentsAsync(userId, role, pageNumber, pageSize);
+
+                // Ánh xạ sang DTO
+                var appointmentDtos = appointments.Select(a => new AppointmentDetailDto
+                {
+                    Id = a.Id,
+                    DoctorName = a.Doctor?.User?.UserName ?? "Không xác định",
+                    PatientName = a.Patient?.User?.UserName ?? "Không xác định",
+                    ScheduleTime = a.Date.Add(a.Time),
+                    Status = a.Status.ToString(),
+                    CreatedAt = a.CreatedAt,
+                    Reason = a.Reason,
+                    ClinicId = a.ClinicId
+                }).ToList();
+
+                _logger.LogInformation("Retrieved appointments for User ID {UserId}.", userId);
+                return Ok(new { Success = true, Message = "Lấy danh sách lịch hẹn thành công", Data = appointmentDtos });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving appointments for User ID {UserId}.", User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+                return StatusCode(500, new { Success = false, Message = "Đã xảy ra lỗi khi lấy danh sách lịch hẹn: " + ex.Message });
             }
         }
     }

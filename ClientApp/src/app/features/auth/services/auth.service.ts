@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, throwError, tap} from 'rxjs';
 import { User } from '../login/Models/user.model';
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
@@ -8,10 +8,8 @@ import { LoginResponse } from '../login/Models/login-response.model';
 import { API_URL } from '../../../app.config';
 import { RegisterVm } from '../../register/Models/register.model';
 import { forgotPasswordVm } from '../../ForgotPassword/Models/forgot.model';
-
 import { resetPasswordVm } from '../../ResetPassword/Models/resetPass.model';
 
-import { tap } from 'rxjs/operators';
 
 
 @Injectable({
@@ -29,6 +27,7 @@ export class AuthService {
             localStorage.setItem('user-id', response.id.toString());
             localStorage.setItem('user-email', response.email);
             localStorage.setItem('user-role', response.role); // Lưu role vào localStorage
+            localStorage.setItem('token', response.token);
         })
     );
 }
@@ -54,6 +53,7 @@ export class AuthService {
             role: role
         };
     }
+
 
     return undefined;
 }
@@ -92,5 +92,9 @@ export class AuthService {
 
 
   }
+  // src/app/features/auth/services/auth.service.ts
+getToken(): string | null {
+  return this.cookieService.get('Authentication');
+}
 }
 

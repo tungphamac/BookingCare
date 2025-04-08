@@ -1,7 +1,26 @@
 export interface Doctor {
-  userId: number;
-  userName: string;
+  id: number;   //userId
+  name: string;   //userName
   email: string;
+  gender: boolean;
+  address: string;
+  avatar: string;
+  achievement: string;
+  description: string;
+  specializationName: string;
+  clinicName: string;
+
+  specializationId: number;
+  clinicId: number;
+  phone: string;
+}
+
+export interface DoctorNam {
+
+  id: number;   //userId
+  name: string;   //userName
+  email: string;
+  phone: string;
   gender: boolean;
   address: string;
   avatar: string;

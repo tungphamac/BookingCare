@@ -42,6 +42,28 @@ namespace BookingCare.Business.Services
 
         }
 
+        public async Task<MedicalRecord?> GetMedicalRecordByAppointmentIdAsync(int appointmentId, int userId)
+        {
+            var record = await _unitOfWork.MedicalRecordRepository
+                .GetSingleAsync(m => m.AppointmentId == appointmentId);
+            if (record == null) return null;
+
+            var appointment = await _unitOfWork.AppointmentRepository.GetByIdAsync(record.AppointmentId);
+            if (appointment == null)
+                throw new Exception("Appointment not found");
+
+            var isPatient = appointment.PatientId == userId;
+            var doctor = await _unitOfWork.DoctorRepository.GetQuery(d => d.UserId == userId).FirstOrDefaultAsync();
+            var isDoctor = doctor != null && appointment.DoctorId == doctor.UserId;
+            var user = await _unitOfWork.UserRepository.GetByIdAsync(userId);
+            var isAdmin = user?.Doctor == null && user?.Patient == null;
+
+            if (!isAdmin && !isDoctor && !isPatient)
+                throw new Exception("Unauthorized access to medical record");
+
+            return record;
+        }
+
         public async Task<bool> UpdateMedicalRecordAsync(MedicalRecord record, int doctorId)
         {
             var existing = await GetByIdAsync(record.Id);

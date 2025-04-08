@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { Clinic } from '../models/clinic.model';
-import { ClinicService } from '../services/services.service';
+import { ClinicService } from '../services/clinic.service';
 
 @Component({
   selector: 'app-clinic-edit',

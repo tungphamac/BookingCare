@@ -1,107 +1,145 @@
 <div class="container mt-5">
-    <h2 class="text-primary mb-4">Quản lý lịch</h2>
-  
-    <!-- Loading -->
-    <div *ngIf="isLoading" class="text-center">
-      <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Đang tải...</span>
+  <h2 class="text-primary mb-4">Quản lý lịch</h2>
+
+  <!-- Loading -->
+  <div *ngIf="isLoading" class="text-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Đang tải...</span>
+    </div>
+    <p>Đang tải...</p>
+  </div>
+
+  <!-- Error message -->
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Nút thêm lịch -->
+  <div class="mb-3">
+    <button class="btn btn-primary" (click)="openCreatePopup()">Thêm lịch mới</button>
+  </div>
+
+  <!-- Danh sách lịch -->
+  <div *ngIf="!isLoading">
+    <table class="table table-bordered table-hover" *ngIf="schedules.length > 0">
+      <thead class="table-header">
+        <tr>
+          <th>ID</th>
+          <th>Thời gian</th>
+          <th>Ngày làm việc</th>
+          <th>Trạng thái</th>
+          <th>Hành động</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let schedule of schedules">
+          <td>{{ schedule.id }}</td>
+          <td>{{ schedule.timeSlot }}</td>
+          <td>{{ schedule.workDate | date: 'mediumDate' }}</td>
+          <td>
+            <span [ngClass]="{
+              'badge bg-success': schedule.status === 'Available',
+              'badge bg-warning': schedule.status === 'Booked',
+              'badge bg-danger': schedule.status === 'Cancelled'
+            }">
+              {{ schedule.status === 'Available' ? 'Sử dụng' : schedule.status === 'Booked' ? 'Đã đặt' : 'Đã hủy' }}
+            </span>
+          </td>
+          <td>
+            <button class="btn btn-warning btn-sm me-2" (click)="openEditPopup(schedule)">Sửa</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteSchedule(schedule.id)">Xóa</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p *ngIf="schedules.length === 0" class="text-muted">Không có lịch nào.</p>
+  </div>
+
+  <!-- Popup thêm lịch -->
+  <div *ngIf="showCreatePopup" class="modal-overlay">
+    <div class="modal-content">
+      <div class="card">
+        <div class="card-header">
+          Thêm lịch mới
+          <button type="button" class="btn-close" (click)="closeCreatePopup()"></button>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="mb-3">
+              <label for="timeSlot" class="form-label">Thời gian</label>
+              <div class="time-picker">
+                <select class="form-select me-2" [(ngModel)]="newSchedule.startHour" name="startHour" required>
+                  <option value="" disabled>Chọn giờ bắt đầu</option>
+                  <option *ngFor="let time of timeOptions" [value]="time">{{ time }}</option>
+                </select>
+                <span>đến</span>
+                <select class="form-select ms-2" [(ngModel)]="newSchedule.endHour" name="endHour" required>
+                  <option value="" disabled>Chọn giờ kết thúc</option>
+                  <option *ngFor="let time of timeOptions" [value]="time">{{ time }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="workDate" class="form-label">Ngày làm việc</label>
+              <input type="date" class="form-control" id="workDate" [(ngModel)]="newSchedule.workDate" name="workDate" required>
+            </div>
+            <div class="mb-3">
+              <label for="status" class="form-label">Trạng thái</label>
+              <select class="form-select" id="status" [(ngModel)]="newSchedule.status" name="status">
+                <option value="Available">Available</option>
+                <option value="Booked">Booked</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+            </div>
+            <button type="button" class="btn btn-primary" (click)="createSchedule()">Thêm lịch</button>
+            <button type="button" class="btn btn-secondary" (click)="closeCreatePopup()">Hủy</button>
+          </form>
+        </div>
       </div>
-      <p>Đang tải...</p>
-    </div>
-  
-    <!-- Error message -->
-    <div *ngIf="errorMessage" class="alert alert-danger">
-      {{ errorMessage }}
-    </div>
-  
-    <!-- Mode: Create -->
-    <div *ngIf="mode === 'create'" class="card mb-4">
-      <div class="card-header">Thêm lịch mới</div>
-      <div class="card-body">
-        <form>
-          <div class="mb-3">
-            <label for="timeSlot" class="form-label">Thời gian</label>
-            <input type="text" class="form-control" id="timeSlot" [(ngModel)]="newSchedule.timeSlot" name="timeSlot" required>
-          </div>
-          <div class="mb-3">
-            <label for="workDate" class="form-label">Ngày làm việc</label>
-            <input type="date" class="form-control" id="workDate" [(ngModel)]="newSchedule.workDate" name="workDate" required>
-          </div>
-          <div class="mb-3">
-            <label for="status" class="form-label">Trạng thái</label>
-            <select class="form-select" id="status" [(ngModel)]="newSchedule.status" name="status">
-              <option value="Available">Available</option>
-              <option value="Booked">Booked</option>
-            </select>
-          </div>
-          <button type="button" class="btn btn-primary" (click)="createSchedule()">Thêm lịch</button>
-        </form>
-      </div>
-    </div>
-  
-    <!-- Mode: Update -->
-    <div *ngIf="mode === 'update' && selectedSchedule" class="card mb-4">
-      <div class="card-header">Sửa lịch</div>
-      <div class="card-body">
-        <form>
-          <div class="mb-3">
-            <label for="editTimeSlot" class="form-label">Thời gian</label>
-            <input type="text" class="form-control" id="editTimeSlot" [(ngModel)]="selectedSchedule.timeSlot" name="editTimeSlot" required>
-          </div>
-          <div class="mb-3">
-            <label for="editWorkDate" class="form-label">Ngày làm việc</label>
-            <input type="date" class="form-control" id="editWorkDate" [(ngModel)]="selectedSchedule.workDate" name="editWorkDate" required>
-          </div>
-          <div class="mb-3">
-            <label for="editStatus" class="form-label">Trạng thái</label>
-            <select class="form-select" id="editStatus" [(ngModel)]="selectedSchedule.status" name="editStatus">
-              <option value="Available">Available</option>
-              <option value="Booked">Booked</option>
-            </select>
-          </div>
-          <button type="button" class="btn btn-success" (click)="updateSchedule()">Cập nhật</button>
-          <button type="button" class="btn btn-secondary" (click)="cancelUpdate()">Hủy</button>
-        </form>
-      </div>
-    </div>
-  
-    <!-- Mode: List -->
-    <div *ngIf="mode === 'list' && !isLoading">
-      <table class="table table-bordered" *ngIf="schedules.length > 0">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Thời gian</th>
-            <th>Ngày làm việc</th>
-            <th>Trạng thái</th>
-            <th>Hành động</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let schedule of schedules">
-            <td>{{ schedule.id }}</td>
-            <td>{{ schedule.timeSlot }}</td>
-            <td>{{ schedule.workDate | date: 'mediumDate' }}</td>
-            <td>{{ schedule.status }}</td>
-            <td>
-              <a class="btn btn-warning btn-sm me-2" [routerLink]="['/schedules/update', schedule.id]">Sửa</a>
-              <button class="btn btn-danger btn-sm" (click)="deleteSchedule(schedule.id)">Xóa</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <p *ngIf="schedules.length === 0" class="text-muted">Không có lịch nào.</p>
-    </div>
-  
-    <!-- Mode: View -->
-    <div *ngIf="mode === 'view' && !isLoading && schedules.length > 0">
-      <h3>Chi tiết lịch</h3>
-      <table class="table table-bordered">
-        <tr><th>ID</th><td>{{ schedules[0].id }}</td></tr>
-        <tr><th>Thời gian</th><td>{{ schedules[0].timeSlot }}</td></tr>
-        <tr><th>Ngày làm việc</th><td>{{ schedules[0].workDate | date: 'mediumDate' }}</td></tr>
-        <tr><th>Trạng thái</th><td>{{ schedules[0].status }}</td></tr>
-      </table>
-      <a class="btn btn-primary" [routerLink]="['/schedules']" [queryParams]="{ doctorId: doctorId }">Quay lại</a>
     </div>
   </div>
+
+  <!-- Popup chỉnh sửa lịch -->
+  <div *ngIf="showEditPopup && selectedSchedule" class="modal-overlay">
+    <div class="modal-content">
+      <div class="card">
+        <div class="card-header">
+          Sửa lịch
+          <button type="button" class="btn-close" (click)="closeEditPopup()"></button>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="mb-3">
+              <label for="editTimeSlot" class="form-label">Thời gian</label>
+              <div class="time-picker">
+                <select class="form-select me-2" [(ngModel)]="selectedSchedule.startHour" name="editStartHour" required>
+                  <option value="" disabled>Chọn giờ bắt đầu</option>
+                  <option *ngFor="let time of timeOptions" [value]="time">{{ time }}</option>
+                </select>
+                <span>đến</span>
+                <select class="form-select ms-2" [(ngModel)]="selectedSchedule.endHour" name="editEndHour" required>
+                  <option value="" disabled>Chọn giờ kết thúc</option>
+                  <option *ngFor="let time of timeOptions" [value]="time">{{ time }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="editWorkDate" class="form-label">Ngày làm việc</label>
+              <input type="date" class="form-control" id="editWorkDate" [(ngModel)]="selectedSchedule.workDate" name="editWorkDate" required>
+            </div>
+            <div class="mb-3">
+              <label for="editStatus" class="form-label">Trạng thái</label>
+              <select class="form-select" id="editStatus" [(ngModel)]="selectedSchedule.status" name="editStatus">
+                <option value="Available">Available</option>
+                <option value="Booked">Booked</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+            </div>
+            <button type="button" class="btn btn-success" (click)="updateSchedule()">Cập nhật</button>
+            <button type="button" class="btn btn-secondary" (click)="closeEditPopup()">Hủy</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,8 @@
+// src/app/features/notification/models/appointment-detail.model.ts
 export interface AppointmentDetailDto {
+
+    clinicId: number;
+    reason: string;
     id: number;
     doctorName: string;
     patientName: string;
@@ -6,3 +10,4 @@ export interface AppointmentDetailDto {
     status: string;
     createdAt: string;
   }
+

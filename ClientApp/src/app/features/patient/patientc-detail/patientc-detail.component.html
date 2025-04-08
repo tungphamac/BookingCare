@@ -1,26 +1,59 @@
 <div class="container">
-  <!-- Thông báo lỗi -->
+  <!-- Error message -->
   <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
     {{ errorMessage }}
-    <button type="button" class="btn-close" (click)="errorMessage = null" aria-label="Đóng"></button>
+    <button type="button" class="btn-close" (click)="errorMessage = null" aria-label="Close"></button>
   </div>
 
-  <!-- Nội dung chính -->
-  <div *ngIf="patient; else dangTai" class="profile-card">
+  <!-- Main content -->
+  <div *ngIf="patient; else loading" class="profile-card">
     <h2 class="section-title">Patient Details</h2>
 
     <div class="profile-header">
       <div class="avatar-container">
-        <img [src]="patient.avatar ? 'http://localhost:5032/uploads/' + patient.avatar : 'assets/patient_logo.png'"
+        <img [src]="patient.avatar ? 'http://localhost:5032/uploads/' + patient.avatar : 'assets/patient_logo.jpg'"
           alt="Patient avatar" class="avatar">
       </div>
       <div class="profile-info">
         <h2>{{ patient.userName || 'Patient Name' }}</h2>
         <p>{{ patient.email || 'patient@example.com' }}</p>
       </div>
-      <button (click)="goBack()" class="btn btn-light nut-quay-lai">
-        <i class="fas fa-arrow-left"></i> Quay lại
-      </button>
+      <div class="header-buttons">
+        <button (click)="goBack()" class="btn btn-light nut-quay-lai">
+          <i class="fas fa-arrow-left"></i> Back
+        </button>
+        <button (click)="changePassword()" class="btn btn-primary nut-doi-mat-khau">
+          <i class="fas fa-key"></i> Change Password
+        </button>
+      </div>
+    </div>
+
+    <!-- Password change form -->
+    <div *ngIf="showPasswordForm" class="password-form mt-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Change Password</h5>
+          <div class="mb-3">
+            <label for="oldPassword" class="form-label">Old Password</label>
+            <input type="password" class="form-control" id="oldPassword" [(ngModel)]="changePasswordVm.OldPassword"
+              required>
+          </div>
+          <div class="mb-3">
+            <label for="newPassword" class="form-label">New Password</label>
+            <input type="password" class="form-control" id="newPassword" [(ngModel)]="changePasswordVm.NewPassword"
+              required>
+          </div>
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword"
+              [(ngModel)]="changePasswordVm.ConfirmNewPassword" required>
+          </div>
+          <div class="d-flex justify-content-end gap-2">
+            <button class="btn btn-secondary" (click)="cancelPasswordChange()">Cancel</button>
+            <button class="btn btn-primary" (click)="submitPasswordChange()">Submit</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="info-table">
@@ -47,13 +80,13 @@
     </div>
   </div>
 
-  <!-- Đang tải -->
-  <ng-template #dangTai>
+  <!-- Loading -->
+  <ng-template #loading>
     <div class="khu-dang-tai">
       <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Đang tải...</span>
+        <span class="visually-hidden">Loading...</span>
       </div>
-      <p>Đang tải thông tin bệnh nhân...</p>
+      <p>Loading patient details...</p>
     </div>
   </ng-template>
 </div>

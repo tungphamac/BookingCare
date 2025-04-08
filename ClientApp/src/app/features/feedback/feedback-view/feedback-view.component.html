@@ -1,14 +1,14 @@
 <br />
 <div class="feedback-container">
-    <h2>Phản hồi của bệnh nhân sau khi đi khám</h2>
-    <div *ngFor="let feedback of feedbackList" class="feedback-item">
-        <div class="feedback-header">
-            <strong>{{ feedback.patientName }}</strong>
-            <div><span *ngFor="let star of [].constructor(feedback.rating); let i = index">⭐</span></div>
-        </div>
-        <div class="feedback-rating">
-            <span class="feedback-date">đã phản hồi ngày {{ feedback.createAt | date: 'dd/MM/yyyy' }}</span>
-        </div>
-        <p class="feedback-comment">{{ feedback.comment }}</p>
+  <h2>Phản hồi của bệnh nhân sau khi đi khám</h2>
+  <div *ngFor="let feedback of feedbackList" class="feedback-item">
+    <div class="feedback-header">
+      <strong>{{ feedback.patientName }}</strong>
+      <div><span *ngFor="let star of [].constructor(feedback.rating); let i = index">⭐</span></div>
     </div>
+    <div class="feedback-rating">
+      <span class="feedback-date">đã phản hồi ngày {{ feedback.createAt | date: 'dd/MM/yyyy' }}</span>
+    </div>
+    <p class="feedback-comment">{{ feedback.comment }}</p>
+  </div>
 </div>

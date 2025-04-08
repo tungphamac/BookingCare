@@ -1,9 +1,4 @@
 ﻿using BookingCare.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BookingCare.Business.Services.Interfaces
 {
@@ -12,5 +7,6 @@ namespace BookingCare.Business.Services.Interfaces
         Task<int> AddMedicalRecordAsync(MedicalRecord record, int doctorId);
         Task<bool> UpdateMedicalRecordAsync(MedicalRecord record, int doctorId);
         Task<MedicalRecord?> ViewMedicalRecordAsync(int recordId, int userId);
+        Task<MedicalRecord?> GetMedicalRecordByAppointmentIdAsync(int appointmentId, int userId);
     }
 }
